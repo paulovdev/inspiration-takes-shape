@@ -1,0 +1,9 @@
+<svg width="275" height="275" viewBox="0 0 275 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="133" width="10" height="275" fill="#EDEDED"/>
+<rect x="118" y="122" width="40" height="30" fill="#EDEDED"/>
+<rect x="196.963" y="83.4907" width="20" height="15" transform="rotate(140 196.963 83.4907)" fill="#EDEDED"/>
+<rect x="190.321" y="202.347" width="20" height="15" transform="rotate(-140 190.321 202.347)" fill="#EDEDED"/>
+<rect width="20" height="15" transform="matrix(0.766044 0.642788 0.642788 -0.766044 79 83.4907)" fill="#EDEDED"/>
+<rect width="20" height="15" transform="matrix(0.766044 -0.642788 -0.642788 -0.766044 85.6418 202.347)" fill="#EDEDED"/>
+<rect width="10" height="275" transform="matrix(0 1 1 0 0 132)" fill="#EDEDED"/>
+</svg>
