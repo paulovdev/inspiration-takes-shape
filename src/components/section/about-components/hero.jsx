@@ -52,7 +52,7 @@ const Hero = () => {
                     variants={textSlideAnim}
                     initial="initial"
                     animate="animate"
-                    className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase"
+                    className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase max-xsm:text-[12px]"
                   >
                     About Us
                   </motion.span>
@@ -80,7 +80,7 @@ const Hero = () => {
                 >
                   scroll
                 </motion.span>
-                <IoArrowDownSharp className="text-s text-[14px]" />
+                <IoArrowDownSharp className="text-s text-[14px] " />
               </div>
             </div>
           </div>

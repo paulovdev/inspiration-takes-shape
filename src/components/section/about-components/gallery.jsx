@@ -27,11 +27,11 @@ const CardGrid = ({ gallery }) => {
           )}
           <div className="absolute inset-0 p-5 w-full flex flex-col items-start justify-between">
             <div className="h-[15px] overflow-hidden cursor-default">
-              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
                 {gallery.style}
               </p>
             </div>
-            <p className="min-h-20 text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+            <p className="min-h-20 text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
               {gallery.description}
             </p>
           </div>

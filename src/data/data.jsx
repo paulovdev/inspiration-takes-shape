@@ -96,18 +96,6 @@ export const works = [
     alt: "Night cityscape with inactive digital signage",
   },
   {
-    id: "thermal-remains",
-    name: "Thermal Remains",
-    category: "Atmospheric Video",
-    year: 2014,
-    client: "Underground Studio",
-    description:
-      "A decaying visual environment where human traces dissolve into noise. Heat, texture, and motion blur combine to suggest presence long after disappearance.",
-    license: "Open creative use",
-    src: "/videos/video-1.mp4",
-    alt: "Industrial space with dissolving human silhouette",
-  },
-  {
     id: "silent-core-still",
     name: "Silent Core — Still",
     category: "Fashion Image",
@@ -214,5 +202,17 @@ export const works = [
     license: "Open creative use",
     src: "/works/video-5.mp4",
     alt: "Industrial interior with dissolving visual noise",
+  },
+  {
+    id: "thermal-remains",
+    name: "Thermal Remains",
+    category: "Atmospheric Video",
+    year: 2014,
+    client: "Underground Studio",
+    description:
+      "A decaying visual environment where human traces dissolve into noise. Heat, texture, and motion blur combine to suggest presence long after disappearance.",
+    license: "Open creative use",
+    src: "/videos/video-1.mp4",
+    alt: "Industrial space with dissolving human silhouette",
   },
 ];

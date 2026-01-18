@@ -56,7 +56,8 @@
   --breakpoint-ds: 1262px;
   --breakpoint-lg: 992px;
   --breakpoint-md: 768px;
-  --breakpoint-sm: 400px;
+  --breakpoint-sm: 450px;
+  --breakpoint-xsm: 380px;
 }
 
 html {

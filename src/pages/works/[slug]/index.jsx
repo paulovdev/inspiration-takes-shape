@@ -113,7 +113,7 @@ const Hero = () => {
             onClick={() => router.push("/works", undefined, { scroll: false })}
             className="fixed top-0 left-0 px-10 pt-10 uppercase z-100"
           >
-            <span className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+            <span className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
               back
             </span>
           </button>
@@ -126,7 +126,7 @@ const Hero = () => {
                     variants={textSlideAnim}
                     initial="initial"
                     animate="animate"
-                    className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase"
+                    className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase max-xsm:text-[12px]"
                   >
                     {work.year}
                   </motion.span>
@@ -163,7 +163,7 @@ const Hero = () => {
 
       <div className="p-10 py-40 w-full bg-p flex flex-col items-start">
         <div className="mb-10 max-w-200 flex flex-col items-start">
-          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
             description:
           </span>
           <p className="text-s text-[42px] leading-[1.1em] tracking-[-0.03em]">
@@ -172,7 +172,7 @@ const Hero = () => {
         </div>
 
         <div className="mb-10 max-w-200 flex flex-col items-start">
-          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
             category:
           </span>
           <p className="text-s text-[42px] leading-[1.1em] tracking-[-0.03em]">
@@ -181,7 +181,7 @@ const Hero = () => {
         </div>
 
         <div className="mb-10 max-w-200 flex flex-col items-start">
-          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
             license:
           </span>
           <p className="text-s text-[42px] leading-[1.1em] tracking-[-0.03em]">

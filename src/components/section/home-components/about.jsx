@@ -39,7 +39,7 @@ const About = () => {
           {phrases2.map((phrase, i) => (
             <div key={i} className="overflow-hidden">
               <motion.p
-                className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase max-lg:text-center"
+                className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase max-xsm:text-[12px] max-lg:text-center"
                 custom={5 + i}
                 variants={textSlideAnim}
                 initial="initial"

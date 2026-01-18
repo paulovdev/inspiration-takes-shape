@@ -40,7 +40,7 @@ export const Menu = ({ setMenu }) => {
         >
           <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5">
             <button
-              className="text-s font-general text-[14px] uppercase"
+              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]"
               onClick={() => setMenu(false)}
             >
               close
@@ -159,19 +159,21 @@ export const Menu = ({ setMenu }) => {
             </div>
 
             <div className="absolute bottom-0 pb-10 flex items-center gap-2">
-              <p className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase">
+              <p className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
                 socials:
               </p>
-              <p className="text-s font-general text-[14px] uppercase">
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
                 instagram,
               </p>
-              <p className="text-s font-general text-[14px] uppercase">
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
                 linkedin,
               </p>
-              <p className="text-s font-general text-[14px] uppercase">
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
                 dribble,
               </p>
-              <p className="text-s font-general text-[14px] uppercase">x</p>
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
+                x
+              </p>
             </div>
           </div>
         </motion.div>

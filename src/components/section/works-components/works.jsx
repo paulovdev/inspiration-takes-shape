@@ -51,10 +51,10 @@ const CardGrid = ({ work, index }) => {
                 animate={hover === index ? "animate" : "initial"}
                 className="flex flex-col items-start justify-center"
               >
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
                   {work.name}
                 </p>
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
                   {work.name}
                 </p>
               </motion.div>
@@ -66,10 +66,10 @@ const CardGrid = ({ work, index }) => {
                 animate={hover === index ? "animate" : "initial"}
                 className="flex flex-col items-start justify-center"
               >
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase">
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-xsm:text-[12px]">
                   {work.year}
                 </p>
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase">
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-xsm:text-[12px]">
                   {work.year}
                 </p>
               </motion.div>
@@ -118,7 +118,7 @@ const CardList = ({ work, setActiveWork, setVisible }) => {
         custom={-15}
         className="flex items-end justify-end"
       >
-        <span className="text-[14px] uppercase">{work.year}</span>
+        <span className="text-[14px] uppercase max-xsm:text-[12px]">{work.year}</span>
       </motion.div>
 
       <motion.div

@@ -54,7 +54,7 @@ const Credits = () => {
                   className="w-full flex items-end justify-end"
                   custom={-15}
                 >
-                  <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[0.03em] uppercase">
+                  <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[0.03em] uppercase max-xsm:text-[12px]">
                     pinterest
                   </span>
                 </motion.div>

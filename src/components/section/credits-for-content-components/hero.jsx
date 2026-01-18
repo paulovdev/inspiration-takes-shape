@@ -35,7 +35,7 @@ const Hero = () => {
                   initial="initial"
                   animate="animate"
                   custom={0}
-                  className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase"
+                  className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase max-xsm:text-[12px]"
                 >
                   09 may 2024
                 </motion.span>
