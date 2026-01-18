@@ -22,6 +22,7 @@ const CardGrid = ({ gallery }) => {
               width={2000}
               height={2000}
               alt={gallery.alt}
+              priority
               className="size-full object-cover brightness-50"
             />
           )}

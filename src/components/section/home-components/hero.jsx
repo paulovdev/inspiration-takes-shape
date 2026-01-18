@@ -5,6 +5,7 @@ import { useMousePosition } from "@/hooks/useMousePosition";
 import { lab } from "./home.data";
 import { heroIntro, mediaReveal, textSlide } from "./home.animations";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import Image from "next/image";
 
 const size = 600;
 const center = size / 2;
@@ -116,10 +117,13 @@ const BackgroundMedia = ({ activeItem, previousItem }) => {
               className="absolute inset-0 size-full object-cover brightness-75"
             />
           ) : (
-            <img
+            <Image
               src={previousItem.src}
-              className="absolute inset-0 size-full object-cover brightness-75"
+              width={3000}
+              height={3000}
               alt=""
+              priority
+              className="absolute inset-0 size-full object-cover brightness-75"
             />
           )}
         </div>
@@ -143,10 +147,13 @@ const BackgroundMedia = ({ activeItem, previousItem }) => {
               className="absolute inset-0 size-full object-cover brightness-75"
             />
           ) : (
-            <img
+            <Image
               src={activeItem.src}
-              className="absolute inset-0 size-full object-cover brightness-75"
+              width={3000}
+              height={3000}
               alt=""
+              priority
+              className="absolute inset-0 size-full object-cover brightness-75"
             />
           )}
         </motion.div>

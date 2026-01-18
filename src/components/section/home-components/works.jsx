@@ -47,6 +47,7 @@ const Card = ({ work, index, inView }) => {
             width={2000}
             height={2000}
             alt={work.alt}
+            priority
             className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 cubic-bezier(0.33, 1, 0.68, 1)"
           />
         )}

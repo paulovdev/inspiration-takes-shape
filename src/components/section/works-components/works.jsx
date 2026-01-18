@@ -118,7 +118,9 @@ const CardList = ({ work, setActiveWork, setVisible }) => {
         custom={-15}
         className="flex items-end justify-end"
       >
-        <span className="text-[14px] uppercase max-xsm:text-[12px]">{work.year}</span>
+        <span className="text-[14px] uppercase max-xsm:text-[12px]">
+          {work.year}
+        </span>
       </motion.div>
 
       <motion.div
@@ -237,6 +239,7 @@ const Works = () => {
                   src={activeWork.src}
                   alt={activeWork.alt}
                   fill
+                  priority
                   className="object-cover"
                 />
               )}

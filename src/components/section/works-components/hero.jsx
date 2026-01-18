@@ -39,6 +39,7 @@ const Hero = () => {
                 autoPlay
                 muted
                 loop
+                playsInline
                 className="relative size-full object-cover brightness-75"
               />
             </figure>

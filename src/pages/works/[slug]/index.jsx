@@ -7,6 +7,7 @@ import Lenis from "lenis";
 import { useRouter } from "next/router";
 
 import { IoArrowDownSharp } from "react-icons/io5";
+import Image from "next/image";
 
 const textSlideAnim = {
   initial: { y: "100%" },
@@ -191,7 +192,7 @@ const Hero = () => {
       </div>
 
       <div className="flex items-center">
-        <img src="bg-1.jpg" alt="" />
+        <Image src="bg-1.jpg" width={3000} height={3000} alt="" />
       </div>
     </>
   );
