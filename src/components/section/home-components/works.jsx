@@ -114,11 +114,11 @@ const Works = () => {
     <>
       <section className="overflow-hidden" ref={container}>
         <motion.div
-          className="relative w-screen h-[180dvh] overflow-hidden"
+          className="relative w-screen h-[180vh] overflow-hidden"
           ref={linkRef}
           style={{ y }}
         >
-          <div className="absolute inset-0 w-screen h-[180dvh]">
+          <div className="absolute inset-0 w-screen h-[180vh]">
             <div ref={cardsRef} className="grid grid-cols-3 gap-2">
               {works.slice(0, 12).map((work, i) => (
                 <Card key={i} work={work} index={i} inView={cardsInView} />

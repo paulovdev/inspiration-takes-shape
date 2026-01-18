@@ -1,5 +1,11 @@
-import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
-import { useRef, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+  useAnimate,
+  useScroll,
+  useTransform,
+} from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { IoArrowDownSharp } from "react-icons/io5";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { lab } from "./home.data";
@@ -50,7 +56,6 @@ const Hero = () => {
     if (diff > 180) diff -= 360;
     if (diff < -180) diff += 360;
 
-    setPreviousItem(activeItem);
     setActiveTick(tickIndex);
     setRotation((prev) => prev - diff);
   };
@@ -102,62 +107,129 @@ const Hero = () => {
   );
 };
 
-const BackgroundMedia = ({ activeItem, previousItem }) => {
-  return (
-    <div className="absolute inset-0 w-screen h-screen overflow-hidden">
-      {previousItem && (
-        <div className="absolute inset-0 z-10">
-          {previousItem.src.includes(".mp4") ? (
-            <video
-              src={previousItem.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 size-full object-cover brightness-75"
-            />
-          ) : (
-            <Image
-              src={previousItem.src}
-              width={3000}
-              height={3000}
-              alt=""
-              priority
-              className="absolute inset-0 size-full object-cover brightness-75"
-            />
-          )}
-        </div>
-      )}
+const BackgroundMedia = ({ activeItem }) => {
+  const [scope, animate] = useAnimate();
+  const [displayItem, setDisplayItem] = useState(activeItem);
 
-      <AnimatePresence>
-        <motion.div
-          key={activeItem.src}
-          className="absolute inset-0 z-20 will-change-transform"
-          variants={mediaReveal}
-          initial="initial"
-          animate="animate"
+  useEffect(() => {
+    if (!activeItem) return;
+
+    const getSize = () => {
+      const w = window.innerWidth;
+
+      if (w <= 360) return "300px"; // max-xsm ~ 75
+      if (w <= 480) return "340px"; // max-sm  ~ 85
+      if (w <= 768) return "400px"; // max-md  ~ 100
+      if (w <= 1024) return "500px"; // max-lg  ~ 125
+
+      return "600px"; // desktop
+    };
+
+    const run = async () => {
+      const size = getSize();
+
+      // RESET
+      await animate(
+        ".media-active",
+        {
+          scale: 0,
+          width: "0px",
+          height: "0px",
+          borderRadius: "9999px",
+          rotate: 0,
+        },
+        { duration: 0 },
+      );
+
+      // NASCE
+      await animate(
+        ".media-active",
+        {
+          scale: 1,
+          width: size,
+          height: size,
+          borderRadius: "9999px",
+        },
+        { duration: 0.75, ease: [0.645, 0.045, 0.355, 1] },
+      );
+
+      // COMEÇA A GIRAR
+      await animate(
+        ".media-active",
+        {
+          rotate: 180,
+          opacity: 0,
+          filter: "grayscale(100%)",
+        },
+        { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+      );
+
+      // 🔥 TROCA NO MEIO
+      setDisplayItem(activeItem);
+
+      // TERMINA O GIRO
+      await animate(
+        ".media-active",
+        {
+          rotate: 360,
+          opacity: 1,
+          filter: "grayscale(0%)",
+        },
+        { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+      );
+
+      // EXPANDE
+      await animate(
+        ".media-active",
+        {
+          width: "100vw",
+          height: "100vh",
+          borderRadius: "48px",
+        },
+        { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+      );
+
+      // FLATTEN FINAL (linear)
+      await animate(
+        ".media-active",
+        { borderRadius: "0px" },
+        { duration: 0.25, ease: "linear" },
+      );
+    };
+
+    run();
+  }, [activeItem, animate]);
+
+  return (
+    <div
+      className="absolute inset-0 w-screen h-screen overflow-hidden"
+      ref={scope}
+    >
+      <div className="absolute inset-0 flex items-center justify-center z-20">
+        <motion.figure
+          className="media-active relative overflow-hidden flex items-center justify-center"
+          style={{ width: 0, height: 0 }}
         >
-          {activeItem.src.includes(".mp4") ? (
+          {displayItem?.src.includes(".mp4") ? (
             <video
-              src={activeItem.src}
+              src={displayItem.src}
               autoPlay
               muted
               loop
               playsInline
-              className="absolute inset-0 size-full object-cover brightness-75"
+              className="w-full h-full object-cover brightness-75"
             />
           ) : (
             <Image
-              src={activeItem.src}
-              width={3000}
-              height={3000}
+              src={displayItem.src}
+              fill
               alt=""
               priority
-              className="absolute inset-0 size-full object-cover brightness-75"
+              className="object-cover brightness-75"
             />
           )}
-        </motion.div>
-      </AnimatePresence>
+        </motion.figure>
+      </div>
     </div>
   );
 };
@@ -232,8 +304,8 @@ const CircleDial = ({ activeTick, rotation, onTickClick }) => {
       height={size}
       viewBox={`0 0 ${size} ${size}`}
       className="block w-150 h-150 bg-s/2 backdrop-blur-2xl rounded-full z-10 
-      max-lg:w-125 max-lg:h-125 max-md:w-100 max-md:h-100 max-sm:w-85 max-sm:h-85 max-xsm:w-75 max-xsm:h-75 max-sm:w-85 max-sm:h-85 will-change-auto"
-      initial={{ rotate: 360 }}
+      max-lg:w-125 max-lg:h-125 max-md:w-100 max-md:h-100 max-sm:w-85 max-sm:h-85 max-xsm:w-75 max-xsm:h-75 will-change-auto"
+      initial={{ rotate: 360, transition: { duration: 0.5, delay: 0.5 } }}
       animate={{ rotate: rotation }}
       transition={{ type: "spring", stiffness: 120, damping: 20, delay: 0.1 }}
       style={{

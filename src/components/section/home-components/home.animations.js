@@ -93,10 +93,11 @@ export const titleSlide = {
 
 export const mediaReveal = {
   initial: {
-    clipPath: "inset(0% 100% 0% 0%)",
+    
   },
   animate: {
-    clipPath: "inset(0% 0% 0% 0%)",
+    borderRadius: "0px",
+    scale: 1,
     transition: {
       duration: 1,
       ease: [0.33, 1, 0.68, 1],
