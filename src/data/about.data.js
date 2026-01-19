@@ -1,37 +1,14 @@
-export const clients = [
-  "Apple",
-  "Google",
-  "Nike",
-  "Adidas",
-  "DeepMind",
-  "Meta",
-  "Spotify",
-  "Samsung",
-  "Sony",
-  "Microsoft",
-  "Adobe",
-  "A24",
-  "Balenciaga",
-  "Prada",
-  "Off-White™",
-  "Rimowa",
-  "Moncler",
-  "Byredo",
-  "SSENSE",
-  "Maison Margiela",
-];
-
 export const awards = [
-  "Awwwards — Site of the Day",
-  "Awwwards — Developer Award",
-  "CSS Design Awards",
-  "FWA of the Day",
-  "Webby Awards Honoree",
-  "D&AD Shortlist",
-  "Red Dot Design Award",
-  "iF Design Award",
-  "Behance Featured Project",
-  "Dribbble Shot of the Day",
+  { title: "Awwwards — Site of the Day" },
+  { title: "Awwwards — Developer Award" },
+  { title: "CSS Design Awards" },
+  { title: "FWA of the Day" },
+  { title: "Webby Awards Honoree" },
+  { title: "D&AD Shortlist" },
+  { title: "Red Dot Design Award" },
+  { title: "iF Design Award" },
+  { title: "Behance Featured Project" },
+  { title: "Dribbble Shot of the Day" },
 ];
 
 export const gallery = [
@@ -57,3 +34,19 @@ export const gallery = [
     alt: "Minimal human figure in a neutral studio environment",
   },
 ];
+
+export const phrases = [
+  "INSPIRATION TAKES SHAPE®",
+  "is an art direction and experimental design studio",
+  "focused on transforming ideas into form.",
+  "",
+  " ",
+  "We work with visual systems, identities and interactive",
+  "experiences, driven by research, experimentation and",
+  "concept development.",
+  " ",
+  "Design is not decoration — it is structure, intention",
+  "and narrative.",
+];
+
+export const phrases2 = ["About Us", "design in a unique way."];

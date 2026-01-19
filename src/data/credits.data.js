@@ -1,50 +1,51 @@
 export const credits = [
   {
-    name: "Marilyn Klerx",
+    title: "Marilyn Klerx",
     link: "https://br.pinterest.com/pin/480266747784788137/",
   },
   {
-    name: "Dreamcore Realms",
+    title: "Dreamcore Realms",
     link: "https://br.pinterest.com/pin/23714335536360635/",
+    subTitle: "asdpkmasd",
   },
   {
-    name: "Ethereal Archive",
+    title: "Ethereal Archive",
     link: "https://br.pinterest.com/pin/102938475610293847/",
   },
   {
-    name: "Soft Static",
+    title: "Soft Static",
     link: "https://br.pinterest.com/pin/564738291056473829/",
   },
   {
-    name: "Void Aesthetics",
+    title: "Void Aesthetics",
     link: "https://br.pinterest.com/pin/918273645091827364/",
   },
   {
-    name: "Liminal Frames",
+    title: "Liminal Frames",
     link: "https://br.pinterest.com/pin/384756192038475619/",
   },
   {
-    name: "Blurred Youth",
+    title: "Blurred Youth",
     link: "https://br.pinterest.com/pin/657483920165748392/",
   },
   {
-    name: "Dream State Lab",
+    title: "Dream State Lab",
     link: "https://br.pinterest.com/pin/746382910274638291/",
   },
   {
-    name: "Quiet Noise Studio",
+    title: "Quiet Noise Studio",
     link: "https://br.pinterest.com/pin/209384756120938475/",
   },
   {
-    name: "Afterimage Club",
+    title: "Afterimage Club",
     link: "https://br.pinterest.com/pin/835920174683592017/",
   },
   {
-    name: "Phantom Mood",
+    title: "Phantom Mood",
     link: "https://br.pinterest.com/pin/592017384659201738/",
   },
   {
-    name: "Echoes of Form",
+    title: "Echoes of Form",
     link: "https://br.pinterest.com/pin/174839205617483920/",
   },
 ];

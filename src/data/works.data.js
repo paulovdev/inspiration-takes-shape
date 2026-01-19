@@ -1,7 +1,7 @@
 export const works = [
   {
     id: "silent-core",
-    name: "Silent Core",
+    title: "Silent Core",
     category: "Fashion Film",
     year: 2025,
     client: "Private Direction",
@@ -13,7 +13,7 @@ export const works = [
   },
   {
     id: "neon-adolescence",
-    name: "Neon Adolescence",
+    title: "Neon Adolescence",
     category: "Editorial Image",
     year: 2024,
     client: "Concept Archive",
@@ -25,7 +25,7 @@ export const works = [
   },
   {
     id: "neutral-form",
-    name: "Neutral Form",
+    title: "Neutral Form",
     category: "Visual Study",
     year: 2016,
     client: "Experimental Studio",
@@ -37,7 +37,7 @@ export const works = [
   },
   {
     id: "distorted-presence",
-    name: "Distorted Presence",
+    title: "Distorted Presence",
     category: "Conceptual Visual",
     year: 2022,
     client: "Research Division",
@@ -49,7 +49,7 @@ export const works = [
   },
   {
     id: "counter-silhouette",
-    name: "Counter Silhouette",
+    title: "Counter Silhouette",
     category: "Experimental Fashion",
     year: 2025,
     client: "Independent Collective",
@@ -61,7 +61,7 @@ export const works = [
   },
   {
     id: "counter-silhouette-motion",
-    name: "Counter Silhouette — Motion",
+    title: "Counter Silhouette — Motion",
     category: "Motion Study",
     year: 2025,
     client: "Independent Collective",
@@ -73,7 +73,7 @@ export const works = [
   },
   {
     id: "post-transmission",
-    name: "Post Transmission",
+    title: "Post Transmission",
     category: "Video Experiment",
     year: 2031,
     client: "Signal Research Group",
@@ -85,7 +85,7 @@ export const works = [
   },
   {
     id: "offline-metropolis",
-    name: "Offline Metropolis",
+    title: "Offline Metropolis",
     category: "Urban Visual",
     year: 2022,
     client: "Independent Archive",
@@ -97,7 +97,7 @@ export const works = [
   },
   {
     id: "silent-core-still",
-    name: "Silent Core — Still",
+    title: "Silent Core — Still",
     category: "Fashion Image",
     year: 2025,
     client: "Private Direction",
@@ -109,7 +109,7 @@ export const works = [
   },
   {
     id: "neon-adolescence-alt",
-    name: "Neon Adolescence — Variant",
+    title: "Neon Adolescence — Variant",
     category: "Editorial Image",
     year: 2024,
     client: "Concept Archive",
@@ -121,7 +121,7 @@ export const works = [
   },
   {
     id: "neutral-form-variant",
-    name: "Neutral Form — Variant",
+    title: "Neutral Form — Variant",
     category: "Visual Study",
     year: 2016,
     client: "Experimental Studio",
@@ -133,7 +133,7 @@ export const works = [
   },
   {
     id: "distorted-presence-motion",
-    name: "Distorted Presence — Motion",
+    title: "Distorted Presence — Motion",
     category: "Concept Motion",
     year: 2022,
     client: "Research Division",
@@ -145,7 +145,7 @@ export const works = [
   },
   {
     id: "counter-silhouette-alt",
-    name: "Counter Silhouette — Frame",
+    title: "Counter Silhouette — Frame",
     category: "Fashion Experiment",
     year: 2025,
     client: "Independent Collective",
@@ -157,7 +157,7 @@ export const works = [
   },
   {
     id: "counter-silhouette-still",
-    name: "Counter Silhouette — Still Study",
+    title: "Counter Silhouette — Still Study",
     category: "Visual Research",
     year: 2025,
     client: "Independent Collective",
@@ -169,7 +169,7 @@ export const works = [
   },
   {
     id: "post-transmission-still",
-    name: "Post Transmission — Still",
+    title: "Post Transmission — Still",
     category: "Image Artifact",
     year: 2031,
     client: "Signal Research Group",
@@ -181,7 +181,7 @@ export const works = [
   },
   {
     id: "offline-metropolis-alt",
-    name: "Offline Metropolis — Frame",
+    title: "Offline Metropolis — Frame",
     category: "Urban Visual",
     year: 2022,
     client: "Independent Archive",
@@ -193,7 +193,7 @@ export const works = [
   },
   {
     id: "thermal-remains-motion",
-    name: "Thermal Remains — Motion",
+    title: "Thermal Remains — Motion",
     category: "Atmospheric Motion",
     year: 2014,
     client: "Underground Studio",
@@ -205,7 +205,7 @@ export const works = [
   },
   {
     id: "thermal-remains",
-    name: "Thermal Remains",
+    title: "Thermal Remains",
     category: "Atmospheric Video",
     year: 2014,
     client: "Underground Studio",

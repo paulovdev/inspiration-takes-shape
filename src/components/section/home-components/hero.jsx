@@ -47,8 +47,9 @@ const Hero = () => {
   const y2 = useTransform(scrollYProgress, [0, 5], [0, 400]);
 
   const handleTickClick = (tickIndex) => {
+      if (isAnimatingRef.current) return;
     if (activeTick === tickIndex) return;
-    if (isAnimatingRef.current) return;
+
 
     const step = 360 / totalTicks;
 
@@ -206,7 +207,7 @@ const CenterTitle = ({ activeItem }) => {
         <motion.div key={activeItem.tick} className="text-center">
           <div className="overflow-hidden">
             <motion.h1
-              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px] will-change-transform"
+              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] will-change-transform"
               variants={textSlideNoI}
               initial="initial"
               animate="animate"
@@ -222,7 +223,7 @@ const CenterTitle = ({ activeItem }) => {
 
           <div className="overflow-hidden mt-2">
             <motion.p
-              className="text-s/50 text-[14px] opacity-50 tracking-[0.03em] uppercase max-xsm:text-[12px] will-change-transform"
+              className="text-s/50 text-[14px] opacity-50 tracking-[0.03em] uppercase max-md:text-[12px] will-change-transform"
               variants={textSlideNoI}
               initial="initial"
               animate="animate"

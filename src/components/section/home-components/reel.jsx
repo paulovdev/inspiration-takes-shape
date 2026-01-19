@@ -71,7 +71,7 @@ const Reel = () => {
         />
       </motion.div>
 
-      {/* Cursor */}
+ 
       <AnimatePresence>
         {hover && (
           <motion.div
@@ -95,7 +95,7 @@ const Reel = () => {
             }}
           >
             <div className="flex items-center gap-2 text-white">
-              <p className="font-general text-[14px] tracking-[0.03em] uppercase max-xsm:text-[12px]">
+              <p className="font-general text-[14px] tracking-[0.03em] uppercase max-md:text-[12px]">
                 {isPlaying ? "PAUSE REEL" : "PLAY REEL"}
               </p>
               {isPlaying ? <IoMdPause /> : <IoMdPlay />}

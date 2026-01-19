@@ -36,10 +36,10 @@ const { x, y } = useMousePosition();
           animate={hover === index ? "animate" : "initial"}
           className="flex flex-col items-start justify-center"
         >
-          <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+          <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
             {work.name}
           </p>
-          <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase">
+          <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
             {work.name}
           </p>
         </motion.div>

@@ -44,68 +44,17 @@ export const lab = [
   },
 ];
 
-export const works = [
-  {
-    id: "void-uniform",
-    name: "VOID UNIFORM",
-    year: 2025,
-    src: "/works/video-1.mp4",
-    alt: "Dark fashion video with minimal composition",
-  },
-  {
-    id: "synthetic-youth",
-    name: "Synthetic Youth",
-    year: 2024,
-    src: "/works/img-2.jpg",
-    alt: "Futuristic streetwear portrait in low light",
-  },
-  {
-    id: "cold-figure",
-    name: "Cold Figure",
-    year: 2016,
-    src: "/works/img-3.jpg",
-    alt: "Minimal human figure in a neutral studio environment",
-  },
-  {
-    id: "fractured-body",
-    name: "Fractured Body",
-    year: 2022,
-    src: "/works/img-4.jpg",
-    alt: "Abstract fashion figure with exaggerated proportions",
-  },
-  {
-    id: "anti-shape",
-    name: "Anti Shape",
-    year: 2025,
-    src: "/works/img-5.jpg",
-    alt: "Avant-garde fashion silhouette in studio lighting",
-  },
-  {
-    id: "anti-shape-motion",
-    name: "Anti Shape — Motion Study",
-    year: 2025,
-    src: "/works/video-3.mp4",
-    alt: "Slow motion fashion study with dark atmosphere",
-  },
-  {
-    id: "after-the-signal",
-    name: "After the Signal",
-    year: 2031,
-    src: "/videos/video-2.mp4",
-    alt: "Flickering transmission frames captured from an unknown broadcast source",
-  },
-  {
-    id: "sleep-mode-city",
-    name: "Sleep Mode City",
-    year: 2022,
-    src: "/bg.jpg",
-    alt: "Empty urban landscape at night lit by inactive screens and silent signage",
-  },
-  {
-    id: "residual-heat",
-    name: "Residual Heat",
-    year: 2014,
-    src: "/videos/video-1.mp4",
-    alt: "Human-shaped outline dissolving into visual noise inside an abandoned industrial space",
-  },
+export const phrases = [
+  "INSPIRATION TAKES SHAPE® is an art direction and",
+  "experimental design studio focused on transforming",
+  "ideas into form.",
+  " ",
+  "We work with visual systems, identities and interactive",
+  "experiences, driven by research, experimentation and",
+  "concept development.",
+  " ",
+  "Design is not decoration — it is structure, intention",
+  "and narrative.",
 ];
+
+export const phrases2 = ["About Us", "design in a unique way."];

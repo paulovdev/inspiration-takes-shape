@@ -1,4 +1,4 @@
-import { works } from "@/data/data";
+import { works } from "@/data/works.data";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,10 +55,10 @@ const Card = ({ work, index, scrollYProgress }) => {
               className="flex flex-col items-start justify-center"
               custom={0}
             >
-              <p className="text-s font-general text-[14px] uppercase">
+              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
                 {work.name}
               </p>
-              <p className="text-s font-general text-[14px] uppercase">
+              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
                 {work.name}
               </p>
             </motion.div>
@@ -72,10 +72,10 @@ const Card = ({ work, index, scrollYProgress }) => {
               className="flex flex-col items-start justify-center"
               custom={0.1}
             >
-              <p className="text-s font-general text-[14px] uppercase">
+              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
                 {work.year}
               </p>
-              <p className="text-s font-general text-[14px] uppercase">
+              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
                 {work.year}
               </p>
             </motion.div>

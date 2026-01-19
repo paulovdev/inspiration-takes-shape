@@ -1,4 +1,4 @@
-import { works } from "@/data/data";
+import { works } from "@/data/works.data";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -51,11 +51,11 @@ const CardGrid = ({ work, index }) => {
                 animate={hover === index ? "animate" : "initial"}
                 className="flex flex-col items-start justify-center"
               >
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
-                  {work.name}
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
+                  {work.title}
                 </p>
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
-                  {work.name}
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
+                  {work.title}
                 </p>
               </motion.div>
             </div>
@@ -66,10 +66,10 @@ const CardGrid = ({ work, index }) => {
                 animate={hover === index ? "animate" : "initial"}
                 className="flex flex-col items-start justify-center"
               >
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-xsm:text-[12px]">
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-md:text-[12px]">
                   {work.year}
                 </p>
-                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-xsm:text-[12px]">
+                <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-md:text-[12px]">
                   {work.year}
                 </p>
               </motion.div>
@@ -118,7 +118,7 @@ const CardList = ({ work, setActiveWork, setVisible }) => {
         custom={-15}
         className="flex items-end justify-end"
       >
-        <span className="text-[14px] uppercase max-xsm:text-[12px]">
+        <span className="text-[14px] uppercase max-md:text-[12px]">
           {work.year}
         </span>
       </motion.div>

@@ -40,7 +40,7 @@ export const Menu = ({ setMenu }) => {
         >
           <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5">
             <button
-              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]"
+              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
               onClick={() => setMenu(false)}
             >
               close
@@ -116,7 +116,7 @@ export const Menu = ({ setMenu }) => {
                             exit="exit"
                           >
                             <motion.div
-                              className="mt-5 border-s/100 border-b-2"
+                              className="mt-5 border-s/100 border-b-1"
                               initial={{ width: 0 }}
                               animate={{
                                 width: "100%",
@@ -136,7 +136,7 @@ export const Menu = ({ setMenu }) => {
                                   className="w-full h-fit overflow-hidden flex justify-between group hover:border-s/50"
                                 >
                                   <motion.p
-                                    className="font-general font-medium text-[14px] leading-none tracking-[0.03em] uppercase text-s group-hover:text-s/50"
+                                    className="font-general font-medium text-[16px] leading-none tracking-[0.03em] uppercase text-s group-hover:text-s/50"
                                     variants={textSlideAnim}
                                     initial="initial"
                                     animate="animate"
@@ -159,19 +159,19 @@ export const Menu = ({ setMenu }) => {
             </div>
 
             <div className="absolute bottom-0 pb-10 flex items-center gap-2">
-              <p className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
+              <p className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
                 socials:
               </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
                 instagram,
               </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
                 linkedin,
               </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
                 dribble,
               </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
+              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
                 x
               </p>
             </div>

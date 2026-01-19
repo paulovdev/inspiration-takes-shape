@@ -2,7 +2,7 @@ import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { bg, textHover, textSlide } from "./home.animations";
-import { clients } from "./home.data";
+import { clients } from "../../../data/works.data";
 
 const Clients = () => {
   const container = useRef(null);
@@ -24,10 +24,10 @@ const Clients = () => {
   });
 
   return (
-    <section ref={ref} className="pt-20 bg-brd">
+    <section ref={ref} className="pt-20 bg-s">
       <div className="p-10 w-full flex flex-col max-lg:p-5 max-md:p-2">
         <div className="mb-10">
-          <p className="text-p font-general font-medium text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px]">
+          <p className="text-p font-general font-medium text-[12px] tracking-[0.03em] uppercase">
             CLIENTS
           </p>
         </div>
@@ -49,8 +49,7 @@ const Clients = () => {
                 />
 
                 <motion.h2
-                  className="relative z-50 text-p text-[62px] tracking-[-0.03em] will-change-auto 
-                  max-lg:text-[48px] max-md:text-[32px]"
+                  className="relative z-50 text-p text-[62px] tracking-[-0.03em] will-change-auto max-lg:text-[48px] max-md:text-[32px]"
                   custom={i}
                   variants={textSlide}
                   initial="initial"
@@ -61,6 +60,7 @@ const Clients = () => {
                     variants={textHover}
                     initial="initial"
                     animate={active ? "animate" : "initial"}
+                    custom={15}
                   >
                     {client}
                   </motion.span>

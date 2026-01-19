@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { gallery } from "./about.data";
+import { gallery } from "@/data/about.data";
 import Image from "next/image";
 
 const CardGrid = ({ gallery }) => {
@@ -28,11 +28,11 @@ const CardGrid = ({ gallery }) => {
           )}
           <div className="absolute inset-0 p-5 w-full flex flex-col items-start justify-between">
             <div className="h-[15px] overflow-hidden cursor-default">
-              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
+              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px] ">
                 {gallery.style}
               </p>
             </div>
-            <p className="min-h-20 text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
+            <p className="min-h-20 text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px] max-md:text-[12px]">
               {gallery.description}
             </p>
           </div>

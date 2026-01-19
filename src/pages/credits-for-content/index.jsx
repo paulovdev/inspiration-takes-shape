@@ -1,9 +1,12 @@
-import Nav from "@/components/navigation/nav";
-import Credits from "@/components/section/credits-for-content-components/credits";
-import Hero from "@/components/section/credits-for-content-components/hero";
-import Lenis from "lenis";
-import Link from "next/link";
 import { useEffect } from "react";
+import Lenis from "lenis";
+
+import Nav from "@/components/navigation/nav";
+import Hero from "@/components/hero/hero";
+
+import HighlightList from "@/components/highlight/highlight-list";
+
+import { credits } from "@/data/credits.data";
 
 const Index = () => {
   useEffect(() => {
@@ -15,18 +18,20 @@ const Index = () => {
   return (
     <>
       <Nav />
-      <Link
-        href="/"
-        scroll={false}
-        className="fixed top-0 left-0 px-10 pt-10 uppercase z-100"
-      >
-        <span className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
-          back
-        </span>
-      </Link>
+
       <main className="w-auto min-h-screen select-none">
-        <Hero />
-        <Credits />
+        <Hero
+          title="Credits for Content"
+          subTitle="09 may 2024"
+          src="/works/img-13.jpg"
+        />
+        <HighlightList
+          data={credits}
+          title="Credits for the collaborators who contributed to photography, video, and content production."
+          subTitle="click to see"
+          grid="grid-cols-1"
+          gridIn="grid-cols-2"
+        />
       </main>
     </>
   );
