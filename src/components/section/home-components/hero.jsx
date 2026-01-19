@@ -9,13 +9,15 @@ import { useEffect, useRef, useState } from "react";
 import { IoArrowDownSharp } from "react-icons/io5";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { lab } from "./home.data";
-import { heroIntro, mediaReveal, textSlide } from "./home.animations";
+import { heroIntro, textSlideNoI } from "./home.animations";
+
 import { useIsMobile } from "@/hooks/useIsMobile";
 import Image from "next/image";
 
 const size = 600;
 const center = size / 2;
 const radius = 250;
+const responsiveRadius = "clamp(200px, 20vw, 275px)";
 
 const totalTicks = 80;
 const bigTicks = [0, 20, 40, 60];
@@ -25,7 +27,7 @@ const Hero = () => {
   const isMobile = useIsMobile();
   const [activeTick, setActiveTick] = useState(0);
   const [rotation, setRotation] = useState(0);
-  const [previousItem, setPreviousItem] = useState(null);
+  const isAnimatingRef = useRef(false);
 
   const activeItem = lab.find((i) => i.tick === activeTick);
 
@@ -34,18 +36,19 @@ const Hero = () => {
     offset: ["start start", "end start"],
   });
 
-  const yMotion = useTransform(scrollYProgress, [0, 1], [0, -600]);
+  const yMotion = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const scaleMotion = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
-  const rotateXMotion = useTransform(scrollYProgress, [0, 1], [0, -75]);
+  const rotateXMotion = useTransform(scrollYProgress, [0, 1], [0, -45]);
 
   const y = isMobile ? 0 : yMotion;
   const scale = isMobile ? 1 : scaleMotion;
   const rotateX = isMobile ? 0 : rotateXMotion;
 
-  const y2 = useTransform(scrollYProgress, [0, 1], ["0vh", "75vh"]);
+  const y2 = useTransform(scrollYProgress, [0, 5], [0, 400]);
 
   const handleTickClick = (tickIndex) => {
     if (activeTick === tickIndex) return;
+    if (isAnimatingRef.current) return;
 
     const step = 360 / totalTicks;
 
@@ -75,7 +78,7 @@ const Hero = () => {
         <div className="absolute inset-0 w-screen h-screen flex flex-col items-center justify-between">
           <BackgroundMedia
             activeItem={activeItem}
-            previousItem={previousItem}
+            isAnimatingRef={isAnimatingRef}
           />
 
           <motion.div
@@ -92,144 +95,89 @@ const Hero = () => {
             />
           </motion.div>
           <div className=""></div>
-          <motion.div
-            className="mb-10 flex items-center gap-2 z-100 will-change-transform"
-            style={{ y }}
-          >
+          <div className="mb-10 flex items-center gap-2 z-100 will-change-transform">
             <span className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase">
               scroll
             </span>
             <IoArrowDownSharp className="text-s text-[14px]" />
-          </motion.div>
+          </div>
         </div>
       </motion.div>
     </section>
   );
 };
 
-const BackgroundMedia = ({ activeItem }) => {
+const BackgroundMedia = ({ activeItem, isAnimatingRef }) => {
   const [scope, animate] = useAnimate();
   const [displayItem, setDisplayItem] = useState(activeItem);
 
   useEffect(() => {
-    if (!activeItem) return;
-
-    const getSize = () => {
-      const w = window.innerWidth;
-
-      if (w <= 360) return "300px"; // max-xsm ~ 75
-      if (w <= 480) return "340px"; // max-sm  ~ 85
-      if (w <= 768) return "400px"; // max-md  ~ 100
-      if (w <= 1024) return "500px"; // max-lg  ~ 125
-
-      return "600px"; // desktop
-    };
+    if (!activeItem || isAnimatingRef.current) return;
 
     const run = async () => {
-      const size = getSize();
+      isAnimatingRef.current = true;
 
-      // RESET
       await animate(
         ".media-active",
         {
-          scale: 0,
-          width: "0px",
-          height: "0px",
-          borderRadius: "9999px",
-          rotate: 0,
-        },
-        { duration: 0 },
-      );
-
-      // NASCE
-      await animate(
-        ".media-active",
-        {
-          scale: 1,
-          width: size,
-          height: size,
-          borderRadius: "9999px",
-        },
-        { duration: 0.75, ease: [0.645, 0.045, 0.355, 1] },
-      );
-
-      // COMEÇA A GIRAR
-      await animate(
-        ".media-active",
-        {
-          rotate: 180,
-          opacity: 0,
-          filter: "grayscale(100%)",
-        },
-        { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
-      );
-
-      // 🔥 TROCA NO MEIO
-      setDisplayItem(activeItem);
-
-      // TERMINA O GIRO
-      await animate(
-        ".media-active",
-        {
-          rotate: 360,
+          clipPath: `circle(${responsiveRadius} at 50% 50%)`,
           opacity: 1,
           filter: "grayscale(0%)",
         },
+        { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
+      );
+
+      await animate(
+        ".media-active",
+        { rotate: 180, opacity: 0, filter: "grayscale(100%)" },
         { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
       );
 
-      // EXPANDE
+      setDisplayItem(activeItem);
+
       await animate(
         ".media-active",
-        {
-          width: "100vw",
-          height: "100vh",
-          borderRadius: "48px",
-        },
+        { rotate: 360, opacity: 1, filter: "grayscale(0%)" },
         { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
       );
 
-      // FLATTEN FINAL (linear)
       await animate(
         ".media-active",
-        { borderRadius: "0px" },
-        { duration: 0.25, ease: "linear" },
+        { clipPath: "circle(150% at 50% 50%)" },
+        { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
       );
+
+      isAnimatingRef.current = false;
     };
 
     run();
   }, [activeItem, animate]);
 
   return (
-    <div
-      className="absolute inset-0 w-screen h-screen overflow-hidden"
-      ref={scope}
-    >
-      <div className="absolute inset-0 flex items-center justify-center z-20">
-        <motion.figure
-          className="media-active relative overflow-hidden flex items-center justify-center"
-          style={{ width: 0, height: 0 }}
-        >
-          {displayItem?.src.includes(".mp4") ? (
-            <video
-              src={displayItem.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover brightness-75"
-            />
-          ) : (
-            <Image
-              src={displayItem.src}
-              fill
-              alt=""
-              priority
-              className="object-cover brightness-75"
-            />
-          )}
-        </motion.figure>
-      </div>
+    <div ref={scope} className="absolute inset-0 overflow-hidden">
+      <motion.figure
+        className="media-active absolute inset-0 will-change-transform"
+        style={{ clipPath: "circle(0px at 50% 50%)" }}
+      >
+        {displayItem?.src.includes(".mp4") ? (
+          <video
+            src={displayItem.src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover brightness-75"
+          />
+        ) : (
+          <Image
+            src={displayItem.src}
+            fill
+            alt=""
+            priority
+            className="object-cover brightness-75"
+          />
+        )}
+      </motion.figure>
     </div>
   );
 };
@@ -259,10 +207,11 @@ const CenterTitle = ({ activeItem }) => {
           <div className="overflow-hidden">
             <motion.h1
               className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-xsm:text-[12px] will-change-transform"
-              variants={textSlide}
+              variants={textSlideNoI}
               initial="initial"
               animate="animate"
               exit="exit"
+              custom={1}
             >
               {activeItem.title}
               <span className="relative text-[12px] -top-[3px]">
@@ -274,10 +223,11 @@ const CenterTitle = ({ activeItem }) => {
           <div className="overflow-hidden mt-2">
             <motion.p
               className="text-s/50 text-[14px] opacity-50 tracking-[0.03em] uppercase max-xsm:text-[12px] will-change-transform"
-              variants={textSlide}
+              variants={textSlideNoI}
               initial="initial"
               animate="animate"
               exit="exit"
+              custom={1}
             >
               {activeItem.year}
             </motion.p>

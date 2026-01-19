@@ -7,25 +7,19 @@ import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { textSlideNoI } from "./home.animations";
 
-const Card = ({ work, index, inView }) => {
+const Card = ({ work, index, scrollYProgress }) => {
   const router = useRouter();
   const [hover, setHover] = useState(null);
+  const isLeft = index % 2 === 0;
 
+  const y = useTransform(scrollYProgress, [0, 1], isLeft ? [0, 800] : [0, 1]);
   return (
     <motion.div
+      style={{ y }}
       onClick={() => {
         router.push(`/works/${work.id}`, undefined, { scroll: false });
       }}
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: inView ? 1 : 0,
-        transition: {
-          duration: 0.5,
-          ease: [0.33, 1, 0.68, 1],
-          delay: index * 0.1,
-        },
-      }}
-      className="relative group"
+      className="relative group will-change-transform"
     >
       <figure
         className="h-[75vh] overflow-hidden max-lg:h-[50vh] max-md:h-[35vh]"
@@ -53,12 +47,13 @@ const Card = ({ work, index, inView }) => {
         )}
 
         <div className="absolute inset-0 p-5 w-full flex items-center justify-between max-md:flex-col max-md:items-start">
-          <div className="h-[15px] overflow-hidden cursor-default">
+          <div className="h-[16px] overflow-hidden cursor-default">
             <motion.div
               variants={textSlideNoI}
               initial="initial"
               animate={hover === index ? "animate" : "initial"}
               className="flex flex-col items-start justify-center"
+              custom={0}
             >
               <p className="text-s font-general text-[14px] uppercase">
                 {work.name}
@@ -69,12 +64,13 @@ const Card = ({ work, index, inView }) => {
             </motion.div>
           </div>
 
-          <div className="h-[15px] overflow-hidden cursor-default">
+          <div className="h-[16px] overflow-hidden cursor-default">
             <motion.div
               variants={textSlideNoI}
               initial="initial"
               animate={hover === index ? "animate" : "initial"}
               className="flex flex-col items-start justify-center"
+              custom={0.1}
             >
               <p className="text-s font-general text-[14px] uppercase">
                 {work.year}
@@ -95,14 +91,7 @@ const Works = () => {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end center"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "100vh"]);
-
-  const { ref: cardsRef, inView: cardsInView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
+    offset: ["start end", "end center"],
   });
 
   const { ref: linkRef, inView: linkInView } = useInView({
@@ -114,16 +103,18 @@ const Works = () => {
     <>
       <section className="overflow-hidden" ref={container}>
         <motion.div
-          className="relative w-screen h-[180vh] overflow-hidden"
+          className="relative w-screen h-[200vh] overflow-hidden will-change-transform"
           ref={linkRef}
-          style={{ y }}
         >
-          <div className="absolute inset-0 w-screen h-[180vh]">
-            <div ref={cardsRef} className="grid grid-cols-3 gap-2">
-              {works.slice(0, 12).map((work, i) => (
-                <Card key={i} work={work} index={i} inView={cardsInView} />
-              ))}
-            </div>
+          <div className="absolute -top-120 w-full h-[200vh] grid grid-cols-2 gap-2">
+            {works.slice(0, 9).map((work, i) => (
+              <Card
+                key={i}
+                work={work}
+                index={i}
+                scrollYProgress={scrollYProgress}
+              />
+            ))}
           </div>
         </motion.div>
       </section>

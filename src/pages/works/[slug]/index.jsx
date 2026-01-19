@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 
 import { IoArrowDownSharp } from "react-icons/io5";
 import Image from "next/image";
+import Link from "next/link";
 
 const textSlideAnim = {
   initial: { y: "100%" },
@@ -16,7 +17,7 @@ const textSlideAnim = {
     transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1], delay: i * 0.075 },
   }),
 };
-const title = "Credits for Content".split(" ");
+
 const Hero = () => {
   const lenisRef = useRef(null);
   const hasScrolledRef = useRef(false);
@@ -24,9 +25,6 @@ const Hero = () => {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
-      duration: 0.5,
-      smooth: true,
-      easing: (t) => 1 - Math.pow(1 - t, 4),
     });
 
     lenisRef.current = lenis;
@@ -49,12 +47,16 @@ const Hero = () => {
   const work = works.find((item) => item.id === ref.current);
 
   if (!work) return null;
+
   const container = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "100vh"]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 400]);
+
+  const title = work.name.split(" ");
   return (
     <>
       <Nav />
@@ -63,7 +65,7 @@ const Hero = () => {
         ref={container}
       >
         <motion.div
-          className="relative w-screen h-screen overflow-hidden"
+          className="relative w-screen h-screen overflow-hidden will-change-transform"
           style={{ y }}
         >
           <div className="absolute inset-0 w-screen h-screen -z-10">
@@ -109,15 +111,16 @@ const Hero = () => {
               )}
             </figure>
           </div>
-          <button
-            type="button"
-            onClick={() => router.push("/works", undefined, { scroll: false })}
+
+          <Link
+            href="/works"
+            scroll={false}
             className="fixed top-0 left-0 px-10 pt-10 uppercase z-100"
           >
             <span className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
               back
             </span>
-          </button>
+          </Link>
 
           <div className="absolute inset-0 w-screen h-screen">
             <div className="p-10 w-full h-screen flex flex-col items-center justify-between gap-6">
@@ -133,16 +136,19 @@ const Hero = () => {
                   </motion.span>
                 </div>
                 <h2 className="flex gap-2 text-s text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] max-md:text-[42px]">
-                  <span className="overflow-hidden inline-block">
-                    <motion.span
-                      variants={textSlideAnim}
-                      initial="initial"
-                      animate="animate"
-                      className="block"
-                    >
-                      {work.name}
-                    </motion.span>
-                  </span>
+                  {title.map((word, i) => (
+                    <span key={i} className="overflow-hidden inline-block">
+                      <motion.span
+                        variants={textSlideAnim}
+                        initial="initial"
+                        animate="animate"
+                        custom={i + 1}
+                        className="block will-change-transform"
+                      >
+                        {word}
+                      </motion.span>
+                    </span>
+                  ))}
                 </h2>
               </div>
               <div className="overflow-hidden flex items-center gap-2">
@@ -192,7 +198,7 @@ const Hero = () => {
       </div>
 
       <div className="flex items-center">
-        <Image src="bg-1.jpg" width={3000} height={3000} alt="" />
+        <Image src="/bg-1.jpg" width={3000} height={3000} alt="" />
       </div>
     </>
   );

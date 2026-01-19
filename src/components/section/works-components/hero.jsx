@@ -11,14 +11,15 @@ const textSlideAnim = {
     transition: { duration: 0.75, ease: [0.33, 1, 0.68, 1], delay: i * 0.075 },
   }),
 };
-
+const title = "Works".split(" ");
 const Hero = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "95vh"]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 400]);
+
   return (
     <>
       <section
@@ -26,7 +27,7 @@ const Hero = () => {
         ref={container}
       >
         <motion.div
-          className="relative w-screen h-screen overflow-hidden"
+          className="relative w-screen h-screen overflow-hidden will-change-transform"
           style={{ y }}
         >
           <div className="absolute inset-0 w-screen h-screen -z-10">
@@ -59,16 +60,19 @@ const Hero = () => {
                   </motion.span>
                 </div>
                 <h2 className="flex gap-2 text-s text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] max-md:text-[42px]">
-                  <span className="overflow-hidden inline-block">
-                    <motion.span
-                      variants={textSlideAnim}
-                      initial="initial"
-                      animate="animate"
-                      className="block"
-                    >
-                      Works
-                    </motion.span>
-                  </span>
+                  {title.map((word, i) => (
+                    <span key={i} className="overflow-hidden inline-block">
+                      <motion.span
+                        variants={textSlideAnim}
+                        initial="initial"
+                        animate="animate"
+                        custom={i + 1}
+                        className="block will-change-transform"
+                      >
+                        {word}
+                      </motion.span>
+                    </span>
+                  ))}
                 </h2>
               </div>
               <div className="mb-10 overflow-hidden flex items-center gap-2">

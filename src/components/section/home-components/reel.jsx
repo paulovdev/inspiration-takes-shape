@@ -49,7 +49,7 @@ const Reel = () => {
         ref={container}
         className={`w-screen flex items-center justify-center cursor-default
           ${isPlaying ? "fixed inset-0 z-50" : "relative h-screen p-10"}
-        `}
+        will-change-transform`}
         variants={reelAnim}
         initial="initial"
         animate={isPlaying ? "open" : "initial"}
@@ -67,7 +67,7 @@ const Reel = () => {
           className={`
             object-cover 
             ${isPlaying ? "w-full h-full rounded-none" : "w-full h-[850px]"}
-          `}
+          will-change-transform`}
         />
       </motion.div>
 
@@ -75,7 +75,7 @@ const Reel = () => {
       <AnimatePresence>
         {hover && (
           <motion.div
-            className="fixed z-[999] mix-blend-exclusion pointer-events-none"
+            className="fixed z-[999] mix-blend-exclusion pointer-events-none will-change-auto"
             style={{
               left: x,
               top: y,

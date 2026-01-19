@@ -5,29 +5,27 @@ import Clients from "@/components/section/about-components/clients";
 import Gallery from "@/components/section/about-components/gallery";
 import Hero from "@/components/section/about-components/hero";
 import Lenis from "lenis";
-import { useEffect, useRef } from "react";
+import Link from "next/link";
+import { useEffect } from "react";
 
 const Index = () => {
-  const lenisRef = useRef(null);
-
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
-      duration: 0.5,
-      smooth: true,
-      easing: (t) => 1 - Math.pow(1 - t, 4),
     });
-
-    lenisRef.current = lenis;
-
-    return () => {
-      lenis.destroy();
-    };
   }, []);
-
   return (
     <>
       <Nav />
+      <Link
+        href="/"
+        scroll={false}
+        className="fixed top-0 left-0 px-10 pt-10 uppercase z-100"
+      >
+        <span className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-xsm:text-[12px]">
+          back
+        </span>
+      </Link>
       <main className="w-auto min-h-screen ">
         <Hero />
         <About />

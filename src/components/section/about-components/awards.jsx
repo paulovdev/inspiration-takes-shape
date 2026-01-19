@@ -39,7 +39,7 @@ const Awards = () => {
             return (
               <motion.div
                 key={i}
-                className="relative p-2 w-full overflow-hidden"
+                className="relative p-2 w-full overflow-hidden will-change-auto"
               >
                 <motion.div
                   className="absolute inset-0 bg-p z-10"
@@ -49,14 +49,14 @@ const Awards = () => {
                 />
 
                 <motion.h2
-                  className="relative z-50 text-p text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]"
+                  className="relative z-50 text-p text-[62px] tracking-[-0.03em] will-change-auto max-lg:text-[48px] max-md:text-[32px]"
                   custom={i}
                   variants={textSlide}
                   initial="initial"
                   animate={inView ? "animate" : "initial"}
                 >
                   <motion.span
-                    className="inline-block"
+                    className="inline-block will-change-auto"
                     variants={textHover}
                     initial="initial"
                     animate={active ? "animate" : "initial"}

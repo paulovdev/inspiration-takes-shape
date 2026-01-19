@@ -16,14 +16,14 @@ const Hero = () => {
     target: container,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "100vh"]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 400]);
   return (
     <section
       className="relative w-screen h-screen bg-black overflow-hidden"
       ref={container}
     >
       <motion.div
-        className="relative w-screen h-screen overflow-hidden"
+        className="relative w-screen h-screen overflow-hidden will-change-transform"
         style={{ y }}
       >
         <div className="absolute inset-0 w-screen h-screen">
@@ -35,7 +35,7 @@ const Hero = () => {
                   initial="initial"
                   animate="animate"
                   custom={0}
-                  className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase max-xsm:text-[12px]"
+                  className="text-s font-general text-[14px] leading-[1.4] tracking-[0.03em] uppercase will-change-transform max-xsm:text-[12px]"
                 >
                   09 may 2024
                 </motion.span>
@@ -48,7 +48,7 @@ const Hero = () => {
                       initial="initial"
                       animate="animate"
                       custom={i + 1}
-                      className="block"
+                      className="block will-change-transform"
                     >
                       {word}
                     </motion.span>
@@ -62,7 +62,7 @@ const Hero = () => {
                 initial="initial"
                 animate="animate"
                 custom={1}
-                className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase"
+                className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase will-change-transform"
               >
                 scroll
               </motion.span>

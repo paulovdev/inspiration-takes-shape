@@ -11,13 +11,14 @@ export const textSlide = {
 };
 export const textSlideNoI = {
   initial: { y: "100%" },
-  animate: {
+  animate: (custom) => ({
     y: "0",
     transition: {
       duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
+      delay: custom,
     },
-  },
+  }),
   exit: {
     y: "-100%",
     transition: {
@@ -92,9 +93,7 @@ export const titleSlide = {
 };
 
 export const mediaReveal = {
-  initial: {
-    
-  },
+  initial: {},
   animate: {
     borderRadius: "0px",
     scale: 1,
