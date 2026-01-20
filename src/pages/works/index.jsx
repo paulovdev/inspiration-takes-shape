@@ -8,6 +8,7 @@ const Index = () => {
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
+      syncTouch: true,
     });
   }, []);
   return (
