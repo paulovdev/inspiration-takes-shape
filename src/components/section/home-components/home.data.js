@@ -46,15 +46,14 @@ export const lab = [
 
 export const phrases = [
   "INSPIRATION TAKES SHAPE® is an art direction and",
-  "experimental design studio focused on transforming",
-  "ideas into form.",
+  "experimental design studio shaping ideas through",
+  "concept, form and visual systems.",
   " ",
-  "We work with visual systems, identities and interactive",
-  "experiences, driven by research, experimentation and",
-  "concept development.",
+  "We create identities, interfaces and digital",
+  "experiences guided by research and experimentation.",
   " ",
-  "Design is not decoration — it is structure, intention",
-  "and narrative.",
+  "Each project is built with intention, clarity",
+  "and a strong narrative foundation.",
 ];
 
-export const phrases2 = ["About Us", "design in a unique way."];
+export const phrases2 = ["About Us", "shaping ideas through design."];

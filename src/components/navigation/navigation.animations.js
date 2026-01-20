@@ -1,4 +1,4 @@
-export const menuContainerAnim = {
+export const menuContainer = {
   initial: { height: "0vh" },
   animate: {
     height: "85vh",
@@ -17,7 +17,7 @@ export const menuContainerAnim = {
   },
 };
 
-export const menuFadeAnim = {
+export const menuFade = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
@@ -35,7 +35,7 @@ export const menuFadeAnim = {
     },
   },
 };
-export const maskFadeAnim = {
+export const maskFade = {
   initial: { opacity: 0 },
   animate: {
     opacity: 1,
@@ -54,19 +54,27 @@ export const maskFadeAnim = {
   },
 };
 
-export const textSlideAnim = {
+export const textSlide = {
   initial: { y: "100%" },
-  animate: (i) => ({
+  animate: (custom) => ({
     y: "0%",
     transition: {
-      duration: 0.5,
+      duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: 0.25 + i * 0.025,
+      delay: custom * 0.075,
+    },
+  }),
+  exit: (custom) => ({
+    y: "100%",
+    transition: {
+      duration: 0.75,
+      ease: [0.33, 1, 0.68, 1],
+      delay: custom * 0.075,
     },
   }),
 };
 
-export const arrowRotateAnim = {
+export const arrowRotate = {
   open: {
     rotate: 180,
     transition: { duration: 0.3, ease: [0.33, 1, 0.68, 1] },
@@ -77,7 +85,7 @@ export const arrowRotateAnim = {
   },
 };
 
-export const dropdownAnim = {
+export const dropdown = {
   initial: { height: 0, opacity: 0 },
   animate: {
     height: "auto",
@@ -93,7 +101,26 @@ export const dropdownAnim = {
     transition: {
       duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
-      delay: 0.1,
+      delay: 0.15,
+    },
+  },
+};
+
+export const line = {
+  initial: { width: 0 },
+  animate: {
+    width: "100%",
+    transition: {
+      duration: 0.4,
+
+      ease: [0.33, 1, 0.68, 1],
+    },
+  },
+  exit: {
+    width: 0,
+    transition: {
+      duration: 0.4,
+      ease: [0.33, 1, 0.68, 1],
     },
   },
 };

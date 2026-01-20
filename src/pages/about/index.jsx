@@ -24,7 +24,7 @@ const Index = () => {
         <Hero
           title="Inspiration takes shape®"
           subTitle="about us"
-          src="/about/video-2.mp4"
+          src="/about/video-3.mp4"
         />
         <About
           phrases={phrases}
@@ -32,7 +32,7 @@ const Index = () => {
           bgColor="bg-s"
           textColor="text-p"
         />
-        <div className="mt-20 mb-2 w-full h-px bg-p/25" />
+        <div className="mb-2 w-full h-px bg-p/25" />
         <Gallery />
         <HighlightList
           data={clients}
@@ -40,7 +40,7 @@ const Index = () => {
         />
 
         <div className="mt-20 mb-2 w-full h-px bg-p/25" />
-        <Gallery />
+
         <HighlightList
           data={awards}
           title="Awards and recognitions received for excellence in design and digital experiences."

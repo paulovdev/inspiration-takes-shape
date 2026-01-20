@@ -4,8 +4,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { bg, clip, textHover, textSlideNoI } from "./works.animations";
+import { bg, mediaOverlap, textHover, textSlideNoI } from "./works.animations";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
+import { scale } from "@/animations/global-anim";
 
 const CardGrid = ({ work, index }) => {
   const router = useRouter();
@@ -81,7 +82,7 @@ const CardGrid = ({ work, index }) => {
   );
 };
 
-const CardList = ({ work, setActiveWork, setVisible }) => {
+const CardList = ({ work, setActiveWork, setVisible, bumpMedia }) => {
   const router = useRouter();
   const [hover, setHover] = useState(false);
 
@@ -91,6 +92,7 @@ const CardList = ({ work, setActiveWork, setVisible }) => {
         setHover(true);
         setActiveWork(work);
         setVisible(true);
+        bumpMedia();
       }}
       onMouseLeave={() => {
         setHover(false);
@@ -99,7 +101,7 @@ const CardList = ({ work, setActiveWork, setVisible }) => {
       onClick={() =>
         router.push(`/works/${work.id}`, undefined, { scroll: false })
       }
-      className="relative p-2 w-full grid grid-cols-4 items-center cursor-pointer"
+      className="relative p-2 w-full grid grid-cols-4 items-center cursor-default"
     >
       <motion.div
         variants={textHover}
@@ -108,7 +110,7 @@ const CardList = ({ work, setActiveWork, setVisible }) => {
         custom={15}
         className="col-span-3 text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]"
       >
-        {work.name}
+        {work.title}
       </motion.div>
 
       <motion.div
@@ -118,7 +120,7 @@ const CardList = ({ work, setActiveWork, setVisible }) => {
         custom={-15}
         className="flex items-end justify-end"
       >
-        <span className="text-[14px] uppercase max-md:text-[12px]">
+        <span className="text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
           {work.year}
         </span>
       </motion.div>
@@ -138,6 +140,12 @@ const Works = () => {
   const { x, y } = useMousePosition2();
   const [activeWork, setActiveWork] = useState(null);
   const [visible, setVisible] = useState(false);
+  const [mediaTick, setMediaTick] = useState(0);
+
+  const bumpMedia = () => {
+    setMediaTick((t) => t + 1);
+  };
+
   const { ref, inView } = useInView({
     threshold: 0.03,
     triggerOnce: false,
@@ -163,6 +171,7 @@ const Works = () => {
               work={work}
               setActiveWork={setActiveWork}
               setVisible={setVisible}
+              bumpMedia={bumpMedia}
             />
           ))}
         </div>
@@ -211,39 +220,48 @@ const Works = () => {
         )}
       </AnimatePresence>
 
-      <AnimatePresence mode="popLayout">
-        {mode === "list" && visible && activeWork && (
+      <AnimatePresence mode="wait">
+        {mode === "list" && visible && (
           <motion.div
             style={{ x, y }}
-            className="pointer-events-none fixed top-0 left-0 w-100 h-75 z-30 max-lg:w-75 max-lg:h-50"
+            className="
+      pointer-events-none fixed top-0 left-0
+      w-120 h-75 z-30
+      overflow-hidden will-change-auto
+    "
+            {...scale}
           >
-            <motion.div
-              key={activeWork.id}
-              variants={clip}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="w-full h-full overflow-hidden"
-            >
-              {activeWork.src.includes(".mp4") ? (
-                <video
-                  src={activeWork.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="size-full object-cover"
-                />
-              ) : (
-                <Image
-                  src={activeWork.src}
-                  alt={activeWork.alt}
-                  fill
-                  priority
-                  className="object-cover"
-                />
+            <AnimatePresence mode="sync" initial={false}>
+              {activeWork && (
+                <motion.div
+                  key={`${activeWork.id}-${mediaTick}`}
+                  variants={mediaOverlap}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className="absolute inset-0 will-change-transform"
+                >
+                  {activeWork.src.includes(".mp4") ? (
+                    <video
+                      src={activeWork.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="size-full object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={activeWork.src}
+                      width={2000}
+                      height={2000}
+                      alt={activeWork.alt}
+                      className="size-full object-cover"
+                    />
+                  )}
+                </motion.div>
               )}
-            </motion.div>
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>

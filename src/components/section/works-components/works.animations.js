@@ -55,9 +55,29 @@ export const textSlideNoI = {
   },
 };
 
-export const clip = {
-  initial: { clipPath: "inset(0% 0% 100% 0%)" },
-  animate: { clipPath: "inset(0% 0% 0% 0%)" },
-  exit: { clipPath: "inset(100% 0% 0% 0%)" },
-  transition: { duration: 0.5, ease: [0.33, 1, 0.68, 1] },
+export const mediaOverlap = {
+  initial: {
+    y: "100%",
+    transition: {
+      duration: 0.5,
+      ease: [0.33, 1, 0.68, 1], 
+    },
+  },
+
+  animate: {
+    y: "0%",
+    transition: {
+      duration: 0.5,
+      ease: [0.33, 1, 0.68, 1],
+    },
+  },
+
+  exit: {
+    y: "-100%",
+    transition: {
+      duration: 0.5,
+      ease: [0.33, 1, 0.68, 1],
+   
+    },
+  },
 };

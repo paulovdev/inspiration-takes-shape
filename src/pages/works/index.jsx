@@ -16,7 +16,7 @@ const Index = () => {
 
       <main className="w-auto min-h-screen select-none">
         <Hero
-          title="Works™"
+          title="Case Studies"
           subTitle="Collection of"
           src="/works/video-6.mp4"
         />

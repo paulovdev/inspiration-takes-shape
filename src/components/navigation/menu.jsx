@@ -5,17 +5,19 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaLink } from "react-icons/fa6";
 
 import {
-  menuContainerAnim,
-  menuFadeAnim,
-  maskFadeAnim,
-  textSlideAnim,
-  arrowRotateAnim,
-  dropdownAnim,
+  menuContainer,
+  menuFade,
+  maskFade,
+  textSlide,
+  arrowRotate,
+  dropdown,
+  line,
 } from "@/components/navigation/navigation.animations";
 
 import {
   navigation,
   dropNavigation,
+  socials,
 } from "@/components/navigation/navigation.data";
 
 export const Menu = ({ setMenu }) => {
@@ -26,14 +28,14 @@ export const Menu = ({ setMenu }) => {
     <>
       <motion.div
         className="fixed top-0 right-0 w-200 bg-s/15 backdrop-blur-2xl z-110 max-lg:w-full"
-        variants={menuContainerAnim}
+        variants={menuContainer}
         initial="initial"
         animate="animate"
         exit="exit"
       >
         <motion.div
           className="relative h-full flex flex-col items-start justify-between"
-          variants={menuFadeAnim}
+          variants={menuFade}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -69,10 +71,11 @@ export const Menu = ({ setMenu }) => {
                             ? "text-s"
                             : "text-s/50 group-hover:text-s"
                         }`}
-                        variants={textSlideAnim}
+                        variants={textSlide}
                         initial="initial"
                         animate="animate"
-                        custom={i}
+                        exit="exit"
+                        custom={0.25 + i}
                         onClick={() =>
                           !item.dropDown &&
                           router.push(item.href, undefined, { scroll: false })
@@ -83,7 +86,7 @@ export const Menu = ({ setMenu }) => {
 
                       {item.dropDown && (
                         <motion.span
-                          variants={arrowRotateAnim}
+                          variants={arrowRotate}
                           animate={isOpen ? "open" : "closed"}
                           className={`relative left-1.5 text-[32px] opacity-0 ${
                             isOpen ? "opacity-100" : "group-hover:opacity-100 "
@@ -110,24 +113,19 @@ export const Menu = ({ setMenu }) => {
                       <AnimatePresence initial={false}>
                         {item.dropDown && isOpen && (
                           <motion.div
-                            variants={dropdownAnim}
+                            variants={dropdown}
                             initial="initial"
                             animate="animate"
                             exit="exit"
                           >
                             <motion.div
                               className="mt-5 border-s/100 border-b-1"
-                              initial={{ width: 0 }}
-                              animate={{
-                                width: "100%",
-                                transition: {
-                                  duration: 0.3,
-                                  delay: 0.25,
-                                  ease: [0.33, 1, 0.68, 1],
-                                },
-                              }}
+                              variants={line}
+                              initial="initial"
+                              animate="animate"
+                              exit="exit"
                             />
-                            <div className="pt-5 flex flex-col gap-5">
+                            <div className="pt-5 flex flex-col gap-4">
                               {dropNavigation.map((sub, j) => (
                                 <a
                                   key={j}
@@ -136,11 +134,13 @@ export const Menu = ({ setMenu }) => {
                                   className="w-full h-fit overflow-hidden flex justify-between group hover:border-s/50"
                                 >
                                   <motion.p
-                                    className="font-general font-medium text-[16px] leading-none tracking-[0.03em] uppercase text-s group-hover:text-s/50"
-                                    variants={textSlideAnim}
+                                    className="font-general font-medium text-[16px] leading-none tracking-[0.03em] uppercase text-s group-hover:text-s/50
+                                    max-md:text-[14px]"
+                                    variants={textSlide}
                                     initial="initial"
                                     animate="animate"
-                                    custom={j}
+                                    exit="exit"
+                                    custom={0.25 + j}
                                   >
                                     {sub.label}
                                   </motion.p>
@@ -162,25 +162,34 @@ export const Menu = ({ setMenu }) => {
               <p className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
                 socials:
               </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
-                instagram,
-              </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
-                linkedin,
-              </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
-                dribble,
-              </p>
-              <p className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
-                x
-              </p>
+
+              {socials.map((social, i) => (
+                <a
+                  className="overflow-hidden h-fit"
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                >
+                  <motion.p
+                    variants={textSlide}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    custom={1 + i}
+                    className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+                  >
+                    {social.label}
+                    {i !== 3 && ","}
+                  </motion.p>
+                </a>
+              ))}
             </div>
           </div>
         </motion.div>
       </motion.div>
       <motion.div
         className="fixed inset-0 w-screen h-screen bg-s/25 backdrop-blur-sm brightness-50 z-100"
-        variants={maskFadeAnim}
+        variants={maskFade}
         initial="initial"
         animate="animate"
         exit="exit"

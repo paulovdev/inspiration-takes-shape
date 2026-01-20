@@ -1,7 +1,8 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
-import Link from "next/link";
 import { textSlide } from "./about.animations";
+import Button from "../button";
+import { opacity } from "@/animations/global-anim";
 
 const About = ({
   phrases = [],
@@ -9,6 +10,8 @@ const About = ({
   showButton = false,
   buttonHref,
   buttonLabel,
+  buttonTextColor,
+  buttonBgColor,
   bgColor,
   textColor,
 }) => {
@@ -22,8 +25,8 @@ const About = ({
       ref={ref}
       className={`py-20 ${bgColor} ${textColor}  max-lg:py-15 max-md:py-10`}
     >
-      <div className="p-10 w-full flex items-start justify-between max-lg:flex-col max-lg:items-start max-lg:p-5 max-md:p-2 gap-10">
-        <div>
+      <div className="p-10 w-full grid grid-cols-3 max-lg:flex max-lg:flex-col max-lg:items-start max-lg:p-5 max-md:p-2 max-lg:gap-10">
+        <div className="">
           {subPhrases.map((phrase, i) => (
             <div key={i} className="overflow-hidden">
               <motion.p
@@ -39,7 +42,7 @@ const About = ({
           ))}
         </div>
 
-        <div className="flex flex-col items-start  ">
+        <div className="col-start-3 flex flex-col items-start">
           {phrases.map((phrase, i) => (
             <div key={i} className="overflow-hidden">
               <motion.h2
@@ -54,19 +57,22 @@ const About = ({
             </div>
           ))}
 
-          {showButton && (
-            <Link
-              href={buttonHref}
-              scroll={false}
-              className="mt-10 px-20 py-2 bg-current"
-            >
-              <span
-                className={`font-general text-[12px] font-medium tracking-[0.03em] uppercase ${bgColor.replace("bg-", "text-")}`}
-              >
-                {buttonLabel}
-              </span>
-            </Link>
-          )}
+          <motion.div
+            className="mt-10 flex"
+            variants={opacity}
+            initial="initial"
+            animate={inView ? "animate" : "initial"}
+            custom={1.2}
+          >
+            {showButton && (
+              <Button
+                buttonHref={buttonHref}
+                buttonLabel={buttonLabel}
+                buttonTextColor={buttonTextColor}
+                buttonBgColor={buttonBgColor}
+              />
+            )}
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,30 +1,38 @@
 import { works } from "@/data/works.data";
-import { motion, useScroll, useTransform } from "motion/react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { textSlideNoI } from "./home.animations";
+import { textOverlap } from "./home.animations";
+import { useMousePosition2 } from "@/hooks/useMousePosition";
 
-const Card = ({ work, index, scrollYProgress }) => {
+const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
   const router = useRouter();
-  const [hover, setHover] = useState(null);
   const isLeft = index % 2 === 0;
 
-  const y = useTransform(scrollYProgress, [0, 1], isLeft ? [0, 800] : [0, 1]);
+  const y2 = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isLeft ? [0, 600] : [0, 300],
+  );
+
   return (
     <motion.div
-      style={{ y }}
+      style={{ y: y2 }}
       onClick={() => {
         router.push(`/works/${work.id}`, undefined, { scroll: false });
       }}
       className="relative group will-change-transform"
     >
       <figure
-        className="h-[75vh] overflow-hidden max-lg:h-[50vh] max-md:h-[35vh]"
-        onMouseEnter={() => setHover(index)}
-        onMouseLeave={() => setHover(null)}
+        className="h-[75vh] overflow-hidden max-lg:h-[60vh] max-md:h-[50vh]"
+        onMouseEnter={() => {
+          setActiveWork(work);
+          bump();
+        }}
+        onMouseLeave={() => setActiveWork(null)}
       >
         {work.src.includes(".mp4") ? (
           <video
@@ -33,7 +41,7 @@ const Card = ({ work, index, scrollYProgress }) => {
             muted
             loop
             playsInline
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 cubic-bezier(0.33, 1, 0.68, 1)"
+            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 cubic-bezier(0.33,1,0.68,1)"
           />
         ) : (
           <Image
@@ -42,45 +50,9 @@ const Card = ({ work, index, scrollYProgress }) => {
             height={2000}
             alt={work.alt}
             priority
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 cubic-bezier(0.33, 1, 0.68, 1)"
+            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 cubic-bezier(0.33,1,0.68,1)"
           />
         )}
-
-        <div className="absolute inset-0 p-5 w-full flex items-center justify-between max-md:flex-col max-md:items-start">
-          <div className="h-[16px] overflow-hidden cursor-default">
-            <motion.div
-              variants={textSlideNoI}
-              initial="initial"
-              animate={hover === index ? "animate" : "initial"}
-              className="flex flex-col items-start justify-center"
-              custom={0}
-            >
-              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
-                {work.name}
-              </p>
-              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
-                {work.name}
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="h-[16px] overflow-hidden cursor-default">
-            <motion.div
-              variants={textSlideNoI}
-              initial="initial"
-              animate={hover === index ? "animate" : "initial"}
-              className="flex flex-col items-start justify-center"
-              custom={0.1}
-            >
-              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
-                {work.year}
-              </p>
-              <p className="text-s font-general text-[14px] uppercase max-md:text-[12px]">
-                {work.year}
-              </p>
-            </motion.div>
-          </div>
-        </div>
       </figure>
     </motion.div>
   );
@@ -88,31 +60,37 @@ const Card = ({ work, index, scrollYProgress }) => {
 
 const Works = () => {
   const container = useRef(null);
+  const [activeWork, setActiveWork] = useState(null);
+  const [tick, setTick] = useState(0);
+  const { x, y } = useMousePosition2();
+
+  const bump = () => setTick((t) => t + 1);
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end center"],
   });
 
-  const { ref: linkRef, inView: linkInView } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.5,
-    triggerOnce: false,
   });
 
   return (
     <>
       <section className="overflow-hidden" ref={container}>
         <motion.div
-          className="relative w-screen h-[200vh] overflow-hidden will-change-transform"
-          ref={linkRef}
+          className="relative w-screen h-[200vh] overflow-hidden max-md:h-[150vh]"
+          ref={ref}
         >
-          <div className="absolute -top-120 w-full h-[200vh] grid grid-cols-2 gap-2">
+          <div className="absolute -top-120 w-full h-[200vh] grid grid-cols-2 gap-2 max-lg:-top-75 max-lg:h-[175vh] max-md:h-[150vh]">
             {works.slice(0, 9).map((work, i) => (
               <Card
-                key={i}
+                key={work.id}
                 work={work}
                 index={i}
                 scrollYProgress={scrollYProgress}
+                setActiveWork={setActiveWork}
+                bump={bump}
               />
             ))}
           </div>
@@ -120,10 +98,64 @@ const Works = () => {
       </section>
 
       <motion.div
+        className="fixed z-[1000]"
+        style={{
+          left: x,
+          top: y,
+          translateX: "-50%",
+          translateY: "-50%",
+          pointerEvents: "none",
+        }}
+      >
+        <div className="w-75 flex items-center justify-between">
+          <div className="relative h-[17px] w-full overflow-hidden">
+            <AnimatePresence mode="sync">
+              {activeWork && (
+                <motion.p
+                  key={`${activeWork.id}-${tick}`}
+                  variants={textOverlap}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className="
+                    absolute left-0 top-0
+                    text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]
+                    whitespace-nowrap
+                  "
+                >
+                  {activeWork.title}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <div className="relative w-full h-[17px] overflow-hidden">
+            <AnimatePresence mode="sync">
+              {activeWork && (
+                <motion.p
+                  key={`${activeWork.id}-${tick}-year`}
+                  variants={textOverlap}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className="
+                    absolute right-0 top-0
+                    text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]
+                  "
+                >
+                  {activeWork.year}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
         className="fixed inset-0 flex items-center justify-center p-10 h-full z-10 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{
-          opacity: linkInView ? 1 : 0,
+          opacity: inView ? 1 : 0,
           transition: {
             duration: 0.5,
             ease: [0.33, 1, 0.68, 1],
@@ -133,13 +165,14 @@ const Works = () => {
         <Link
           href="/works"
           className="group inline-block cursor-pointer text-s pointer-events-auto"
+          style={{ pointerEvents: inView ? "auto" : "none" }}
         >
           <span className="relative text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] max-md:text-[42px]">
             See All Works
             <span className="absolute left-0 bottom-px h-[1px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0" />
           </span>
 
-          <span className="relative font-general text-s/75 uppercase -top-8 left-2 max-lg:-top-6 max-lg:text-[14px]">
+          <span className="relative font-general text-s/75 uppercase -top-8 left-2 max-lg:-top-6 max-lg:text-[14px] tracking-[-0.03em]">
             (20)
           </span>
         </Link>

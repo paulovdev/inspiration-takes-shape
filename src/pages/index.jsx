@@ -32,7 +32,9 @@ const Index = () => {
             textColor="text-s"
             showButton={true}
             buttonHref="/about"
-            buttonLabel="About"
+            buttonLabel="more about us"
+            buttonBgColor="#ffffff"
+            buttonTextColor="#000000"
           />
           <Works />
         </div>

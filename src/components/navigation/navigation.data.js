@@ -19,3 +19,22 @@ export const dropNavigation = [
   { label: "Design as Language™", href: "https://www.youtube.com/@paulovdev" },
   { label: "Future Forms®", href: "https://www.youtube.com/@paulovdev" },
 ];
+
+export const socials = [
+  {
+    label: "instagram",
+    href: "https://www.youtube.com/@paulovdev",
+  },
+  {
+    label: "linkedin",
+    href: "https://www.youtube.com/@paulovdev",
+  },
+  {
+    label: "dribble",
+    href: "https://www.youtube.com/@paulovdev",
+  },
+  {
+    label: "x",
+    href: "https://www.youtube.com/@paulovdev",
+  },
+];

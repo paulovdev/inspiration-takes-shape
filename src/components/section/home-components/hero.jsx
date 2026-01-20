@@ -38,7 +38,7 @@ const Hero = () => {
 
   const yMotion = useTransform(scrollYProgress, [0, 1], [0, -200]);
   const scaleMotion = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
-  const rotateXMotion = useTransform(scrollYProgress, [0, 1], [0, -45]);
+  const rotateXMotion = useTransform(scrollYProgress, [0, 1], [0, -75]);
 
   const y = isMobile ? 0 : yMotion;
   const scale = isMobile ? 1 : scaleMotion;
@@ -47,9 +47,8 @@ const Hero = () => {
   const y2 = useTransform(scrollYProgress, [0, 5], [0, 400]);
 
   const handleTickClick = (tickIndex) => {
-      if (isAnimatingRef.current) return;
+    if (isAnimatingRef.current) return;
     if (activeTick === tickIndex) return;
-
 
     const step = 360 / totalTicks;
 
@@ -66,7 +65,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative w-screen h-screen bg-black overflow-hidden select-none"
+      className=" w-screen h-screen bg-black overflow-hidden select-none"
       ref={container}
     >
       <motion.div
@@ -157,7 +156,7 @@ const BackgroundMedia = ({ activeItem, isAnimatingRef }) => {
   return (
     <div ref={scope} className="absolute inset-0 overflow-hidden">
       <motion.figure
-        className="media-active absolute inset-0 will-change-transform"
+        className="media-active absolute inset-0 will-change-[clip-path]"
         style={{ clipPath: "circle(0px at 50% 50%)" }}
       >
         {displayItem?.src.includes(".mp4") ? (

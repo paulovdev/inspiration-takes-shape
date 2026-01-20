@@ -67,22 +67,20 @@ const Hero = ({ title, subTitle, src }) => {
                     {subTitle}
                   </motion.span>
                 </div>
-                <h2 className="flex gap-2 text-s text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] max-md:text-[42px]">
-                  {title.split(" ").map((word, i) => (
-                    <span key={i} className="overflow-hidden inline-block">
-                      <motion.span
-                        variants={textSlide}
-                        initial="initial"
-                        animate="animate"
-                        custom={i * 0.075 + 4}
-                        className="block will-change-transform"
-                      >
-                        {word}
-                      </motion.span>
-                    </span>
-                  ))}
-                </h2>
+
+                <div className="h-fit overflow-hidden">
+                  <motion.h2
+                    variants={textSlide}
+                    initial="initial"
+                    animate="animate"
+                    custom={4}
+                    className="text-s text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] max-md:text-[42px]"
+                  >
+                    {title}
+                  </motion.h2>
+                </div>
               </div>
+
               <div className="mb-10 overflow-hidden">
                 <motion.span
                   variants={textSlide}
