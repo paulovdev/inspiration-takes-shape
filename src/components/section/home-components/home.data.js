@@ -16,28 +16,28 @@ export const clients = [
 export const lab = [
   {
     tick: 0,
-    src: "/works/video-1.mp4",
-    title: "Experimental Direction",
-    mark: "™",
-    year: "2021",
-  },
-  {
-    tick: 20,
-    src: "/works/img-1.jpg",
+    src: "/lab/video-2.mp4",
     title: "Inspiration takes shape",
     mark: "®",
     year: "2019",
   },
   {
+    tick: 20,
+    src: "/lab/video-1.mp4",
+    title: "EARTH",
+    mark: "™",
+    year: "20??",
+  },
+  {
     tick: 40,
-    src: "/works/img-3.jpg",
+    src: "/lab/img-1.jpg",
     title: "Design as Language",
     mark: "™",
     year: "2023",
   },
   {
     tick: 60,
-    src: "/works/img-4.jpg",
+    src: "/lab/video-3.mp4",
     title: "Future Forms",
     mark: "®",
     year: "2025",
@@ -45,9 +45,10 @@ export const lab = [
 ];
 
 export const phrases = [
-  "INSPIRATION TAKES SHAPE® is an art direction and",
-  "experimental design studio shaping ideas through",
-  "concept, form and visual systems.",
+  "INSPIRATION TAKES SHAPE®",
+  "is an art direction and experimental design",
+  " studio shaping ideas through concept,",
+  "form and visual systems.",
   " ",
   "We create identities, interfaces and digital",
   "experiences guided by research and experimentation.",

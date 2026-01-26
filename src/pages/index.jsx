@@ -11,6 +11,9 @@ import {
 } from "@/components/section/home-components/home.data";
 import { clients } from "@/data/clients.data";
 import HighlightList from "@/components/highlight/highlight-list";
+import Footer from "@/components/footer/footer";
+import JoinUs from "@/components/join-us";
+import BigText from "@/components/section/home-components/big-text";
 
 const Index = () => {
   useEffect(() => {
@@ -24,29 +27,29 @@ const Index = () => {
     <>
       <Nav />
       <main className="w-auto min-h-screen ">
-        <div className="bg-p">
-          <Hero />
-          <About
-            phrases={phrases}
-            subPhrases={phrases2}
-            bgColor="bg-p"
-            textColor="text-s"
-            showButton={true}
-            buttonHref="/about"
-            buttonLabel="more about us"
-            buttonBgColor="#ffffff"
-            buttonTextColor="#000000"
-          />
-          <Works />
-        </div>
-        <div className="bg-s">
-          <HighlightList
-            data={clients}
-            title="Clients we’ve partnered with to build meaningful digital experiences."
-          />
-          <Reel />
-        </div>
+        <Hero />
+        <About
+          phrases={phrases}
+          subPhrases={phrases2}
+          bgColor="bg-s"
+          textColor="text-p"
+          showButton={true}
+          buttonHref="/about"
+          buttonLabel="more about us"
+          buttonBgColor="#000000"
+          buttonTextColor="#ffffff"
+        />
+        <Works />
+
+        <HighlightList
+          data={clients}
+          title="Clients we’ve partnered with to build meaningful digital experiences."
+        />
+        <Reel />
+        <BigText />
       </main>
+      <JoinUs />
+      <Footer />
     </>
   );
 };

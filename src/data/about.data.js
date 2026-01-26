@@ -27,7 +27,7 @@ export const awards = [
   { title: "Awwwards Nominee — FOTY 2015 ↗" },
 ];
 
-export const gallery = [
+export const services = [
   {
     style: "Research",
     description: [
@@ -63,27 +63,23 @@ export const gallery = [
 ];
 
 export const phrases = [
-  "INSPIRATION TAKES SHAPE®",
-  "is an art direction and experimental design",
-  "studio focused on transforming ideas into",
-  "form.",
+  "SINCE 2020 | 2026",
+  "An art direction and experimental design",
+  "studio focused on clarity, structure and",
+  "intentional outcomes.",
   " ",
-  "We work with visual systems, identities and",
-  "interactive experiences, driven by research,",
-  "experimentation and concept",
-  "development.",
+  "We work across visual systems, interaction and",
+  "research-driven design practices.",
   " ",
-  "Our process balances intuition and method,",
-  "merging aesthetics with function and meaning.",
+  "Each project balances intuition, precision",
+  "and purpose through careful execution.",
   " ",
-  "Design is not decoration — it is structure,",
-  "intention and narrative.",
-];
-
-export const phrases2 = [
-  "About Us | design in a unique way.",
-  "since 2020 | 2026",
+  "(01) People first",
+  "Design starts with human experience.",
   " ",
-  "art direction & visual research",
-  "experimental design studio",
+  "(02) Craft with rigor",
+  "Excellence lives in the details.",
+  " ",
+  "(03) Challenge the obvious",
+  "Constraints sharpen direction.",
 ];

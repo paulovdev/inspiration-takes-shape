@@ -41,7 +41,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
             muted
             loop
             playsInline
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 cubic-bezier(0.33,1,0.68,1)"
+            className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
           />
         ) : (
           <Image
@@ -50,7 +50,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
             height={2000}
             alt={work.alt}
             priority
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 cubic-bezier(0.33,1,0.68,1)"
+            className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
           />
         )}
       </figure>
@@ -158,7 +158,7 @@ const Works = () => {
           opacity: inView ? 1 : 0,
           transition: {
             duration: 0.5,
-            ease: [0.33, 1, 0.68, 1],
+            ease: [0.76, 0, 0.24, 1],
           },
         }}
       >
@@ -167,12 +167,12 @@ const Works = () => {
           className="group inline-block cursor-pointer text-s pointer-events-auto"
           style={{ pointerEvents: inView ? "auto" : "none" }}
         >
-          <span className="relative text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] max-md:text-[42px]">
+          <span className="relative text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
             See All Works
-            <span className="absolute left-0 bottom-px h-[1px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0" />
+            <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </span>
 
-          <span className="relative font-general text-s/75 uppercase -top-8 left-2 max-lg:-top-6 max-lg:text-[14px] tracking-[-0.03em]">
+          <span className="relative font-general text-s/75 text-[14px] uppercase -top-8 left-2 max-md:-top-4 tracking-[-0.03em] max-md:text-[12px] max">
             (20)
           </span>
         </Link>

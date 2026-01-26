@@ -204,7 +204,7 @@ const CenterTitle = ({ activeItem }) => {
     >
       <AnimatePresence mode="wait">
         <motion.div key={activeItem.tick} className="text-center">
-          <div className="overflow-hidden">
+          <div className="h-[14px] overflow-hidden">
             <motion.h1
               className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] will-change-transform"
               variants={textSlideNoI}
@@ -214,13 +214,13 @@ const CenterTitle = ({ activeItem }) => {
               custom={1}
             >
               {activeItem.title}
-              <span className="relative text-[12px] -top-[3px]">
+              <span className="relative text-[10px] -top-[3px]">
                 {activeItem.mark}
               </span>
             </motion.h1>
           </div>
 
-          <div className="overflow-hidden mt-2">
+          <div className="h-[16px] overflow-hidden mt-2">
             <motion.p
               className="text-s/50 text-[14px] opacity-50 tracking-[0.03em] uppercase max-md:text-[12px] will-change-transform"
               variants={textSlideNoI}

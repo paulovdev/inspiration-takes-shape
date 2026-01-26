@@ -1,75 +1,58 @@
 export const menuContainer = {
   initial: { height: "0vh" },
   animate: {
-    height: "85vh",
+    height: "100dvh",
     transition: {
-      duration: 0.5,
-      ease: [0.215, 0.61, 0.355, 1],
+      duration: 0.75,
+      ease: [0.76, 0, 0.24, 1],
     },
   },
   exit: {
     height: "0vh",
     transition: {
-      duration: 0.5,
-      ease: [0.215, 0.61, 0.355, 1],
-      delay: 0.5,
+      duration: 0.75,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.25,
     },
   },
 };
 
-export const menuFade = {
+export const fade = {
   initial: { opacity: 0 },
-  animate: {
+  animate: ({ animate }) => ({
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: 0.25,
+      delay: animate,
     },
-  },
-  exit: {
+  }),
+  exit: ({ exit }) => ({
     opacity: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
+      delay: exit,
     },
-  },
-};
-export const maskFade = {
-  initial: { opacity: 0 },
-  animate: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.33, 1, 0.68, 1],
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.33, 1, 0.68, 1],
-      delay: 0.5,
-    },
-  },
+  }),
 };
 
 export const textSlide = {
   initial: { y: "100%" },
-  animate: (custom) => ({
+  animate: ({ animate }) => ({
     y: "0%",
     transition: {
       duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: custom * 0.075,
+      delay: animate,
     },
   }),
-  exit: (custom) => ({
+  exit: ({ exit }) => ({
     y: "100%",
     transition: {
       duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: custom * 0.075,
+      delay: exit,
     },
   }),
 };
@@ -111,7 +94,7 @@ export const line = {
   animate: {
     width: "100%",
     transition: {
-      duration: 0.4,
+      duration: 0.5,
 
       ease: [0.33, 1, 0.68, 1],
     },
@@ -119,7 +102,7 @@ export const line = {
   exit: {
     width: 0,
     transition: {
-      duration: 0.4,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
     },
   },

@@ -16,14 +16,14 @@ const { x, y } = useMousePosition();
     animate={{
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.25, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.25, ease: [0.33, 1, 0.68, 1] },
     }}
     exit={{
       opacity: 0,
       scale: 0,
       transition: {
         duration: 0.25,
-        ease: [0.76, 0, 0.24, 1],
+        ease: [0.33, 1, 0.68, 1],
         delay: 0.5,
       },
     }}

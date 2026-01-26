@@ -61,24 +61,41 @@ const Hero = ({ title, subTitle, src }) => {
                     initial="initial"
                     animate="animate"
                     custom={3}
-                    className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase flex items-center gap-2 will-change-transform
+                    className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase text-center flex items-center gap-2 will-change-transform
                     max-md:text-[12px]"
                   >
                     {subTitle}
                   </motion.span>
                 </div>
 
-                <div className="h-fit overflow-hidden">
-                  <motion.h2
-                    variants={textSlide}
-                    initial="initial"
-                    animate="animate"
-                    custom={4}
-                    className="text-s text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] max-md:text-[42px]"
-                  >
-                    {title}
-                  </motion.h2>
-                </div>
+                {Array.isArray(title) ? (
+                  title.map((item, i) => (
+                    <div className="h-fit overflow-hidden">
+                      <motion.h2
+                        key={i}
+                        variants={textSlide}
+                        initial="initial"
+                        animate="animate"
+                        custom={4 + i}
+                        className="text-s text-[62px] tracking-[-0.03em] leading-none text-center max-lg:text-[48px] max-md:text-[42px]"
+                      >
+                        {item}
+                      </motion.h2>
+                    </div>
+                  ))
+                ) : (
+                  <div className="h-fit overflow-hidden">
+                    <motion.h2
+                      variants={textSlide}
+                      initial="initial"
+                      animate="animate"
+                      custom={4}
+                      className="text-s text-[62px] tracking-[-0.03em] leading-none text-center max-lg:text-[48px] max-md:text-[42px]"
+                    >
+                      {title}
+                    </motion.h2>
+                  </div>
+                )}
               </div>
 
               <div className="mb-10 overflow-hidden">

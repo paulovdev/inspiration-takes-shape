@@ -5,8 +5,10 @@ export const works = [
     category: "Fashion Film",
     year: 2025,
     client: "Private Direction",
-    description:
-      "A restrained fashion film built around absence and control. The visual language relies on darkness, reduced motion, and spatial tension to suggest presence without revealing identity. Every frame is designed to feel intentional, distant, and composed.",
+    description: [
+      "Restrained fashion film built around absence and control",
+      "Darkness reduced motion and strong spatial tension",
+    ],
     license: "Usage permitted for portfolio and curated exhibitions",
     src: "/works/video-1.mp4",
     alt: "Dark fashion film with minimal movement and controlled lighting",
@@ -17,8 +19,10 @@ export const works = [
     category: "Editorial Image",
     year: 2024,
     client: "Concept Archive",
-    description:
-      "A photographic editorial exploring contemporary youth through artificial light and rigid composition. The image balances street influence with a synthetic atmosphere, highlighting isolation, attitude, and modern identity.",
+    description: [
+      "Editorial image exploring youth through artificial neon light",
+      "Isolation attitude and modern identity in rigid composition",
+    ],
     license: "Editorial and digital publication only",
     src: "/works/img-2.jpg",
     alt: "Low-light portrait with futuristic street styling",
@@ -29,11 +33,84 @@ export const works = [
     category: "Visual Study",
     year: 2016,
     client: "Experimental Studio",
-    description:
-      "A visual study focused purely on shape and proportion. By removing narrative context, the subject becomes abstracted, allowing silhouette, balance, and tone to define the composition in a calm and distant manner.",
+    description: [
+      "Visual study focused on pure shape and proportion",
+      "Narrative removed to emphasize balance tone silhouette",
+    ],
     license: "Non-commercial artistic exploration allowed",
     src: "/works/img-3.jpg",
     alt: "Minimal figure isolated in a neutral studio space",
+  },
+  {
+    id: "counter-silhouette-still",
+    title: "Counter Silhouette — Still Study",
+    category: "Visual Research",
+    year: 2025,
+    client: "Independent Collective",
+    description: [
+      "Still study focused on material tension and posture",
+      "Absence of motion sharpens impact of form",
+    ],
+    license: "Creative Commons experimental use",
+    src: "/works/img-6.jpg",
+    alt: "Dark fashion still emphasizing material weight",
+  },
+
+  {
+    id: "offline-metropolis-alt",
+    title: "Offline Metropolis — Frame",
+    category: "Urban Visual",
+    year: 2022,
+    client: "Independent Archive",
+    description: [
+      "Secondary urban view dominated by silent architecture",
+      "Human presence entirely absent from digital landscape",
+    ],
+    license: "Creative use permitted",
+    src: "/works/video-4.mp4",
+    alt: "Empty nighttime city with inactive screens",
+  },
+  {
+    id: "thermal-remains-motion",
+    title: "Thermal Remains — Motion",
+    category: "Atmospheric Motion",
+    year: 2014,
+    client: "Underground Studio",
+    description: [
+      "Motion piece suggesting residual heat and visual noise",
+      "Traces of life within abandoned industrial space",
+    ],
+    license: "Open creative use",
+    src: "/works/video-7.mp4",
+    alt: "Industrial interior with dissolving visual noise",
+  },
+  {
+    id: "thermal-remains",
+    title: "Thermal Remains",
+    category: "Atmospheric Video",
+    year: 2014,
+    client: "Underground Studio",
+    description: [
+      "Decaying environment where human traces dissolve",
+      "Heat texture and motion blur suggest absence",
+    ],
+    license: "Open creative use",
+    src: "/works/img-13.jpg",
+    alt: "Industrial space with dissolving human silhouette",
+  },
+  {
+    id: "post-transmission-still",
+    title: "Post Transmission — Still",
+    category: "Image Artifact",
+    year: 2031,
+    client: "Signal Research Group",
+    description: [
+      "Frozen fragment captured from broken transmission signal",
+      "Image unresolved interrupted and visually unstable",
+    ],
+    license: "Creative Commons experimental license",
+    src: "/works/img-8.jpg",
+    alt: "Static frame resembling interrupted broadcast",
   },
   {
     id: "distorted-presence",
@@ -41,8 +118,10 @@ export const works = [
     category: "Conceptual Visual",
     year: 2022,
     client: "Research Division",
-    description:
-      "An exploration of the human form through exaggeration and distortion. Heavy materials and unconventional proportions challenge visual comfort, creating tension between structure and imbalance.",
+    description: [
+      "Human form explored through exaggeration and distortion",
+      "Tension created between structure imbalance and discomfort",
+    ],
     license: "Open artistic use with attribution",
     src: "/works/img-4.jpg",
     alt: "Abstract fashion figure with altered proportions",
@@ -53,8 +132,10 @@ export const works = [
     category: "Experimental Fashion",
     year: 2025,
     client: "Independent Collective",
-    description:
-      "A visual response against traditional fashion structures. Sharp cuts, rigid posture, and high-contrast lighting establish a strong, confrontational identity rooted in control and individuality.",
+    description: [
+      "Confrontational fashion response against traditional silhouettes",
+      "Sharp cuts rigid posture and high contrast lighting",
+    ],
     license: "Free use with credit",
     src: "/works/img-5.jpg",
     alt: "Avant-garde fashion composition with aggressive posture",
@@ -65,8 +146,10 @@ export const works = [
     category: "Motion Study",
     year: 2025,
     client: "Independent Collective",
-    description:
-      "A motion-based study extending the Counter Silhouette concept. Slow, deliberate movement emphasizes weight, resistance, and spatial awareness, creating a controlled and unsettling rhythm.",
+    description: [
+      "Motion study extending counter silhouette visual language",
+      "Slow movement emphasizing weight resistance and spatial control",
+    ],
     license: "Creative Commons for experimental use",
     src: "/works/video-3.mp4",
     alt: "Slow-motion fashion movement in a dark environment",
@@ -77,10 +160,12 @@ export const works = [
     category: "Video Experiment",
     year: 2031,
     client: "Signal Research Group",
-    description:
-      "A visual artifact inspired by lost broadcasts and fragmented signals. Flickering frames and unstable motion evoke the feeling of receiving something incomplete, distant, and unresolved.",
+    description: [
+      "Video artifact inspired by fragmented lost broadcast signals",
+      "Flickering frames suggesting distance instability and interruption",
+    ],
     license: "Creative Commons experimental license",
-    src: "/videos/video-2.mp4",
+    src: "/works/video-2.mp4",
     alt: "Fragmented broadcast visuals with signal interference",
   },
   {
@@ -89,8 +174,10 @@ export const works = [
     category: "Urban Visual",
     year: 2022,
     client: "Independent Archive",
-    description:
-      "An empty city captured in a suspended state. Screens are dark, signage inactive, and space feels paused, creating a quiet reflection on technology, absence, and stillness.",
+    description: [
+      "Empty city captured in suspended technological silence",
+      "Inactive screens architecture dominant absence of human presence",
+    ],
     license: "Creative use permitted",
     src: "/bg.jpg",
     alt: "Night cityscape with inactive digital signage",
@@ -101,8 +188,10 @@ export const works = [
     category: "Fashion Image",
     year: 2025,
     client: "Private Direction",
-    description:
-      "A still-image counterpart to the Silent Core film. Texture and shadow replace motion, reinforcing anonymity and restraint through static composition.",
+    description: [
+      "Still image reinforcing anonymity through texture and shadow",
+      "Motion replaced by static controlled visual restraint",
+    ],
     license: "Portfolio and editorial usage allowed",
     src: "/works/img-10.jpg",
     alt: "Minimal dark fashion image with heavy shadows",
@@ -113,8 +202,10 @@ export const works = [
     category: "Editorial Image",
     year: 2024,
     client: "Concept Archive",
-    description:
-      "An alternate frame from the Neon Adolescence series. The subject appears detached, framed by artificial light and controlled styling that emphasizes modern alienation.",
+    description: [
+      "Alternate editorial frame emphasizing detachment and alienation",
+      "Artificial light controlled styling and modern isolation",
+    ],
     license: "Editorial use only",
     src: "/works/img-12.jpg",
     alt: "Futuristic portrait with synthetic lighting",
@@ -125,8 +216,10 @@ export const works = [
     category: "Visual Study",
     year: 2016,
     client: "Experimental Studio",
-    description:
-      "A secondary study focusing on balance and negative space. The absence of narrative reinforces the sculptural quality of the subject.",
+    description: [
+      "Secondary visual study emphasizing balance and negative space",
+      "Sculptural quality reinforced through absence of narrative",
+    ],
     license: "Non-commercial creative use",
     src: "/works/img-7.jpg",
     alt: "Minimal figure study with soft gradients",
@@ -137,10 +230,12 @@ export const works = [
     category: "Concept Motion",
     year: 2022,
     client: "Research Division",
-    description:
-      "A moving interpretation of the Distorted Presence concept. Motion amplifies discomfort and exaggeration, pushing the form beyond static balance.",
+    description: [
+      "Motion amplifies exaggeration discomfort and visual instability",
+      "Form pushed beyond static balance through movement",
+    ],
     license: "Artistic use under open terms",
-    src: "/works/video-6.mp4",
+    src: "/works/video-5.mp4",
     alt: "Moving abstract figure with exaggerated proportions",
   },
   {
@@ -149,70 +244,12 @@ export const works = [
     category: "Fashion Experiment",
     year: 2025,
     client: "Independent Collective",
-    description:
-      "A single frame extracted from the Counter Silhouette series. The image emphasizes rigidity, tension, and controlled aggression.",
+    description: [
+      "Single extracted frame emphasizing rigidity and tension",
+      "Controlled aggression expressed through posture and lighting",
+    ],
     license: "Free use with attribution",
     src: "/works/img-9.jpg",
     alt: "Rigid avant-garde fashion silhouette",
-  },
-  {
-    id: "counter-silhouette-still",
-    title: "Counter Silhouette — Still Study",
-    category: "Visual Research",
-    year: 2025,
-    client: "Independent Collective",
-    description:
-      "A still study focused on material tension and posture. The absence of motion sharpens the impact of form and lighting.",
-    license: "Creative Commons experimental use",
-    src: "/works/img-6.jpg",
-    alt: "Dark fashion still emphasizing material weight",
-  },
-  {
-    id: "post-transmission-still",
-    title: "Post Transmission — Still",
-    category: "Image Artifact",
-    year: 2031,
-    client: "Signal Research Group",
-    description:
-      "A frozen fragment from a broken transmission. The image feels unresolved, as if captured mid-interruption.",
-    license: "Creative Commons experimental license",
-    src: "/works/img-8.jpg",
-    alt: "Static frame resembling interrupted broadcast",
-  },
-  {
-    id: "offline-metropolis-alt",
-    title: "Offline Metropolis — Frame",
-    category: "Urban Visual",
-    year: 2022,
-    client: "Independent Archive",
-    description:
-      "A secondary view of a silent city. Architecture dominates while human presence is completely absent.",
-    license: "Creative use permitted",
-    src: "/works/img-11.jpg",
-    alt: "Empty nighttime city with inactive screens",
-  },
-  {
-    id: "thermal-remains-motion",
-    title: "Thermal Remains — Motion",
-    category: "Atmospheric Motion",
-    year: 2014,
-    client: "Underground Studio",
-    description:
-      "A motion piece where residual heat and visual noise suggest traces of life in an abandoned space.",
-    license: "Open creative use",
-    src: "/works/video-5.mp4",
-    alt: "Industrial interior with dissolving visual noise",
-  },
-  {
-    id: "thermal-remains",
-    title: "Thermal Remains",
-    category: "Atmospheric Video",
-    year: 2014,
-    client: "Underground Studio",
-    description:
-      "A decaying visual environment where human traces dissolve into noise. Heat, texture, and motion blur combine to suggest presence long after disappearance.",
-    license: "Open creative use",
-    src: "/videos/video-1.mp4",
-    alt: "Industrial space with dissolving human silhouette",
   },
 ];

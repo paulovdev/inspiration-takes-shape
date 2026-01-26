@@ -1,16 +1,13 @@
 import { useEffect, useRef } from "react";
 import Nav from "@/components/navigation/nav";
 import { works } from "@/data/works.data";
-import { useIsPresent  } from "motion/react";
+import { useIsPresent } from "motion/react";
 import Lenis from "lenis";
 
 import { useRouter } from "next/router";
 
- 
 import Image from "next/image";
 import Hero from "@/components/hero/hero";
-
- 
 
 const Index = () => {
   const lenisRef = useRef(null);
@@ -45,18 +42,17 @@ const Index = () => {
   return (
     <>
       <Nav />
-      <Hero title={work.title} subTitle={work.year} src={work.src} />
+      <Hero title={work.description} subTitle={work.title} src={work.src} />
 
       <div className="p-10 py-40 w-full bg-p flex flex-col items-start">
         <div className="mb-10 max-w-200 flex flex-col items-start">
           <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
-            description:
+            year:
           </span>
           <p className="text-s text-[42px] leading-[1.1em] tracking-[-0.03em]">
-            {work.description}
+            {work.year}
           </p>
         </div>
-
         <div className="mb-10 max-w-200 flex flex-col items-start">
           <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
             category:

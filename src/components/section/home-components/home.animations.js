@@ -70,7 +70,7 @@ export const bg = {
     opacity: 1,
     transition: {
       duration: 0.25,
-      ease: [0.33, 1, 0.68, 1],
+      ease: [0.76, 0, 0.24, 1],
     },
   },
 };
@@ -87,7 +87,7 @@ export const heroIntro = {
     rotateX: 0,
     transition: {
       duration: 1,
-      ease: [0.33, 1, 0.68, 1],
+      ease: [0.76, 0, 0.24, 1],
     },
   },
 };
@@ -119,7 +119,7 @@ export const mediaReveal = {
     scale: 1,
     transition: {
       duration: 1,
-      ease: [0.33, 1, 0.68, 1],
+      ease: [0.76, 0, 0.24, 1],
       delay: 0.1,
     },
   },

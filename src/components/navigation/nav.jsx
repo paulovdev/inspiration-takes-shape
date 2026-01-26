@@ -2,7 +2,8 @@ import { useState } from "react";
 import { AnimatePresence } from "motion/react";
 import { Menu } from "@/components/navigation/menu";
 import { useRouter } from "next/router";
-
+import { motion } from "motion/react";
+import { textSlide } from "./navigation.animations";
 const Nav = () => {
   const [menu, setMenu] = useState(false);
   const router = useRouter();
@@ -20,12 +21,21 @@ const Nav = () => {
             back
           </button>
         )}
-        <button
-          className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
-          onClick={() => setMenu(true)}
-        >
-          menu
-        </button>
+        <div className="overflow-hidden h-[19px]">
+          <motion.button
+            className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+            variants={textSlide}
+            initial={false}
+            animate={menu ? "initial" : "animate"}
+            custom={{
+              animate: 0.75,
+              exit: 0,
+            }}
+            onClick={() => setMenu(true)}
+          >
+            menu
+          </motion.button>
+        </div>
       </nav>
 
       <AnimatePresence mode="wait">

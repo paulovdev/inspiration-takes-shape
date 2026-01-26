@@ -17,7 +17,7 @@ export const scale = {
     transition: {
       duration: 1,
       delay: custom,
-      ease: [0.33, 1, 0.68, 1],
+      ease: [0.76, 0, 0.24, 1],
     },
   }),
 };

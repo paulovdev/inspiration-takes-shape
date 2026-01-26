@@ -1,5 +1,5 @@
 export const textSlide = {
-  initial: { y: "100%" },
+  initial: { y: "120%" },
   animate: (i) => ({
     y: "0%",
     transition: {
@@ -33,7 +33,7 @@ export const bg = {
     opacity: 1,
     transition: {
       duration: 0.25,
-      ease: [0.33, 1, 0.68, 1],
+      ease: [0.76, 0, 0.24, 1],
     },
   },
 };

@@ -45,7 +45,7 @@ const HighlightList = ({
                 initial="initial"
                 animate={inView ? "animate" : "initial"}
               >
-                <div className=" h-fit overflow-hidden">
+                <div className="h-fit overflow-hidden">
                   <motion.h2
                     variants={textHover}
                     initial="initial"
@@ -56,7 +56,7 @@ const HighlightList = ({
                     {item.title}
                   </motion.h2>
                 </div>
-                <div className=" h-fit overflow-hidden">
+                <div className="h-fit overflow-hidden">
                   {item.link && (
                     <motion.a
                       href={item.link}

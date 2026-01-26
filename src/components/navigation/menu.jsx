@@ -6,12 +6,11 @@ import { FaLink } from "react-icons/fa6";
 
 import {
   menuContainer,
-  menuFade,
-  maskFade,
   textSlide,
   arrowRotate,
   dropdown,
   line,
+  fade,
 } from "@/components/navigation/navigation.animations";
 
 import {
@@ -35,10 +34,14 @@ export const Menu = ({ setMenu }) => {
       >
         <motion.div
           className="relative h-full flex flex-col items-start justify-between"
-          variants={menuFade}
+          variants={fade}
           initial="initial"
           animate="animate"
           exit="exit"
+          custom={{
+            animate: 0.25,
+            exit: 0,
+          }}
         >
           <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5">
             <button
@@ -75,7 +78,10 @@ export const Menu = ({ setMenu }) => {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        custom={0.25 + i}
+                        custom={{
+                          animate: 0.75 + i * 0.075,
+                          exit: i * 0.075,
+                        }}
                         onClick={() =>
                           !item.dropDown &&
                           router.push(item.href, undefined, { scroll: false })
@@ -159,10 +165,18 @@ export const Menu = ({ setMenu }) => {
             </div>
 
             <div className="absolute bottom-0 pb-10 flex items-center gap-2">
-              <p className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
-                socials:
-              </p>
-
+              <div className="overflow-hidden h-fit">
+                <motion.p
+                  className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+                  variants={textSlide}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  custom={{ animate: 1, exit: 0 }}
+                >
+                  socials:
+                </motion.p>
+              </div>
               {socials.map((social, i) => (
                 <a
                   className="overflow-hidden h-fit"
@@ -175,7 +189,10 @@ export const Menu = ({ setMenu }) => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    custom={1 + i}
+                    custom={{
+                      animate: 1.1 + i * 0.075,
+                      exit: 0.1 + i * 0.075,
+                    }}
                     className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
                   >
                     {social.label}
@@ -189,10 +206,14 @@ export const Menu = ({ setMenu }) => {
       </motion.div>
       <motion.div
         className="fixed inset-0 w-screen h-screen bg-s/25 backdrop-blur-sm brightness-50 z-100"
-        variants={maskFade}
+        variants={fade}
         initial="initial"
         animate="animate"
         exit="exit"
+        custom={{
+          animate: 0,
+          exit: 0.75,
+        }}
         onClick={() => setMenu(false)}
       />
     </>

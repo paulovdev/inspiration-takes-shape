@@ -1,7 +1,7 @@
 export const navigation = [
   { label: "Index", href: "/" },
-  { label: "Works", href: "/works" },
   { label: "About", href: "/about" },
+  { label: "Works", href: "/works" },
   { label: "Contact", href: "/contact" },
   { label: "Credits for content", href: "/credits-for-content" },
   { label: "Lab", href: "/lab", dropDown: true },

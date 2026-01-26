@@ -3,11 +3,6 @@ import { IoMdPause, IoMdPlay } from "react-icons/io";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 
-const reelAnim = {
-  initial: { transition: { duration: 0.25 } },
-  open: { transition: { duration: 0.25 } },
-};
-
 const Reel = () => {
   const videoRef = useRef(null);
   const container = useRef(null);
@@ -26,7 +21,7 @@ const Reel = () => {
   const clipPathScroll = useTransform(
     scrollYProgress,
     [0, 1],
-    ["inset(20% 20% 20% 20%)", "inset(0% 0% 0% 0%)"],
+    ["inset(15% 15% 15% 15%)", "inset(0% 0% 0% 0%)"],
   );
 
   const togglePlayPause = () => {
@@ -40,10 +35,7 @@ const Reel = () => {
     <>
       <motion.div
         ref={container}
-        className={`w-screen flex items-center justify-center cursor-default will-change-auto`}
-        variants={reelAnim}
-        initial="initial"
-        animate={isPlaying ? "open" : "initial"}
+        className="w-screen h-screen flex items-center justify-center cursor-default will-change-auto"
       >
         <motion.video
           ref={videoRef}
@@ -55,13 +47,10 @@ const Reel = () => {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           style={{
-            clipPath: isPlaying ? "inset(0% 0% 0% 0%)" : clipPathScroll,
+            clipPath: clipPathScroll,
           }}
-          className={`
-            object-cover w-full
-            ${isPlaying ? "h-full rounded-none" : "h-[850px]"}
-            will-change-[clip-path]
-          `}
+          className="object-cover w-full h-screen will-change-[clip-path]
+          "
         />
       </motion.div>
 
@@ -79,7 +68,7 @@ const Reel = () => {
             animate={{
               opacity: 1,
               scale: 1,
-              transition: { duration: 0.25, ease: [0.76, 0, 0.24, 1] },
+              transition: { duration: 0.25, ease: [0.33, 1, 0.68, 1] },
             }}
             exit={{ opacity: 0, scale: 0, transition: { duration: 0.2 } }}
           >

@@ -22,13 +22,16 @@ const Index = () => {
 
       <main className="w-auto min-h-screen select-none">
         <Hero
-          title="Credits for Content"
-          subTitle="09 may 2024"
-          src="/works/img-13.jpg"
+          title={[
+            "Credits for the collaborators who contributed",
+            "to photography, video, and content production.",
+          ]}
+          subTitle="Credits for Content"
+          src="/creative.jpg"
         />
         <HighlightList
           data={credits}
-          title="Credits for the collaborators who contributed to photography, video, and content production."
+          title="09 may 2024 - thank all <3"
           subTitle="click to see"
           grid="grid-cols-1"
           gridIn="grid-cols-2"

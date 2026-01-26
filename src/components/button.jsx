@@ -34,11 +34,11 @@ const Button = ({
       scroll={false}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="mt-10 px-4 py-4 w-75 inline-block group"
+      className="mt-10 px-4 py-4 w-75 inline-block group max-md:w-full"
       style={{ background: buttonBgColor }}
     >
       <div className="w-full flex items-end justify-between">
-        <div className="relative h-[16px] overflow-hidden">
+        <div className="relative h-[16px] overflow-hidden max-md:h-[12px]">
           <motion.div
             variants={textOverlap}
             initial="initial"
@@ -46,13 +46,13 @@ const Button = ({
             className="flex flex-col will-change-transform"
           >
             <p
-              className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase"
+              className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
               style={{ color: buttonTextColor }}
             >
               {buttonLabel}
             </p>
             <p
-              className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase"
+              className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
               style={{ color: buttonTextColor }}
             >
               {buttonLabel}
