@@ -72,12 +72,44 @@ const Reel = () => {
             }}
             exit={{ opacity: 0, scale: 0, transition: { duration: 0.2 } }}
           >
-            <div className="flex items-center gap-2 text-s">
-              <p className="font-general text-[14px] tracking-[0.03em] uppercase max-md:text-[12px]">
+            <AnimatePresence mode="wait">
+              <div className="flex items-center gap-2 text-s" key={isPlaying}>
+                {/*    <p className="font-general text-[14px] tracking-[0.03em] uppercase max-md:text-[12px]">
                 {isPlaying ? "PAUSE REEL" : "PLAY REEL"}
-              </p>
-              {isPlaying ? <IoMdPause /> : <IoMdPlay />}
-            </div>
+              </p> */}
+                {isPlaying ? (
+                  <motion.span
+                    initial={{ clipPath: "inset(40% 40% 40% 40%)" }}
+                    animate={{
+                      clipPath: "inset(0% 0% 0% 0%)",
+                      transition: { duration: 0.25, ease: [0.33, 1, 0.68, 1] },
+                    }}
+                    exit={{
+                      clipPath: "inset(40% 40% 40% 40%)",
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    <IoMdPause className="text-[124px]" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      transition: { duration: 0.25, ease: [0.33, 1, 0.68, 1] },
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                      transition: { duration: 0.2 },
+                    }}
+                  >
+                    <IoMdPlay className="text-[124px]" />{" "}
+                  </motion.span>
+                )}
+              </div>{" "}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>

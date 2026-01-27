@@ -152,7 +152,7 @@ const Works = () => {
       </motion.div>
 
       <motion.div
-        className="fixed inset-0 flex items-center justify-center p-10 h-full z-10 pointer-events-none"
+        className="fixed bottom-0 left-0 flex items-center justify-center p-10  z-10 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{
           opacity: inView ? 1 : 0,

@@ -26,7 +26,7 @@ export const Menu = ({ setMenu }) => {
   return (
     <>
       <motion.div
-        className="fixed top-0 right-0 w-200 bg-s/15 backdrop-blur-2xl z-110 max-lg:w-full"
+        className="fixed top-0 right-0 w-200 bg-s/10 backdrop-blur-3xl z-110 max-lg:w-full"
         variants={menuContainer}
         initial="initial"
         animate="animate"
