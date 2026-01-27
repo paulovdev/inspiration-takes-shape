@@ -5,7 +5,8 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, forwardRef } from "react";
+
 import { IoArrowDownSharp } from "react-icons/io5";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { lab } from "./home.data";
@@ -17,7 +18,6 @@ import Image from "next/image";
 const size = 600;
 const center = size / 2;
 const radius = 250;
-const responsiveRadius = "clamp(200px, 20vw, 275px)";
 
 const totalTicks = 80;
 const bigTicks = [0, 20, 40, 60];
@@ -28,6 +28,7 @@ const Hero = () => {
   const [activeTick, setActiveTick] = useState(0);
   const [rotation, setRotation] = useState(0);
   const isAnimatingRef = useRef(false);
+  const dialRef = useRef(null);
 
   const activeItem = lab.find((i) => i.tick === activeTick);
 
@@ -79,6 +80,7 @@ const Hero = () => {
           <BackgroundMedia
             activeItem={activeItem}
             isAnimatingRef={isAnimatingRef}
+            dialRef={dialRef}
           />
 
           <motion.div
@@ -89,6 +91,7 @@ const Hero = () => {
             <CenterTitle activeItem={activeItem} />
 
             <CircleDial
+              ref={dialRef}
               activeTick={activeTick}
               rotation={rotation}
               onTickClick={handleTickClick}
@@ -107,60 +110,102 @@ const Hero = () => {
   );
 };
 
-const BackgroundMedia = ({ activeItem, isAnimatingRef }) => {
+const BackgroundMedia = ({ activeItem, isAnimatingRef, dialRef }) => {
   const [scope, animate] = useAnimate();
   const [displayItem, setDisplayItem] = useState(activeItem);
 
   useEffect(() => {
-    if (!activeItem || isAnimatingRef.current) return;
+    if (!activeItem || isAnimatingRef.current || !scope.current) return;
+
+    let frame;
 
     const run = async () => {
+      if (!dialRef.current) {
+        frame = requestAnimationFrame(run);
+        return;
+      }
+
+      const el = scope.current;
+      const rect = dialRef.current.getBoundingClientRect();
+
+      if (!rect.width) {
+        frame = requestAnimationFrame(run);
+        return;
+      }
+
+      const radius = rect.width / 2;
+      const circleSmall = `circle(${radius - 40}px at 50% 50%)`;
+      const circleFull = `circle(150% at 50% 50%)`;
+
       isAnimatingRef.current = true;
 
       await animate(
-        ".media-active",
+        el,
         {
-          clipPath: `circle(${responsiveRadius} at 50% 50%)`,
+          rotate: 0,
           opacity: 1,
-          filter: "grayscale(0%)",
+          filter: "grayscale(0%) blur(0px)",
+          clipPath: circleFull,
+        },
+        { duration: 0 },
+      );
+
+      await animate(
+        el,
+        {
+          clipPath: circleSmall,
+          filter: "grayscale(40%) blur(20px)",
         },
         { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
       );
 
       await animate(
-        ".media-active",
-        { rotate: 180, opacity: 0, filter: "grayscale(100%)" },
-        { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+        el,
+        {
+          rotate: 180,
+          opacity: 0,
+          filter: "grayscale(100%) blur(80px)",
+        },
+        { duration: 1, ease: [0.76, 0, 0.24, 1] },
       );
 
       setDisplayItem(activeItem);
 
       await animate(
-        ".media-active",
-        { rotate: 360, opacity: 1, filter: "grayscale(0%)" },
-        { duration: 0.5, ease: [0.645, 0.045, 0.355, 1] },
+        el,
+        {
+          rotate: 360,
+          opacity: 1,
+          filter: "grayscale(0%) blur(40px)",
+        },
+        { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
       );
 
       await animate(
-        ".media-active",
-        { clipPath: "circle(150% at 50% 50%)" },
+        el,
+        {
+          clipPath: circleFull,
+          filter: "grayscale(0%) blur(0px)",
+        },
         { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
       );
 
       isAnimatingRef.current = false;
     };
-
     run();
+    return () => cancelAnimationFrame(frame);
   }, [activeItem, animate]);
 
   return (
-    <div ref={scope} className="absolute inset-0 overflow-hidden">
-      <motion.figure
-        className="media-active absolute inset-0 will-change-[clip-path]"
-        style={{ clipPath: "circle(0px at 50% 50%)" }}
+    <div className="absolute inset-0 z-0 pointer-events-none">
+      <motion.div
+        ref={scope}
+        className="absolute inset-0 will-change-[clip-path,transform,filter]"
+        style={{ clipPath: "circle(150% at 50% 50%)" }}
       >
         {displayItem?.src.includes(".mp4") ? (
           <video
+            key={displayItem.src}
             src={displayItem.src}
             autoPlay
             muted
@@ -170,6 +215,7 @@ const BackgroundMedia = ({ activeItem, isAnimatingRef }) => {
           />
         ) : (
           <Image
+            key={displayItem.src}
             src={displayItem.src}
             fill
             alt=""
@@ -177,7 +223,7 @@ const BackgroundMedia = ({ activeItem, isAnimatingRef }) => {
             className="object-cover brightness-75"
           />
         )}
-      </motion.figure>
+      </motion.div>
     </div>
   );
 };
@@ -211,7 +257,7 @@ const CenterTitle = ({ activeItem }) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              custom={1}
+              custom={1.25}
             >
               {activeItem.title}
               <span className="relative text-[10px] -top-[3px]">
@@ -238,7 +284,7 @@ const CenterTitle = ({ activeItem }) => {
   );
 };
 
-const CircleDial = ({ activeTick, rotation, onTickClick }) => {
+const CircleDial = forwardRef(({ activeTick, rotation, onTickClick }, ref) => {
   const { x, y } = useMousePosition();
   const isMobile = useIsMobile();
   const rotateYMotion = useTransform(x, [0.5, -0.5], [-20, 20]);
@@ -250,6 +296,7 @@ const CircleDial = ({ activeTick, rotation, onTickClick }) => {
   const [hover, setHover] = useState(null);
   return (
     <motion.svg
+      ref={ref}
       width={size}
       height={size}
       viewBox={`0 0 ${size} ${size}`}
@@ -315,6 +362,6 @@ const CircleDial = ({ activeTick, rotation, onTickClick }) => {
       })}
     </motion.svg>
   );
-};
+});
 
 export default Hero;
