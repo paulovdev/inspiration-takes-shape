@@ -84,7 +84,7 @@ const CardGrid = ({ gallery, index }) => {
             {gallery.description.map((phrase, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.p
-                  className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase text-center"
+                  className="text-s  text-[16px] leading-[1.2] tracking-[0.03em]  text-center"
                   variants={textSlideNoI}
                   initial="initial"
                   animate={inView ? "animate" : "initial"}
@@ -104,7 +104,6 @@ const CardGrid = ({ gallery, index }) => {
 const Services = () => {
   return (
     <section className="relative p-10 bg-s w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
-     
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-nowrap snap-mandatory overflow-x-scroll ">
         {services.map((gallery, i) => (
           <CardGrid key={i} gallery={gallery} index={i} />

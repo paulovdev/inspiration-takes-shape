@@ -6,6 +6,7 @@ import Lenis from "lenis";
 import Works from "@/components/section/home-components/works";
 import { useEffect } from "react";
 import {
+  heroPhrases,
   phrases,
   phrases2,
 } from "@/components/section/home-components/home.data";
@@ -14,6 +15,7 @@ import HighlightList from "@/components/highlight/highlight-list";
 import Footer from "@/components/footer/footer";
 import JoinUs from "@/components/join-us";
 import BigText from "@/components/section/home-components/big-text";
+import Tran from "@/components/tran/tran";
 
 const Index = () => {
   useEffect(() => {
@@ -28,6 +30,7 @@ const Index = () => {
       <Nav />
       <main className="w-auto min-h-screen ">
         <Hero />
+        <Tran heroPhrases={heroPhrases} />
         <About
           phrases={phrases}
           subPhrases={phrases2}
@@ -48,8 +51,8 @@ const Index = () => {
         <Reel />
         <BigText />
       </main>
-      <JoinUs />
-      <Footer />
+      {/*  <JoinUs />
+      <Footer /> */}
     </>
   );
 };

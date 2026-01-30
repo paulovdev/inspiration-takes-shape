@@ -44,17 +44,21 @@ export const lab = [
   },
 ];
 
+export const heroPhrases = [
+  "We design brands, systems and experiences",
+  "that move culture forward and give ideas",
+  "a meaningful role in people’s lives.",
+];
+
 export const phrases = [
   "INSPIRATION TAKES SHAPE®",
-  "is an art direction and experimental design",
-  " studio shaping ideas through concept,",
-  "form and visual systems.",
+  "Is an art direction and experimental design studio dedicated",
+  "to shaping ideas through concept development, visual language,",
+  "and carefully crafted design systems.",
   " ",
-  "We create identities, interfaces and digital",
-  "experiences guided by research and experimentation.",
-  " ",
-  "Each project is built with intention, clarity",
-  "and a strong narrative foundation.",
+  "We create brand identities, digital platforms and immersive",
+  "experiences guided by research, cultural insight, and a strong",
+  "foundation of experimentation and iteration.",
 ];
 
 export const phrases2 = ["About Us", "shaping ideas through design."];
