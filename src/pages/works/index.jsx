@@ -4,6 +4,8 @@ import Works from "@/components/section/works-components/works";
 import Lenis from "lenis";
 
 import { useEffect } from "react";
+import Footer from "@/components/footer/footer";
+import Transition from "@/components/transition";
 const Index = () => {
   useEffect(() => {
     const lenis = new Lenis({
@@ -12,10 +14,10 @@ const Index = () => {
     });
   }, []);
   return (
-    <>
+    <Transition>
       <Nav />
 
-      <main className="w-auto min-h-screen select-none">
+      <main className="w-auto min-h-screen bg-s select-none">
         <Hero
           title="Case Studies"
           subTitle="Collection of"
@@ -23,7 +25,8 @@ const Index = () => {
         />
         <Works />
       </main>
-    </>
+      <Footer />
+    </Transition>
   );
 };
 

@@ -22,11 +22,13 @@ const radius = 250;
 const totalTicks = 80;
 const bigTicks = [0, 20, 40, 60];
 
-const Hero = () => {
+const Hero = ({ lenis }) => {
   const container = useRef(null);
   const isMobile = useIsMobile();
   const [activeTick, setActiveTick] = useState(0);
   const [rotation, setRotation] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
   const isAnimatingRef = useRef(false);
   const dialRef = useRef(null);
 
@@ -64,6 +66,32 @@ const Hero = () => {
     setRotation((prev) => prev - diff);
   };
 
+  useEffect(() => {
+    if (!lenis?.current) return;
+
+    const body = document.body;
+
+    if (isAnimating) {
+      lenis.current.scrollTo(0, {
+        immediate: true,
+        lock: true,
+      });
+      body.style.overflow = "hidden";
+      body.style.cursor = "wait";
+      lenis.current.stop();
+    } else {
+      body.style.overflow = "";
+      body.style.cursor = "";
+      lenis.current.start();
+    }
+
+    return () => {
+      body.style.overflow = "";
+      body.style.cursor = "";
+      lenis.current?.start();
+    };
+  }, [isAnimating, lenis]);
+
   return (
     <section
       className=" w-screen h-screen bg-black overflow-hidden select-none"
@@ -79,12 +107,13 @@ const Hero = () => {
         <div className="absolute inset-0 w-screen h-screen flex flex-col items-center justify-between">
           <BackgroundMedia
             activeItem={activeItem}
+            activeTick={activeTick}
             isAnimatingRef={isAnimatingRef}
+            setIsAnimating={setIsAnimating}
             dialRef={dialRef}
           />
 
           <motion.div
-            ref={container}
             className="absolute inset-0 flex items-center justify-center z-20 will-change-transform"
             style={{ y, scale, perspective: 1400, rotateX }}
           >
@@ -110,12 +139,33 @@ const Hero = () => {
   );
 };
 
-const BackgroundMedia = ({ activeItem, isAnimatingRef, dialRef }) => {
+const BackgroundMedia = ({
+  activeItem,
+  activeTick,
+  isAnimatingRef,
+  setIsAnimating,
+  dialRef,
+}) => {
   const [scope, animate] = useAnimate();
   const [displayItem, setDisplayItem] = useState(activeItem);
 
+  const lastAnimatedTick = useRef(activeTick);
+  const isFirstMount = useRef(true);
+
   useEffect(() => {
-    if (!activeItem || isAnimatingRef.current || !scope.current) return;
+    if (!activeItem || !scope.current) return;
+
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      lastAnimatedTick.current = activeTick;
+      setDisplayItem(activeItem);
+      return;
+    }
+
+    // 🚫 Se já animou para esse tick, não anima de novo (ex: voltou de rota)
+    if (lastAnimatedTick.current === activeTick) return;
+
+    if (isAnimatingRef.current) return;
 
     let frame;
 
@@ -127,7 +177,6 @@ const BackgroundMedia = ({ activeItem, isAnimatingRef, dialRef }) => {
 
       const el = scope.current;
       const rect = dialRef.current.getBoundingClientRect();
-
       if (!rect.width) {
         frame = requestAnimationFrame(run);
         return;
@@ -138,63 +187,63 @@ const BackgroundMedia = ({ activeItem, isAnimatingRef, dialRef }) => {
       const circleFull = `circle(150% at 50% 50%)`;
 
       isAnimatingRef.current = true;
+      setIsAnimating(true);
 
-      await animate(
-        el,
-        {
-          rotate: 0,
-          opacity: 1,
-          filter: "grayscale(0%) blur(0px)",
-          clipPath: circleFull,
-        },
-        { duration: 0 },
-      );
+      try {
+        await animate(
+          el,
+          {
+            rotate: 0,
+            opacity: 1,
+            filter: "grayscale(0%) blur(0px)",
+            clipPath: circleFull,
+          },
+          { duration: 0 },
+        );
 
-      await animate(
-        el,
-        {
-          clipPath: circleSmall,
-          filter: "grayscale(40%) blur(20px)",
-        },
-        { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
-      );
+        await animate(
+          el,
+          { clipPath: circleSmall, filter: "grayscale(40%) blur(20px)" },
+          { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
+        );
 
-      await animate(
-        el,
-        {
-          rotate: 180,
-          opacity: 0,
-          filter: "grayscale(100%) blur(80px)",
-        },
-        { duration: 1, ease: [0.76, 0, 0.24, 1] },
-      );
+        await animate(
+          el,
+          { rotate: 180, opacity: 0, filter: "grayscale(100%) blur(80px)" },
+          { duration: 1, ease: [0.76, 0, 0.24, 1] },
+        );
 
-      setDisplayItem(activeItem);
+        setDisplayItem(activeItem);
 
-      await animate(
-        el,
-        {
-          rotate: 360,
-          opacity: 1,
-          filter: "grayscale(0%) blur(40px)",
-        },
-        { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
-      );
+        await animate(
+          el,
+          { rotate: 360, opacity: 1, filter: "grayscale(0%) blur(40px)" },
+          { duration: 0.6, ease: [0.76, 0, 0.24, 1] },
+        );
 
-      await animate(
-        el,
-        {
-          clipPath: circleFull,
-          filter: "grayscale(0%) blur(0px)",
-        },
-        { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
-      );
+        await animate(
+          el,
+          { clipPath: circleFull, filter: "grayscale(0%) blur(0px)" },
+          { duration: 1, ease: [0.645, 0.045, 0.355, 1] },
+        );
 
-      isAnimatingRef.current = false;
+        lastAnimatedTick.current = activeTick;
+      } finally {
+        isAnimatingRef.current = false;
+        setIsAnimating(false);
+      }
     };
+
     run();
     return () => cancelAnimationFrame(frame);
-  }, [activeItem, animate]);
+  }, [activeItem, activeTick, animate]);
+
+  useEffect(() => {
+    return () => {
+      isAnimatingRef.current = false;
+      setIsAnimating(false);
+    };
+  }, []);
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none">

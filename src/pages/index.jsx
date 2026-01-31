@@ -4,7 +4,7 @@ import Reel from "@/components/section/home-components/reel";
 import Nav from "@/components/navigation/nav";
 import Lenis from "lenis";
 import Works from "@/components/section/home-components/works";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   heroPhrases,
   phrases,
@@ -13,23 +13,32 @@ import {
 import { clients } from "@/data/clients.data";
 import HighlightList from "@/components/highlight/highlight-list";
 import Footer from "@/components/footer/footer";
-import JoinUs from "@/components/join-us";
+
 import BigText from "@/components/section/home-components/big-text";
 import Tran from "@/components/tran/tran";
+import Transition from "@/components/transition";
 
 const Index = () => {
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
       syncTouch: true,
     });
+
+    lenisRef.current = lenis;
+
+    return () => {
+      lenis.destroy();
+    };
   }, []);
 
   return (
-    <>
+    <Transition>
       <Nav />
-      <main className="w-auto min-h-screen ">
-        <Hero />
+      <main className="w-auto min-h-screen bg-s select-none">
+        <Hero lenis={lenisRef} />
         <Tran heroPhrases={heroPhrases} />
         <About
           phrases={phrases}
@@ -48,12 +57,12 @@ const Index = () => {
           data={clients}
           title="Clients we’ve partnered with to build meaningful digital experiences."
         />
-        <Reel />
+        <Reel lenis={lenisRef} />
         <BigText />
       </main>
-      {/*  <JoinUs />
-      <Footer /> */}
-    </>
+
+      <Footer />
+    </Transition>
   );
 };
 

@@ -8,9 +8,8 @@ import Image from "next/image";
 import { textSlide, textSlideNoI } from "../home-components/home.animations";
 import { useState } from "react";
 
-const CardGrid = ({ gallery, index }) => {
-  const [hover, setHover] = useState(false);
-  const active = hover === index;
+const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
+  const active = activeIndex === index;
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
@@ -18,12 +17,12 @@ const CardGrid = ({ gallery, index }) => {
 
   return (
     <motion.div
-      className="relative group perspective-midrange"
-      onMouseEnter={() => setHover(index)}
-      onMouseLeave={() => setHover(false)}
-      animate={{ flexGrow: active ? 4 : 1 }}
+      className="relative group perspective-midrange flex-[1_1_0%] min-w-0"
+      onMouseEnter={() => setActiveIndex(index)}
+      onMouseLeave={() => setActiveIndex(1)}
+      animate={{ flexGrow: active ? 2 : 1.25 }}
       transition={{
-        duration: 0.75,
+        duration: 1,
         ease: [0.76, 0, 0.24, 1],
       }}
     >
@@ -55,7 +54,7 @@ const CardGrid = ({ gallery, index }) => {
             muted
             loop
             playsInline
-            className="size-full object-cover"
+            className="size-full object-cover brightness-80"
           />
         ) : (
           <Image
@@ -64,14 +63,14 @@ const CardGrid = ({ gallery, index }) => {
             height={2000}
             alt={gallery.alt}
             priority
-            className="size-full object-cover"
+            className="size-full object-cover brightness-80"
           />
         )}
 
         <div className="absolute inset-0 p-5 flex flex-col justify-between">
           <div className="h-fit overflow-hidden">
             <motion.p
-              className="text-s font-general text-[14px] tracking-[0.03em] uppercase text-center"
+              className="text-s font-general text-[14px] tracking-[0.03em] uppercase"
               variants={textSlide}
               initial="initial"
               animate={inView ? "animate" : "initial"}
@@ -84,10 +83,12 @@ const CardGrid = ({ gallery, index }) => {
             {gallery.description.map((phrase, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.p
-                  className="text-s  text-[16px] leading-[1.2] tracking-[0.03em]  text-center"
+                  className="text-s  text-[16px] leading-[1.2] tracking-[0.03em] "
                   variants={textSlideNoI}
                   initial="initial"
-                  animate={inView ? "animate" : "initial"}
+                  animate={
+                    inView ? (active ? "animate" : "initial") : "initial"
+                  }
                   custom={0.5 + i * 0.075}
                 >
                   {phrase}
@@ -102,11 +103,18 @@ const CardGrid = ({ gallery, index }) => {
 };
 
 const Services = () => {
+  const [activeIndex, setActiveIndex] = useState(1);
   return (
     <section className="relative p-10 bg-s w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-nowrap snap-mandatory overflow-x-scroll ">
         {services.map((gallery, i) => (
-          <CardGrid key={i} gallery={gallery} index={i} />
+          <CardGrid
+            key={i}
+            gallery={gallery}
+            index={i}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          />
         ))}
       </div>
     </section>

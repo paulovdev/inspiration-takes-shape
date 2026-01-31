@@ -8,11 +8,13 @@ import Hero from "@/components/hero/hero";
 import JoinUs from "@/components/join-us";
 
 import HighlightList from "@/components/highlight/highlight-list";
-import { heroPhrases, phrases, phrases2 } from "@/data/about.data";
+import { heroPhrases, phrases } from "@/data/about.data";
 import { awards } from "@/data/about.data";
 import { clients } from "@/data/clients.data";
 import Footer from "@/components/footer/footer";
 import Tran from "@/components/tran/tran";
+import Transition from "@/components/transition";
+import BigText from "@/components/section/home-components/big-text";
 
 const Index = () => {
   useEffect(() => {
@@ -22,10 +24,10 @@ const Index = () => {
     });
   }, []);
   return (
-    <>
+    <Transition>
       <Nav />
 
-      <main className="w-auto min-h-screen ">
+      <main className="w-auto min-h-screen bg-s select-none ">
         <Hero
           title="Inspiration takes shape®"
           subTitle="about us"
@@ -49,12 +51,12 @@ const Index = () => {
           gridIn="grid-cols-1"
         />
 
-        <JoinUs />
+        <BigText />
         <div className=""></div>
       </main>
 
       <Footer />
-    </>
+    </Transition>
   );
 };
 

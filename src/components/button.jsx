@@ -34,7 +34,7 @@ const Button = ({
       scroll={false}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="mt-10 px-4 py-4 w-100 inline-block group max-md:w-full"
+      className="px-4 py-4 w-100 inline-block group max-md:w-full"
       style={{ background: buttonBgColor }}
     >
       <div className="w-full flex items-end justify-between">

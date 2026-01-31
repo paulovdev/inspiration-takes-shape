@@ -24,7 +24,7 @@ const About = ({
       ref={ref}
       className={`pb-10 ${bgColor} ${textColor} max-lg:py-15 max-md:py-10`}
     >
-      <div className="p-10 w-full flex max-lg:flex-col items-start max-lg:p-5 max-md:p-2 max-lg:gap-10">
+      <div className="p-10 w-full flex max-lg:flex-col items-start max-ds:p-8 max-lg:p-5 max-md:p-2 max-lg:gap-10">
         <div className="flex-1"></div>
         <div className="flex-[0.75] w-full flex flex-col items-start">
           <div className="max-w-400 flex flex-col items-start">
@@ -42,12 +42,12 @@ const About = ({
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
-                    className={` text-[21px] max-lg:text-[16px]
+                    className={` text-[21px] max-lg:text-[16px] leading-[1.3]
             ${
               isTitle
                 ? "mb-8 font-general font-semibold text-[14px]! tracking-[0.03em] uppercase "
                 : isPrinciple
-                  ? "mt-2 mb-1 font-general font-semibold text-[14px]! tracking-[0.03em] uppercase"
+                  ? "mt-2 mb-2 font-general font-semibold text-[14px]! tracking-[0.03em] uppercase"
                   : "font-medium tracking-[0.03em] opacity-75"
             }
           `}
@@ -60,11 +60,11 @@ const About = ({
           </div>
 
           <motion.div
-            className="mt-8 w-full flex"
+            className="mt-18 w-full flex"
             variants={opacity}
             initial="initial"
             animate={inView ? "animate" : "initial"}
-            custom={1.2}
+            custom={1}
           >
             {showButton && (
               <Button

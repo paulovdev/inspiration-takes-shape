@@ -54,3 +54,15 @@ export const scale = {
     },
   },
 };
+
+export const textSlide = {
+  initial: { y: "100%" },
+  animate: (custom) => ({
+    y: "0%",
+    transition: {
+      duration: 0.75,
+      ease: [0.33, 1, 0.68, 1],
+      delay: custom * 0.075,
+    },
+  }),
+};

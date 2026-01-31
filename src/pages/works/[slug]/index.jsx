@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 
 import Image from "next/image";
 import Hero from "@/components/hero/hero";
+import Transition from "@/components/transition";
 
 const Index = () => {
   const lenisRef = useRef(null);
@@ -40,7 +41,7 @@ const Index = () => {
   if (!work) return null;
 
   return (
-    <>
+    <Transition>
       <Nav />
       <Hero title={work.description} subTitle={work.title} src={work.src} />
 
@@ -75,7 +76,7 @@ const Index = () => {
       <div className="flex items-center">
         <Image src="/bg-1.jpg" width={3000} height={3000} alt="" />
       </div>
-    </>
+    </Transition>
   );
 };
 export default Index;

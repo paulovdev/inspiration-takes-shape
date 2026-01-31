@@ -7,6 +7,8 @@ import Hero from "@/components/hero/hero";
 import HighlightList from "@/components/highlight/highlight-list";
 
 import { credits } from "@/data/credits.data";
+import Footer from "@/components/footer/footer";
+import Transition from "@/components/transition";
 
 const Index = () => {
   useEffect(() => {
@@ -17,10 +19,10 @@ const Index = () => {
   }, []);
 
   return (
-    <>
+    <Transition>
       <Nav />
 
-      <main className="w-auto min-h-screen select-none">
+      <main className="w-auto min-h-screen bg-s border-b border-p/10 select-none">
         <Hero
           title={[
             "Credits for the collaborators who contributed",
@@ -37,7 +39,8 @@ const Index = () => {
           gridIn="grid-cols-2"
         />
       </main>
-    </>
+      <Footer />
+    </Transition>
   );
 };
 

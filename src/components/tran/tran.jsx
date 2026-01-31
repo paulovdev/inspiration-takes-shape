@@ -22,7 +22,7 @@ const Tran = ({ heroPhrases }) => {
       {heroPhrases.map((phrase, i) => (
         <div key={i} className="overflow-hidden w-full">
           <motion.h2
-            className="w-full text-p text-[clamp(1em,5vw,4.25vw)] tracking-[-0.03em] leading-[1.1] will-change-auto"
+            className="w-full text-p font-normal text-[82px] leading-[1.1] tracking-[-0.05em] max-lg:text-[56px] max-md:text-[34px] max-md:tracking-[-0.03em] will-change-auto"
             custom={2.5 + i}
             variants={textSlide}
             initial="initial"

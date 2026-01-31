@@ -152,7 +152,7 @@ const Works = () => {
   });
   return (
     <section
-      className="relative bg-s w-screen h-full overflow-hidden"
+      className="relative bg-s border-b border-p/10 w-screen h-full overflow-hidden"
       ref={ref}
     >
       {mode === "grid" && (
@@ -164,7 +164,7 @@ const Works = () => {
       )}
 
       {mode === "list" && (
-        <div className="p-10 mb-20 relative z-20 max-lg:p-5 max-md:p-2">
+        <div className="relative p-10 mb-20 z-20 max-ds:p-8 max-lg:p-5 max-md:p-2">
           {works.map((work, i) => (
             <CardList
               key={i}

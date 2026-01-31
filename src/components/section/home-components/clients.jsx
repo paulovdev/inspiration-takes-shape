@@ -25,7 +25,7 @@ const Clients = () => {
 
   return (
     <section ref={ref} className="pt-20 bg-s">
-      <div className="p-10 w-full flex flex-col max-lg:p-5 max-md:p-2">
+      <div className="p-10 w-full flex flex-col max-ds:p-8 max-lg:p-5 max-md:p-2">
         <div className="mb-10">
           <p className="text-p font-general font-medium text-[12px] tracking-[0.03em] uppercase">
             CLIENTS
