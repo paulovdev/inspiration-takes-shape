@@ -53,7 +53,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             autoPlay
             muted
             loop
-            playsInline
+            playsInline  preload="none"
             className="size-full object-cover brightness-80"
           />
         ) : (

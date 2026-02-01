@@ -33,6 +33,7 @@ const CardGrid = ({ work, index }) => {
               muted
               loop
               playsInline
+              preload="none"
               className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
             />
           ) : (
@@ -248,6 +249,7 @@ const Works = () => {
                       muted
                       loop
                       playsInline
+                      preload="none"
                       className="size-full object-cover"
                     />
                   ) : (

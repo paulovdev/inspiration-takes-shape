@@ -27,8 +27,8 @@ const Reel = () => {
 
   const clipPathScroll = useTransform(
     scrollYProgress,
-    [0, 1],
-    ["inset(15% 15% 15% 15%)", "inset(0% 0% 0% 0%)"],
+    [0, 0.5, 1],
+    ["inset(15% 15% 15% 15%)", "inset(10% 10% 10% 10%)", "inset(0% 0% 0% 0%)"],
   );
   const { x, y } = useMousePosition2();
 
@@ -87,6 +87,8 @@ const Reel = () => {
           <video
             src="/reel.mp4"
             alt=""
+            playsInline
+            preload="none"
             className="size-full object-cover brightness-75"
           />
         </div>

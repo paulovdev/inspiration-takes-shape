@@ -259,9 +259,10 @@ const BackgroundMedia = ({
             autoPlay
             muted
             loop
-            playsInline
+            playsInline  preload="none"
             className="w-full h-full object-cover brightness-75"
           />
+          
         ) : (
           <Image
             key={displayItem.src}

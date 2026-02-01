@@ -36,11 +36,11 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="relative h-[75vh] bg-s  max-ds:h-[85dvh] max-md:h-[90dvh] z-100"
+      className="relative h-[75vh] bg-s  max-ds:h-[85dvh] max-md:h-[90dvh] z-50"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 w-full h-[75vh] flex flex-col justify-between max-md:gap-10 max-ds:h-[80dvh] max-md:h-[80dvh]">
-        <div className="w-full p-10 flex justify-between items-start gap-25 max-ds:p-8 max-ds:gap-15 max-lg:flex-col max-lg:gap-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
+        <div className="w-full p-10 flex justify-between items-start gap-25 max-ds:gap-15 max-lg:flex-col max-lg:gap-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
           <div className="flex-1 size-full flex items-start justify-start gap-25 max-ds:gap-15">
             <div className="flex flex-col items-start max-ds:truncate">
               <motion.p

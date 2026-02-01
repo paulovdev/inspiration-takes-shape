@@ -37,6 +37,7 @@ const Hero = ({ title, subTitle, src }) => {
                   muted
                   loop
                   playsInline
+                  preload="none"
                   className="relative size-full object-cover brightness-75"
                 />
               ) : (

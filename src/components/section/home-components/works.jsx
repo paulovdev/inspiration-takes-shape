@@ -15,7 +15,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
   const y2 = useTransform(
     scrollYProgress,
     [0, 1],
-    isLeft ? [0, 600] : [0, 300],
+    isLeft ? [0, 1300] : [0, 1150],
   );
 
   return (
@@ -98,7 +98,7 @@ const Works = () => {
       </section>
 
       <motion.div
-        className="fixed z-[1000]"
+        className="fixed z-[1000] max-md:hidden"
         style={{
           left: x,
           top: y,
@@ -107,8 +107,8 @@ const Works = () => {
           pointerEvents: "none",
         }}
       >
-        <div className="w-75 flex items-center justify-between">
-          <div className="relative h-[17px] w-full overflow-hidden">
+        <div className="w-150 h-full flex items-center justify-between max-ds:w-100 max-lg:w-75 max-lg:items-start">
+          <div className="relative w-full h-[17px] overflow-hidden">
             <AnimatePresence mode="sync">
               {activeWork && (
                 <motion.p
@@ -118,10 +118,7 @@ const Works = () => {
                   animate="animate"
                   exit="exit"
                   className="
-                    absolute left-0 top-0
-                    text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]
-                    whitespace-nowrap
-                  "
+                    absolute left-0 top-0 text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] whitespace-nowrap"
                 >
                   {activeWork.title}
                 </motion.p>
