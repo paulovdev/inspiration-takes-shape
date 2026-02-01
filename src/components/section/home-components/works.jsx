@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { textOverlap } from "./home.animations";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
   const y2 = useTransform(
     scrollYProgress,
     [0, 1],
-    isLeft ? [0, 1300] : [0, 1150],
+    isLeft ? [0, 600] : [0, 300],
   );
 
   return (
@@ -63,6 +64,7 @@ const Works = () => {
   const [activeWork, setActiveWork] = useState(null);
   const [tick, setTick] = useState(0);
   const { x, y } = useMousePosition2();
+  const isMobile = useIsMobile();
 
   const bump = () => setTick((t) => t + 1);
 
@@ -96,58 +98,58 @@ const Works = () => {
           </div>
         </motion.div>
       </section>
-
-      <motion.div
-        className="fixed z-[1000] max-md:hidden"
-        style={{
-          left: x,
-          top: y,
-          translateX: "-50%",
-          translateY: "-50%",
-          pointerEvents: "none",
-        }}
-      >
-        <div className="w-150 h-full flex items-center justify-between max-ds:w-100 max-lg:w-75 max-lg:items-start">
-          <div className="relative w-full h-[17px] overflow-hidden">
-            <AnimatePresence mode="sync">
-              {activeWork && (
-                <motion.p
-                  key={`${activeWork.id}-${tick}`}
-                  variants={textOverlap}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  className="
+      {!isMobile && (
+        <motion.div
+          className="fixed z-1000 max-md:hidden"
+          style={{
+            left: x,
+            top: y,
+            translateX: "-50%",
+            translateY: "-50%",
+            pointerEvents: "none",
+          }}
+        >
+          <div className="w-150 h-full flex items-center justify-between max-ds:w-100 max-lg:w-75 max-lg:items-start">
+            <div className="relative w-full h-[17px] overflow-hidden">
+              <AnimatePresence mode="sync">
+                {activeWork && (
+                  <motion.p
+                    key={`${activeWork.id}-${tick}`}
+                    variants={textOverlap}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    className="
                     absolute left-0 top-0 text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] whitespace-nowrap"
-                >
-                  {activeWork.title}
-                </motion.p>
-              )}
-            </AnimatePresence>
-          </div>
+                  >
+                    {activeWork.title}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
 
-          <div className="relative w-full h-[17px] overflow-hidden">
-            <AnimatePresence mode="sync">
-              {activeWork && (
-                <motion.p
-                  key={`${activeWork.id}-${tick}-year`}
-                  variants={textOverlap}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  className="
+            <div className="relative w-full h-[17px] overflow-hidden">
+              <AnimatePresence mode="sync">
+                {activeWork && (
+                  <motion.p
+                    key={`${activeWork.id}-${tick}-year`}
+                    variants={textOverlap}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    className="
                     absolute right-0 top-0
                     text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]
                   "
-                >
-                  {activeWork.year}
-                </motion.p>
-              )}
-            </AnimatePresence>
+                  >
+                    {activeWork.year}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
-        </div>
-      </motion.div>
-
+        </motion.div>
+      )}
       <motion.div
         className="fixed bottom-0 left-0 flex items-center justify-center p-10  z-10 pointer-events-none"
         initial={{ opacity: 0 }}

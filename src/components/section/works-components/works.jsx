@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { bg, mediaOverlap, textHover, textSlideNoI } from "./works.animations";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { scale } from "@/animations/global-anim";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const CardGrid = ({ work, index }) => {
   const router = useRouter();
@@ -143,6 +144,7 @@ const Works = () => {
   const [visible, setVisible] = useState(false);
   const [mediaTick, setMediaTick] = useState(0);
 
+  const isMobile = useIsMobile();
   const bumpMedia = () => {
     setMediaTick((t) => t + 1);
   };
@@ -222,7 +224,7 @@ const Works = () => {
       </AnimatePresence>
 
       <AnimatePresence mode="wait">
-        {mode === "list" && visible && (
+        {mode === "list" && visible && !isMobile && (
           <motion.div
             style={{ x, y }}
             className="

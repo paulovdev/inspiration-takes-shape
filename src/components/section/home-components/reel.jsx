@@ -8,12 +8,12 @@ import {
 } from "react-icons/io";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
-import Image from "next/image";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Reel = () => {
   const videoRef = useRef(null);
   const container = useRef(null);
-
+  const isMobile = useIsMobile();
   const [videoOpen, setVideoOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -27,8 +27,8 @@ const Reel = () => {
 
   const clipPathScroll = useTransform(
     scrollYProgress,
-    [0, 0.5, 1],
-    ["inset(15% 15% 15% 15%)", "inset(10% 10% 10% 10%)", "inset(0% 0% 0% 0%)"],
+    [0, 1],
+    ["inset(15% 15% 15% 15%)", "inset(0% 0% 0% 0%)"],
   );
   const { x, y } = useMousePosition2();
 
@@ -80,15 +80,14 @@ const Reel = () => {
       <motion.div
         ref={container}
         style={{ clipPath: clipPathScroll }}
-        className="relative w-screen h-screen flex items-center justify-center bg-black"
+        className="relative w-screen h-dvh flex items-center justify-center bg-black"
         onClick={() => setVideoOpen(true)}
       >
         <div className="absolute inset-0 size-full -z-10">
           <video
             src="/reel.mp4"
             alt=""
-            playsInline
-            preload="none"
+            muted
             className="size-full object-cover brightness-75"
           />
         </div>
@@ -114,7 +113,7 @@ const Reel = () => {
         {videoOpen && (
           <motion.div
             key="video-modal"
-            className="fixed inset-0 w-screen h-screen bg-black z-[9999] flex items-center justify-center"
+            className="fixed inset-0 w-screen h-dvh bg-black z-[9999] flex items-center justify-center"
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             exit={{ clipPath: "inset(100% 0% 0% 0%)" }}
@@ -152,7 +151,7 @@ const Reel = () => {
 
             <div
               className="absolute top-6 right-6 text-white text-3xl cursor-pointer"
-              onClick={() => setVideoOpen(false)}
+              onClick={closeVideo}
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
@@ -160,10 +159,10 @@ const Reel = () => {
             </div>
 
             <AnimatePresence>
-              {!hover && (
+              {!hover && !isMobile && (
                 <motion.div
                   key={isPlaying ? "pause" : "play"}
-                  className="fixed z-[10000] pointer-events-none"
+                  className="fixed z-1000 pointer-events-none"
                   style={{
                     left: x,
                     top: y,
