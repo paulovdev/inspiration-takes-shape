@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { IoArrowDownSharp } from "react-icons/io5";
-import { textSlide, scale } from "./heros.animations";
+import { scale } from "../../animations/sections/hero.animations";
+import { textSlide } from "@/animations/shared/global-anim";
 import Image from "next/image";
+import TextAnimated from "../ui/text-animated";
 
-const Hero = ({ title, subTitle, src }) => {
+const PageHero = ({ title = [], subTitle, src }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -37,7 +39,7 @@ const Hero = ({ title, subTitle, src }) => {
                   muted
                   loop
                   playsInline
-                  preload="none"
+                  preload="metada" 
                   className="relative size-full object-cover brightness-75"
                 />
               ) : (
@@ -54,14 +56,14 @@ const Hero = ({ title, subTitle, src }) => {
           </div>
 
           <div className="absolute inset-0 w-screen h-screen">
-            <div className=" w-full h-screen flex flex-col items-center justify-between gap-6">
+            <div className="w-full h-screen flex flex-col items-center justify-between gap-6">
               <div className="size-full flex flex-col justify-center items-center">
                 <div className="mb-5 h-fit overflow-hidden">
                   <motion.span
                     variants={textSlide}
                     initial="initial"
                     animate="animate"
-                    custom={3}
+                    custom={0.1}
                     className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase text-center flex items-center gap-2 will-change-transform
                     max-md:text-[12px]"
                   >
@@ -69,34 +71,22 @@ const Hero = ({ title, subTitle, src }) => {
                   </motion.span>
                 </div>
 
-                {Array.isArray(title) ? (
-                  title.map((item, i) => (
-                    <div className="h-fit overflow-hidden">
-                      <motion.h2
-                        key={i}
-                        variants={textSlide}
-                        initial="initial"
-                        animate="animate"
-                        custom={4 + i}
-                        className="text-s text-[62px] tracking-[-0.03em] leading-none text-center max-lg:text-[48px] max-md:text-[42px]"
-                      >
-                        {item}
-                      </motion.h2>
-                    </div>
-                  ))
-                ) : (
-                  <div className="h-fit overflow-hidden">
-                    <motion.h2
-                      variants={textSlide}
-                      initial="initial"
-                      animate="animate"
-                      custom={4}
-                      className="text-s text-[62px] tracking-[-0.03em] leading-none text-center max-lg:text-[48px] max-md:text-[42px]"
-                    >
-                      {title}
-                    </motion.h2>
-                  </div>
-                )}
+                <TextAnimated
+                  phrases={title}
+                  variants={textSlide}
+                  as="h2"
+                  className="max-w-[1400px] w-full flex flex-col"
+                  lineClassName="
+          text-s text-[62px] tracking-[-0.03em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[32px] 
+          flex items-center justify-center flex-wrap mb-12
+        "
+                  wordClassName="mr-2"
+                  wordDelay={0.025}
+                  lineDelay={0.015}
+                />
               </div>
 
               <div className="mb-10 overflow-hidden">
@@ -104,7 +94,7 @@ const Hero = ({ title, subTitle, src }) => {
                   variants={textSlide}
                   initial="initial"
                   animate="animate"
-                  custom={5}
+                  custom={0.2}
                   className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase flex items-center gap-2 will-change-transform"
                 >
                   scroll
@@ -118,4 +108,4 @@ const Hero = ({ title, subTitle, src }) => {
     </>
   );
 };
-export default Hero;
+export default PageHero;

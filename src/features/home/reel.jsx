@@ -22,7 +22,7 @@ const Reel = () => {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start end", "center center"],
+    offset: ["start center", "center center"],
   });
 
   const clipPathScroll = useTransform(
@@ -80,7 +80,7 @@ const Reel = () => {
       <motion.div
         ref={container}
         style={{ clipPath: clipPathScroll }}
-        className="relative w-screen h-dvh flex items-center justify-center bg-black"
+        className="relative w-screen h-dvh flex items-center justify-center bg-black will-change-[clip-path]"
         onClick={() => setVideoOpen(true)}
       >
         <div className="absolute inset-0 size-full -z-10">
@@ -93,7 +93,7 @@ const Reel = () => {
         </div>
         <div className="overflow-hidden h-fit">
           <motion.h3
-            className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px] group"
+            className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px] group will-change-transform"
             initial={false}
             animate={{
               y: videoOpen ? -100 : 0,
@@ -113,7 +113,7 @@ const Reel = () => {
         {videoOpen && (
           <motion.div
             key="video-modal"
-            className="fixed inset-0 w-screen h-dvh bg-black z-[9999] flex items-center justify-center"
+            className="fixed inset-0 w-screen h-dvh bg-black z-[9999] flex items-center justify-center will-change-[clip-path]"
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             exit={{ clipPath: "inset(100% 0% 0% 0%)" }}
@@ -162,7 +162,7 @@ const Reel = () => {
               {!hover && !isMobile && (
                 <motion.div
                   key={isPlaying ? "pause" : "play"}
-                  className="fixed z-1000 pointer-events-none"
+                  className="fixed z-1000 pointer-events-none will-change-transform"
                   style={{
                     left: x,
                     top: y,

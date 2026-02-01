@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
-import { Menu } from "@/components/navigation/menu";
+import { Menu } from "./menu";
 import { useRouter } from "next/router";
 import { motion } from "motion/react";
-import { textSlide } from "./navigation.animations";
+import { textSlide } from "../../../animations/sections/navigation.animations";
 const Nav = () => {
   const [menu, setMenu] = useState(false);
   const router = useRouter();

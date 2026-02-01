@@ -9,8 +9,11 @@ import React, { useEffect, useRef, useState, forwardRef } from "react";
 
 import { IoArrowDownSharp } from "react-icons/io5";
 import { useMousePosition } from "@/hooks/useMousePosition";
-import { lab } from "./home.data";
-import { heroIntro, textSlideNoI } from "./home.animations";
+import { lab } from "../../data/home.data";
+import {
+  heroIntro,
+  textSlideNoI,
+} from "../../animations/sections/home.animations";
 
 import { useIsMobile } from "@/hooks/useIsMobile";
 import Image from "next/image";
@@ -259,10 +262,10 @@ const BackgroundMedia = ({
             autoPlay
             muted
             loop
-            playsInline  preload="none"
+            playsInline
+            preload="metada" 
             className="w-full h-full object-cover brightness-75"
           />
-          
         ) : (
           <Image
             key={displayItem.src}
@@ -351,7 +354,7 @@ const CircleDial = forwardRef(({ activeTick, rotation, onTickClick }, ref) => {
       height={size}
       viewBox={`0 0 ${size} ${size}`}
       className="block w-150 h-150 bg-s/2 backdrop-blur-2xl rounded-full z-10 
-      max-lg:w-125 max-lg:h-125 max-md:w-100 max-md:h-100 max-sm:w-85 max-sm:h-85 max-xsm:w-75 max-xsm:h-75 will-change-auto"
+      max-lg:w-125 max-lg:h-125 max-md:w-100 max-md:h-100 max-sm:w-85 max-sm:h-85 max-xsm:w-75 max-xsm:h-75 will-change-transform"
       initial={{ rotate: 360, transition: { duration: 0.5, delay: 0.5 } }}
       animate={{ rotate: rotation }}
       transition={{ type: "spring", stiffness: 120, damping: 20, delay: 0.1 }}
@@ -405,7 +408,7 @@ const CircleDial = forwardRef(({ activeTick, rotation, onTickClick }, ref) => {
                   ? "drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]"
                   : ""
               }
-            will-change-auto`}
+            will-change-[transform,opacity]`}
             />
           </>
         );

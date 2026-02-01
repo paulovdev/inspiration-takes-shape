@@ -5,7 +5,7 @@ export const textSlide = {
     transition: {
       duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: i * 0.075,
+      delay: i * 0.05,
     },
   }),
 };

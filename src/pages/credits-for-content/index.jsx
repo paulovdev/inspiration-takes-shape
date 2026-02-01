@@ -1,14 +1,11 @@
-import { useEffect } from "react";
-import Lenis from "lenis";
-
-import Nav from "@/components/navigation/nav";
-import Hero from "@/components/hero/hero";
-
-import HighlightList from "@/components/highlight/highlight-list";
-
+import Footer from "@/components/layout/footer";
+import Nav from "@/components/layout/navigation/nav";
+import Transition from "@/components/layout/transition";
+import PageHero from "@/components/sections/hero";
+import ShowcaseGrid from "@/components/sections/showcase-grid";
 import { credits } from "@/data/credits.data";
-import Footer from "@/components/footer/footer";
-import Transition from "@/components/transition";
+import Lenis from "lenis";
+import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
@@ -22,16 +19,15 @@ const Index = () => {
     <Transition>
       <Nav />
 
-      <main className="w-auto min-h-screen bg-s border-b border-p/10 select-none">
-        <Hero
+      <main className="w-auto min-h-screen bg-s border-b border-p/10">
+        <PageHero
           title={[
-            "Credits for the collaborators who contributed",
-            "to photography, video, and content production.",
+            `Credits for the collaborators who contributed to photography, video, and content production.`,
           ]}
           subTitle="Credits for Content"
           src="/creative.jpg"
         />
-        <HighlightList
+        <ShowcaseGrid
           data={credits}
           title="09 may 2024 - thank all <3"
           subTitle="click to see"

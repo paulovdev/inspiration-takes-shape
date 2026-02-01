@@ -1,22 +1,18 @@
-import About from "@/components/about/about";
-import Hero from "@/components/section/home-components/hero";
-import Reel from "@/components/section/home-components/reel";
-import Nav from "@/components/navigation/nav";
-import Lenis from "lenis";
-import Works from "@/components/section/home-components/works";
-import { useEffect, useRef } from "react";
-import {
-  heroPhrases,
-  phrases,
-  phrases2,
-} from "@/components/section/home-components/home.data";
+import Footer from "@/components/layout/footer";
+import Nav from "@/components/layout/navigation/nav";
+import Transition from "@/components/layout/transition";
+import Clients from "@/components/sections/clients";
+import JoinUs from "@/components/sections/join-us";
+import Manifesto from "@/components/sections/manifesto";
+import ShowcaseGrid from "@/components/sections/showcase-grid";
+import TextBlock from "@/components/sections/text-block";
 import { clients } from "@/data/clients.data";
-import HighlightList from "@/components/highlight/highlight-list";
-import Footer from "@/components/footer/footer";
-
-import BigText from "@/components/section/home-components/big-text";
-import Tran from "@/components/tran/tran";
-import Transition from "@/components/transition";
+import { blockPhrases, manifestoPhrases } from "@/data/home.data";
+import Hero from "@/features/home/hero";
+import Reel from "@/features/home/reel";
+import WorksPreview from "@/features/home/works-preview";
+import Lenis from "lenis";
+import { useEffect, useRef } from "react";
 
 const Index = () => {
   const lenisRef = useRef(null);
@@ -37,12 +33,12 @@ const Index = () => {
   return (
     <Transition>
       <Nav />
-      <main className="w-auto min-h-screen bg-s select-none">
+      <main className="min-h-screen bg-s">
         <Hero lenis={lenisRef} />
-        <Tran heroPhrases={heroPhrases} />
-        <About
-          phrases={phrases}
-          subPhrases={phrases2}
+        <Manifesto manifestoPhrases={manifestoPhrases} />
+        <TextBlock
+          blockTitle="INSPIRATION TAKES SHAPE®"
+          blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-p"
           showButton={true}
@@ -51,14 +47,18 @@ const Index = () => {
           buttonBgColor="#000000"
           buttonTextColor="#ffffff"
         />
-        <Works />
-
-        <HighlightList
-          data={clients}
+        <WorksPreview />
+        <Clients
           title="Clients we’ve partnered with to build meaningful digital experiences."
+          bgColor="bg-s"
+          lineColor="border-p/15"
+          textColor="text-p"
+          logoColor="text-p/75"
+          logoHoverColor="hover:text-p"
         />
-        <Reel lenis={lenisRef} />
-        <BigText />
+
+        <Reel />
+        <JoinUs />
       </main>
 
       <Footer />

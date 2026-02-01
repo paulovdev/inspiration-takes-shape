@@ -9,15 +9,12 @@ import {
   textSlide,
   arrowRotate,
   dropdown,
-  line,
+ 
   fade,
-} from "@/components/navigation/navigation.animations";
+} from "@/animations/sections/navigation.animations";
 
-import {
-  navigation,
-  dropNavigation,
-  socials,
-} from "@/components/navigation/navigation.data";
+import { navigation, dropNavigation, socials } from "@/data/navigation.data";
+import { line } from "@/animations/shared/global-anim";
 
 export const Menu = ({ setMenu }) => {
   const router = useRouter();

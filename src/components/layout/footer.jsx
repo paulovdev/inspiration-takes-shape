@@ -1,8 +1,8 @@
-import { opacity, textSlide } from "@/animations/global-anim";
+import { opacity, textSlide } from "@/animations/shared/global-anim";
 import { motion } from "motion/react";
 import { FaLink } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
-import Button from "../button";
+import Button from "../ui/button";
 
 const navLinks = [
   { label: "Index", href: "/" },
@@ -36,7 +36,7 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="relative h-[75vh] bg-s  max-ds:h-[85dvh] max-md:h-[90dvh] z-50"
+      className="relative h-[75vh] bg-s  max-ds:h-[85dvh] max-md:h-[90dvh] z-50 will-change-[clip-path]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 w-full h-[75vh] flex flex-col justify-between max-md:gap-10 max-ds:h-[80dvh] max-md:h-[80dvh]">
@@ -62,7 +62,7 @@ const Footer = () => {
                   className="mb-2 overflow-hidden h-fit"
                 >
                   <motion.p
-                    custom={i}
+                    custom={i * 0.075}
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
@@ -91,14 +91,14 @@ const Footer = () => {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="mb-2 overflow-hidden h-fit"
+                  className="min-w-60 mb-2 overflow-hidden h-fit"
                 >
                   <motion.p
-                    custom={i}
+                    custom={i * 0.075}
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
-                    className="text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase flex items-center gap-2 max-md:text-[12px] hover:text-p/75 transition-all cursor-pointer"
+                    className="text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase flex items-center justify-between gap-2 max-md:text-[12px] hover:text-p/75 transition-all cursor-pointer"
                   >
                     {link.label} <FaLink className="text-[12px]" />
                   </motion.p>
@@ -127,7 +127,7 @@ const Footer = () => {
                   className="mb-2 overflow-hidden h-fit"
                 >
                   <motion.p
-                    custom={i}
+                    custom={i * 0.075}
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
@@ -159,7 +159,7 @@ const Footer = () => {
                 variants={textSlide}
                 initial="initial"
                 animate={inView ? "animate" : "initial"}
-                custom={2}
+                custom={0.2}
                 className=" text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
               >
                 your email adress

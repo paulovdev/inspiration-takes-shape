@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import Nav from "@/components/navigation/nav";
 import { works } from "@/data/works.data";
 import { useIsPresent } from "motion/react";
 import Lenis from "lenis";
@@ -7,8 +6,9 @@ import Lenis from "lenis";
 import { useRouter } from "next/router";
 
 import Image from "next/image";
-import Hero from "@/components/hero/hero";
-import Transition from "@/components/transition";
+import Transition from "@/components/layout/transition";
+import PageHero from "@/components/sections/hero";
+import Nav from "@/components/layout/navigation/nav";
 
 const Index = () => {
   const lenisRef = useRef(null);
@@ -43,7 +43,7 @@ const Index = () => {
   return (
     <Transition>
       <Nav />
-      <Hero title={work.description} subTitle={work.title} src={work.src} />
+      <PageHero title={work.description} subTitle={work.title} src={work.src} />
 
       <div className="p-10 py-40 w-full bg-p flex flex-col items-start">
         <div className="mb-10 max-w-200 flex flex-col items-start">

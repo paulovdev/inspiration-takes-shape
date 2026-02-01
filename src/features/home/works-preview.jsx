@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { textOverlap } from "./home.animations";
+import { textOverlap } from "../../animations/sections/home.animations";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
@@ -59,7 +59,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
   );
 };
 
-const Works = () => {
+const WorksPreview = () => {
   const container = useRef(null);
   const [activeWork, setActiveWork] = useState(null);
   const [tick, setTick] = useState(0);
@@ -80,12 +80,12 @@ const Works = () => {
   return (
     <>
       <section className="overflow-hidden" ref={container}>
-        <motion.div
-          className="relative w-screen h-[200vh] overflow-hidden max-md:h-[150vh]"
+        <div
+          className="relative w-screen h-[200vh] overflow-hidden max-md:h-[150vh] "
           ref={ref}
         >
           <div className="absolute -top-120 w-full h-[200vh] grid grid-cols-2 gap-2 max-lg:-top-75 max-lg:h-[175vh] max-md:h-[150vh]">
-            {works.slice(0, 9).map((work, i) => (
+            {works.slice(0, 8).map((work, i) => (
               <Card
                 key={work.id}
                 work={work}
@@ -96,7 +96,7 @@ const Works = () => {
               />
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
       {!isMobile && (
         <motion.div
@@ -151,7 +151,7 @@ const Works = () => {
         </motion.div>
       )}
       <motion.div
-        className="fixed bottom-0 left-0 flex items-center justify-center p-10  z-10 pointer-events-none"
+        className="fixed bottom-0 left-0 flex items-center justify-center p-10  z-10 pointer-events-none will-change-[opacity]"
         initial={{ opacity: 0 }}
         animate={{
           opacity: inView ? 1 : 0,
@@ -180,4 +180,4 @@ const Works = () => {
   );
 };
 
-export default Works;
+export default WorksPreview;

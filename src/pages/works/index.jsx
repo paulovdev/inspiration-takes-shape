@@ -1,11 +1,11 @@
-import Nav from "@/components/navigation/nav";
-import Hero from "@/components/hero/hero";
-import Works from "@/components/section/works-components/works";
+import Footer from "@/components/layout/footer";
+import Nav from "@/components/layout/navigation/nav";
+import Transition from "@/components/layout/transition";
+import PageHero from "@/components/sections/hero";
+import Works from "@/features/works/works";
 import Lenis from "lenis";
-
 import { useEffect } from "react";
-import Footer from "@/components/footer/footer";
-import Transition from "@/components/transition";
+
 const Index = () => {
   useEffect(() => {
     const lenis = new Lenis({
@@ -17,9 +17,9 @@ const Index = () => {
     <Transition>
       <Nav />
 
-      <main className="w-auto min-h-screen bg-s select-none">
-        <Hero
-          title="Case Studies"
+      <main className="w-auto min-h-screen bg-s">
+        <PageHero
+          title={[`Case Studies`]}
           subTitle="Collection of"
           src="/works/video-6.mp4"
         />

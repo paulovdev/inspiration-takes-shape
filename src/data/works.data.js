@@ -6,8 +6,7 @@ export const works = [
     year: 2025,
     client: "Private Direction",
     description: [
-      "Restrained fashion film built around absence and control",
-      "Darkness reduced motion and strong spatial tension",
+      "Restrained fashion film built around absence and control Darkness reduced motion and strong spatial tension",
     ],
     license: "Usage permitted for portfolio and curated exhibitions",
     src: "/works/video-1.mp4",
@@ -20,8 +19,7 @@ export const works = [
     year: 2024,
     client: "Concept Archive",
     description: [
-      "Editorial image exploring youth through artificial neon light",
-      "Isolation attitude and modern identity in rigid composition",
+      "Editorial image exploring youth through artificial neon light Isolation attitude and modern identity in rigid composition",
     ],
     license: "Editorial and digital publication only",
     src: "/works/img-2.jpg",
@@ -34,8 +32,7 @@ export const works = [
     year: 2016,
     client: "Experimental Studio",
     description: [
-      "Visual study focused on pure shape and proportion",
-      "Narrative removed to emphasize balance tone silhouette",
+      "Visual study focused on pure shape and proportion Narrative removed to emphasize balance tone silhouette",
     ],
     license: "Non-commercial artistic exploration allowed",
     src: "/works/img-3.jpg",
@@ -48,8 +45,7 @@ export const works = [
     year: 2025,
     client: "Independent Collective",
     description: [
-      "Still study focused on material tension and posture",
-      "Absence of motion sharpens impact of form",
+      "Still study focused on material tension and posture Absence of motion sharpens impact of form",
     ],
     license: "Creative Commons experimental use",
     src: "/works/img-6.jpg",
@@ -63,8 +59,7 @@ export const works = [
     year: 2022,
     client: "Independent Archive",
     description: [
-      "Secondary urban view dominated by silent architecture",
-      "Human presence entirely absent from digital landscape",
+      "Secondary urban view dominated by silent architecture Human presence entirely absent from digital landscape",
     ],
     license: "Creative use permitted",
     src: "/works/video-4.mp4",
@@ -77,8 +72,7 @@ export const works = [
     year: 2014,
     client: "Underground Studio",
     description: [
-      "Motion piece suggesting residual heat and visual noise",
-      "Traces of life within abandoned industrial space",
+      "Motion piece suggesting residual heat and visual noise Traces of life within abandoned industrial space",
     ],
     license: "Open creative use",
     src: "/works/video-7.mp4",
@@ -91,8 +85,7 @@ export const works = [
     year: 2014,
     client: "Underground Studio",
     description: [
-      "Decaying environment where human traces dissolve",
-      "Heat texture and motion blur suggest absence",
+      "Decaying environment where human traces dissolve Heat texture and motion blur suggest absence",
     ],
     license: "Open creative use",
     src: "/works/img-13.jpg",
@@ -105,8 +98,7 @@ export const works = [
     year: 2031,
     client: "Signal Research Group",
     description: [
-      "Frozen fragment captured from broken transmission signal",
-      "Image unresolved interrupted and visually unstable",
+      "Frozen fragment captured from broken transmission signal Image unresolved interrupted and visually unstable",
     ],
     license: "Creative Commons experimental license",
     src: "/works/img-8.jpg",
@@ -119,8 +111,7 @@ export const works = [
     year: 2022,
     client: "Research Division",
     description: [
-      "Human form explored through exaggeration and distortion",
-      "Tension created between structure imbalance and discomfort",
+      "Human form explored through exaggeration and distortion Tension created between structure imbalance and discomfort",
     ],
     license: "Open artistic use with attribution",
     src: "/works/img-4.jpg",
@@ -133,8 +124,7 @@ export const works = [
     year: 2025,
     client: "Independent Collective",
     description: [
-      "Confrontational fashion response against traditional silhouettes",
-      "Sharp cuts rigid posture and high contrast lighting",
+      "Confrontational fashion response against traditional silhouettes Sharp cuts rigid posture and high contrast lighting",
     ],
     license: "Free use with credit",
     src: "/works/img-5.jpg",
@@ -147,8 +137,7 @@ export const works = [
     year: 2025,
     client: "Independent Collective",
     description: [
-      "Motion study extending counter silhouette visual language",
-      "Slow movement emphasizing weight resistance and spatial control",
+      "Motion study extending counter silhouette visual language Slow movement emphasizing weight resistance and spatial control",
     ],
     license: "Creative Commons for experimental use",
     src: "/works/video-3.mp4",
@@ -161,8 +150,7 @@ export const works = [
     year: 2031,
     client: "Signal Research Group",
     description: [
-      "Video artifact inspired by fragmented lost broadcast signals",
-      "Flickering frames suggesting distance instability and interruption",
+      "Video artifact inspired by fragmented lost broadcast signals Flickering frames suggesting distance instability and interruption",
     ],
     license: "Creative Commons experimental license",
     src: "/works/video-2.mp4",
@@ -175,8 +163,7 @@ export const works = [
     year: 2022,
     client: "Independent Archive",
     description: [
-      "Empty city captured in suspended technological silence",
-      "Inactive screens architecture dominant absence of human presence",
+      "Empty city captured in suspended technological silence Inactive screens architecture dominant absence of human presence",
     ],
     license: "Creative use permitted",
     src: "/bg.jpg",
@@ -189,8 +176,7 @@ export const works = [
     year: 2025,
     client: "Private Direction",
     description: [
-      "Still image reinforcing anonymity through texture and shadow",
-      "Motion replaced by static controlled visual restraint",
+      "Still image reinforcing anonymity through texture and shadow Motion replaced by static controlled visual restraint",
     ],
     license: "Portfolio and editorial usage allowed",
     src: "/works/img-10.jpg",
@@ -203,8 +189,7 @@ export const works = [
     year: 2024,
     client: "Concept Archive",
     description: [
-      "Alternate editorial frame emphasizing detachment and alienation",
-      "Artificial light controlled styling and modern isolation",
+      "Alternate editorial frame emphasizing detachment and alienation Artificial light controlled styling and modern isolation",
     ],
     license: "Editorial use only",
     src: "/works/img-12.jpg",
@@ -217,8 +202,7 @@ export const works = [
     year: 2016,
     client: "Experimental Studio",
     description: [
-      "Secondary visual study emphasizing balance and negative space",
-      "Sculptural quality reinforced through absence of narrative",
+      "Secondary visual study emphasizing balance and negative space Sculptural quality reinforced through absence of narrative",
     ],
     license: "Non-commercial creative use",
     src: "/works/img-7.jpg",
@@ -231,8 +215,7 @@ export const works = [
     year: 2022,
     client: "Research Division",
     description: [
-      "Motion amplifies exaggeration discomfort and visual instability",
-      "Form pushed beyond static balance through movement",
+      "Motion amplifies exaggeration discomfort and visual instability Form pushed beyond static balance through movement",
     ],
     license: "Artistic use under open terms",
     src: "/works/video-5.mp4",
@@ -245,8 +228,7 @@ export const works = [
     year: 2025,
     client: "Independent Collective",
     description: [
-      "Single extracted frame emphasizing rigidity and tension",
-      "Controlled aggression expressed through posture and lighting",
+      "Single extracted frame emphasizing rigidity and tension Controlled aggression expressed through posture and lighting",
     ],
     license: "Free use with attribution",
     src: "/works/img-9.jpg",

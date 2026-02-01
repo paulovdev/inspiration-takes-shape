@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { motion } from "motion/react";
-import { bg, textHover, textSlide } from "./highlight-list.animations";
+import { motion, AnimatePresence } from "motion/react";
 
-const HighlightList = ({
+import { line, textSlide } from "@/animations/shared/global-anim";
+
+const ShowcaseGrid = ({
   data = [],
   title,
   subTitle,
@@ -11,7 +12,6 @@ const HighlightList = ({
   gridIn = "grid-cols-1",
 }) => {
   const [hover, setHover] = useState(null);
-
   const [ref, inView] = useInView({
     threshold: 0.25,
     triggerOnce: true,
@@ -27,10 +27,10 @@ const HighlightList = ({
           {title}
         </p>
       </div>
+
       <div className={`w-full grid ${grid} select-none`}>
         {data.map((item, i) => {
           const active = hover === i;
-
           return (
             <div
               key={i}
@@ -40,61 +40,44 @@ const HighlightList = ({
             >
               <motion.div
                 className={`relative w-full grid ${gridIn} items-center z-50`}
-                custom={i}
+                custom={i * 0.075}
                 variants={textSlide}
                 initial="initial"
                 animate={inView ? "animate" : "initial"}
               >
-                <div className="h-fit overflow-hidden">
-                  <motion.h2
-                    variants={textHover}
-                    initial="initial"
-                    animate={active ? "animate" : "initial"}
-                    custom={15}
-                    className="text-p text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]"
-                  >
+                <div className="h-fit overflow-hidden relative">
+                  <h2 className="text-p text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px] will-change-transform">
                     {item.title}
-                  </motion.h2>
+                  </h2>
                 </div>
+
                 <div className="h-fit overflow-hidden">
                   {item.link && (
-                    <motion.a
+                    <a
                       href={item.link}
                       target="_blank"
-                      variants={textHover}
-                      initial="initial"
-                      animate={active ? "animate" : "initial"}
-                      custom={-15}
-                      className="w-full flex items-end justify-end"
+                      className="w-full flex items-end justify-end will-change-transform relative"
                     >
                       <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[0.03em] underline underline-offset-2 uppercase max-md:text-[12px]">
                         {item?.subTitle || subTitle}
                       </span>
-                    </motion.a>
+                    </a>
                   )}
                 </div>
-                <div className=" h-fit overflow-hidden">
-                  {item.subTitle &&
-                    item.link !==
-                    (
-                      <motion.p
-                        variants={textHover}
-                        initial="initial"
-                        animate={active ? "animate" : "initial"}
-                        custom={-15}
-                        className="w-full flex items-end justify-end"
-                      >
-                        <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[0.03em] uppercase max-md:text-[12px]">
-                          {item?.subTitle || subTitle}
-                        </span>
-                      </motion.p>
-                    )}
+
+                <div className="h-fit overflow-hidden">
+                  {item.subTitle && !item.link && (
+                    <p className="w-full flex items-end justify-end will-change-transform">
+                      <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[0.03em] uppercase max-md:text-[12px]">
+                        {item.subTitle || subTitle}
+                      </span>
+                    </p>
+                  )}
                 </div>
               </motion.div>
-
               <motion.div
-                className="absolute inset-0 bg-p z-10"
-                variants={bg}
+                className="absolute bottom-0 w-full border-2 border-b border-p"
+                variants={line}
                 initial="initial"
                 animate={active ? "animate" : "initial"}
               />
@@ -106,4 +89,4 @@ const HighlightList = ({
   );
 };
 
-export default HighlightList;
+export default ShowcaseGrid;

@@ -62,7 +62,23 @@ export const textSlide = {
     transition: {
       duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: custom * 0.075,
+      delay: custom,
     },
   }),
+};
+
+export const line = {
+  initial: {
+    scaleX: 0,
+    originX: 0,
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+  },
+  animate: {
+    scaleX: 1,
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+  },
+  exit: {
+    scaleX: 0,
+    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+  },
 };

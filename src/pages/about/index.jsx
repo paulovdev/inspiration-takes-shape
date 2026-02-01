@@ -1,19 +1,17 @@
-import { useEffect } from "react";
-import Lenis from "lenis";
-
-import Nav from "@/components/navigation/nav";
-import About from "@/components/about/about";
-import Services from "@/components/section/about-components/services";
-import Hero from "@/components/hero/hero";
-
-import HighlightList from "@/components/highlight/highlight-list";
-import { heroPhrases, phrases } from "@/data/about.data";
-import { awards } from "@/data/about.data";
+import Footer from "@/components/layout/footer";
+import Nav from "@/components/layout/navigation/nav";
+import Transition from "@/components/layout/transition";
+import Clients from "@/components/sections/clients";
+import PageHero from "@/components/sections/hero";
+import JoinUs from "@/components/sections/join-us";
+import Manifesto from "@/components/sections/manifesto";
+import ShowcaseGrid from "@/components/sections/showcase-grid";
+import TextBlock from "@/components/sections/text-block";
+import { awards, blockPhrases, manifestoPhrases } from "@/data/about.data";
 import { clients } from "@/data/clients.data";
-import Footer from "@/components/footer/footer";
-import Tran from "@/components/tran/tran";
-import Transition from "@/components/transition";
-import BigText from "@/components/section/home-components/big-text";
+import Approach from "@/features/about/approach";
+import Lenis from "lenis";
+import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
@@ -26,31 +24,39 @@ const Index = () => {
     <Transition>
       <Nav />
 
-      <main className="w-auto min-h-screen bg-s select-none ">
-        <Hero
-          title="Inspiration takes shape®"
+      <main className="w-auto min-h-screen bg-s">
+        <PageHero
+          title={[`Inspiration takes shape®`]}
           subTitle="about us"
           src="/about/video-22.mp4"
         />
-        <Tran heroPhrases={heroPhrases} />
-        <About phrases={phrases} bgColor="bg-s" textColor="text-p" />
-        <div className="mb-2 w-full h-px bg-p/25" />
-        <Services />
-        <HighlightList
-          data={clients}
-          title="Clients we’ve partnered with to build meaningful digital experiences."
+        <Manifesto manifestoPhrases={manifestoPhrases} />
+        <TextBlock
+          blockTitle="SINCE 2020 — 2026"
+          blockPhrases={blockPhrases}
+          bgColor="bg-s"
+          textColor="text-p"
         />
-
+        <div className="mb-2 w-full h-px bg-p/25" />
+        <Approach />
+        <Clients
+          title="Clients we’ve partnered with to build meaningful digital experiences."
+          bgColor="bg-p"
+          lineColor="border-s/15"
+          textColor="text-s"
+          logoColor="text-s/75"
+          logoHoverColor="hover:text-s"
+        />
         <div className="mt-20 mb-2 w-full h-px bg-p/25" />
 
-        <HighlightList
+        <ShowcaseGrid
           data={awards}
           title="Awards and recognitions received for excellence in design and digital experiences."
           grid="grid-cols-1"
-          gridIn="grid-cols-1"
+          gridIn="grid-cols-3"
         />
 
-        <BigText />
+        <JoinUs />
         <div className=""></div>
       </main>
 

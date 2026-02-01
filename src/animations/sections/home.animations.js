@@ -9,6 +9,7 @@ export const textSlide = {
     },
   }),
 };
+
 export const textSlideNoI = {
   initial: {
     y: "100%",

@@ -1,12 +1,10 @@
-"use client";
-
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
-import Button from "@/components/button";
+import Button from "@/components/ui/button";
 import { FaStarOfLife } from "react-icons/fa6";
 
-const BigText = () => {
+const JoinUs = () => {
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -108,4 +106,4 @@ const BigText = () => {
   );
 };
 
-export default BigText;
+export default JoinUs;

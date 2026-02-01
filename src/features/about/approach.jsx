@@ -1,12 +1,37 @@
-import { services } from "@/data/about.data";
-
+import { approach } from "@/data/about.data";
 import { useInView } from "react-intersection-observer";
-
 import { motion } from "motion/react";
 import Image from "next/image";
-
-import { textSlide, textSlideNoI } from "../home-components/home.animations";
 import { useState } from "react";
+import { textSlide } from "@/animations/shared/global-anim";
+import TextAnimated from "@/components/ui/text-animated";
+
+const textSlideNoI = {
+  initial: {
+    y: "100%",
+    transition: {
+      duration: 0.75,
+      ease: [0.33, 1, 0.68, 1],
+      delay: 0.5,
+    },
+  },
+  animate: (custom) => ({
+    y: "0",
+    transition: {
+      duration: 0.75,
+      ease: [0.33, 1, 0.68, 1],
+      delay: custom,
+    },
+  }),
+  exit: {
+    y: "-100%",
+    transition: {
+      duration: 0.75,
+      ease: [0.33, 1, 0.68, 1],
+      delay: 0.5,
+    },
+  },
+};
 
 const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
   const active = activeIndex === index;
@@ -53,7 +78,8 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             autoPlay
             muted
             loop
-            playsInline  preload="none"
+            playsInline
+            preload="metada"
             className="size-full object-cover brightness-80"
           />
         ) : (
@@ -70,7 +96,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
         <div className="absolute inset-0 p-5 flex flex-col justify-between">
           <div className="h-fit overflow-hidden">
             <motion.p
-              className="text-s font-general text-[14px] tracking-[0.03em] uppercase"
+              className="text-s font-general text-center text-[14px] tracking-[0.03em] uppercase"
               variants={textSlide}
               initial="initial"
               animate={inView ? "animate" : "initial"}
@@ -79,35 +105,28 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             </motion.p>
           </div>
 
-          <div className="min-h-20">
-            {gallery.description.map((phrase, i) => (
-              <div key={i} className="overflow-hidden">
-                <motion.p
-                  className="text-s  text-[16px] leading-[1.2] tracking-[0.03em] "
-                  variants={textSlideNoI}
-                  initial="initial"
-                  animate={
-                    inView ? (active ? "animate" : "initial") : "initial"
-                  }
-                  custom={0.5 + i * 0.075}
-                >
-                  {phrase}
-                </motion.p>
-              </div>
-            ))}
-          </div>
+          <TextAnimated
+            phrases={gallery.description}
+            variants={textSlideNoI}
+            animate={inView && active}
+            className="max-w-125 mx-auto min-h-20 font-inter text-s text-center text-[18px] max-lg:text-[16px] leading-[1]"
+            lineClassName="overflow-hidden"
+            wordClassName="mr-1.5"
+            wordDelay={0.025}
+            lineDelay={0.015}
+          />
         </div>
       </motion.figure>
     </motion.div>
   );
 };
 
-const Services = () => {
+const Approach = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   return (
     <section className="relative p-10 bg-s w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-nowrap snap-mandatory overflow-x-scroll ">
-        {services.map((gallery, i) => (
+        {approach.map((gallery, i) => (
           <CardGrid
             key={i}
             gallery={gallery}
@@ -121,4 +140,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Approach;
