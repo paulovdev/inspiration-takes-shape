@@ -5,7 +5,6 @@ import Nav from "@/components/navigation/nav";
 import About from "@/components/about/about";
 import Services from "@/components/section/about-components/services";
 import Hero from "@/components/hero/hero";
-import JoinUs from "@/components/join-us";
 
 import HighlightList from "@/components/highlight/highlight-list";
 import { heroPhrases, phrases } from "@/data/about.data";
