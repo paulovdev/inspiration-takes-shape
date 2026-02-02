@@ -44,12 +44,41 @@ export const lab = [
   },
 ];
 
+export const slide = [
+  {
+    src: "/slide/img-01.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-02.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-03.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-04.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-05.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-06.jpg",
+    title: "Inspiration takes shape",
+  },
+];
+
 export const manifestoPhrases = [
-  `We guide brands that challenge the ordinary, connecting purpose, aesthetics, and technology in every detail.`,
+  `We craft innovative design strategies for forward thinking brands, combining aesthetics with purpose to create impactful solutions.`,
 ];
 
 export const blockPhrases = [
-  `Is an art direction and experimental design studio dedicated to shaping ideas through concept development, visual language, and carefully crafted design systems.`,
+  `We craft thoughtful design solutions that connect brands with people.`,
   ``,
-  `We create brand identities, digital platforms and immersive experiences guided by research, cultural insight, and a strong foundation of experimentation and iteration.`,
+  `Rooted in curiosity and driven by clarity, our work spans digital experiences, visual identities, and strategy. `,
+  ``,
+  `We collaborate closely with clients to shape ideas into purposeful, enduring design — whether launching something new or refining the familiar.`,
 ];

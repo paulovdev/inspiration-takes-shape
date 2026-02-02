@@ -9,6 +9,7 @@ import TextBlock from "@/components/sections/text-block";
 import { clients } from "@/data/clients.data";
 import { blockPhrases, manifestoPhrases } from "@/data/home.data";
 import Hero from "@/features/home/hero";
+import InfiniteSlide from "@/features/home/infinite-slide";
 import Reel from "@/features/home/reel";
 import WorksPreview from "@/features/home/works-preview";
 import Lenis from "lenis";
@@ -37,19 +38,19 @@ const Index = () => {
         <Hero lenis={lenisRef} />
         <Manifesto manifestoPhrases={manifestoPhrases} />
         <TextBlock
-          blockTitle="INSPIRATION TAKES SHAPE®"
+          blockTitle="[little about us]"
           blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-p"
           showButton={true}
           buttonHref="/about"
-          buttonLabel="more about us"
+          buttonLabel="read more"
           buttonBgColor="#000000"
           buttonTextColor="#ffffff"
         />
         <WorksPreview />
         <Clients
-          title="Clients we’ve partnered with to build meaningful digital experiences."
+          title="[Clients we’ve partnered with to build meaningful digital experiences]"
           bgColor="bg-s"
           lineColor="border-p/15"
           textColor="text-p"
@@ -58,6 +59,8 @@ const Index = () => {
         />
 
         <Reel />
+        <InfiniteSlide />
+        <Manifesto manifestoPhrases={[`- Let’s shape the future together`]} />
         <JoinUs />
       </main>
 

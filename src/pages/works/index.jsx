@@ -21,7 +21,7 @@ const Index = () => {
         <PageHero
           title={[`Case Studies`]}
           subTitle="Collection of"
-          src="/works/video-6.mp4"
+          src="/lab/video-3.mp4"
         />
         <Works />
       </main>

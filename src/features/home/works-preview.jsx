@@ -35,25 +35,14 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
         }}
         onMouseLeave={() => setActiveWork(null)}
       >
-        {work.src.includes(".mp4") ? (
-          <video
-            src={work.src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
-          />
-        ) : (
-          <Image
-            src={work.src}
-            width={2000}
-            height={2000}
-            alt={work.alt}
-            priority
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
-          />
-        )}
+        <Image
+          src={work.src}
+          width={2000}
+          height={2000}
+          alt={work.alt}
+          priority
+          className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
+        />
       </figure>
     </motion.div>
   );

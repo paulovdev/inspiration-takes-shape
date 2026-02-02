@@ -59,30 +59,22 @@ export const manifestoPhrases = [
 
   `Every idea begins as a spark — a moment of insight, a restless thought that asks:`,
   `'WHAT IF?'.`,
-
   `But insight alone is not enough. Ideas only matter when they take shape, when vision is guided by intention, and creativity meets structure.`,
-
-  `Since 2020, Inspiration takes shape® has been a space where vision becomes design, and design becomes experience.`,
-
-  `We craft visual systems, interactions, and identities that resonate, inform, and engage — turning complex ideas into clarity.`,
-
   `Each project balances rigor and intuition, logic and emotion,
   precision and expression.`,
-
   `Because design is not just what you see,
   it’s how you feel, how you move,
   and how you understand.`,
-
   `This is where instinct meets methodology,
   where ideas take shape,
   where INSPIRATION TAKES SHAPE®`,
 ];
 
 export const blockPhrases = [
-  `An independent studio for art direction and experimental design, focused on clarity, intention, and meaningful outcomes.`,
-  `We work across visual systems, digital experiences, and research-driven practices that link aesthetic sensitivity with functional precision.`,
+  `We craft thoughtful design solutions that connect brands with people. `,
+  `Rooted in curiosity and driven by clarity, our work spans digital experiences, visual identities, and strategy. `,
   ``,
-  `Each project is a careful balance of intuition and strategy, precision and expression, transforming complexity into clarity and impact.`,
+  `We collaborate closely with clients to shape ideas into purposeful, enduring design — whether launching something new or refining the familiar.`,
   ``,
-  `Inspiration takes shape® is our guiding principle, turning ideas into systems, and vision into experience.`,
+  `Every project is an opportunity to create with intention, guided by a commitment to detail, relevance, and resonance.`,
 ];

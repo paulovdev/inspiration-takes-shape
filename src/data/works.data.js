@@ -9,7 +9,7 @@ export const works = [
       "Restrained fashion film built around absence and control Darkness reduced motion and strong spatial tension",
     ],
     license: "Usage permitted for portfolio and curated exhibitions",
-    src: "/works/video-1.mp4",
+    src: "/works/img-01.jpeg",
     alt: "Dark fashion film with minimal movement and controlled lighting",
   },
   {
@@ -22,7 +22,7 @@ export const works = [
       "Editorial image exploring youth through artificial neon light Isolation attitude and modern identity in rigid composition",
     ],
     license: "Editorial and digital publication only",
-    src: "/works/img-2.jpg",
+    src: "/works/img-03.jpg",
     alt: "Low-light portrait with futuristic street styling",
   },
   {
@@ -35,7 +35,7 @@ export const works = [
       "Visual study focused on pure shape and proportion Narrative removed to emphasize balance tone silhouette",
     ],
     license: "Non-commercial artistic exploration allowed",
-    src: "/works/img-3.jpg",
+    src: "/works/img-04.jpg",
     alt: "Minimal figure isolated in a neutral studio space",
   },
   {
@@ -48,7 +48,7 @@ export const works = [
       "Still study focused on material tension and posture Absence of motion sharpens impact of form",
     ],
     license: "Creative Commons experimental use",
-    src: "/works/img-6.jpg",
+    src: "/works/img-05.jpg",
     alt: "Dark fashion still emphasizing material weight",
   },
 
@@ -62,7 +62,7 @@ export const works = [
       "Secondary urban view dominated by silent architecture Human presence entirely absent from digital landscape",
     ],
     license: "Creative use permitted",
-    src: "/works/video-4.mp4",
+    src: "/works/img-06.jpg",
     alt: "Empty nighttime city with inactive screens",
   },
   {
@@ -75,7 +75,7 @@ export const works = [
       "Motion piece suggesting residual heat and visual noise Traces of life within abandoned industrial space",
     ],
     license: "Open creative use",
-    src: "/works/video-7.mp4",
+    src: "/works/img-07.jpg",
     alt: "Industrial interior with dissolving visual noise",
   },
   {
@@ -88,7 +88,7 @@ export const works = [
       "Decaying environment where human traces dissolve Heat texture and motion blur suggest absence",
     ],
     license: "Open creative use",
-    src: "/works/img-13.jpg",
+    src: "/works/img-08.jpg",
     alt: "Industrial space with dissolving human silhouette",
   },
   {
@@ -101,7 +101,7 @@ export const works = [
       "Frozen fragment captured from broken transmission signal Image unresolved interrupted and visually unstable",
     ],
     license: "Creative Commons experimental license",
-    src: "/works/img-8.jpg",
+    src: "/works/img-09.jpg",
     alt: "Static frame resembling interrupted broadcast",
   },
   {
@@ -114,7 +114,7 @@ export const works = [
       "Human form explored through exaggeration and distortion Tension created between structure imbalance and discomfort",
     ],
     license: "Open artistic use with attribution",
-    src: "/works/img-4.jpg",
+    src: "/works/img-10.jpg",
     alt: "Abstract fashion figure with altered proportions",
   },
   {
@@ -127,7 +127,7 @@ export const works = [
       "Confrontational fashion response against traditional silhouettes Sharp cuts rigid posture and high contrast lighting",
     ],
     license: "Free use with credit",
-    src: "/works/img-5.jpg",
+    src: "/works/img-11.jpg",
     alt: "Avant-garde fashion composition with aggressive posture",
   },
   {
@@ -140,7 +140,7 @@ export const works = [
       "Motion study extending counter silhouette visual language Slow movement emphasizing weight resistance and spatial control",
     ],
     license: "Creative Commons for experimental use",
-    src: "/works/video-3.mp4",
+    src: "/works/img-12.jpg",
     alt: "Slow-motion fashion movement in a dark environment",
   },
   {
@@ -153,7 +153,7 @@ export const works = [
       "Video artifact inspired by fragmented lost broadcast signals Flickering frames suggesting distance instability and interruption",
     ],
     license: "Creative Commons experimental license",
-    src: "/works/video-2.mp4",
+    src: "/works/img-13.jpg",
     alt: "Fragmented broadcast visuals with signal interference",
   },
   {
@@ -166,7 +166,7 @@ export const works = [
       "Empty city captured in suspended technological silence Inactive screens architecture dominant absence of human presence",
     ],
     license: "Creative use permitted",
-    src: "/bg.jpg",
+    src: "/works/img-14.jpg",
     alt: "Night cityscape with inactive digital signage",
   },
   {
@@ -179,7 +179,7 @@ export const works = [
       "Still image reinforcing anonymity through texture and shadow Motion replaced by static controlled visual restraint",
     ],
     license: "Portfolio and editorial usage allowed",
-    src: "/works/img-10.jpg",
+    src: "/works/img-15.jpg",
     alt: "Minimal dark fashion image with heavy shadows",
   },
   {
@@ -192,7 +192,7 @@ export const works = [
       "Alternate editorial frame emphasizing detachment and alienation Artificial light controlled styling and modern isolation",
     ],
     license: "Editorial use only",
-    src: "/works/img-12.jpg",
+    src: "/works/img-16.jpg",
     alt: "Futuristic portrait with synthetic lighting",
   },
   {
@@ -205,7 +205,7 @@ export const works = [
       "Secondary visual study emphasizing balance and negative space Sculptural quality reinforced through absence of narrative",
     ],
     license: "Non-commercial creative use",
-    src: "/works/img-7.jpg",
+    src: "/works/img-17.jpg",
     alt: "Minimal figure study with soft gradients",
   },
   {
@@ -218,7 +218,7 @@ export const works = [
       "Motion amplifies exaggeration discomfort and visual instability Form pushed beyond static balance through movement",
     ],
     license: "Artistic use under open terms",
-    src: "/works/video-5.mp4",
+    src: "/works/img-18.jpg",
     alt: "Moving abstract figure with exaggerated proportions",
   },
   {
@@ -231,7 +231,7 @@ export const works = [
       "Single extracted frame emphasizing rigidity and tension Controlled aggression expressed through posture and lighting",
     ],
     license: "Free use with attribution",
-    src: "/works/img-9.jpg",
+    src: "/works/img-19.jpg",
     alt: "Rigid avant-garde fashion silhouette",
   },
 ];

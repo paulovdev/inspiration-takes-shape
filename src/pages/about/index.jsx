@@ -32,7 +32,7 @@ const Index = () => {
         />
         <Manifesto manifestoPhrases={manifestoPhrases} />
         <TextBlock
-          blockTitle="SINCE 2020 — 2026"
+          blockTitle="[SINCE 2020 — 2026]"
           blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-p"

@@ -29,25 +29,13 @@ const CardGrid = memo(({ work, index }) => {
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
-        {work.src.includes(".mp4") ? (
-          <video
-            src={work.src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
-          />
-        ) : (
-          <Image
-            src={work.src}
-            width={2000}
-            height={2000}
-            alt={work.alt}
-            className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
-          />
-        )}
+        <Image
+          src={work.src}
+          width={2000}
+          height={2000}
+          alt={work.alt}
+          className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
+        />
 
         <div className="absolute inset-0 p-5 w-full flex items-center justify-between">
           <div className="h-[15px] overflow-hidden cursor-default">
@@ -220,25 +208,13 @@ const Works = () => {
                   exit="exit"
                   className="absolute inset-0 will-change-transform"
                 >
-                  {activeWork.src.includes(".mp4") ? (
-                    <video
-                      src={activeWork.src}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="size-full object-cover"
-                    />
-                  ) : (
-                    <Image
-                      src={activeWork.src}
-                      width={2000}
-                      height={2000}
-                      alt={activeWork.alt}
-                      className="size-full object-cover"
-                    />
-                  )}
+                  <Image
+                    src={activeWork.src}
+                    width={2000}
+                    height={2000}
+                    alt={activeWork.alt}
+                    className="size-full object-cover"
+                  />
                 </motion.div>
               )}
             </AnimatePresence>

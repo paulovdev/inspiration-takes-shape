@@ -9,6 +9,7 @@ import {
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import Image from "next/image";
 
 const Reel = () => {
   const videoRef = useRef(null);
@@ -84,10 +85,11 @@ const Reel = () => {
         onClick={() => setVideoOpen(true)}
       >
         <div className="absolute inset-0 size-full -z-10">
-          <video
-            src="/reel.mp4"
+          <Image
+            src="/reel.jpeg"
+            width={2000}
+            height={2000}
             alt=""
-            muted
             className="size-full object-cover brightness-75"
           />
         </div>
@@ -103,7 +105,7 @@ const Reel = () => {
               ease: [0.76, 0, 0.24, 1],
             }}
           >
-            Open Reel
+            Play Reel
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </motion.h3>
         </div>
