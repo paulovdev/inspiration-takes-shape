@@ -51,9 +51,9 @@ const Footer = () => {
                     : { y: 120, opacity: 0, filter: "blur(12px)" }
                 }
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 text-p text-[42px] tracking-[-0.03em] leading-none max-ds:text-[32px] max-lg:text-[28px] max-md:text-[24px]"
+                className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               >
-                Site Index
+                Índice do site
               </motion.p>
               {navLinks.map((link, i) => (
                 <a
@@ -83,7 +83,7 @@ const Footer = () => {
                     : { y: 120, opacity: 0, filter: "blur(12px)" }
                 }
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 text-p text-[42px] tracking-[-0.03em] leading-none max-ds:text-[32px] max-lg:text-[28px] max-md:text-[24px]"
+                className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               >
                 Lab
               </motion.p>
@@ -114,9 +114,9 @@ const Footer = () => {
                     : { y: 120, opacity: 0, filter: "blur(12px)" }
                 }
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 text-p text-[42px] tracking-[-0.03em] leading-none max-ds:text-[32px] max-lg:text-[28px] max-md:text-[24px]"
+                className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               >
-                Socials
+                Redes Sociais
               </motion.p>
               {socialLinks.map((link, i) => (
                 <a
@@ -149,9 +149,9 @@ const Footer = () => {
                   : { y: 120, opacity: 0, filter: "blur(12px)" }
               }
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 text-p text-[42px] tracking-[-0.03em] leading-none max-ds:text-[32px] max-lg:text-[28px] max-md:text-[24px]"
+              className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
             >
-              Newsletter — no spam, only good things.
+              Newsletter — nada de spam, só coisas boas.
             </motion.p>
             <div className="overflow-hidden h-fit">
               <motion.p
@@ -162,7 +162,7 @@ const Footer = () => {
                 custom={0.2}
                 className=" text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
               >
-                your email adress
+                seu endereço de e-mail
               </motion.p>
             </div>
             <motion.div
@@ -185,8 +185,8 @@ const Footer = () => {
               custom={0.1}
             >
               <Button
-                buttonHref="/contact"
-                buttonLabel="subscribe"
+                buttonHref="/newsletter"
+                buttonLabel="inscrever-se"
                 buttonBgColor="#000000"
                 buttonTextColor="#ffffff"
               />
@@ -203,9 +203,9 @@ const Footer = () => {
                 : { y: 120, opacity: 0, filter: "blur(12px)" }
             }
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full text-left font-normal leading-none tracking-[-0.06em] text-[8vw] max-ds:text-[7.9vw] max-lg:text-[8vw] max-md:text-[8vw]"
+            className="w-full text-left font-normal leading-none tracking-[-0.06em] text-[9.5vw] max-ds:text-[7.9vw] max-lg:text-[9.5vw] max-md:text-[9.5vw]"
           >
-            INSPIRATION TAKES SHAPE <span className="text-[8vw]">®</span>
+            A Inspiração ganha forma <span className="text-[8vw]">®</span>
           </motion.h2>
         </div>
       </div>

@@ -1,0 +1,35 @@
+import { awards } from "@/data/about.data";
+import { useInView } from "react-intersection-observer";
+
+const Awards = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+    triggerOnce: true,
+  });
+  return (
+    <section
+      className="relative p-10 bg-s w-full h-full flex items-start justify-between overflow-hidden max-md:flex-col max-lg:px-5 max-md:px-2"
+      ref={ref}
+    >
+      <div className="flex-1 relative max-md:mb-12">
+        <p className="text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+          [Prêmios]
+        </p>
+      </div>
+      <div className="flex-1 w-full flex flex-col items-start ">
+        {awards.map((award, i) => (
+          <div className="mb-2 w-full flex items-center justify-between">
+            <p className="font-inter font-normal text-p text-[28px] tracking-[-0.03em] leading-[1.11] will-change-transform max-lg:text-[22px]">
+              {award.title}
+            </p>
+            <p className="font-inter font-normal text-p text-[28px] tracking-[-0.03em] leading-[1.11] will-change-transform max-lg:text-[22px]">
+              {award.subTitle}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Awards;

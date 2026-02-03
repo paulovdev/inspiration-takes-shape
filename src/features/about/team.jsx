@@ -1,18 +1,18 @@
 import { slide } from "@/data/home.data";
 import Image from "next/image";
 import { motion } from "motion/react";
-import TextAnimated from "@/components/ui/text-animated";
-import { textSlide } from "@/animations/shared/global-anim";
+
 import { useInView } from "react-intersection-observer";
 import { useRef } from "react";
+import { team } from "@/data/about.data";
 
-const InfiniteSlide = () => {
+const Team = () => {
   const { ref, inView } = useInView({
     threshold: 0.25,
     triggerOnce: false,
   });
   const speed = 100;
-  const slides = [...slide, ...slide];
+  const slides = [...team, ...team, ...team];
 
   return (
     <div
@@ -21,7 +21,7 @@ const InfiniteSlide = () => {
     >
       <div className="relative mb-12">
         <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
-          [do nosso Instagram]
+          [nosso time]
         </p>
       </div>
       <motion.div
@@ -34,46 +34,34 @@ const InfiniteSlide = () => {
           duration: slides.length * (500 / speed),
         }}
       >
-        {slides.map((slid, i) => {
+        {team.map((tea, i) => {
           const mod = i % 2 === 0;
           return (
             <figure
               key={i}
-              className={`w-[350px] max-md:w-[250px] ${mod ? "h-[40vh] max-md:h-[35vh]" : "h-[30vh] max-md:h-[25vh]"} mr-2 flex-shrink-0`}
+              className={`relative w-[450px] max-md:w-[250px] ${mod ? "h-[60vh] max-md:h-[50vh]" : "h-[50vh] max-md:h-[40vh]"} mr-2 flex-shrink-0`}
             >
               <Image
-                src={slid.src}
+                src={tea.src}
                 width={2000}
                 height={2000}
                 alt=""
                 className="w-full h-full object-cover"
               />
+              <div className="absolute inset-0 p-5 size-full flex flex-col items-end justify-end">
+                <p className="font-inter font-normal text-s text-center text-[24px] tracking-[-0.03em] leading-[1] will-change-transform max-lg:text-[18px]">
+                  {tea.name}
+                </p>
+                <p className="text-s/50 font-general font-medium text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
+                  {tea.role}
+                </p>
+              </div>
             </figure>
           );
         })}
       </motion.div>
-
-      <div className="my-20">
-        <TextAnimated
-          phrases={[`— Veja mais em @inspiration_takes_shape`]}
-          variants={textSlide}
-          animate={inView}
-          as="h2"
-          className="max-w-[1400px] w-full "
-          lineClassName="
-          font-inter font-normal text-p text-[62px] tracking-[-0.04em] leading-[1.15] 
-          max-ds:text-[52px] 
-          max-lg:text-[48px] 
-          max-md:text-[40px] 
-          flex flex-wrap mb-12
-        "
-          wordClassName="mr-2.5"
-          wordDelay={0.025}
-          lineDelay={0.015}
-        />
-      </div>
     </div>
   );
 };
 
-export default InfiniteSlide;
+export default Team;

@@ -42,7 +42,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
 
   return (
     <motion.div
-      className="relative group perspective-midrange flex-[1_1_0%] min-w-0"
+      className="relative group perspective-midrange flex-[1_1_0%] min-w-0 max-lg:w-full"
       onMouseEnter={() => setActiveIndex(index)}
       onMouseLeave={() => setActiveIndex(1)}
       animate={{ flexGrow: active ? 2 : 1.25 }}
@@ -96,7 +96,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
         <div className="absolute inset-0 p-5 flex flex-col justify-between">
           <div className="h-fit overflow-hidden">
             <motion.p
-              className="text-s font-general text-center text-[14px] tracking-[0.03em] uppercase"
+              className="text-s text-center font-general font-medium text-[14px] tracking-[-0.03em] leading-[1.2] uppercase max-md:text-[12px]"
               variants={textSlide}
               initial="initial"
               animate={inView ? "animate" : "initial"}
@@ -109,7 +109,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             phrases={gallery.description}
             variants={textSlideNoI}
             animate={inView && active}
-            className="max-w-125 mx-auto min-h-20 font-inter text-s text-center text-[18px] max-lg:text-[16px] leading-[1]"
+            className="max-w-125 mx-auto min-h-20 font-inter font-normal text-s text-center text-[24px] tracking-[-0.03em] leading-[1] will-change-transform max-lg:text-[18px]"
             lineClassName="overflow-hidden"
             wordClassName="mr-1.5"
             wordDelay={0.025}
@@ -124,8 +124,8 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
 const Approach = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   return (
-    <section className="relative p-10 bg-s w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
-      <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-nowrap snap-mandatory overflow-x-scroll ">
+    <section className="relative p-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
+      <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-col snap-mandatory overflow-x-scroll ">
         {approach.map((gallery, i) => (
           <CardGrid
             key={i}

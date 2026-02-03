@@ -18,7 +18,7 @@ const Nav = () => {
             scroll={false}
             className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
           >
-            back
+            voltar
           </button>
         )}
         <div className="overflow-hidden h-[19px]">

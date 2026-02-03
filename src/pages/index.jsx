@@ -4,9 +4,7 @@ import Transition from "@/components/layout/transition";
 import Clients from "@/components/sections/clients";
 import JoinUs from "@/components/sections/join-us";
 import Manifesto from "@/components/sections/manifesto";
-import ShowcaseGrid from "@/components/sections/showcase-grid";
 import TextBlock from "@/components/sections/text-block";
-import { clients } from "@/data/clients.data";
 import { blockPhrases, manifestoPhrases } from "@/data/home.data";
 import Hero from "@/features/home/hero";
 import InfiniteSlide from "@/features/home/infinite-slide";
@@ -38,19 +36,20 @@ const Index = () => {
         <Hero lenis={lenisRef} />
         <Manifesto manifestoPhrases={manifestoPhrases} />
         <TextBlock
-          blockTitle="[little about us]"
+          blockTitle="[pouco sobre nós]"
           blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-p"
           showButton={true}
           buttonHref="/about"
-          buttonLabel="read more"
+          buttonLabel="ver mais"
           buttonBgColor="#000000"
           buttonTextColor="#ffffff"
         />
+        <div className="mt-40" />
         <WorksPreview />
         <Clients
-          title="[Clients we’ve partnered with to build meaningful digital experiences]"
+          title="[CLIENTES SELECIONADOS]"
           bgColor="bg-s"
           lineColor="border-p/15"
           textColor="text-p"
@@ -60,7 +59,7 @@ const Index = () => {
 
         <Reel />
         <InfiniteSlide />
-        <Manifesto manifestoPhrases={[`- Let’s shape the future together`]} />
+
         <JoinUs />
       </main>
 

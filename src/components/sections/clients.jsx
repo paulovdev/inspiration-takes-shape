@@ -69,15 +69,15 @@ const Clients = ({ title }) => {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.05),transparent_60%)]" />
 
-      <div className="mb-12 relative ">
-        <p className="text-p font-general font-medium text-[14px] tracking-[0.03em] uppercase max-md:text-[12px]">
+      <div className="relative mb-12">
+        <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
           {title}
         </p>
       </div>
 
       <div
         ref={ref}
-        className="relative z-10 grid grid-cols-4 grid-rows-2 border-t border-l border-p/15
+        className="relative grid grid-cols-4 grid-rows-2 border-t border-l border-p/15 z-10
                    max-lg:grid-cols-2 max-lg:grid-rows-4"
       >
         {clients.slice(0, 8).map((client, i) => {
@@ -96,7 +96,27 @@ const Clients = ({ title }) => {
               className="relative flex items-center justify-center h-[30vh]
                  border-r border-b border-p/15 group"
             >
-              <div className="absolute bottom-6 right-6">
+              <div className="absolute top-3 left-3">
+                <div className="w-fit h-5 overflow-hidden">
+                  <motion.div
+                    className="flex flex-col items-center justify-center"
+                    initial={{ y: 0 }}
+                    animate={{ y: active ? -20 : 0 }}
+                    transition={{
+                      duration: 0.75,
+                      ease: [0.76, 0, 0.24, 1],
+                    }}
+                  >
+                    <span className="text-p/75 font-general font-medium text-[14px] tracking-[-0.03em] uppercase">
+                      {client.title}
+                    </span>
+                    <span className="text-p/75 font-general font-medium text-[14px] tracking-[-0.03em] uppercase ">
+                      {client.title}
+                    </span>
+                  </motion.div>
+                </div>
+              </div>
+              <div className="absolute bottom-3 right-3">
                 <div className="w-5 overflow-hidden">
                   <motion.div
                     className="flex flex-row items-center justify-center gap-1"

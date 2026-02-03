@@ -9,7 +9,6 @@ import {
   textSlide,
   arrowRotate,
   dropdown,
- 
   fade,
 } from "@/animations/sections/navigation.animations";
 
@@ -45,7 +44,7 @@ export const Menu = ({ setMenu }) => {
               className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
               onClick={() => setMenu(false)}
             >
-              close
+              fechar
             </button>
           </div>
 
@@ -66,11 +65,11 @@ export const Menu = ({ setMenu }) => {
                       }}
                     >
                       <motion.p
-                        className={`text-[62px] tracking-[-0.03em] leading-none max-lg:text-[48px] ${
-                          isActive || isOpen
-                            ? "text-s"
-                            : "text-s/50 group-hover:text-s"
-                        }`}
+                        className={` font-inter font-normal text-[62px] tracking-[-0.04em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[40px] 
+          ${isActive || isOpen ? "text-s" : "text-s/50 group-hover:text-s"}`}
                         variants={textSlide}
                         initial="initial"
                         animate="animate"
@@ -171,7 +170,7 @@ export const Menu = ({ setMenu }) => {
                   exit="exit"
                   custom={{ animate: 1, exit: 0 }}
                 >
-                  socials:
+                  redes sociais:
                 </motion.p>
               </div>
               {socials.map((social, i) => (

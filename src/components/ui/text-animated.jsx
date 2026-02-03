@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const TextAnimated = ({
-  phrases = [],
+  phrases,
   variants,
   animate = true,
   as = "div",
@@ -26,11 +26,11 @@ const TextAnimated = ({
           >
             {words.map((word, wordIndex) => {
               const delay = cumulativeDelay + wordIndex * wordDelay;
-
+              const bold = phrase.includes("A INSPIRAÇÃO GANHA FORMA®");
               return (
                 <span
                   key={wordIndex}
-                  className={`overflow-hidden inline-block mr-1 ${wordClassName}`}
+                  className={`overflow-hidden inline-block mr-1 ${wordClassName} ${bold && "font-medium"}`}
                 >
                   <motion.span
                     custom={delay}

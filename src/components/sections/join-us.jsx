@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import Button from "@/components/ui/button";
 import { FaStarOfLife } from "react-icons/fa6";
+import TextAnimated from "../ui/text-animated";
+import { textSlide } from "@/animations/sections/hero.animations";
 
 const JoinUs = () => {
   const container = useRef(null);
@@ -37,9 +39,9 @@ const JoinUs = () => {
           <div className="overflow-hidden h-fit">
             <motion.h1
               style={{ y: titleY }}
-              className="font-normal text-p text-[128px] leading-[1.1] tracking-[-0.06em] max-lg:text-[56px] max-md:text-[34px] max-md:tracking-[-0.03em]"
+              className="font-normal text-p text-[128px] leading-[1.1] tracking-[1em] max-lg:text-[56px] max-md:text-[34px] max-md:tracking-[-0.03em]"
             >
-              Dreams, in physical form
+              I G F®
             </motion.h1>
           </div>
         </div>
@@ -50,7 +52,7 @@ const JoinUs = () => {
             className="relative w-[420px] h-[520px] will-change-transform"
           >
             <Image
-              src="/bg.jpg"
+              src="/join.jpg"
               width={2000}
               height={2000}
               alt=""
@@ -68,19 +70,35 @@ const JoinUs = () => {
             <FaStarOfLife className="mb-10 text-s text-[110px] max-lg:text-[60px]" />
           </motion.div>
 
-          <motion.p
+          <motion.div
             style={{ y: item2, opacity: itemOpacity }}
-            className="max-w-xl font-medium text-s text-[20px] leading-[1.3] tracking-[-0.02em] max-lg:text-[16px] max-lg:w-full"
+            className="max-w-[1400px] w-full"
           >
-            We collaborate with bold thinkers, designers and builders shaping
-            what’s next.
-          </motion.p>
+            <TextAnimated
+              phrases={[
+                `Colaboramos com pensadores, designers e construtores arrojados que estão moldando o futuro.`,
+              ]}
+              variants={textSlide}
+              as="h2"
+              className="flex flex-col"
+              lineClassName="
+          text-s text-[62px] tracking-[-0.03em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[32px] 
+          flex items-center justify-center flex-wrap mb-12
+        "
+              wordClassName="mr-2"
+              wordDelay={0.025}
+              lineDelay={0.015}
+            />
+          </motion.div>
 
           <motion.p
             style={{ y: item3, opacity: itemOpacity }}
-            className="mt-4 font-general text-[14px] tracking-[0.2em] text-s/60 uppercase"
+            className="mt-4 font-general text-[14px] tracking-[-0.04em] text-s/60 uppercase"
           >
-            Remote · Hybrid · Global
+            Remoto · Híbrido · Global
           </motion.p>
 
           <motion.div
@@ -88,14 +106,14 @@ const JoinUs = () => {
             className="mt-10 flex gap-2 max-lg:w-150 max-md:w-110"
           >
             <Button
-              buttonHref="/join-us"
-              buttonLabel="join the team"
+              buttonHref="/Junte-se a nós"
+              buttonLabel="junte-se à equipe"
               buttonBgColor="#ffffff"
               buttonTextColor="#000000"
             />
             <Button
               buttonHref="/contact"
-              buttonLabel="start a project"
+              buttonLabel="inicie um trabalho"
               buttonBgColor="#000000"
               buttonTextColor="#ffffff"
             />

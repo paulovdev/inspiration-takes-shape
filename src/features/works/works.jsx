@@ -171,7 +171,7 @@ const Works = () => {
               className="relative group pointer-events-auto"
             >
               <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]">
-                Grid
+                Grade
               </span>
             </button>
 
@@ -184,7 +184,7 @@ const Works = () => {
               className="relative group pointer-events-auto"
             >
               <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]">
-                List
+                Lista
               </span>
             </button>
           </motion.div>

@@ -68,7 +68,7 @@ const WorksPreview = () => {
 
   return (
     <>
-      <section className="overflow-hidden" ref={container}>
+      <section className="overflow-hidden mb-10" ref={container}>
         <div
           className="relative w-screen h-[200vh] overflow-hidden max-md:h-[150vh] "
           ref={ref}
@@ -109,7 +109,7 @@ const WorksPreview = () => {
                     animate="animate"
                     exit="exit"
                     className="
-                    absolute left-0 top-0 text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] whitespace-nowrap"
+                    absolute left-0 top-0 text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] whitespace-nowrap"
                   >
                     {activeWork.title}
                   </motion.p>
@@ -128,7 +128,7 @@ const WorksPreview = () => {
                     exit="exit"
                     className="
                     absolute right-0 top-0
-                    text-s font-general text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]
+                    text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]
                   "
                   >
                     {activeWork.year}
@@ -140,7 +140,7 @@ const WorksPreview = () => {
         </motion.div>
       )}
       <motion.div
-        className="fixed bottom-0 left-0 flex items-center justify-center p-10  z-10 pointer-events-none will-change-[opacity]"
+        className="fixed inset-0 flex items-center justify-center p-10  z-10 pointer-events-none will-change-[opacity]"
         initial={{ opacity: 0 }}
         animate={{
           opacity: inView ? 1 : 0,
@@ -152,11 +152,11 @@ const WorksPreview = () => {
       >
         <Link
           href="/works"
-          className="group inline-block cursor-pointer text-s pointer-events-auto"
+          className="group inline-block cursor-pointer pointer-events-auto"
           style={{ pointerEvents: inView ? "auto" : "none" }}
         >
-          <span className="relative text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
-            See All Works
+          <span className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
+            Ver todos os trabalhos
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </span>
 

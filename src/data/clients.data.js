@@ -14,8 +14,8 @@ export const clients = [
   { title: "Nike", icon: SiNike },
   { title: "Adidas", icon: SiAdidas },
   { title: "Chanel", icon: CgChanel },
-  { title: "SiChemex", icon: SiChemex },
-  { title: "Thenorthface ", icon: SiThenorthface },
+  { title: "Chemex", icon: SiChemex },
+  { title: "The north face ", icon: SiThenorthface },
   { title: "Audi", icon: SiAudi },
   { title: "Zara ", icon: SiZara },
 ];

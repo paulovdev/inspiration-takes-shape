@@ -81,7 +81,7 @@ const Reel = () => {
       <motion.div
         ref={container}
         style={{ clipPath: clipPathScroll }}
-        className="relative w-screen h-dvh flex items-center justify-center bg-black will-change-[clip-path]"
+        className="relative mb-20 w-screen h-dvh flex items-center justify-center bg-black will-change-[clip-path]"
         onClick={() => setVideoOpen(true)}
       >
         <div className="absolute inset-0 size-full -z-10">
@@ -105,7 +105,7 @@ const Reel = () => {
               ease: [0.76, 0, 0.24, 1],
             }}
           >
-            Play Reel
+            Assistir Showcase
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </motion.h3>
         </div>
@@ -134,7 +134,7 @@ const Reel = () => {
 
             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end pointer-events-none">
               <div
-                className="pointer-events-auto text-white text-3xl cursor-pointer"
+                className="pointer-events-auto text-s text-3xl cursor-pointer"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 onClick={toggleMute}
@@ -143,16 +143,16 @@ const Reel = () => {
               </div>
 
               <div
-                className="pointer-events-auto text-white font-general text-[14px]"
+                className="pointer-events-auto text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
               >
-                {time}s
+                {time} segundos
               </div>
             </div>
 
             <div
-              className="absolute top-6 right-6 text-white text-3xl cursor-pointer"
+              className="absolute top-6 right-6 text-s text-3xl cursor-pointer"
               onClick={closeVideo}
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
@@ -177,9 +177,9 @@ const Reel = () => {
                   transition={{ duration: 0.2 }}
                 >
                   {isPlaying ? (
-                    <IoMdPause className="text-[82px] text-white" />
+                    <IoMdPause className="text-[82px] text-s" />
                   ) : (
-                    <IoMdPlay className="text-[82px] text-white" />
+                    <IoMdPlay className="text-[82px] text-s" />
                   )}
                 </motion.div>
               )}

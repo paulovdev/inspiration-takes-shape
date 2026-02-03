@@ -38,7 +38,7 @@ const Button = ({
       style={{ background: buttonBgColor }}
     >
       <div className="w-full flex items-end justify-between">
-        <div className="relative h-[16px] overflow-hidden max-md:h-[12px]">
+        <div className="relative h-[15px] overflow-hidden max-md:h-[12px]">
           <motion.div
             variants={textOverlap}
             initial="initial"
@@ -46,13 +46,13 @@ const Button = ({
             className="flex flex-col will-change-transform"
           >
             <p
-              className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
+              className="text-s font-general font-medium text-[14px] leading-[1.1] tracking-[-0.03em] uppercase max-md:text-[12px]"
               style={{ color: buttonTextColor }}
             >
               {buttonLabel}
             </p>
             <p
-              className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
+              className="text-s font-general font-medium text-[14px] leading-[1.1] tracking-[-0.03em] uppercase max-md:text-[12px]"
               style={{ color: buttonTextColor }}
             >
               {buttonLabel}
@@ -60,7 +60,7 @@ const Button = ({
           </motion.div>
         </div>
 
-        <div className="relative h-[15px] overflow-hidden">
+        <div className="relative h-[14px] overflow-hidden">
           <motion.div
             variants={textOverlap}
             initial="initial"

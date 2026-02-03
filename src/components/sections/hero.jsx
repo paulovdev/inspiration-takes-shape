@@ -39,7 +39,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
                   muted
                   loop
                   playsInline
-                  preload="metada" 
+                  preload="metada"
                   className="relative size-full object-cover brightness-75"
                 />
               ) : (
@@ -97,7 +97,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
                   custom={0.2}
                   className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase flex items-center gap-2 will-change-transform"
                 >
-                  scroll
+                  role para baixo
                   <IoArrowDownSharp className="text-s text-[14px] " />
                 </motion.span>
               </div>

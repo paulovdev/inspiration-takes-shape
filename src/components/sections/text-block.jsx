@@ -26,8 +26,8 @@ const TextBlock = ({
       className={`pb-10 ${bgColor} ${textColor} max-lg:py-15 max-lg:pt-0 max-md:pb-10`}
     >
       <div className="p-10 w-full flex max-lg:flex-col items-start max-ds:p-8 max-lg:p-5 max-md:p-2 max-lg:gap-10">
-        <div className="flex-1 ">
-          <p className=" text-p font-general font-semibold text-[14px] tracking-[-0.015em] uppercase max-md:text-[12px]">
+        <div className="flex-1">
+          <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
             {blockTitle}
           </p>
         </div>

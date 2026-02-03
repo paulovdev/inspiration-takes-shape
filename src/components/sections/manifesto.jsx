@@ -4,7 +4,7 @@ import TextAnimated from "@/components/ui/text-animated";
 
 const Manifesto = ({ manifestoPhrases }) => {
   const { ref, inView } = useInView({
-    threshold: 0.4,
+    threshold: 0.25,
     triggerOnce: true,
   });
 

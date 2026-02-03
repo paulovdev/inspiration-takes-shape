@@ -1,23 +1,26 @@
 export const navigation = [
-  { label: "Index", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Works", href: "/works" },
-  { label: "Contact", href: "/contact" },
-  { label: "Credits for content", href: "/credits-for-content" },
+  { label: "Índice", href: "/" },
+  { label: "Sobre", href: "/about" },
+  { label: "Trabalhos", href: "/works" },
+  { label: "Contato", href: "/contact" },
+  { label: "Créditos pelo conteúdo", href: "/credits-for-content" },
   { label: "Lab", href: "/lab", dropDown: true },
 ];
 
 export const dropNavigation = [
   {
-    label: "Inspiration takes shape®",
+    label: "A inspiração toma forma®",
     href: "https://www.youtube.com/@paulovdev",
   },
   {
-    label: "Experimental Direction™",
+    label: "Direção Experimental™",
     href: "https://www.youtube.com/@paulovdev",
   },
-  { label: "Design as Language™", href: "https://www.youtube.com/@paulovdev" },
-  { label: "Future Forms®", href: "https://www.youtube.com/@paulovdev" },
+  {
+    label: "Design como linguagem™",
+    href: "https://www.youtube.com/@paulovdev",
+  },
+  { label: "Formas Futuras®", href: "https://www.youtube.com/@paulovdev" },
 ];
 
 export const socials = [

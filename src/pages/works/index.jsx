@@ -19,8 +19,8 @@ const Index = () => {
 
       <main className="w-auto min-h-screen bg-s">
         <PageHero
-          title={[`Case Studies`]}
-          subTitle="Collection of"
+          title={[`Trabalhos`]}
+          subTitle="Coleção dos nossos"
           src="/lab/video-3.mp4"
         />
         <Works />

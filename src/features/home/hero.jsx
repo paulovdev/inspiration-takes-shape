@@ -132,7 +132,7 @@ const Hero = ({ lenis }) => {
           <div className=""></div>
           <div className="mb-10 flex items-center gap-2 z-100 will-change-transform">
             <span className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase">
-              scroll
+              role para baixo
             </span>
             <IoArrowDownSharp className="text-s text-[14px]" />
           </div>
@@ -263,7 +263,7 @@ const BackgroundMedia = ({
             muted
             loop
             playsInline
-            preload="metada" 
+            preload="metada"
             className="w-full h-full object-cover brightness-75"
           />
         ) : (
