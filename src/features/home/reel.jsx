@@ -86,14 +86,14 @@ const Reel = () => {
       >
         <div className="absolute inset-0 size-full -z-10">
           <Image
-            src="/reel.jpeg"
+            src="/reel.png"
             width={2000}
             height={2000}
             alt=""
             className="size-full object-cover brightness-75"
           />
         </div>
-        <div className="overflow-hidden h-fit">
+        <div className="overflow-hidden h-fit cursor-pointer">
           <motion.h3
             className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px] group will-change-transform"
             initial={false}
@@ -101,7 +101,7 @@ const Reel = () => {
               y: videoOpen ? -100 : 0,
             }}
             transition={{
-              duration: 0.75,
+              duration: 0.5,
               ease: [0.76, 0, 0.24, 1],
             }}
           >
@@ -132,9 +132,9 @@ const Reel = () => {
               className="absolute inset-0 w-full h-full object-cover"
             />
 
-            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end pointer-events-none">
+            <div className="absolute bottom-6 left-6 right-6 flex justify-between mix-blend-exclusion items-end pointer-events-none">
               <div
-                className="pointer-events-auto text-s text-3xl cursor-pointer"
+                className="pointer-events-auto text-s text-[28px] cursor-pointer max-lg:text-[24px]"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 onClick={toggleMute}
@@ -143,7 +143,7 @@ const Reel = () => {
               </div>
 
               <div
-                className="pointer-events-auto text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]"
+                className="pointer-events-auto relative text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] max-md:-top-1"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
               >
@@ -152,7 +152,7 @@ const Reel = () => {
             </div>
 
             <div
-              className="absolute top-6 right-6 text-s text-3xl cursor-pointer"
+              className="absolute top-6 right-4 text-s mix-blend-exclusion text-[42px] cursor-pointer"
               onClick={closeVideo}
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
@@ -164,7 +164,7 @@ const Reel = () => {
               {!hover && !isMobile && (
                 <motion.div
                   key={isPlaying ? "pause" : "play"}
-                  className="fixed z-1000 pointer-events-none will-change-transform"
+                  className="fixed z-1000 pointer-events-none mix-blend-exclusion will-change-transform"
                   style={{
                     left: x,
                     top: y,

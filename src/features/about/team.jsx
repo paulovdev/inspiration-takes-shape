@@ -16,7 +16,7 @@ const Team = () => {
 
   return (
     <div
-      className="relative pt-10 px-10 py-2 w-full overflow-hidden h-fit bg-s max-ds:px-8 max-lg:px-5 max-md:px-2"
+      className="relative pt-10 px-10 py-2 w-full overflow-hidden h-fit max-ds:px-8 max-lg:px-5 max-md:px-2"
       ref={ref}
     >
       <div className="relative mb-12">

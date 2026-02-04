@@ -10,7 +10,7 @@ const textSlideNoI = {
   initial: {
     y: "100%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: 0.5,
     },
@@ -18,7 +18,7 @@ const textSlideNoI = {
   animate: (custom) => ({
     y: "0",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: custom,
     },
@@ -26,7 +26,7 @@ const textSlideNoI = {
   exit: {
     y: "-100%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: 0.5,
     },
@@ -124,7 +124,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
 const Approach = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   return (
-    <section className="relative p-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
+  <section className="relative px-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-col snap-mandatory overflow-x-scroll ">
         {approach.map((gallery, i) => (
           <CardGrid

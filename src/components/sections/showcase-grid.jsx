@@ -34,7 +34,7 @@ const ShowcaseGrid = ({
           return (
             <div
               key={i}
-              className="relative p-2 w-full overflow-hidden h-fit"
+              className="relative p-2 w-full overflow-hidden h-fit cursor-pointer"
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(null)}
             >

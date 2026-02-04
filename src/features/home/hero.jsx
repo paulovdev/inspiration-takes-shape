@@ -17,6 +17,7 @@ import {
 
 import { useIsMobile } from "@/hooks/useIsMobile";
 import Image from "next/image";
+import { textSlide } from "@/animations/sections/navigation.animations";
 
 const size = 600;
 const center = size / 2;
@@ -130,11 +131,40 @@ const Hero = ({ lenis }) => {
             />
           </motion.div>
           <div className=""></div>
-          <div className="mb-10 flex items-center gap-2 z-100 will-change-transform">
-            <span className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase">
-              role para baixo
-            </span>
-            <IoArrowDownSharp className="text-s text-[14px]" />
+
+          <div className="mb-10 flex justify-center z-100 will-change-transform">
+            <div className="relative h-[14px] min-w-[160px] overflow-hidden">
+              <AnimatePresence mode="sync" initial={false}>
+                {isAnimating ? (
+                  <motion.div
+                    key="loading"
+                    initial={{ y: 19 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -19 }}
+                    transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] animate-pulse duration-200">
+                      Carregando
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="scroll"
+                    initial={{ y: 19 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -19 }}
+                    transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+                    className="absolute inset-0 flex items-center justify-center gap-2"
+                  >
+                    <p className="flex items-center gap-2 whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
+                      Role para baixo
+                      <IoArrowDownSharp className="text-[14px]" />
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -165,7 +195,6 @@ const BackgroundMedia = ({
       return;
     }
 
-    // 🚫 Se já animou para esse tick, não anima de novo (ex: voltou de rota)
     if (lastAnimatedTick.current === activeTick) return;
 
     if (isAnimatingRef.current) return;

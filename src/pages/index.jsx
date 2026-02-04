@@ -46,7 +46,7 @@ const Index = () => {
           buttonBgColor="#000000"
           buttonTextColor="#ffffff"
         />
-        <div className="mt-40" />
+        <div className="mt-40 max-ds:mt-10 max-md:mt-0" />
         <WorksPreview />
         <Clients
           title="[CLIENTES SELECIONADOS]"

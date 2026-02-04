@@ -23,7 +23,7 @@ const CardGrid = memo(({ work, index }) => {
   }, [router, work.id]);
 
   return (
-    <motion.div onClick={goToWork} className="relative group">
+    <motion.div onClick={goToWork} className="relative group cursor-pointer">
       <figure
         className="h-[75vh] overflow-hidden"
         onMouseEnter={handleEnter}
@@ -38,7 +38,7 @@ const CardGrid = memo(({ work, index }) => {
         />
 
         <div className="absolute inset-0 p-5 w-full flex items-center justify-between">
-          <div className="h-[15px] overflow-hidden cursor-default">
+          <div className="h-[15px] overflow-hidden cursor-pointer">
             <motion.div
               variants={textSlideNoI}
               initial="initial"
@@ -97,7 +97,7 @@ const CardList = memo(({ work, setActiveWork, setVisible, bumpMedia }) => {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onClick={goToWork}
-      className="relative p-2 w-full grid grid-cols-4 items-center cursor-default"
+      className="relative p-2 w-full grid grid-cols-4 items-center cursor-pointer"
     >
       <div className="col-span-3 text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]">
         {work.title}
@@ -170,8 +170,9 @@ const Works = () => {
               onClick={() => setMode("grid")}
               className="relative group pointer-events-auto"
             >
-              <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]">
+              <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px] cursor-pointer">
                 Grade
+                <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
               </span>
             </button>
 
@@ -183,8 +184,9 @@ const Works = () => {
               onClick={() => setMode("list")}
               className="relative group pointer-events-auto"
             >
-              <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]">
+              <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px] cursor-pointer">
                 Lista
+                <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
               </span>
             </button>
           </motion.div>
@@ -195,7 +197,7 @@ const Works = () => {
         {mode === "list" && visible && !isMobile && (
           <motion.div
             style={{ x, y }}
-            className="pointer-events-none fixed top-0 left-0 w-120 h-75 z-30 overflow-hidden will-change-transform"
+            className="pointer-events-none fixed top-0 left-0 w-120 h-75 z-30 overflow-hidden will-change-transform -translate-x-1/2 -translate-y-1/2"
             {...scale}
           >
             <AnimatePresence mode="sync" initial={false}>

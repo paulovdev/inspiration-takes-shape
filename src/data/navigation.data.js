@@ -4,7 +4,7 @@ export const navigation = [
   { label: "Trabalhos", href: "/works" },
   { label: "Contato", href: "/contact" },
   { label: "Créditos pelo conteúdo", href: "/credits-for-content" },
-  { label: "Lab", href: "/lab", dropDown: true },
+  { label: "Laboratório", href: "/lab", dropDown: true },
 ];
 
 export const dropNavigation = [

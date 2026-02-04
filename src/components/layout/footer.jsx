@@ -29,14 +29,14 @@ const socialLinks = [
 
 const Footer = () => {
   const { ref, inView } = useInView({
-    threshold: 0.75,
+    threshold: 0.5,
     triggerOnce: true,
   });
 
   return (
     <footer
       ref={ref}
-      className="relative h-[75vh] bg-s  max-ds:h-[85dvh] max-md:h-[90dvh] z-50 will-change-[clip-path]"
+      className="relative h-[75vh] bg-p max-ds:h-[85dvh] max-md:h-[90dvh] z-50 will-change-[clip-path]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 w-full h-[75vh] flex flex-col justify-between max-md:gap-10 max-ds:h-[80dvh] max-md:h-[80dvh]">
@@ -51,7 +51,7 @@ const Footer = () => {
                     : { y: 120, opacity: 0, filter: "blur(12px)" }
                 }
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
+                className="mb-8 font-inter font-normal text-s text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               >
                 Índice do site
               </motion.p>
@@ -66,7 +66,7 @@ const Footer = () => {
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
-                    className="text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] hover:text-p/75 transition-all cursor-pointer"
+                    className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] hover:text-s/75 transition-all cursor-pointer"
                   >
                     {link.label}
                   </motion.p>
@@ -83,9 +83,9 @@ const Footer = () => {
                     : { y: 120, opacity: 0, filter: "blur(12px)" }
                 }
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
+                className="mb-8 font-inter font-normal text-s text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               >
-                Lab
+                Laboratório
               </motion.p>
               {manifestoLinks.map((link, i) => (
                 <a
@@ -98,7 +98,7 @@ const Footer = () => {
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
-                    className="text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase flex items-center justify-between gap-2 max-md:text-[12px] hover:text-p/75 transition-all cursor-pointer"
+                    className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase flex items-center justify-between gap-2 max-md:text-[12px] hover:text-s/75 transition-all cursor-pointer"
                   >
                     {link.label} <FaLink className="text-[12px]" />
                   </motion.p>
@@ -114,7 +114,7 @@ const Footer = () => {
                     : { y: 120, opacity: 0, filter: "blur(12px)" }
                 }
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
+                className="mb-8 font-inter font-normal text-s text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               >
                 Redes Sociais
               </motion.p>
@@ -131,7 +131,7 @@ const Footer = () => {
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
-                    className="text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] hover:text-p/75 transition-all cursor-pointer"
+                    className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] hover:text-s/75 transition-all cursor-pointer"
                   >
                     {link.label}
                   </motion.p>
@@ -149,7 +149,7 @@ const Footer = () => {
                   : { y: 120, opacity: 0, filter: "blur(12px)" }
               }
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
+              className="mb-8 font-inter font-normal text-s text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
             >
               Newsletter — nada de spam, só coisas boas.
             </motion.p>
@@ -160,7 +160,7 @@ const Footer = () => {
                 initial="initial"
                 animate={inView ? "animate" : "initial"}
                 custom={0.2}
-                className=" text-p font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
+                className=" text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px]"
               >
                 seu endereço de e-mail
               </motion.p>
@@ -174,7 +174,7 @@ const Footer = () => {
               <input
                 type="text"
                 name="email"
-                className="my-4 px-2 py-2 w-100 inline-block border-2 border-p outline-none group max-md:w-full"
+                className="my-4 px-2 py-2 w-100 inline-block border-2 border-s outline-none group max-md:w-full"
               />
             </motion.div>
             <motion.div
@@ -187,8 +187,8 @@ const Footer = () => {
               <Button
                 buttonHref="/newsletter"
                 buttonLabel="inscrever-se"
-                buttonBgColor="#000000"
-                buttonTextColor="#ffffff"
+                buttonBgColor="#ffffff"
+                buttonTextColor="#000000"
               />
             </motion.div>
           </div>
@@ -203,7 +203,7 @@ const Footer = () => {
                 : { y: 120, opacity: 0, filter: "blur(12px)" }
             }
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full text-left font-normal leading-none tracking-[-0.06em] text-[9.5vw] max-ds:text-[7.9vw] max-lg:text-[9.5vw] max-md:text-[9.5vw]"
+            className="w-full text-left text-s font-normal leading-none tracking-[-0.06em] text-[9.5vw] max-ds:text-[7.9vw] max-lg:text-[9.5vw] max-md:text-[9.5vw]"
           >
             A Inspiração ganha forma <span className="text-[8vw]">®</span>
           </motion.h2>

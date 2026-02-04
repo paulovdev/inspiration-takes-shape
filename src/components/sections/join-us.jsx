@@ -21,8 +21,8 @@ const JoinUs = () => {
   );
 
   const imageOpacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
-  const imageY = useTransform(scrollYProgress, [0.35, 0.55], ["20%", "-20%"]);
-  const imageScale = useTransform(scrollYProgress, [0.35, 0.55], [0, 5]);
+  const imageY = useTransform(scrollYProgress, [0.35, 0.55], ["0%", "-20%"]);
+  const imageScale = useTransform(scrollYProgress, [0.35, 0.55], [0, 3]);
 
   const contactOpacity = useTransform(scrollYProgress, [0.55, 0.65], [0, 1]);
   const contactY = useTransform(scrollYProgress, [0.55, 0.7], [80, 0]);
@@ -39,9 +39,9 @@ const JoinUs = () => {
           <div className="overflow-hidden h-fit">
             <motion.h1
               style={{ y: titleY }}
-              className="font-normal text-p text-[128px] leading-[1.1] tracking-[1em] max-lg:text-[56px] max-md:text-[34px] max-md:tracking-[-0.03em]"
+              className="font-normal text-p text-[128px] leading-[1.1] tracking-[-0.04em] max-lg:text-[56px] max-md:text-[34px] max-md:tracking-[-0.03em]"
             >
-              I G F®
+              Conheça a gente
             </motion.h1>
           </div>
         </div>
@@ -49,7 +49,7 @@ const JoinUs = () => {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <motion.figure
             style={{ opacity: imageOpacity, y: imageY, scale: imageScale }}
-            className="relative w-[420px] h-[520px] will-change-transform"
+            className="relative w-full h-full will-change-transform"
           >
             <Image
               src="/join.jpg"

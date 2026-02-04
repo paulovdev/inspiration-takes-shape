@@ -14,6 +14,7 @@ import {
 
 import { navigation, dropNavigation, socials } from "@/data/navigation.data";
 import { line } from "@/animations/shared/global-anim";
+import { IoClose } from "react-icons/io5";
 
 export const Menu = ({ setMenu }) => {
   const router = useRouter();
@@ -39,12 +40,12 @@ export const Menu = ({ setMenu }) => {
             exit: 0,
           }}
         >
-          <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5">
+          <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5 ">
             <button
-              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
               onClick={() => setMenu(false)}
             >
-              fechar
+              <IoClose className="text-[16px]" /> fechar
             </button>
           </div>
 
@@ -75,7 +76,7 @@ export const Menu = ({ setMenu }) => {
                         animate="animate"
                         exit="exit"
                         custom={{
-                          animate: 0.75 + i * 0.075,
+                          animate: 0.5 + i * 0.075,
                           exit: i * 0.075,
                         }}
                         onClick={() =>
@@ -208,7 +209,7 @@ export const Menu = ({ setMenu }) => {
         exit="exit"
         custom={{
           animate: 0,
-          exit: 0.75,
+          exit: 0.5,
         }}
         onClick={() => setMenu(false)}
       />

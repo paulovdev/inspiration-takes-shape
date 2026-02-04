@@ -25,7 +25,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
       onClick={() => {
         router.push(`/works/${work.id}`, undefined, { scroll: false });
       }}
-      className="relative group will-change-transform"
+      className="relative group cursor-pointer will-change-transform"
     >
       <figure
         className="h-[75vh] overflow-hidden max-lg:h-[60vh] max-md:h-[50vh]"
@@ -152,10 +152,10 @@ const WorksPreview = () => {
       >
         <Link
           href="/works"
-          className="group inline-block cursor-pointer pointer-events-auto"
+          className="group inline-block text-center cursor-pointer pointer-events-auto"
           style={{ pointerEvents: inView ? "auto" : "none" }}
         >
-          <span className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
+          <span className="relative  text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
             Ver todos os trabalhos
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </span>

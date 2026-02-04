@@ -11,7 +11,7 @@ const Manifesto = ({ manifestoPhrases }) => {
   return (
     <div
       ref={ref}
-      className="relative px-10 pt-20 w-full bg-s flex flex-col items-start cursor-default max-lg:px-3 max-lg:pt-20 max-md:pt-10"
+      className="relative px-10 pt-20 w-full flex flex-col items-start cursor-default max-lg:px-3 max-lg:pt-20 max-md:pt-10"
     >
       <TextAnimated
         phrases={manifestoPhrases}

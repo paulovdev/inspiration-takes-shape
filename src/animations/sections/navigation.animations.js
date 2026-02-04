@@ -3,14 +3,14 @@ export const menuContainer = {
   animate: {
     height: "100dvh",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
     },
   },
   exit: {
     height: "0vh",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.76, 0, 0.24, 1],
       delay: 0.25,
     },
@@ -22,7 +22,7 @@ export const fade = {
   animate: ({ animate }) => ({
     opacity: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: animate,
     },
@@ -30,7 +30,7 @@ export const fade = {
   exit: ({ exit }) => ({
     opacity: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: exit,
     },
@@ -42,7 +42,7 @@ export const textSlide = {
   animate: ({ animate }) => ({
     y: "0%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: animate,
     },
@@ -50,7 +50,7 @@ export const textSlide = {
   exit: ({ exit }) => ({
     y: "100%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: exit,
     },

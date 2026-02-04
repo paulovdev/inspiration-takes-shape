@@ -3,7 +3,7 @@ export const textSlide = {
   animate: (custom) => ({
     y: "0%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: custom * 0.075,
     },

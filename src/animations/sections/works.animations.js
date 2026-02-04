@@ -3,7 +3,7 @@ export const textSlide = {
   animate: (i) => ({
     y: "0%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
       delay: i * 0.075,
     },
@@ -42,14 +42,14 @@ export const textSlideNoI = {
   animate: {
     y: "0",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
     },
   },
   exit: {
     y: "-100%",
     transition: {
-      duration: 0.75,
+      duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
     },
   },

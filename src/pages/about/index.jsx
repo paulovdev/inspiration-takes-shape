@@ -37,7 +37,6 @@ const Index = () => {
           bgColor="bg-s"
           textColor="text-p"
         />
-        <div className="mb-2 w-full h-px bg-p/25" />
         <Approach />
         <Clients
           title="[CLIENTES SELECIONADOS]"
@@ -49,6 +48,7 @@ const Index = () => {
         />
         <div className="mt-10 mb-2 w-full h-px bg-p/25" />
         <Awards />
+        <div className="mb-2 w-full h-px bg-p/25" />
         <Team />
         <JoinUs />
         <div className=""></div>

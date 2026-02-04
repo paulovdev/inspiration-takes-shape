@@ -8,7 +8,7 @@ const Awards = () => {
   });
   return (
     <section
-      className="relative p-10 bg-s w-full h-full flex items-start justify-between overflow-hidden max-md:flex-col max-lg:px-5 max-md:px-2"
+      className="relative p-10 w-full h-full flex items-start justify-between overflow-hidden max-md:flex-col max-lg:px-5 max-md:px-2"
       ref={ref}
     >
       <div className="flex-1 relative max-md:mb-12">
