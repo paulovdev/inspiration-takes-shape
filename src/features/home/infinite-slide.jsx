@@ -1,10 +1,10 @@
 import { slide } from "@/data/home.data";
-import Image from "next/image";
 import { motion } from "motion/react";
 import TextAnimated from "@/components/ui/text-animated";
 import { textSlide } from "@/animations/shared/global-anim";
 import { useInView } from "react-intersection-observer";
-import { useRef } from "react";
+
+import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 
 const InfiniteSlide = () => {
   const { ref, inView } = useInView({
@@ -21,7 +21,7 @@ const InfiniteSlide = () => {
     >
       <div className="relative mb-12">
         <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
-          [do nosso Instagram]
+          [from our Instagram]
         </p>
       </div>
       <motion.div
@@ -41,7 +41,8 @@ const InfiniteSlide = () => {
               key={i}
               className={`w-[350px] max-md:w-[250px] ${mod ? "h-[40vh] max-md:h-[35vh]" : "h-[30vh] max-md:h-[25vh]"} mr-2 flex-shrink-0`}
             >
-              <Image
+              <PixelRevealImage
+                inView={inView}
                 src={slid.src}
                 width={2000}
                 height={2000}
@@ -55,7 +56,7 @@ const InfiniteSlide = () => {
 
       <div className="my-20">
         <TextAnimated
-          phrases={[`— Veja mais em @inspiration_takes_shape`]}
+          phrases={[`— See more at @inspiration_takes_shape`]}
           variants={textSlide}
           animate={inView}
           as="h2"

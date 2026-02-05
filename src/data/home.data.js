@@ -17,28 +17,28 @@ export const lab = [
   {
     tick: 0,
     src: "/lab/video-2.mp4",
-    title: "A inspiração toma forma",
+    title: "Inspiration Takes Shape",
     mark: "®",
     year: "2019",
   },
   {
     tick: 20,
     src: "/lab/video-1.mp4",
-    title: "TERRA",
+    title: "EARTH",
     mark: "™",
     year: "20??",
   },
   {
     tick: 40,
     src: "/lab/img-1.jpg",
-    title: "Design como linguagem",
+    title: "Design as Language",
     mark: "™",
     year: "2023",
   },
   {
     tick: 60,
     src: "/lab/video-3.mp4",
-    title: "Formas Futuras",
+    title: "Future Shapes",
     mark: "®",
     year: "2025",
   },
@@ -72,13 +72,13 @@ export const slide = [
 ];
 
 export const manifestoPhrases = [
-  `Criamos estratégias de design inovadoras para marcas visionárias, unindo estética e propósito para gerar soluções de impacto.`,
+  `We create innovative design strategies for visionary brands, blending aesthetics and purpose to deliver impactful solutions.`,
 ];
 
 export const blockPhrases = [
-  `Criamos soluções de design cuidadosas que conectam marcas e pessoas.`,
+  `We create thoughtful design solutions that connect brands and people.`,
   ``,
-  `Movidos pela curiosidade e guiados pela clareza, nosso trabalho abrange experiências digitais, identidades visuais e estratégia.`,
+  `Driven by curiosity and guided by clarity, our work spans digital experiences, visual identities, and strategy.`,
   ``,
-  `Colaboramos de perto com nossos clientes para transformar ideias em design com propósito e duradouro — seja lançando algo novo ou aprimorando o que já existe.`,
+  `We collaborate closely with our clients to transform ideas into purposeful, lasting design — whether launching something new or refining what already exists.`,
 ];

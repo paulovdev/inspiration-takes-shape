@@ -45,7 +45,7 @@ export const Menu = ({ setMenu }) => {
               className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
               onClick={() => setMenu(false)}
             >
-              <IoClose className="text-[16px]" /> fechar
+              <IoClose className="text-[16px]" /> close
             </button>
           </div>
 
@@ -171,7 +171,7 @@ export const Menu = ({ setMenu }) => {
                   exit="exit"
                   custom={{ animate: 1, exit: 0 }}
                 >
-                  redes sociais:
+                  social media:
                 </motion.p>
               </div>
               {socials.map((social, i) => (

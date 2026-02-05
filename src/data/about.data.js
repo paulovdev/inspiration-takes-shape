@@ -14,43 +14,43 @@ export const awards = [
 
   { title: "Cannes Lions", subTitle: "(x2)" },
   { title: "Webby Awards", subTitle: "(x2)" },
-  { title: "The One Show — Prata", subTitle: "(x1)" },
-  { title: "ADC Awards — Prata", subTitle: "(x1)" },
+  { title: "The One Show — Silver", subTitle: "(x1)" },
+  { title: "ADC Awards — Silver", subTitle: "(x1)" },
   { title: "D&AD — Wood", subTitle: "(x1)" },
   { title: "Communication Arts", subTitle: "(x1)" },
   { title: "The Lovie Awards", subTitle: "(x1)" },
 
-  { title: "Destaque no SiteInspire", subTitle: "(x3)" },
+  { title: "Featured on SiteInspire", subTitle: "(x3)" },
 
-  { title: "Jurados do FWA", subTitle: "Desde 2017 ↗" },
-  { title: "Júri do CSSDA", subTitle: "2016 ↗" },
-  { title: "Awwwards Nomeado — FOTY", subTitle: "2015 ↗" },
+  { title: "FWA Jury Member", subTitle: "Since 2017 ↗" },
+  { title: "CSSDA Jury Member", subTitle: "2016 ↗" },
+  { title: "Awwwards Nominee — FOTY", subTitle: "2015 ↗" },
 ];
 
 export const approach = [
   {
-    style: "Pesquisa",
+    style: "Research",
     description: [
-      "Nosso processo criativo começa com um método criterioso, mergulhando profundamente na essência da sua marca, nos movimentos do mercado e na psicologia do seu público.",
+      "Our creative process begins with a rigorous method, diving deeply into your brand’s essence, market movements, and the psychology of your audience.",
     ],
-    src: "/about/img-1.jpg",
-    alt: "Retrato futurista de streetwear em baixa iluminação",
+    src: "/approach/img-01.jpg",
+    alt: "Futuristic streetwear portrait in low lighting",
   },
   {
-    style: "Experimentação",
+    style: "Experimentation",
     description: [
-      "Aqui, a imaginação corre livre enquanto combinamos arte e tecnologia para explorar territórios ousados e ainda não desbravados.",
+      "Here, imagination runs free as we merge art and technology to explore bold and uncharted territories.",
     ],
-    src: "/about/video-1.mp4",
-    alt: "Vídeo de moda escuro com composição minimalista",
+    src: "/approach/video-01.mp4",
+    alt: "Dark fashion video with minimalist composition",
   },
   {
-    style: "Refinamento",
+    style: "Refinement",
     description: [
-      "Cada ideia é cuidadosamente lapidada para alcançar um padrão final sofisticado e de alto nível.",
+      "Each idea is carefully crafted and polished to achieve a sophisticated, high-end final standard.",
     ],
-    src: "/about/img-2.jpg",
-    alt: "Figura humana minimalista em um estúdio de tons neutros",
+    src: "/approach/img-02.jpeg",
+    alt: "Minimal human figure in a neutral-toned studio",
   },
 ];
 
@@ -58,49 +58,49 @@ export const team = [
   {
     src: "/team/img-01.jpeg",
     name: "Luna Carvalho",
-    role: "Diretora Criativa",
+    role: "Creative Director",
   },
   {
     src: "/team/img-02.jpeg",
     name: "Sofia Almeida",
-    role: "Diretor de Fashion Film",
+    role: "Fashion Film Director",
   },
   {
     src: "/team/img-03.jpeg",
     name: "Mateo Ribeiro",
-    role: "Pesquisa Visual & Styling",
+    role: "Visual Research & Styling",
   },
   {
     src: "/team/img-04.jpeg",
     name: "Enzo Martins",
-    role: "Direção de Fotografia",
+    role: "Director of Photography",
   },
   {
     src: "/team/img-05.jpeg",
     name: "Isabella Costa",
-    role: "Produção & Casting",
+    role: "Production & Casting",
   },
 ];
 
 export const manifestoPhrases = [
-  `O grande design nasce da curiosidade, de perguntas que se recusam ao óbvio, da coragem de enxergar diferente.`,
+  `Great design is born from curiosity, from questions that refuse the obvious, from the courage to see differently.`,
 
-  `Toda ideia começa como uma faísca — um momento de insight, um pensamento inquieto que pergunta:`,
-  `'E SE?'`,
-  `Mas insight sozinho não basta.`,
-  `Ideias só importam quando ganham forma, quando a visão é guiada por intenção e a criatividade encontra estrutura.`,
-  `Cada projeto equilibra rigor e intuição, lógica e emoção, precisão e expressão.`,
-  `Porque design não é apenas o que você vê, é o que você sente, como você se move e como você entende.`,
-  `É aqui que o instinto encontra a metodologia, onde as ideias ganham forma, onde`,
-  `A INSPIRAÇÃO GANHA FORMA®`,
+  `Every idea begins as a spark — a moment of insight, a restless thought that asks:`,
+  `'WHAT IF?'`,
+  `But insight alone is not enough.`,
+  `Ideas only matter when they take shape, when vision is guided by intention and creativity meets structure.`,
+  `Every project balances rigor and intuition, logic and emotion, precision and expression.`,
+  `Because design is not only what you see, it’s what you feel, how you move, and how you understand.`,
+  `This is where instinct meets methodology, where ideas take shape, where`,
+  `INSPIRATION TAKES SHAPE®`,
 ];
 
 export const blockPhrases = [
-  `Criamos soluções de design cuidadosas que conectam marcas e pessoas.`,
+  `We create thoughtful design solutions that connect brands and people.`,
   ``,
-  `Movidos pela curiosidade e guiados pela clareza, nosso trabalho abrange experiências digitais, identidades visuais e estratégia.`,
+  `Driven by curiosity and guided by clarity, our work spans digital experiences, visual identities, and strategy.`,
   ``,
-  `Colaboramos de perto com nossos clientes para transformar ideias em design com propósito e duradouro — seja lançando algo novo ou aprimorando o que já existe.`,
+  `We collaborate closely with our clients to transform ideas into purposeful, lasting design — whether launching something new or refining what already exists.`,
   ``,
-  `Cada projeto é uma oportunidade de criar com intenção, guiados pelo compromisso com o detalhe, a relevância e a conexão.`,
+  `Every project is an opportunity to create with intention, guided by a commitment to detail, relevance, and connection.`,
 ];

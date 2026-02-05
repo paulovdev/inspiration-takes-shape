@@ -24,7 +24,7 @@ const Nav = () => {
             scroll={false}
             className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer"
           >
-            voltar
+            back
           </button>
         )}
         <div className="relative flex items-center gap-6">
@@ -44,7 +44,7 @@ const Nav = () => {
                   exit: 0,
                 }}
               >
-                idioma
+                language
                 <RiArrowDownSFill
                   className={`text-s text-[20px] ${hover ? "rotate-180" : "rotate-0"} transition-all duration-300 delay-100 ease-[cubic(0.33,1,0.68,1)]`}
                 />
@@ -79,7 +79,7 @@ const Nav = () => {
                         exit: 0,
                       }}
                     >
-                      brasileiro
+                      Brazilian
                     </motion.button>
                   </div>
                   <div className="mb-1 overflow-hidden h-[19px]">
@@ -94,7 +94,7 @@ const Nav = () => {
                         exit: 0,
                       }}
                     >
-                      ingles
+                      English
                     </motion.button>
                   </div>
                   <div className="mb-1 overflow-hidden h-[19px]">
@@ -109,7 +109,7 @@ const Nav = () => {
                         exit: 0,
                       }}
                     >
-                      espanhol
+                      Spanish
                     </motion.button>
                   </div>
                 </motion.div>

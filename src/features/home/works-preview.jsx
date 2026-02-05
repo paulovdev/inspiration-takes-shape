@@ -1,15 +1,23 @@
 import { works } from "@/data/works.data";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
-import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { mergeRefs } from "react-merge-refs";
 import { textOverlap } from "../../animations/sections/home.animations";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 
-const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
+const Card = ({
+  inView,
+  work,
+  index,
+  scrollYProgress,
+  setActiveWork,
+  bump,
+}) => {
   const router = useRouter();
   const isLeft = index % 2 === 0;
 
@@ -35,13 +43,13 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
         }}
         onMouseLeave={() => setActiveWork(null)}
       >
-        <Image
+        <PixelRevealImage
+          inView={inView}
           src={work.src}
           width={2000}
           height={2000}
-          alt={work.alt}
-          priority
           className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
+          alt={work.alt}
         />
       </figure>
     </motion.div>
@@ -49,7 +57,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
 };
 
 const WorksPreview = () => {
-  const container = useRef(null);
+  const containerRef = useRef(null);
   const [activeWork, setActiveWork] = useState(null);
   const [tick, setTick] = useState(0);
   const { x, y } = useMousePosition2();
@@ -57,26 +65,33 @@ const WorksPreview = () => {
 
   const bump = () => setTick((t) => t + 1);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end center"],
+  const { ref: sectionInViewRef, inView: inViewAllWorks } = useInView({
+    threshold: 0.25,
+    triggerOnce: false,
   });
 
-  const { ref, inView } = useInView({
-    threshold: 0.5,
+  const { ref: imageInViewRef, inView: inViewImage } = useInView({
+    threshold: 0.05,
+    triggerOnce: true,
+  });
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end center"],
   });
 
   return (
     <>
-      <section className="overflow-hidden mb-10" ref={container}>
-        <div
-          className="relative w-screen h-[200vh] overflow-hidden max-md:h-[150vh] "
-          ref={ref}
-        >
+      <section
+        ref={mergeRefs([containerRef, sectionInViewRef, imageInViewRef])}
+        className="overflow-hidden mb-10"
+      >
+        <div className="relative w-screen h-[200vh] overflow-hidden max-md:h-[150vh]">
           <div className="absolute -top-120 w-full h-[200vh] grid grid-cols-2 gap-2 max-lg:-top-75 max-lg:h-[175vh] max-md:h-[150vh]">
             {works.slice(0, 8).map((work, i) => (
               <Card
                 key={work.id}
+                inView={inViewImage}
                 work={work}
                 index={i}
                 scrollYProgress={scrollYProgress}
@@ -87,9 +102,10 @@ const WorksPreview = () => {
           </div>
         </div>
       </section>
+
       {!isMobile && (
         <motion.div
-          className="fixed z-1000 max-md:hidden"
+          className="fixed z-[1000] max-md:hidden"
           style={{
             left: x,
             top: y,
@@ -98,7 +114,7 @@ const WorksPreview = () => {
             pointerEvents: "none",
           }}
         >
-          <div className="w-150 h-full flex items-center justify-between max-ds:w-100 max-lg:w-75 max-lg:items-start">
+          <div className="w-[150px] h-full flex items-center justify-between max-ds:w-[100px] max-lg:w-[75px] max-lg:items-start">
             <div className="relative w-full h-[17px] overflow-hidden">
               <AnimatePresence mode="sync">
                 {activeWork && (
@@ -108,8 +124,7 @@ const WorksPreview = () => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="
-                    absolute left-0 top-0 text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] whitespace-nowrap"
+                    className="absolute left-0 top-0 text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] whitespace-nowrap"
                   >
                     {activeWork.title}
                   </motion.p>
@@ -126,10 +141,7 @@ const WorksPreview = () => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="
-                    absolute right-0 top-0
-                    text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]
-                  "
+                    className="absolute right-0 top-0 text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]"
                   >
                     {activeWork.year}
                   </motion.p>
@@ -139,28 +151,26 @@ const WorksPreview = () => {
           </div>
         </motion.div>
       )}
+
       <motion.div
-        className="fixed inset-0 flex items-center justify-center p-10  z-10 pointer-events-none will-change-[opacity]"
+        className="fixed inset-0 flex items-center justify-center p-10 z-10 pointer-events-none will-change-[opacity]"
         initial={{ opacity: 0 }}
         animate={{
-          opacity: inView ? 1 : 0,
-          transition: {
-            duration: 0.5,
-            ease: [0.76, 0, 0.24, 1],
-          },
+          opacity: inViewAllWorks ? 1 : 0,
+          transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
         }}
       >
         <Link
           href="/works"
           className="group inline-block text-center cursor-pointer pointer-events-auto"
-          style={{ pointerEvents: inView ? "auto" : "none" }}
+          style={{ pointerEvents: inViewAllWorks ? "auto" : "none" }}
         >
-          <span className="relative  text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
-            Ver todos os trabalhos
+          <span className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
+            See all works
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </span>
 
-          <span className="relative font-general text-s/75 text-[14px] uppercase -top-8 left-2 max-md:-top-4 tracking-[-0.03em] max-md:text-[12px] max">
+          <span className="relative font-general text-s/75 text-[14px] uppercase -top-8 left-2 max-md:-top-4 tracking-[-0.03em] max-md:text-[12px]">
             (20)
           </span>
         </Link>

@@ -11,8 +11,9 @@ import {
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { scale } from "@/animations/shared/global-anim";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 
-const CardGrid = memo(({ work, index }) => {
+const CardGrid = memo(({ inView, work, index }) => {
   const router = useRouter();
   const [hover, setHover] = useState(null);
 
@@ -29,7 +30,8 @@ const CardGrid = memo(({ work, index }) => {
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
-        <Image
+        <PixelRevealImage
+          inView={inView}
           src={work.src}
           width={2000}
           height={2000}
@@ -138,7 +140,7 @@ const Works = () => {
       {mode === "grid" && (
         <div className="p-2 grid grid-cols-3 gap-2 max-lg:grid-cols-2 max-md:grid-cols-1 z-20">
           {works.map((work, i) => (
-            <CardGrid key={work.id} work={work} index={i} />
+            <CardGrid key={work.id} inView={inView} work={work} index={i} />
           ))}
         </div>
       )}
@@ -171,7 +173,7 @@ const Works = () => {
               className="relative group pointer-events-auto"
             >
               <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px] cursor-pointer">
-                Grade
+                Grid
                 <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
               </span>
             </button>
@@ -185,7 +187,7 @@ const Works = () => {
               className="relative group pointer-events-auto"
             >
               <span className="relative text-s text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px] cursor-pointer">
-                Lista
+                List
                 <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
               </span>
             </button>
@@ -197,7 +199,7 @@ const Works = () => {
         {mode === "list" && visible && !isMobile && (
           <motion.div
             style={{ x, y }}
-            className="pointer-events-none fixed top-0 left-0 w-120 h-75 z-30 overflow-hidden will-change-transform -translate-x-1/2 -translate-y-1/2"
+            className="pointer-events-none fixed top-0 left-0 w-110 h-65 z-30 overflow-hidden will-change-transform -translate-x-1/2 -translate-y-1/2"
             {...scale}
           >
             <AnimatePresence mode="sync" initial={false}>
@@ -210,7 +212,8 @@ const Works = () => {
                   exit="exit"
                   className="absolute inset-0 will-change-transform"
                 >
-                  <Image
+                  <PixelRevealImage
+                    inView={activeWork}
                     src={activeWork.src}
                     width={2000}
                     height={2000}

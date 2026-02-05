@@ -26,20 +26,19 @@ const Index = () => {
 
       <main className="w-auto min-h-screen bg-s">
         <PageHero
-          title={[`A inspiração ganha forma®`]}
-          subTitle="sobre nós"
-          src="/about/video-22.mp4"
+          title={[`Inspiration takes shape®`]}
+          subTitle="about us"
+          src="/about/img-01.jpg"
         />
         <Manifesto manifestoPhrases={manifestoPhrases} />
         <TextBlock
-          blockTitle="[DESDE 2020 — 2026]"
+          blockTitle="[Since 2020]"
           blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-p"
         />
         <Approach />
         <Clients
-          title="[CLIENTES SELECIONADOS]"
           bgColor="bg-p"
           lineColor="border-s/15"
           textColor="text-s"

@@ -22,15 +22,15 @@ const Index = () => {
       <main className="w-auto min-h-screen bg-s border-b border-p/10">
         <PageHero
           title={[
-            `Créditos aos colaboradores que contribuíram com fotografia, vídeo e produção de conteúdo.`,
+            `Credits to the collaborators who contributed with photography, video, and content production.`,
           ]}
-          subTitle="Créditos pelo conteúdo"
+          subTitle="Credits for content"
           src="/creative.jpg"
         />
         <ShowcaseGrid
           data={credits}
-          title="09 de maio de 2024 - muito obrigado a todos <3"
-          subTitle="clique para ver o perfil da pessoa"
+          title="May 9, 2024 - Thank you all so much <3"
+          subTitle="Click to view the person's profile."
           grid="grid-cols-1"
           gridIn="grid-cols-2"
         />

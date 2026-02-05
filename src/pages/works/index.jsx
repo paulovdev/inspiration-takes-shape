@@ -19,9 +19,9 @@ const Index = () => {
 
       <main className="w-auto min-h-screen bg-s">
         <PageHero
-          title={[`Trabalhos`]}
-          subTitle="Coleção dos nossos"
-          src="/lab/video-3.mp4"
+          title={[`Works`]}
+          subTitle="Collection of our"
+          src="/slide/img-01.jpg"
         />
         <Works />
       </main>

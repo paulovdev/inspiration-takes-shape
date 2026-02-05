@@ -3,8 +3,8 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { IoArrowDownSharp } from "react-icons/io5";
 import { scale } from "../../animations/sections/hero.animations";
 import { textSlide } from "@/animations/shared/global-anim";
-import Image from "next/image";
 import TextAnimated from "../ui/text-animated";
+import PixelRevealImage from "../ui/pixel-reveal-image/pixel-reveal-image";
 
 const PageHero = ({ title = [], subTitle, src }) => {
   const container = useRef(null);
@@ -32,26 +32,14 @@ const PageHero = ({ title = [], subTitle, src }) => {
               animate="animate"
               custom={0}
             >
-              {src.includes(".mp4") ? (
-                <video
-                  src={src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metada"
-                  className="relative size-full object-cover brightness-75"
-                />
-              ) : (
-                <Image
-                  src={src}
-                  width={2000}
-                  height={2000}
-                  alt={title}
-                  priority
-                  className="relative size-full object-cover brightness-75"
-                />
-              )}
+              <PixelRevealImage
+                inView={true}
+                src={src}
+                width={2000}
+                height={2000}
+                className="relative size-full object-cover brightness-75"
+                alt={title}
+              />
             </motion.figure>
           </div>
 
@@ -97,7 +85,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
                   custom={0.2}
                   className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase flex items-center gap-2 will-change-transform"
                 >
-                  role para baixo
+                  scroll down
                   <IoArrowDownSharp className="text-s text-[14px] " />
                 </motion.span>
               </div>

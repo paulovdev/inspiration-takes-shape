@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 import { slide } from "@/data/home.data";
+=======
+>>>>>>> 75c7aba ( newasd as)
 import Image from "next/image";
 import { motion } from "motion/react";
 
 import { useInView } from "react-intersection-observer";
+<<<<<<< HEAD
 import { useRef } from "react";
 import { team } from "@/data/about.data";
+=======
+
+import { team } from "@/data/about.data";
+import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
+>>>>>>> 75c7aba ( newasd as)
 
 const Team = () => {
   const { ref, inView } = useInView({
@@ -21,7 +30,11 @@ const Team = () => {
     >
       <div className="relative mb-12">
         <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
+<<<<<<< HEAD
           [nosso time]
+=======
+          [our team]
+>>>>>>> 75c7aba ( newasd as)
         </p>
       </div>
       <motion.div
@@ -41,7 +54,12 @@ const Team = () => {
               key={i}
               className={`relative w-[450px] max-md:w-[250px] ${mod ? "h-[60vh] max-md:h-[50vh]" : "h-[50vh] max-md:h-[40vh]"} mr-2 flex-shrink-0`}
             >
+<<<<<<< HEAD
               <Image
+=======
+              <PixelRevealImage
+                inView={inView}
+>>>>>>> 75c7aba ( newasd as)
                 src={tea.src}
                 width={2000}
                 height={2000}

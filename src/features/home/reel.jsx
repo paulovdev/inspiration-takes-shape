@@ -10,6 +10,8 @@ import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import Image from "next/image";
+import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
+import { useInView } from "react-intersection-observer";
 
 const Reel = () => {
   const videoRef = useRef(null);
@@ -32,7 +34,10 @@ const Reel = () => {
     ["inset(15% 15% 15% 15%)", "inset(0% 0% 0% 0%)"],
   );
   const { x, y } = useMousePosition2();
-
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+    triggerOnce: true,
+  });
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -84,13 +89,22 @@ const Reel = () => {
         className="relative mb-20 w-screen h-dvh flex items-center justify-center bg-black will-change-[clip-path]"
         onClick={() => setVideoOpen(true)}
       >
-        <div className="absolute inset-0 size-full -z-10">
-          <Image
+        <div className="absolute inset-0 size-full -z-10" ref={ref}>
+          {/*  <Image
             src="/reel.png"
             width={2000}
             height={2000}
             alt=""
             className="size-full object-cover brightness-75"
+          /> */}
+
+          <PixelRevealImage
+            inView={inView}
+            src="/reel.png"
+            width={2000}
+            height={2000}
+            className="size-full object-cover brightness-75"
+            alt=""
           />
         </div>
         <div className="overflow-hidden h-fit cursor-pointer">
@@ -105,7 +119,7 @@ const Reel = () => {
               ease: [0.76, 0, 0.24, 1],
             }}
           >
-            Assistir Showcase
+            Watch Showcase
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </motion.h3>
         </div>
@@ -147,7 +161,7 @@ const Reel = () => {
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
               >
-                {time} segundos
+                {time} seconds
               </div>
             </div>
 

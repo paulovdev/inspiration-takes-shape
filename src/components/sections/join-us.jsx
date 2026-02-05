@@ -41,7 +41,7 @@ const JoinUs = () => {
               style={{ y: titleY }}
               className="font-normal text-p text-[128px] leading-[1.1] tracking-[-0.04em] max-lg:text-[56px] max-md:text-[34px] max-md:tracking-[-0.03em]"
             >
-              Conheça a gente
+              Get to know us
             </motion.h1>
           </div>
         </div>
@@ -76,7 +76,7 @@ const JoinUs = () => {
           >
             <TextAnimated
               phrases={[
-                `Colaboramos com pensadores, designers e construtores arrojados que estão moldando o futuro.`,
+                `We collaborate with bold thinkers, designers, and builders who are shaping the future.`,
               ]}
               variants={textSlide}
               as="h2"
@@ -98,7 +98,7 @@ const JoinUs = () => {
             style={{ y: item3, opacity: itemOpacity }}
             className="mt-4 font-general text-[14px] tracking-[-0.04em] text-s/60 uppercase"
           >
-            Remoto · Híbrido · Global
+            Remote · Hybrid · Global
           </motion.p>
 
           <motion.div
@@ -106,14 +106,14 @@ const JoinUs = () => {
             className="mt-10 flex gap-2 max-lg:w-150 max-md:w-110"
           >
             <Button
-              buttonHref="/Junte-se a nós"
-              buttonLabel="junte-se à equipe"
+              buttonHref="/join-us"
+              buttonLabel="Join the team"
               buttonBgColor="#ffffff"
               buttonTextColor="#000000"
             />
             <Button
               buttonHref="/contact"
-              buttonLabel="inicie um trabalho"
+              buttonLabel="Start a job"
               buttonBgColor="#000000"
               buttonTextColor="#ffffff"
             />

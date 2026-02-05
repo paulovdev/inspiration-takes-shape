@@ -36,20 +36,31 @@ const Index = () => {
         <Hero lenis={lenisRef} />
         <Manifesto manifestoPhrases={manifestoPhrases} />
         <TextBlock
+<<<<<<< HEAD
           blockTitle="[pouco sobre nós]"
+=======
+          blockTitle="[A little about us]"
+>>>>>>> 75c7aba ( newasd as)
           blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-p"
           showButton={true}
           buttonHref="/about"
+<<<<<<< HEAD
           buttonLabel="ver mais"
+=======
+          buttonLabel="read more"
+>>>>>>> 75c7aba ( newasd as)
           buttonBgColor="#000000"
           buttonTextColor="#ffffff"
         />
         <div className="mt-40 max-ds:mt-10 max-md:mt-0" />
         <WorksPreview />
         <Clients
+<<<<<<< HEAD
           title="[CLIENTES SELECIONADOS]"
+=======
+>>>>>>> 75c7aba ( newasd as)
           bgColor="bg-s"
           lineColor="border-p/15"
           textColor="text-p"

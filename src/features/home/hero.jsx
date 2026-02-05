@@ -17,7 +17,6 @@ import {
 
 import { useIsMobile } from "@/hooks/useIsMobile";
 import Image from "next/image";
-import { textSlide } from "@/animations/sections/navigation.animations";
 
 const size = 600;
 const center = size / 2;
@@ -145,7 +144,7 @@ const Hero = ({ lenis }) => {
                     className="absolute inset-0 flex items-center justify-center"
                   >
                     <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] animate-pulse duration-200">
-                      Carregando
+                      Loading
                     </p>
                   </motion.div>
                 ) : (
@@ -158,7 +157,7 @@ const Hero = ({ lenis }) => {
                     className="absolute inset-0 flex items-center justify-center gap-2"
                   >
                     <p className="flex items-center gap-2 whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
-                      Role para baixo
+                      Scroll down
                       <IoArrowDownSharp className="text-[14px]" />
                     </p>
                   </motion.div>

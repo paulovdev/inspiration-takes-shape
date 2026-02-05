@@ -1,5 +1,3 @@
-"use client";
-
 import { motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { clients } from "@/data/clients.data";
@@ -22,7 +20,9 @@ const card = {
   }),
 };
 
-const Clients = ({ title }) => {
+ 
+const Clients = () => {
+ 
   const container = useRef(null);
   const [hover, setHover] = useState(null);
 
@@ -40,9 +40,9 @@ const Clients = ({ title }) => {
       ref={ref}
       className="relative p-10 py-20 w-full max-lg:px-5 max-md:px-2 overflow-hidden"
     >
-      <div className="relative mb-12">
-        <p className="text-p/50 font-general font-bold text-[14px] uppercase">
-          {title}
+      <div className="relative max-md:mb-12">
+        <p className="text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+          [SELECTED CLIENTS]
         </p>
       </div>
 
