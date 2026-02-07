@@ -39,7 +39,10 @@ const JoinUs = () => {
           <div className="overflow-hidden h-fit">
             <motion.h1
               style={{ y: titleY }}
-              className="font-normal text-p text-[128px] leading-[1.1] tracking-[-0.04em] max-lg:text-[56px] max-md:text-[34px] max-md:tracking-[-0.03em]"
+              className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[32px]"
             >
               Get to know us
             </motion.h1>
@@ -81,11 +84,11 @@ const JoinUs = () => {
               variants={textSlide}
               as="h2"
               className="flex flex-col"
-              lineClassName="
-          text-s text-[62px] tracking-[-0.03em] leading-none 
+              lineClassName="font-inter font-normal text-s
+          text-[62px] tracking-[-0.03em] leading-none 
           max-ds:text-[52px] 
           max-lg:text-[48px] 
-          max-md:text-[32px] 
+          max-md:text-[32px]
           flex items-center justify-center flex-wrap mb-12
         "
               wordClassName="mr-2"

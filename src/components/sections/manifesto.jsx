@@ -20,13 +20,13 @@ const Manifesto = ({ manifestoPhrases }) => {
         as="h2"
         className="max-w-[1400px] w-full flex flex-col"
         lineClassName="
-          font-inter font-normal text-p text-[62px] tracking-[-0.04em] leading-[1.15] 
+          font-inter font-normal text-p text-[62px] tracking-[-0.035em] leading-[1.15] 
           max-ds:text-[52px] 
           max-lg:text-[48px] 
-          max-md:text-[40px] 
+          max-md:text-[32px]
           flex flex-wrap mb-12
         "
-        wordClassName="mr-2.5"
+        wordClassName="mr-2"
         wordDelay={0.025}
         lineDelay={0.015}
       />

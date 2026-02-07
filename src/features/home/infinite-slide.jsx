@@ -52,7 +52,7 @@ const InfiniteSlide = () => {
           repeat: Infinity,
           repeatType: "loop",
           ease: "linear",
-          duration: slides.length * (500 / speed),
+          duration: slides.length * (100 / speed),
         }}
       >
         {slides.map((slid, i) => (
@@ -83,10 +83,11 @@ const InfiniteSlide = () => {
           as="h2"
           className="max-w-[1400px] w-full "
           lineClassName="
-            font-inter font-normal text-p text-[62px] tracking-[-0.04em] leading-[1.15] 
-            max-ds:text-[52px] 
-            max-lg:text-[48px] 
-            max-md:text-[40px] 
+            font-inter font-normal text-p
+          text-[62px] tracking-[-0.03em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[32px]
             flex flex-wrap mb-12
           "
           wordClassName="mr-2.5"

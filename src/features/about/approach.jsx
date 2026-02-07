@@ -1,12 +1,12 @@
 import { approach } from "@/data/about.data";
 import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
-import Image from "next/image";
+
 import { useState } from "react";
 import { textSlide } from "@/animations/shared/global-anim";
 import TextAnimated from "@/components/ui/text-animated";
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
-
+import { useIsMobile } from "@/hooks/useIsMobile";
 const textSlideNoI = {
   initial: {
     y: "100%",
@@ -36,13 +36,15 @@ const textSlideNoI = {
 
 const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
   const active = activeIndex === index;
+  const isMobile = useIsMobile();
   const { ref, inView } = useInView({
-    threshold: 0.3,
+    threshold: 0.25,
     triggerOnce: true,
   });
 
   return (
     <motion.div
+      ref={ref}
       className="relative group perspective-midrange flex-[1_1_0%] min-w-0 max-lg:w-full"
       onMouseEnter={() => setActiveIndex(index)}
       onMouseLeave={() => setActiveIndex(1)}
@@ -53,24 +55,13 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
       }}
     >
       <motion.figure
-        ref={ref}
-        className="w-full h-[75vh] overflow-hidden max-lg:h-[60vh]"
-        initial={{
-          opacity: 0,
-          rotateX: 45,
-          rotateY: -45,
-          filter: "brightness(0%)",
-        }}
-        animate={{
-          opacity: inView ? 1 : 0,
-          rotateX: inView ? 0 : 45,
-          rotateY: inView ? 0 : -45,
-          filter: inView ? "brightness(100%)" : "brightness(0%)",
-          transition: {
-            duration: 0.5,
-            ease: [0.76, 0, 0.24, 1],
-            delay: index * 0.01,
-          },
+        className="relative w-full h-[75vh] overflow-hidden max-lg:h-[60vh] will-change-transform"
+        initial={{ y: !isMobile && 250 }}
+        animate={{ y: inView && 0 }}
+        transition={{
+          duration: 0.75,
+          ease: [0.76, 0, 0.24, 1],
+          delay: index * 0.075,
         }}
       >
         {gallery.src.includes(".mp4") ? (

@@ -5,10 +5,13 @@ import Lenis from "lenis";
 
 import { useRouter } from "next/router";
 
-import Image from "next/image";
 import Transition from "@/components/layout/transition";
 import PageHero from "@/components/sections/hero";
 import Nav from "@/components/layout/navigation/nav";
+
+import Gallery from "@/features/work/gallery";
+import Manifesto from "@/components/sections/manifesto";
+import { manifestoPhrases } from "@/data/about.data";
 
 const Index = () => {
   const lenisRef = useRef(null);
@@ -43,39 +46,61 @@ const Index = () => {
   return (
     <Transition>
       <Nav />
-      <PageHero title={work.description} subTitle={work.title} src={work.src} />
+      <main className="w-auto min-h-screen bg-s">
+        <PageHero
+          title={work.description}
+          subTitle={work.title}
+          src={work.src}
+        />
 
-      <div className="p-10 py-40 w-full bg-p flex flex-col items-start">
-        <div className="mb-10 max-w-200 flex flex-col items-start">
-          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
-            year:
-          </span>
-          <p className="text-s text-[42px] leading-[1.1em] tracking-[-0.03em]">
-            {work.year}
-          </p>
-        </div>
-        <div className="mb-10 max-w-200 flex flex-col items-start">
-          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
-            category:
-          </span>
-          <p className="text-s text-[42px] leading-[1.1em] tracking-[-0.03em]">
-            {work.category}
-          </p>
+        <div className="relative pt-10 px-10 py-2 w-full overflow-hidden h-fit bg-s max-ds:px-8 max-lg:px-5 max-md:px-2">
+          <div className="relative mb-12">
+            <p className="mb-4 text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+              [year]
+            </p>
+            <h3
+              className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[32px]"
+            >
+              {work.year}
+            </h3>
+          </div>
+
+          <div className="relative mb-12">
+            <p className="mb-4 text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+              [category]
+            </p>
+            <h3
+              className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[32px]"
+            >
+              {work.category}
+            </h3>
+          </div>
+
+          <div className="relative mb-12">
+            <p className="mb-4 text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+              [license]
+            </p>
+            <h3
+              className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 
+          max-ds:text-[52px] 
+          max-lg:text-[48px] 
+          max-md:text-[32px]"
+            >
+              {work.license}
+            </h3>
+          </div>
         </div>
 
-        <div className="mb-10 max-w-200 flex flex-col items-start">
-          <span className="mb-1 text-s/50 font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
-            license:
-          </span>
-          <p className="text-s text-[42px] leading-[1.1em] tracking-[-0.03em]">
-            {work.license}
-          </p>
-        </div>
-      </div>
+        <Gallery />
 
-      <div className="flex items-center">
-        <Image src="/bg-1.jpg" width={3000} height={3000} alt="" />
-      </div>
+        <Manifesto manifestoPhrases={manifestoPhrases} />
+      </main>
     </Transition>
   );
 };
