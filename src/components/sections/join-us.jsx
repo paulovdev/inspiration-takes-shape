@@ -49,7 +49,7 @@ const JoinUs = () => {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <motion.figure
             style={{ opacity: imageOpacity, y: imageY, scale: imageScale }}
-            className="relative w-full h-full will-change-transform"
+            className="relative size-full will-change-transform"
           >
             <Image
               src="/join.jpg"

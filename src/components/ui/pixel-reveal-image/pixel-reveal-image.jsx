@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import styles from "./PixelRevealImage.module.css";
 
@@ -7,8 +5,8 @@ export default function PixelRevealImage({
   src,
   className = "",
   inView = false,
-  pixelSize = 64,
-  duration = 1000,
+  pixelSize = 100,
+  duration = 800,
 }) {
   const canvasRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -22,12 +20,14 @@ export default function PixelRevealImage({
     imgRef.current = img;
 
     img.onload = () => {
+      progressRef.current = 0;
       draw(0);
     };
   }, [src]);
 
   useEffect(() => {
     if (!inView) return;
+    cancelAnimationFrame(animRef.current);
     animateToSharp();
   }, [inView]);
 
@@ -43,12 +43,6 @@ export default function PixelRevealImage({
     const rect = wrapper.getBoundingClientRect();
     const displayW = rect.width;
     const displayH = rect.height;
-
-    if (progress < 1) {
-      canvas.style.imageRendering = "pixelated";
-    } else {
-      canvas.style.imageRendering = "auto";
-    }
 
     const currentPixel = Math.max(1, pixelSize * (1 - progress));
 
@@ -77,21 +71,33 @@ export default function PixelRevealImage({
       offsetX = 0;
       offsetY = (h - drawHeight) / 2;
     }
+
+    ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+
     if (progress >= 1) {
       canvas.width = displayW;
       canvas.height = displayH;
       ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(
-        img,
-        offsetX * (displayW / w),
-        offsetY * (displayH / h),
-        drawWidth * (displayW / w),
-        drawHeight * (displayH / h),
-      );
-      return;
-    }
 
-    ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      const finalRatio = img.width / img.height;
+      const finalCanvasRatio = displayW / displayH;
+
+      let fW, fH, fX, fY;
+
+      if (finalRatio > finalCanvasRatio) {
+        fH = displayH;
+        fW = displayH * finalRatio;
+        fX = (displayW - fW) / 2;
+        fY = 0;
+      } else {
+        fW = displayW;
+        fH = displayW / finalRatio;
+        fX = 0;
+        fY = (displayH - fH) / 2;
+      }
+
+      ctx.drawImage(img, fX, fY, fW, fH);
+    }
   };
 
   const animateToSharp = () => {

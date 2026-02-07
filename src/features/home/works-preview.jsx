@@ -10,14 +10,7 @@ import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 
-const Card = ({
-  inView,
-  work,
-  index,
-  scrollYProgress,
-  setActiveWork,
-  bump,
-}) => {
+const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
   const router = useRouter();
   const isLeft = index % 2 === 0;
 
@@ -27,9 +20,15 @@ const Card = ({
     isLeft ? [0, 600] : [0, 300],
   );
 
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+
   return (
     <motion.div
       style={{ y: y2 }}
+      ref={ref}
       onClick={() => {
         router.push(`/works/${work.id}`, undefined, { scroll: false });
       }}
@@ -46,8 +45,7 @@ const Card = ({
         <PixelRevealImage
           inView={inView}
           src={work.src}
-          width={2000}
-          height={2000}
+          fill
           className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
           alt={work.alt}
         />
@@ -57,7 +55,7 @@ const Card = ({
 };
 
 const WorksPreview = () => {
-  const containerRef = useRef(null);
+  const container = useRef(null);
   const [activeWork, setActiveWork] = useState(null);
   const [tick, setTick] = useState(0);
   const { x, y } = useMousePosition2();
@@ -65,33 +63,25 @@ const WorksPreview = () => {
 
   const bump = () => setTick((t) => t + 1);
 
-  const { ref: sectionInViewRef, inView: inViewAllWorks } = useInView({
+  const { ref, inView } = useInView({
     threshold: 0.25,
     triggerOnce: false,
   });
 
-  const { ref: imageInViewRef, inView: inViewImage } = useInView({
-    threshold: 0.05,
-    triggerOnce: true,
-  });
-
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: container,
     offset: ["start end", "end center"],
   });
 
   return (
     <>
-      <section
-        ref={mergeRefs([containerRef, sectionInViewRef, imageInViewRef])}
-        className="overflow-hidden mb-10"
-      >
+      <section ref={container} className="relative overflow-hidden mb-10">
+        <div className="absolute inset-0 h-[100vh] max-md:h-[75vh]" ref={ref} />
         <div className="relative w-screen h-[200vh] overflow-hidden max-md:h-[150vh]">
           <div className="absolute -top-120 w-full h-[200vh] grid grid-cols-2 gap-2 max-lg:-top-75 max-lg:h-[175vh] max-md:h-[150vh]">
             {works.slice(0, 8).map((work, i) => (
               <Card
                 key={work.id}
-                inView={inViewImage}
                 work={work}
                 index={i}
                 scrollYProgress={scrollYProgress}
@@ -114,7 +104,7 @@ const WorksPreview = () => {
             pointerEvents: "none",
           }}
         >
-          <div className="w-[150px] h-full flex items-center justify-between max-ds:w-[100px] max-lg:w-[75px] max-lg:items-start">
+          <div className="w-150 h-full flex items-center justify-center max-ds:w-[100px] max-lg:w-[75px] ">
             <div className="relative w-full h-[17px] overflow-hidden">
               <AnimatePresence mode="sync">
                 {activeWork && (
@@ -124,26 +114,9 @@ const WorksPreview = () => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="absolute left-0 top-0 text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] whitespace-nowrap"
+                    className="absolute left-1/2 -translate-x-1/2 top-0  text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] whitespace-nowrap"
                   >
                     {activeWork.title}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-
-            <div className="relative w-full h-[17px] overflow-hidden">
-              <AnimatePresence mode="sync">
-                {activeWork && (
-                  <motion.p
-                    key={`${activeWork.id}-${tick}-year`}
-                    variants={textOverlap}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className="absolute right-0 top-0 text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]"
-                  >
-                    {activeWork.year}
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -153,17 +126,18 @@ const WorksPreview = () => {
       )}
 
       <motion.div
-        className="fixed inset-0 flex items-center justify-center p-10 z-10 pointer-events-none will-change-[opacity]"
-        initial={{ opacity: 0 }}
+        className="fixed inset-0 flex items-end justify-end p-10 z-20 pointer-events-none will-change-[opacity]"
+        initial={{ opacity: 0, y: 24 }}
         animate={{
-          opacity: inViewAllWorks ? 1 : 0,
-          transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+          opacity: inView ? 1 : 0,
+          y: inView ? 0 : 24,
+          transition: { duration: 0.5, ease: [0.33, 1, 0.68, 1] },
         }}
       >
         <Link
           href="/works"
           className="group inline-block text-center cursor-pointer pointer-events-auto"
-          style={{ pointerEvents: inViewAllWorks ? "auto" : "none" }}
+          style={{ pointerEvents: inView ? "auto" : "none" }}
         >
           <span className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px]">
             See all works

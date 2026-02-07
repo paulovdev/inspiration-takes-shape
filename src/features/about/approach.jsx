@@ -5,10 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { textSlide } from "@/animations/shared/global-anim";
 import TextAnimated from "@/components/ui/text-animated";
-<<<<<<< HEAD
-=======
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
->>>>>>> 75c7aba ( newasd as)
 
 const textSlideNoI = {
   initial: {
@@ -87,20 +84,11 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             className="size-full object-cover brightness-80"
           />
         ) : (
-<<<<<<< HEAD
-          <Image
-=======
           <PixelRevealImage
             inView={inView}
->>>>>>> 75c7aba ( newasd as)
             src={gallery.src}
-            width={2000}
-            height={2000}
+            fill
             alt={gallery.alt}
-<<<<<<< HEAD
-            priority
-=======
->>>>>>> 75c7aba ( newasd as)
             className="size-full object-cover brightness-80"
           />
         )}
@@ -121,11 +109,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             phrases={gallery.description}
             variants={textSlideNoI}
             animate={inView && active}
-<<<<<<< HEAD
-            className="max-w-125 mx-auto min-h-20 font-inter font-normal text-s text-center text-[24px] tracking-[-0.03em] leading-[1] will-change-transform max-lg:text-[18px]"
-=======
             className="max-w-100 mx-auto min-h-20 font-inter font-normal text-s text-center text-[18px] tracking-[-0.03em] leading-[1] will-change-transform max-lg:text-[16px]"
->>>>>>> 75c7aba ( newasd as)
             lineClassName="overflow-hidden"
             wordClassName="mr-1.5"
             wordDelay={0.025}
@@ -140,11 +124,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
 const Approach = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   return (
-<<<<<<< HEAD
-  <section className="relative px-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
-=======
     <section className="relative px-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
->>>>>>> 75c7aba ( newasd as)
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-col snap-mandatory overflow-x-scroll ">
         {approach.map((gallery, i) => (
           <CardGrid

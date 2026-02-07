@@ -40,7 +40,7 @@ export const Menu = ({ setMenu }) => {
             exit: 0,
           }}
         >
-          <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5 ">
+          <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5 z-10">
             <button
               className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
               onClick={() => setMenu(false)}
@@ -49,7 +49,7 @@ export const Menu = ({ setMenu }) => {
             </button>
           </div>
 
-          <div className="p-10 pt-20 size-full flex flex-col items-start justify-between max-lg:px-5">
+          <div className="relative p-10 pt-20 size-full flex flex-col items-start justify-between max-lg:px-5">
             <div className="w-full flex flex-col items-start">
               {navigation.map((item, i) => {
                 const isActive = router.pathname === item.href;
@@ -161,24 +161,61 @@ export const Menu = ({ setMenu }) => {
               })}
             </div>
 
-            <div className="absolute bottom-0 pb-10 flex items-center gap-2">
-              <div className="overflow-hidden h-fit">
-                <motion.p
-                  className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
-                  variants={textSlide}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  custom={{ animate: 1, exit: 0 }}
-                >
-                  social media:
-                </motion.p>
+            <div className="absolute bottom-0 pb-10 w-[calc(100%-80px)] flex items-center justify-between max-lg:flex-col max-lg:items-start max-lg:gap-2 max-md:w-[calc(100%-40px)]">
+              <div className="flex items-center gap-2">
+                <div className="w-fit overflow-hidden h-fit">
+                  <motion.p
+                    className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+                    variants={textSlide}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    custom={{ animate: 1, exit: 0 }}
+                  >
+                    social media:
+                  </motion.p>
+                </div>
+                {socials.map((social, i) => (
+                  <a
+                    className="relative w-fit overflow-hidden h-fit group"
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                  >
+                    <motion.p
+                      variants={textSlide}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      custom={{
+                        animate: 1.1 + i * 0.075,
+                        exit: 0.1 + i * 0.075,
+                      }}
+                      className=" text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]  "
+                    >
+                      {social.label}
+                      {i !== 3 && ","}
+                    </motion.p>
+                    <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
+                  </a>
+                ))}
               </div>
-              {socials.map((social, i) => (
+              <div className="flex items-center gap-2">
+                <div className="w-fit overflow-hidden h-fit">
+                  <motion.p
+                    className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+                    variants={textSlide}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    custom={{ animate: 1.3, exit: 0 }}
+                  >
+                    images by:
+                  </motion.p>
+                </div>
                 <a
-                  className="overflow-hidden h-fit"
-                  key={i}
-                  href={social.href}
+                  className="relative w-fit overflow-hidden h-fit group"
+                  href="https://www.arqe.ai/"
                   target="_blank"
                 >
                   <motion.p
@@ -186,21 +223,19 @@ export const Menu = ({ setMenu }) => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    custom={{
-                      animate: 1.1 + i * 0.075,
-                      exit: 0.1 + i * 0.075,
-                    }}
+                    custom={{ animate: 1.4, exit: 0 }}
                     className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
                   >
-                    {social.label}
-                    {i !== 3 && ","}
+                    arqe.ai
                   </motion.p>
+                  <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                 </a>
-              ))}
+              </div>
             </div>
           </div>
         </motion.div>
       </motion.div>
+
       <motion.div
         className="fixed inset-0 w-screen h-screen bg-s/25 backdrop-blur-sm brightness-50 z-100"
         variants={fade}

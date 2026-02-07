@@ -50,10 +50,6 @@ export const slide = [
     title: "Inspiration takes shape",
   },
   {
-    src: "/slide/img-02.jpg",
-    title: "Inspiration takes shape",
-  },
-  {
     src: "/slide/img-03.jpg",
     title: "Inspiration takes shape",
   },
@@ -62,11 +58,31 @@ export const slide = [
     title: "Inspiration takes shape",
   },
   {
+    src: "/slide/img-08.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-09.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-10.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
     src: "/slide/img-05.jpg",
     title: "Inspiration takes shape",
   },
   {
     src: "/slide/img-06.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-02.jpg",
+    title: "Inspiration takes shape",
+  },
+  {
+    src: "/slide/img-07.jpg",
     title: "Inspiration takes shape",
   },
 ];
@@ -82,3 +98,4 @@ export const blockPhrases = [
   ``,
   `We collaborate closely with our clients to transform ideas into purposeful, lasting design — whether launching something new or refining what already exists.`,
 ];
+

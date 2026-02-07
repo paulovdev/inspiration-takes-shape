@@ -292,7 +292,7 @@ const BackgroundMedia = ({
             loop
             playsInline
             preload="metada"
-            className="w-full h-full object-cover brightness-75"
+            className="size-full object-cover brightness-75"
           />
         ) : (
           <Image

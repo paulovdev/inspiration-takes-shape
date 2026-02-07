@@ -28,7 +28,7 @@ const Index = () => {
         <PageHero
           title={[`Inspiration takes shape®`]}
           subTitle="about us"
-          src="/about/img-01.jpg"
+          src="/about/img-05.jpg"
         />
         <Manifesto manifestoPhrases={manifestoPhrases} />
         <TextBlock

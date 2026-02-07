@@ -9,7 +9,7 @@ import {
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import Image from "next/image";
+
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 import { useInView } from "react-intersection-observer";
 
@@ -35,7 +35,7 @@ const Reel = () => {
   );
   const { x, y } = useMousePosition2();
   const { ref, inView } = useInView({
-    threshold: 0.25,
+    threshold: 0.15,
     triggerOnce: true,
   });
   useEffect(() => {
@@ -101,8 +101,7 @@ const Reel = () => {
           <PixelRevealImage
             inView={inView}
             src="/reel.png"
-            width={2000}
-            height={2000}
+            fill
             className="size-full object-cover brightness-75"
             alt=""
           />
@@ -113,10 +112,11 @@ const Reel = () => {
             initial={false}
             animate={{
               y: videoOpen ? -100 : 0,
-            }}
-            transition={{
-              duration: 0.5,
-              ease: [0.76, 0, 0.24, 1],
+              transition: {
+                duration: 0.5,
+                ease: [0.76, 0, 0.24, 1],
+                delay: videoOpen ? 0 : 0.25,
+              },
             }}
           >
             Watch Showcase
@@ -133,7 +133,7 @@ const Reel = () => {
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             exit={{ clipPath: "inset(100% 0% 0% 0%)" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+            transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
           >
             <video
               ref={videoRef}
@@ -143,7 +143,7 @@ const Reel = () => {
               playsInline
               loop
               onClick={togglePlayPause}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 size-full object-cover"
             />
 
             <div className="absolute bottom-6 left-6 right-6 flex justify-between mix-blend-exclusion items-end pointer-events-none">

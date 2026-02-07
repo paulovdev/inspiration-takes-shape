@@ -35,8 +35,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
               <PixelRevealImage
                 inView={true}
                 src={src}
-                width={2000}
-                height={2000}
+                fill
                 className="relative size-full object-cover brightness-75"
                 alt={title}
               />

@@ -13,7 +13,7 @@ import { scale } from "@/animations/shared/global-anim";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 
-const CardGrid = memo(({ inView, work, index }) => {
+const CardGrid = memo(({ work, index }) => {
   const router = useRouter();
   const [hover, setHover] = useState(null);
 
@@ -22,9 +22,16 @@ const CardGrid = memo(({ inView, work, index }) => {
   const goToWork = useCallback(() => {
     router.push(`/works/${work.id}`, undefined, { scroll: false });
   }, [router, work.id]);
-
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+    triggerOnce: true,
+  });
   return (
-    <motion.div onClick={goToWork} className="relative group cursor-pointer">
+    <motion.div
+      onClick={goToWork}
+      className="relative group cursor-pointer"
+      ref={ref}
+    >
       <figure
         className="h-[75vh] overflow-hidden"
         onMouseEnter={handleEnter}
@@ -33,8 +40,7 @@ const CardGrid = memo(({ inView, work, index }) => {
         <PixelRevealImage
           inView={inView}
           src={work.src}
-          width={2000}
-          height={2000}
+          fill
           alt={work.alt}
           className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
         />
@@ -215,8 +221,7 @@ const Works = () => {
                   <PixelRevealImage
                     inView={activeWork}
                     src={activeWork.src}
-                    width={2000}
-                    height={2000}
+                    fill
                     alt={activeWork.alt}
                     className="size-full object-cover"
                   />

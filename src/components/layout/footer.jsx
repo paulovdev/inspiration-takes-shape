@@ -60,17 +60,18 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="mb-2 overflow-hidden h-fit"
+                    className="mb-2 relative overflow-hidden size-fit group"
                   >
                     <motion.p
                       custom={i * 0.075}
                       variants={textSlide}
                       initial="initial"
                       animate={inView ? "animate" : "initial"}
-                      className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] hover:text-s/75 transition-all cursor-pointer"
+                      className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] cursor-pointer"
                     >
                       {link.label}
                     </motion.p>
+                    <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                   </a>
                 ))}
               </div>
@@ -91,14 +92,14 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="min-w-60 mb-2 overflow-hidden h-fit"
+                    className="min-w-60 mb-2 overflow-hidden size-fit group"
                   >
                     <motion.p
                       custom={i * 0.075}
                       variants={textSlide}
                       initial="initial"
                       animate={inView ? "animate" : "initial"}
-                      className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase flex items-center justify-between gap-2 max-md:text-[12px] hover:text-s/75 transition-all cursor-pointer"
+                      className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase flex items-center justify-between gap-2 max-md:text-[12px] group-hover:text-s/75 transition-colors cursor-pointer"
                     >
                       {link.label} <FaLink className="text-[12px]" />
                     </motion.p>
@@ -125,17 +126,18 @@ const Footer = () => {
                   href={link.href}
                   target={link.external ? "_blank" : "_self"}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="mb-2 overflow-hidden h-fit"
+                  className="mb-2 relative overflow-hidden size-fit group"
                 >
                   <motion.p
                     custom={i * 0.075}
                     variants={textSlide}
                     initial="initial"
                     animate={inView ? "animate" : "initial"}
-                    className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] hover:text-s/75 transition-all cursor-pointer"
+                    className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] cursor-pointer"
                   >
                     {link.label}
                   </motion.p>
+                  <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                 </a>
               ))}
             </div>

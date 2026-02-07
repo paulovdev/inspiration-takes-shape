@@ -67,7 +67,7 @@ const Nav = () => {
                     animate="animate"
                     exit="exit"
                   />
-                  <div className="mb-1 overflow-hidden h-[19px]">
+                  <div className="mb-1 relative w-fit overflow-hidden h-[19px] group">
                     <motion.button
                       className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer"
                       variants={textSlide}
@@ -80,9 +80,10 @@ const Nav = () => {
                       }}
                     >
                       Brazilian
+                      <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                     </motion.button>
                   </div>
-                  <div className="mb-1 overflow-hidden h-[19px]">
+                  <div className="mb-1 relative w-fit overflow-hidden h-[19px] group">
                     <motion.button
                       className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer"
                       variants={textSlide}
@@ -96,8 +97,9 @@ const Nav = () => {
                     >
                       English
                     </motion.button>
+                    <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                   </div>
-                  <div className="mb-1 overflow-hidden h-[19px]">
+                  <div className="mb-1 relative w-fit overflow-hidden h-[19px] group">
                     <motion.button
                       className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer"
                       variants={textSlide}
@@ -111,6 +113,7 @@ const Nav = () => {
                     >
                       Spanish
                     </motion.button>
+                    <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                   </div>
                 </motion.div>
               )}
