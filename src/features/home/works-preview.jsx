@@ -30,7 +30,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
       style={{ y: y2 }}
       ref={ref}
       onClick={() => {
-        router.push(`/works/${work.id}`, undefined, { scroll: false });
+        router.push(`/works/${work.id}`);
       }}
       className="relative group cursor-pointer will-change-transform"
     >
@@ -44,7 +44,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
       >
         <PixelRevealImage
           inView={inView}
-          src={work.src}
+          src={work.cover}
           fill
           className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
           alt={work.alt}

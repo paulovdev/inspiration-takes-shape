@@ -30,7 +30,7 @@ const Index = () => {
   }, []);
 
   return (
-    <Transition>
+    <Transition lenis={lenisRef}>
       <Nav />
       <main className="min-h-screen bg-s">
         <Hero lenis={lenisRef} />

@@ -47,8 +47,8 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
       ref={ref}
       className="relative group perspective-midrange flex-[1_1_0%] min-w-0 max-lg:w-full"
       onMouseEnter={() => setActiveIndex(index)}
-      onMouseLeave={() => setActiveIndex(1)}
-      animate={{ flexGrow: active ? 2 : 1.25 }}
+      onMouseLeave={() => setActiveIndex(0)}
+      animate={{ flexGrow: active ? 2.5 : 1.25 }}
       transition={{
         duration: 1,
         ease: [0.76, 0, 0.24, 1],
@@ -113,7 +113,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
 };
 
 const Approach = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <section className="relative px-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-col snap-mandatory overflow-x-scroll ">

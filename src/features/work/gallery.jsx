@@ -47,11 +47,11 @@ const clipAnim = {
   },
 };
 
-export default function Gallery() {
+export default function Gallery({ imgs }) {
   const container = useRef(null);
   const hRef = useRef(null);
   const [scrollWidth, setScrollWidth] = useState(0);
-
+  const imgs2 = [...imgs, ...imgs];
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
@@ -73,7 +73,7 @@ export default function Gallery() {
           style={{ x }}
           className="px-10 flex items-center h-full gap-10 w-max max-ds:px-8 max-lg:px-5 max-md:px-2 max-md:gap-2 max-lg:gap-5 max-ds:gap-8"
         >
-          {gallery.map((src, i) => (
+          {imgs2.map((src, i) => (
             <Card src={src} key={i} scrollX={x} index={i} />
           ))}
         </motion.div>
@@ -82,17 +82,14 @@ export default function Gallery() {
   );
 }
 
-const Card = ({ src, scrollX, index }) => {
+const Card = ({ src }) => {
   const [hover, setHover] = useState(false);
 
-  const shiftedScrollX = useTransform(scrollX, (v) => v + index * 250);
-  const xMain = useTransform(shiftedScrollX, [-2000, 0], [-80, 0], {
-    clamp: true,
-  });
   const { ref, inView } = useInView({
     threshold: 0.25,
     triggerOnce: true,
   });
+  
   return (
     <div
       ref={ref}
@@ -100,16 +97,13 @@ const Card = ({ src, scrollX, index }) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <motion.figure
-        className="size-full overflow-hidden group-hover:brightness-50 group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
-        style={{ x: xMain }}
-      >
+      <motion.figure className="size-full overflow-hidden group-hover:brightness-50 group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]">
         <PixelRevealImage
           inView={inView}
           src={src}
           fill
           alt=""
-          className="size-full object-cover scale-[1.5] will-change-transform"
+          className="size-full object-cover "
         />
       </motion.figure>
 
@@ -117,7 +111,7 @@ const Card = ({ src, scrollX, index }) => {
         {hover && (
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.figure
-              className="relative w-100 h-100 overflow-hidden max-lg:w-75 max-lg:h-75 max-md:w-50 max-md:h-50"
+              className="relative w-100 h-100 overflow-hidden max-lg:w-75 max-lg:h-75 max-md:w-50 max-md:h-50 will-change-[clip-path]"
               variants={clipAnim}
               initial="initial"
               animate="animate"

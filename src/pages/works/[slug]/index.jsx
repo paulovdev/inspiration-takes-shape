@@ -15,7 +15,6 @@ import { manifestoPhrases } from "@/data/about.data";
 
 const Index = () => {
   const lenisRef = useRef(null);
-  const hasScrolledRef = useRef(false);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -23,11 +22,6 @@ const Index = () => {
     });
 
     lenisRef.current = lenis;
-
-    if (!hasScrolledRef.current) {
-      lenis.scrollTo(0, { immediate: true });
-      hasScrolledRef.current = true;
-    }
 
     return () => {
       lenis.destroy();
@@ -44,13 +38,13 @@ const Index = () => {
   if (!work) return null;
 
   return (
-    <Transition>
+    <Transition lenis={lenisRef}>
       <Nav />
       <main className="w-auto min-h-screen bg-s">
         <PageHero
-          title={work.description}
+          title={[work.heroDescription]}
           subTitle={work.title}
-          src={work.src}
+          src={work.cover}
         />
 
         <div className="relative pt-10 px-10 py-2 w-full overflow-hidden h-fit bg-s max-ds:px-8 max-lg:px-5 max-md:px-2">
@@ -97,9 +91,9 @@ const Index = () => {
           </div>
         </div>
 
-        <Gallery />
+        <Gallery imgs={work.images} />
 
-        <Manifesto manifestoPhrases={manifestoPhrases} />
+        <Manifesto manifestoPhrases={[work.footerDescription]} />
       </main>
     </Transition>
   );

@@ -1,127 +1,136 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import Image from "next/image";
+
 import Button from "@/components/ui/button";
-import { FaStarOfLife } from "react-icons/fa6";
-import TextAnimated from "../ui/text-animated";
-import { textSlide } from "@/animations/sections/hero.animations";
+import { GoGlobe } from "react-icons/go";
 
 const JoinUs = () => {
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end start"],
+    offset: ["start center", "end start"],
   });
 
   const titleY = useTransform(
     scrollYProgress,
-    [0, 0.25, [0.3]],
-    ["100%", "0%", "-100%"],
+    [0, 0.25, 0.3],
+    ["100%", "0%", "-150%"],
   );
 
-  const imageOpacity = useTransform(scrollYProgress, [0.3, 0.4], [0, 1]);
-  const imageY = useTransform(scrollYProgress, [0.35, 0.55], ["0%", "-20%"]);
-  const imageScale = useTransform(scrollYProgress, [0.35, 0.55], [0, 3]);
+  const imageOpacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
+  const imageClip = useTransform(
+    scrollYProgress,
+    [0.35, 0.68],
+    ["circle(0% at 50% 50%)", "circle(100.0% at 50% 50%)"],
+  );
 
-  const contactOpacity = useTransform(scrollYProgress, [0.55, 0.65], [0, 1]);
-  const contactY = useTransform(scrollYProgress, [0.55, 0.7], [80, 0]);
+  const contactOpacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
+  const contactY = useTransform(scrollYProgress, [0.35, 0.45], [250, 0]);
 
-  const item1 = useTransform(scrollYProgress, [0.6, 0.7], [40, 0]);
-  const item2 = useTransform(scrollYProgress, [0.65, 0.75], [40, 0]);
-  const item3 = useTransform(scrollYProgress, [0.7, 0.8], [40, 0]);
-  const itemOpacity = useTransform(scrollYProgress, [0.6, 0.75], [0, 1]);
+  const globe = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const globeRotate = useTransform(scrollYProgress, [0, 1], [180, -180]);
+
+  const manifest = useTransform(scrollYProgress, [0.4, 0.6], ["100%", "0%"]);
+  const remote = useTransform(scrollYProgress, [0.4, 0.6], ["100%", "0%"]);
+  const buttons = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
+  const itemOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
 
   return (
-    <section ref={container} className="relative h-[600vh] select-none">
+    <section ref={container} className="relative h-[400vh] bg-p select-none">
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
-        <div className="sticky top-0 p-10 h-screen flex flex-col items-center justify-center gap-5 overflow-hidden max-ds:p-8 max-lg:p-5 max-md:p-2">
+        <div className="sticky top-0 p-10 h-screen flex flex-col items-center justify-center gap-5 overflow-hidden z-30 max-ds:p-8 max-lg:p-5 max-md:p-2">
           <div className="overflow-hidden h-fit">
             <motion.h1
               style={{ y: titleY }}
-              className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 
+              className="font-normal text-s text-[62px] tracking-[-0.03em] leading-none 
           max-ds:text-[52px] 
           max-lg:text-[48px] 
           max-md:text-[32px]"
             >
-              Get to know us
+              Our studios around the world
             </motion.h1>
           </div>
         </div>
 
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <motion.figure
-            style={{ opacity: imageOpacity, y: imageY, scale: imageScale }}
-            className="relative size-full will-change-transform"
-          >
-            <Image
-              src="/join.jpg"
-              width={2000}
-              height={2000}
-              alt=""
-              className="size-full object-cover"
-              priority
-            />
-          </motion.figure>
-        </div>
-
-        <motion.div
-          style={{ opacity: contactOpacity, y: contactY }}
-          className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 max-lg:p-5 max-md:px-2"
-        >
-          <motion.div style={{ y: item1, opacity: itemOpacity }}>
-            <FaStarOfLife className="mb-10 text-s text-[110px] max-lg:text-[60px]" />
-          </motion.div>
-
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
           <motion.div
-            style={{ y: item2, opacity: itemOpacity }}
-            className="max-w-[1400px] w-full"
+            style={{
+              opacity: imageOpacity,
+              clipPath: imageClip,
+            }}
+            className="relative size-full bg-s will-change-transform pointer-events-auto"
           >
-            <TextAnimated
-              phrases={[
-                `We collaborate with bold thinkers, designers, and builders who are shaping the future.`,
-              ]}
-              variants={textSlide}
-              as="h2"
-              className="flex flex-col"
-              lineClassName="font-inter font-normal text-s
+            {/*
+             */}
+            <motion.div
+              style={{ opacity: contactOpacity, y: contactY }}
+              className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 max-lg:p-5 max-md:px-2"
+            >
+              {/* globe */}
+              <motion.div
+                style={{
+                  scale: globe,
+                  opacity: itemOpacity,
+                  rotateY: globeRotate,
+                }}
+              >
+                <GoGlobe className="mb-10 text-p text-[110px] max-lg:text-[60px]" />
+              </motion.div>
+              {/* manifest */}
+              <motion.div
+                style={{ opacity: itemOpacity }}
+                className="mb-12 max-w-[1400px] w-full font-inter font-normal text-p
           text-[62px] tracking-[-0.03em] leading-none 
           max-ds:text-[52px] 
           max-lg:text-[48px] 
-          max-md:text-[32px]
-          flex items-center justify-center flex-wrap mb-12
-        "
-              wordClassName="mr-2"
-              wordDelay={0.025}
-              lineDelay={0.015}
-            />
+          max-md:text-[32px]"
+              >
+                <div className="overflow-hidden h-fit">
+                  <motion.h2 style={{ y: manifest }}>
+                    From creative hubs across the globe,
+                  </motion.h2>
+                </div>
+                <div className="h-fit overflow-hidden">
+                  <motion.h2 style={{ y: manifest }}>
+                    our studios connect ideas, people, and culture.
+                  </motion.h2>
+                </div>
+              </motion.div>
+              {/* remote */}
+              <div className="h-fit overflow-hidden">
+                <motion.p
+                  style={{ y: remote, opacity: itemOpacity }}
+                  className="mt-4 font-general text-[14px] tracking-[-0.04em] text-p/60 uppercase"
+                >
+                  São Paulo · New York · Berlin · Tokyo
+                </motion.p>
+              </div>
+              {/* buttons */}
+              <motion.div
+                style={{ opacity: buttons, opacity: itemOpacity }}
+                className="mt-10 flex gap-2 max-lg:w-150 max-md:w-110"
+              >
+                <Button
+                  buttonHref="/studios"
+                  buttonLabel="Explore our studios"
+                  buttonBgColor="#ffffff"
+                  buttonTextColor="#000000"
+                  
+                />
+                <Button
+                  buttonHref="/contact"
+                  buttonLabel="Start a project"
+                  buttonBgColor="#000000"
+                  buttonTextColor="#ffffff"
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
-
-          <motion.p
-            style={{ y: item3, opacity: itemOpacity }}
-            className="mt-4 font-general text-[14px] tracking-[-0.04em] text-s/60 uppercase"
-          >
-            Remote · Hybrid · Global
-          </motion.p>
-
-          <motion.div
-            style={{ y: item3, opacity: itemOpacity }}
-            className="mt-10 flex gap-2 max-lg:w-150 max-md:w-110"
-          >
-            <Button
-              buttonHref="/join-us"
-              buttonLabel="Join the team"
-              buttonBgColor="#ffffff"
-              buttonTextColor="#000000"
-            />
-            <Button
-              buttonHref="/contact"
-              buttonLabel="Start a job"
-              buttonBgColor="#000000"
-              buttonTextColor="#ffffff"
-            />
-          </motion.div>
-        </motion.div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+          <div className="relative size-full bg-p will-change-transform" />
+        </div>
       </div>
     </section>
   );

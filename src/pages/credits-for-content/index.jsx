@@ -5,18 +5,25 @@ import PageHero from "@/components/sections/hero";
 import ShowcaseGrid from "@/components/sections/showcase-grid";
 import { credits } from "@/data/credits.data";
 import Lenis from "lenis";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Index = () => {
+  const lenisRef = useRef(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       autoRaf: true,
       syncTouch: true,
     });
-  }, []);
 
+    lenisRef.current = lenis;
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
   return (
-    <Transition>
+    <Transition lenis={lenisRef}>
       <Nav />
 
       <main className="w-auto min-h-screen bg-s border-b border-p/10">

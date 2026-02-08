@@ -34,7 +34,7 @@ const Button = ({
       scroll={false}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className="px-4 py-4 w-100 inline-block group max-md:w-full"
+      className="px-4 py-4 w-100 inline-block border-p border-1 group max-md:w-full"
       style={{ background: buttonBgColor }}
     >
       <div className="w-full flex items-end justify-between">
@@ -46,13 +46,13 @@ const Button = ({
             className="flex flex-col will-change-transform"
           >
             <p
-              className="text-s font-general font-medium text-[14px] leading-[1.1] tracking-[-0.03em] uppercase max-md:text-[12px]"
+              className=" font-general font-medium text-[14px] leading-[1.1] tracking-[-0.03em] uppercase max-md:text-[12px]"
               style={{ color: buttonTextColor }}
             >
               {buttonLabel}
             </p>
             <p
-              className="text-s font-general font-medium text-[14px] leading-[1.1] tracking-[-0.03em] uppercase max-md:text-[12px]"
+              className=" font-general font-medium text-[14px] leading-[1.1] tracking-[-0.03em] uppercase max-md:text-[12px]"
               style={{ color: buttonTextColor }}
             >
               {buttonLabel}

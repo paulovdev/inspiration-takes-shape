@@ -1,83 +1,100 @@
-import { slide } from "@/data/home.data";
 import { motion } from "motion/react";
+import { useMemo } from "react";
+import { useInView } from "react-intersection-observer";
+import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
+import { slide } from "@/data/home.data";
 import TextAnimated from "@/components/ui/text-animated";
 import { textSlide } from "@/animations/shared/global-anim";
-import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { FaHeart, FaComment } from "react-icons/fa";
 
-import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
+const CARD_WIDTH = 450;
 
-const InfiniteSlide = () => {
+const Card = ({ src, index }) => {
+  const { ref, inView } = useInView({ threshold: 0.25, triggerOnce: true });
+
+  return (
+    <figure
+      ref={ref}
+      className={`relative w-[450px] max-md:w-[250px] ${
+        index % 2 === 0
+          ? "h-[60vh] max-md:h-[50vh]"
+          : "h-[50vh] max-md:h-[40vh]"
+      } mr-2 flex-shrink-0`}
+    >
+      <PixelRevealImage
+        inView={inView}
+        src={src}
+        fill
+        alt=" "
+        className="size-full object-cover"
+      />
+      <div className="absolute inset-0 p-5 flex flex-col items-end justify-end">
+        <p className="mb-2 font-inter text-s text-[24px] tracking-[-0.03em] leading-[1] max-lg:text-[18px] flex items-center gap-2">
+          <FaHeart className="text-red-500" /> 1.2K
+        </p>
+        <p className="text-s/50 font-general text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] flex items-center gap-2">
+          <FaComment /> 324
+        </p>
+      </div>
+    </figure>
+  );
+};
+
+const Team = () => {
+  const slides = [...slide, ...slide];
+
+  const xKeyframes = useMemo(() => {
+    const steps = [];
+    for (let i = 0; i <= slide.length; i++) {
+      steps.push(-i * CARD_WIDTH);
+    }
+    return steps;
+  }, []);
+
   const { ref, inView } = useInView({
     threshold: 0.25,
     triggerOnce: true,
   });
 
-  const speed = 100;
-  const slides = [...slide, ...slide];
-
-  const [visibleCount, setVisibleCount] = useState(0);
-
-  useEffect(() => {
-    if (!inView) {
-      setVisibleCount(0);
-      return;
-    }
-
-    let i = 0;
-    const interval = setInterval(() => {
-      i++;
-      setVisibleCount(i);
-      if (i >= 6) clearInterval(interval);
-    }, 75);
-
-    return () => clearInterval(interval);
-  }, [inView, slides.length]);
-
   return (
     <div
-      className="relative pt-10 px-10 py-2 w-full overflow-hidden h-fit bg-s max-ds:px-8 max-lg:px-5 max-md:px-2"
+      className="relative pt-10 px-10 py-2 w-full overflow-hidden h-[100vh] max-lg:px-5 max-md:px-2 max-lg:h-fit max-lg:pt-0"
       ref={ref}
     >
-      <div className="relative mb-12">
+      <div className="relative mb-12 flex items-center gap-1">
         <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
-          [from our Instagram]
+          [from our Instagram —
         </p>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          className="relative text-p font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] group cursor-pointer"
+        >
+          @inspiration_takes_shape
+          <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-p transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
+        </a>
+        <p className="text-p/50"> ]</p>
       </div>
 
       <motion.div
-        className="flex"
-        animate={{ x: ["0%", "-75%"] }}
+        className="relative mr-10 flex"
+        animate={{ x: xKeyframes }}
         transition={{
+          duration: slide.length * 4,
+          ease: [0.76, 0, 0.24, 1],
+          times: xKeyframes.map((_, i) => i / (xKeyframes.length - 1)),
           repeat: Infinity,
           repeatType: "loop",
-          ease: "linear",
-          duration: slides.length * (100 / speed),
         }}
       >
-        {slides.map((slid, i) => (
-          <figure
-            key={i}
-            className={`w-[350px] max-md:w-[250px] ${
-              i % 2 === 0
-                ? "h-[40vh] max-md:h-[35vh]"
-                : "h-[30vh] max-md:h-[25vh]"
-            } mr-2 flex-shrink-0`}
-          >
-            <PixelRevealImage
-              inView={i < visibleCount}
-              src={slid.src}
-              fill
-              alt=""
-              className="size-full object-cover"
-            />
-          </figure>
+        {slides.map((src, i) => (
+          <Card key={i} src={src.src} index={i} />
         ))}
       </motion.div>
 
-      <div className="my-20">
+      <div className="mt-40 mb-20 max-lg:mt-10 max-lg:mb-0">
         <TextAnimated
-          phrases={[`— See more at @inspiration_takes_shape`]}
+          phrases={[`— Scroll`]}
           variants={textSlide}
           animate={inView}
           as="h2"
@@ -99,4 +116,4 @@ const InfiniteSlide = () => {
   );
 };
 
-export default InfiniteSlide;
+export default Team;
