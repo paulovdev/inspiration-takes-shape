@@ -52,7 +52,7 @@ const Team = () => {
   }, []);
 
   const { ref, inView } = useInView({
-    threshold: 0.25,
+    threshold: 0.75,
     triggerOnce: true,
   });
 
@@ -94,11 +94,11 @@ const Team = () => {
 
       <div className="mt-40 mb-20 max-lg:mt-10 max-lg:mb-0">
         <TextAnimated
-          phrases={[`— Scroll`]}
+          phrases={[`Join a team shaping the future of intelligent systems.`]}
           variants={textSlide}
           animate={inView}
           as="h2"
-          className="max-w-[1400px] w-full "
+          className="max-w-[1400px] w-full"
           lineClassName="
             font-inter font-normal text-p
           text-[62px] tracking-[-0.03em] leading-none 

@@ -1,12 +1,12 @@
 import { approach } from "@/data/about.data";
 import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
-
 import { useState } from "react";
-import { textSlide } from "@/animations/shared/global-anim";
+import { textSlide, textSlide2 } from "@/animations/shared/global-anim";
 import TextAnimated from "@/components/ui/text-animated";
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 import { useIsMobile } from "@/hooks/useIsMobile";
+
 const textSlideNoI = {
   initial: {
     y: "100%",
@@ -47,7 +47,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
       ref={ref}
       className="relative group perspective-midrange flex-[1_1_0%] min-w-0 max-lg:w-full"
       onMouseEnter={() => setActiveIndex(index)}
-      onMouseLeave={() => setActiveIndex(0)}
+      onMouseLeave={() => setActiveIndex(2)}
       animate={{ flexGrow: active ? 2.5 : 1.25 }}
       transition={{
         duration: 1,
@@ -96,6 +96,21 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             </motion.p>
           </div>
 
+          <div className="h-fit overflow-hidden">
+            <motion.p
+              className="relative text-center text-s text-[128px] tracking-[-0.03em] leading-none max-ds:text-[92px] max-lg:text-[104px] max-md:text-[92px]"
+              variants={textSlide2}
+              initial="initial"
+              animate={active ? "animate" : "initial"}
+              custom={0.4}
+            >
+              {gallery.number}
+              <span className="relative -top-18 font-general tracking-[-0.03em] text-[18px] uppercase max-ds:text-[16px] max-ds:-top-14 max-lg:-top-16 max-md:-top-14">
+                {gallery.numberSmall}
+              </span>
+            </motion.p>
+          </div>
+
           <TextAnimated
             phrases={gallery.description}
             variants={textSlideNoI}
@@ -113,7 +128,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
 };
 
 const Approach = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(2);
   return (
     <section className="relative px-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-col snap-mandatory overflow-x-scroll ">

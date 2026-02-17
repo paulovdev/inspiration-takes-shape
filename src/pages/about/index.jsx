@@ -10,7 +10,9 @@ import { blockPhrases, manifestoPhrases } from "@/data/about.data";
 import Approach from "@/features/about/approach";
 import Awards from "@/features/about/awards";
 import Team from "@/features/about/team";
+import Reel from "@/features/home/reel";
 import Lenis from "lenis";
+import InfiniteSlide from "@/features/home/infinite-slide";
 import { useEffect, useRef } from "react";
 
 const Index = () => {
@@ -34,31 +36,36 @@ const Index = () => {
 
       <main className="w-auto min-h-screen bg-s">
         <PageHero
-          title={[`Inspiration takes shape®`]}
-          subTitle="about us"
-          src="/about/img-05.jpg"
+          title={[`About — Offset®`]}
+          subTitle="agency — 대행사"
+          src="/about/img-01.jpg"
         />
         <Manifesto manifestoPhrases={manifestoPhrases} />
         <TextBlock
-          blockTitle="[Since 2020]"
+          blockTitle="[ since — 부터 2020 ]"
           blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-p"
+          buttonHref="/about"
+          buttonLabel="read more"
+          buttonBgColor="#000000"
+          buttonTextColor="#ffffff"
         />
         <Approach />
         <Clients
-          bgColor="bg-p"
-          lineColor="border-s/15"
-          textColor="text-s"
-          logoColor="text-s/75"
-          logoHoverColor="hover:text-s"
+          bgColor="bg-s"
+          lineColor="border-p/15"
+          textColor="text-p"
+          logoColor="text-p/75"
+          logoHoverColor="hover:text-p"
         />
-        <div className="mt-10 mb-2 w-full h-px bg-p/25" />
+        <Reel />
         <Awards />
-        <div className="mb-2 w-full h-px bg-p/25" />
         <Team />
+        <div className="mt-10 mb-2 w-full h-px bg-p/25" />
         <JoinUs />
-        <div className=""></div>
+        <div className="mt-10 mb-2 w-full h-px bg-p/25" />
+        <InfiniteSlide />
       </main>
 
       <Footer />

@@ -14,9 +14,10 @@ const Nav = () => {
   const [menu, setMenu] = useState(false);
   const [hover, setHover] = useState(false);
   const router = useRouter();
+
   return (
     <>
-      <nav className="fixed top-0 right-0 px-10 pt-10 w-full flex items-center justify-between z-100 mix-blend-exclusion max-ds:px-8 max-lg:px-5 max-lg:pt-5 max-md:px-2">
+      <nav className="fixed top-0 right-0 px-10 pt-10 w-full flex items-center justify-between z-100 mix-blend-exclusion max-ds:px-8 max-lg:px-5 max-lg:pt-5">
         {router.pathname === "/" ? (
           <div></div>
         ) : (
@@ -71,8 +72,6 @@ const Nav = () => {
                   {dropNavigation.map((item, i) => (
                     <button
                       key={i}
-                      /*       href={item.href}
-                      target="_blank" */
                       className="relative mb-2 w-fit h-[15px] flex items-start group overflow-hidden"
                     >
                       <motion.p
@@ -87,6 +86,9 @@ const Nav = () => {
                         }}
                       >
                         {item.label}
+                        <span className="relative text-[10px] -top-[5px]">
+                          {item.mark}
+                        </span>
                       </motion.p>
 
                       <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />

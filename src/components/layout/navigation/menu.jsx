@@ -45,7 +45,7 @@ export const Menu = ({ setMenu }) => {
               className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
               onClick={() => setMenu(false)}
             >
-              <IoClose className="text-[16px]" /> close
+              <IoClose className="text-[16px] max-md:text-[14px]" /> close
             </button>
           </div>
 
@@ -146,6 +146,9 @@ export const Menu = ({ setMenu }) => {
                                     custom={0.25 + j}
                                   >
                                     {sub.label}
+                                    <span className="relative text-[10px] -top-[5px]">
+                                      {sub.mark}
+                                    </span>
                                   </motion.p>
 
                                   <FaLink className="text-s group-hover:text-s/50" />
@@ -237,7 +240,7 @@ export const Menu = ({ setMenu }) => {
       </motion.div>
 
       <motion.div
-        className="fixed inset-0 w-screen h-screen bg-s/25 backdrop-blur-sm brightness-50 z-100"
+        className="fixed inset-0 w-screen h-screen bg-s/50 backdrop-blur-[4px] brightness-50 z-100"
         variants={fade}
         initial="initial"
         animate="animate"

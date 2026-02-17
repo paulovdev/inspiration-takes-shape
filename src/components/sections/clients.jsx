@@ -20,9 +20,7 @@ const card = {
   }),
 };
 
- 
 const Clients = () => {
- 
   const container = useRef(null);
   const [hover, setHover] = useState(null);
 
@@ -41,8 +39,8 @@ const Clients = () => {
       className="relative p-10 py-20 w-full max-lg:px-5 max-md:px-2 overflow-hidden"
     >
       <div className="relative max-md:mb-12">
-        <p className="text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
-          [SELECTED CLIENTS]
+        <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
+          [ SELECTED CLIENTS — 선정된 고객 ]
         </p>
       </div>
 

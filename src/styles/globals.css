@@ -75,10 +75,6 @@ body {
 
   font-family: "Neue Montreal", sans-serif;
 }
-body.loading {
-  overflow: hidden;
-  cursor: wait;
-}
 
 ::-webkit-scrollbar {
   display: none;
@@ -91,7 +87,7 @@ body.loading {
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.01;
+  opacity: 0.03;
   z-index: 1000;
   pointer-events: none;
   background: url("../../public/noise.gif");

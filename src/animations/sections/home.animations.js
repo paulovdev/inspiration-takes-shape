@@ -133,3 +133,22 @@ export const mediaReveal = {
     },
   },
 };
+
+export const modalContainer = {
+  initial: { height: "0vh" },
+  animate: {
+    height: "75dvh",
+    transition: {
+      duration: 0.5,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  exit: {
+    height: "0vh",
+    transition: {
+      duration: 0.5,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.25,
+    },
+  },
+};

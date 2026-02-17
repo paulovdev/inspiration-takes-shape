@@ -9,75 +9,40 @@ import {
   textSlideNoI,
 } from "../../animations/sections/works.animations";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
-import { scale } from "@/animations/shared/global-anim";
+import { scale, textOverlap } from "@/animations/shared/global-anim";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 
-const CardGrid = memo(({ work, index }) => {
+const CardGrid = memo(({ work, index, setActiveWork, bumpMedia }) => {
   const router = useRouter();
-  const [hover, setHover] = useState(null);
 
-  const handleEnter = useCallback(() => setHover(index), [index]);
-  const handleLeave = useCallback(() => setHover(null), []);
-  const goToWork = useCallback(() => {
-    router.push(`/works/${work.id}`, undefined, { scroll: false });
-  }, [router, work.id]);
   const { ref, inView } = useInView({
     threshold: 0.25,
     triggerOnce: true,
   });
   return (
     <motion.div
-      onClick={goToWork}
-      className="relative group cursor-pointer"
       ref={ref}
+      onClick={() => {
+        router.push(`/works/${work.id}`);
+      }}
+      className="relative group cursor-pointer will-change-transform"
     >
       <figure
-        className="h-[75vh] overflow-hidden"
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
+        className="h-[75vh] overflow-hidden max-lg:h-[60vh] max-md:h-[50vh]"
+        onMouseEnter={() => {
+          setActiveWork(work);
+          bumpMedia();
+        }}
+        onMouseLeave={() => setActiveWork(null)}
       >
         <PixelRevealImage
           inView={inView}
           src={work.cover}
           fill
+          className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
           alt={work.alt}
-          className="size-full object-cover group-hover:scale-110 group-hover:brightness-50 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
         />
-
-        <div className="absolute inset-0 p-5 w-full flex items-center justify-between">
-          <div className="h-[15px] overflow-hidden cursor-pointer">
-            <motion.div
-              variants={textSlideNoI}
-              initial="initial"
-              animate={hover === index ? "animate" : "initial"}
-              className="flex flex-col items-start justify-center"
-            >
-              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
-                {work.title}
-              </p>
-              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[0.03em] uppercase max-md:text-[12px]">
-                {work.title}
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="h-[15px] overflow-hidden cursor-default">
-            <motion.div
-              variants={textSlideNoI}
-              initial="initial"
-              animate={hover === index ? "animate" : "initial"}
-              className="flex flex-col items-start justify-center"
-            >
-              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-md:text-[12px]">
-                {work.year}
-              </p>
-              <p className="text-s font-general text-[14px] leading-[1.2] tracking-[-0.03em] uppercase max-md:text-[12px]">
-                {work.year}
-              </p>
-            </motion.div>
-          </div>
-        </div>
       </figure>
     </motion.div>
   );
@@ -92,10 +57,6 @@ const CardList = memo(({ work, setActiveWork, setVisible, bumpMedia }) => {
     bumpMedia();
   }, [setActiveWork, setVisible, bumpMedia, work]);
 
-  const handleLeave = useCallback(() => {
-    setVisible(false);
-  }, [setVisible]);
-
   const goToWork = useCallback(() => {
     router.push(`/works/${work.id}`, undefined, { scroll: false });
   }, [router, work.id]);
@@ -103,17 +64,26 @@ const CardList = memo(({ work, setActiveWork, setVisible, bumpMedia }) => {
   return (
     <motion.div
       onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
+      onMouseLeave={() => {
+        setActiveWork(null);
+        setVisible(false);
+      }}
       onClick={goToWork}
-      className="relative p-2 w-full grid grid-cols-4 items-center cursor-pointer"
+      className="relative p-2 py-6 w-full grid grid-cols-3 items-center cursor-pointer"
     >
-      <div className="col-span-3 text-[62px] tracking-[-0.03em] max-lg:text-[48px] max-md:text-[32px]">
-        {work.title}
-      </div>
-
-      <div className="flex items-end justify-end">
-        <span className="text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+      <div className="flex items-start justify-start">
+        <span className=" font-general font-medium text-p text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] ">
           {work.year}
+        </span>
+      </div>
+      <div className="flex items-center justify-center">
+        <span className=" font-general font-medium text-p text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] ">
+          {work.category}
+        </span>
+      </div>
+      <div className="flex items-end justify-end">
+        <span className=" font-general font-medium text-p text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] ">
+          {work.client}
         </span>
       </div>
     </motion.div>
@@ -146,7 +116,14 @@ const Works = () => {
       {mode === "grid" && (
         <div className="p-2 grid grid-cols-3 gap-2 max-lg:grid-cols-2 max-md:grid-cols-1 z-20">
           {works.map((work, i) => (
-            <CardGrid key={work.id} inView={inView} work={work} index={i} />
+            <CardGrid
+              key={work.id}
+              inView={inView}
+              setActiveWork={setActiveWork}
+              work={work}
+              bumpMedia={bumpMedia}
+              index={i}
+            />
           ))}
         </div>
       )}
@@ -220,10 +197,10 @@ const Works = () => {
                 >
                   <PixelRevealImage
                     inView={activeWork}
-                    src={activework.cover}
+                    src={activeWork.cover}
                     fill
                     alt={activeWork.alt}
-                    className="size-full object-cover"
+                    className="size-full object-cover brightness-75"
                   />
                 </motion.div>
               )}
@@ -231,6 +208,38 @@ const Works = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {!isMobile && (
+        <motion.div
+          className="fixed z-[1000] max-md:hidden"
+          style={{
+            left: x,
+            top: y,
+            translateX: "-50%",
+            translateY: "-50%",
+            pointerEvents: "none",
+          }}
+        >
+          <div className="w-150 h-full flex items-center justify-center max-ds:w-[100px] max-lg:w-[75px] ">
+            <div className="relative w-full h-[17px] overflow-hidden">
+              <AnimatePresence mode="sync">
+                {activeWork && (
+                  <motion.p
+                    key={`${activeWork.id}-${mediaTick}`}
+                    variants={textOverlap}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    className="absolute left-1/2 -translate-x-1/2 top-0  text-s font-general font-normal text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] whitespace-nowrap"
+                  >
+                    {activeWork.title}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 };

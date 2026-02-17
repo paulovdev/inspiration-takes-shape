@@ -9,14 +9,14 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Works", href: "/works" },
   { label: "Contact", href: "/contact" },
-  { label: "Credits for content", href: "/credits" },
+  /*  { label: "Credits for content", href: "/credits" }, */
 ];
 
 const manifestoLinks = [
-  { label: "Inspiration takes shape®", href: "/terms" },
-  { label: "Experimental direction™", href: "/privacy" },
-  { label: "Design as language™", href: "/terms" },
-  { label: "Future Shapes®", href: "/terms" },
+  { label: "offset", mark: "®", href: "/terms" },
+  { label: "EARTH", mark: "®", href: "/privacy" },
+  { label: "Experimental direction", mark: "®", href: "/terms" },
+  { label: "Future Shapes", mark: "®", href: "/terms" },
 ];
 
 const socialLinks = [
@@ -92,17 +92,21 @@ const Footer = () => {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="min-w-60 mb-2 overflow-hidden size-fit group"
+                    className="relative mb-2 size-fit overflow-hidden group"
                   >
                     <motion.p
                       custom={i * 0.075}
                       variants={textSlide}
                       initial="initial"
                       animate={inView ? "animate" : "initial"}
-                      className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase flex items-center justify-between gap-2 max-md:text-[12px] group-hover:text-s/75 transition-colors cursor-pointer"
+                      className="text-s font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] cursor-pointer"
                     >
-                      {link.label} <FaLink className="text-[12px]" />
+                      {link.label}
+                      <span className="relative text-[10px] -top-[5px]">
+                        {link.mark}
+                      </span>
                     </motion.p>
+                    <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                   </a>
                 ))}
               </div>
@@ -208,7 +212,7 @@ const Footer = () => {
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="w-full text-left text-s font-normal leading-none tracking-[-0.06em] text-[9.5vw] max-ds:text-[7.9vw] max-lg:text-[9.5vw] max-md:text-[9.5vw]"
           >
-            Inspiration takes shape.<span className="text-[8vw]">®</span>
+            offset<span className="text-[8vw]">®</span>
           </motion.h2>
         </div>
       </div>

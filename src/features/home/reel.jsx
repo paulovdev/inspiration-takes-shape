@@ -12,6 +12,7 @@ import { useIsMobile } from "@/hooks/useIsMobile";
 
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 import { useInView } from "react-intersection-observer";
+import { IoClose } from "react-icons/io5";
 
 const Reel = () => {
   const videoRef = useRef(null);
@@ -171,7 +172,12 @@ const Reel = () => {
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
-              <IoMdClose />
+              <button
+                className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
+                onClick={() => setVideoOpen(false)}
+              >
+                <IoClose className="text-[16px] max-md:text-[14px]" /> close
+              </button>
             </div>
 
             <AnimatePresence>

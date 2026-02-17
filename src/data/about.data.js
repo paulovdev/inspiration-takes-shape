@@ -29,78 +29,68 @@ export const awards = [
 
 export const approach = [
   {
-    style: "Research",
+    style: "[ Product — 제품 ]",
     description: [
-      "Our creative process begins with a rigorous method, diving deeply into your brand’s essence, market movements, and the psychology of your audience.",
+      "We’ve shaped and launched over 120 products alongside teams that care about craft, relevance, and growth.",
     ],
-    src: "/approach/img-01.jpg",
+    number: "120",
+    numberSmall: "+",
+    src: "/approach/video-01.mp4",
     alt: "Futuristic streetwear portrait in low lighting",
   },
   {
-    style: "Experimentation",
+    style: "[ Experience — 경험 ]",
     description: [
-      "Here, imagination runs free as we merge art and technology to explore bold and uncharted territories.",
+      "Our work lives across platforms, spaces, and cultures — reaching more than 85 million people worldwide.",
     ],
-    src: "/approach/video-01.mp4",
+    number: "85",
+    numberSmall: "M+",
+    src: "/approach/video-02.mp4",
     alt: "Dark fashion video with minimalist composition",
   },
   {
-    style: "Refinement",
+    style: "[ Communication — 의사소통 ]",
     description: [
-      "Each idea is carefully crafted and polished to achieve a sophisticated, high-end final standard.",
+      "18 years of hands-on experience shaping brands, systems, and stories that actually resonate.",
     ],
-    src: "/approach/img-02.jpeg",
+    number: "18",
+    numberSmall: "years",
+    src: "/approach/video-04.mp4",
     alt: "Minimal human figure in a neutral-toned studio",
   },
 ];
 
 export const team = [
   {
-    src: "/team/img-01.jpeg",
+    src: "/team/luna.jpg",
     name: "Luna Carvalho",
     role: "Creative Director",
   },
   {
-    src: "/team/img-02.jpeg",
+    src: "/team/soia.jpg",
     name: "Sofia Almeida",
     role: "Fashion Film Director",
   },
   {
-    src: "/team/img-03.jpeg",
+    src: "/team/mateo.jpg",
     name: "Mateo Ribeiro",
     role: "Visual Research & Styling",
   },
   {
-    src: "/team/img-04.jpeg",
+    src: "/team/enzo.jpg",
     name: "Enzo Martins",
     role: "Director of Photography",
-  },
-  {
-    src: "/team/img-05.jpeg",
-    name: "Isabella Costa",
-    role: "Production & Casting",
   },
 ];
 
 export const manifestoPhrases = [
-  `Great design is born from curiosity, from questions that refuse the obvious, from the courage to see differently.`,
-
-  `Every idea begins as a spark — a moment of insight, a restless thought that asks:`,
-  `'WHAT IF?'`,
-  `But insight alone is not enough.`,
-  `Ideas only matter when they take shape, when vision is guided by intention and creativity meets structure.`,
-  `Every project balances rigor and intuition, logic and emotion, precision and expression.`,
-  `Because design is not only what you see, it’s what you feel, how you move, and how you understand.`,
-  `This is where instinct meets methodology, where ideas take shape, where`,
-  `INSPIRATION TAKES SHAPE®`,
+  `WE BRIDGE strategy and execution to help teams WIN with AI.`,
 ];
 
 export const blockPhrases = [
-  `We create thoughtful design solutions that connect brands and people.`,
+  `We started Offset® after years of building AI systems inside large, complex organizations where ambition often hit red tape, and great ideas got lost in PowerPoints.`,
   ``,
-  `Driven by curiosity and guided by clarity, our work spans digital experiences, visual identities, and strategy.`,
+  `We knew there had to be a better way. So we set out to create the kind of partner we always wished we had: A team that could think strategically, move fast, and actually ship without sacrificing quality or depth.`,
   ``,
-  `We collaborate closely with our clients to transform ideas into purposeful, lasting design — whether launching something new or refining what already exists.`,
-  ``,
-  `Every project is an opportunity to create with intention, guided by a commitment to detail, relevance, and connection.`,
+  `At Offset®, we blend deep technical expertise with sharp product thinking. We don’t just prototype; we solve. We don’t just advise; we build.`,
 ];

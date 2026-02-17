@@ -3,25 +3,29 @@ export const navigation = [
   { label: "About", href: "/about" },
   { label: "Works", href: "/works" },
   { label: "Contact", href: "/contact" },
-  { label: "Credits for content", href: "/credits-for-content" },
+  /*  { label: "Credits for content", href: "/credits-for-content" }, */
   { label: "Laboratory", href: "/lab", dropDown: true },
 ];
 
 export const dropNavigation = [
   {
-    label: "Inspiration Takes Shape®",
+    label: "offset",
+    mark: "®",
     href: "https://www.youtube.com/@paulovdev",
   },
   {
-    label: "Experimental Direction™",
+    label: "EARTH",
+    mark: "®",
     href: "https://www.youtube.com/@paulovdev",
   },
   {
-    label: "Design as Language™",
+    label: "Experimental Direction",
+    mark: "®",
     href: "https://www.youtube.com/@paulovdev",
   },
   {
-    label: "Future Shapes®",
+    label: "Future Shapes",
+    mark: "®",
     href: "https://www.youtube.com/@paulovdev",
   },
 ];

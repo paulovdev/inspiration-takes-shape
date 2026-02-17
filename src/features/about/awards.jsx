@@ -13,8 +13,8 @@ const Awards = () => {
       ref={ref}
     >
       <div className="flex-1 relative max-md:mb-12">
-        <p className="text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
-          [Awards]
+        <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
+          [ Awards — 수상 내역 ]
         </p>
       </div>
       <div className="flex-1 w-full flex flex-col items-start ">

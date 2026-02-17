@@ -52,7 +52,7 @@ const Card = ({ work, index, scrollYProgress, setActiveWork, bump }) => {
       </figure>
     </motion.div>
   );
-};
+}; 
 
 const WorksPreview = () => {
   const container = useRef(null);

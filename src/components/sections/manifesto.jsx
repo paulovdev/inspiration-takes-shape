@@ -18,7 +18,7 @@ const Manifesto = ({ manifestoPhrases }) => {
         variants={textSlide}
         animate={inView}
         as="h2"
-        className="max-w-[1400px] w-full flex flex-col"
+        className="max-w-[1200px] w-full flex flex-col"
         lineClassName="
           font-inter font-normal text-p text-[62px] tracking-[-0.035em] leading-[1.15] 
           max-ds:text-[52px] 

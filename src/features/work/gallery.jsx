@@ -7,7 +7,6 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { mergeRefs } from "react-merge-refs";
 
 const gallery = [
   "/works/img-02.svg",
@@ -47,11 +46,11 @@ const clipAnim = {
   },
 };
 
-export default function Gallery({ imgs }) {
+export default function Gallery() {
   const container = useRef(null);
   const hRef = useRef(null);
   const [scrollWidth, setScrollWidth] = useState(0);
-  const imgs2 = [...imgs, ...imgs];
+  const imgs2 = [...gallery, ...gallery];
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
@@ -89,7 +88,7 @@ const Card = ({ src }) => {
     threshold: 0.25,
     triggerOnce: true,
   });
-  
+
   return (
     <div
       ref={ref}

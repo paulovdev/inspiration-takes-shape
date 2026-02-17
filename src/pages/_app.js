@@ -6,7 +6,7 @@ export default function App({ Component, pageProps, router }) {
   return (
     <>
       <Head>
-        <title>INSPIRATION TAKES SHAPE®</title>
+        <title>Offset®</title>
       </Head>
 
       <div className="main">
