@@ -20,9 +20,8 @@ const Modal = ({ setModal, modal, activeItem }) => {
       wrapper: scrollRef.current,
       content: scrollRef.current.firstElementChild,
       smoothWheel: true,
-      smoothTouch: true,
-      touchMultiplier: 1.2,
       lerp: 0.1,
+      syncTouch: true,
     });
 
     function raf(time) {
