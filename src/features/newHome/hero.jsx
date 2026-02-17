@@ -179,8 +179,8 @@ const Hero = ({ lenisRef }) => {
   return (
     <>
       <div className="relative w-full min-h-screen" ref={scope}>
-        <motion.div className="img-a absolute inset-0 will-change-[clip-path] -z-10 pointer-events-none">
-          <figure className="size-full overflow-hidden">
+        <motion.div className="img-a absolute size-full inset-0 will-change-[clip-path] overflow-hidden -z-10 pointer-events-none">
+          <figure className="relative size-full overflow-hidden">
             {activeLab.src.endsWith(".mp4") ? (
               <video
                 key={activeLab.src}
@@ -198,7 +198,7 @@ const Hero = ({ lenisRef }) => {
                 fill
                 alt=""
                 priority
-                className="object-cover brightness-75"
+                className="size-full object-cover brightness-75"
               />
             )}
           </figure>
@@ -207,7 +207,7 @@ const Hero = ({ lenisRef }) => {
         {!isPreloading && (
           <>
             <div className="absolute inset-0 p-10 size-full flex items-end justify-start z-10 max-ds:p-8 max-lg:p-5  max-md:py-5">
-              <div className="relative h-[14px] min-w-200 overflow-hidden">
+              <div className="relative h-[14px] w-200 overflow-hidden max-md:w-full">
                 <AnimatePresence mode="sync" initial={false}>
                   {isAnimating ? (
                     <motion.div
@@ -240,13 +240,13 @@ const Hero = ({ lenisRef }) => {
                 </AnimatePresence>
               </div>
             </div>
-            <div className="absolute inset-0 flex flex-col justify-center z-10">
-              <div className="relative top-10 px-10 flex gap-[125px] max-lg:gap-[100px] max-md:gap-[50px] max-ds:px-8 max-lg:px-5 ">
+            <div className="absolute top-1/2 z-10">
+              <div className="relative top-10 px-10 size-full flex gap-[125px] max-lg:gap-[100px] max-md:gap-[50px] max-ds:px-8 max-lg:px-5 ">
                 {lab.map((item, i) => {
                   const active = i === activeItem;
 
                   return (
-                    <div key={item.title} className="relative ">
+                    <div key={item.title} className="relative">
                       <AnimatePresence mode="wait">
                         {phase !== "exit" && (
                           <Magnetic>
@@ -264,7 +264,6 @@ const Hero = ({ lenisRef }) => {
                                 ease: [0.33, 1, 0.68, 1],
                                 delay: i * 0.075,
                               }}
-                              
                               whileTap={{ scale: 1 }}
                               className={`size-3.5 rounded-full ${
                                 active
@@ -279,7 +278,7 @@ const Hero = ({ lenisRef }) => {
                         {phase !== "exit" && active && (
                           <motion.div
                             key={activeItem}
-                            className="absolute mt-12 w-[400px]"
+                            className="absolute top-20 min-w-50 w-full"
                           >
                             <div className="mb-2 h-[16px] overflow-hidden">
                               <motion.p
@@ -369,7 +368,7 @@ const Hero = ({ lenisRef }) => {
         )}
         <AnimatePresence mode="wait">
           {textAnimating && (
-            <div className="absolute inset-0 flex flex-col justify-center z-250 pointer-events-none">
+            <div className="absolute inset-0 overflow-hidden size-full flex flex-col justify-center z-250 pointer-events-none">
               {offsetTexts.map((text, i) => (
                 <motion.p
                   key={`${text}-${i}`}
