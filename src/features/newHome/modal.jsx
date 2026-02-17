@@ -37,6 +37,14 @@ const Modal = ({ setModal, modal, activeItem }) => {
     };
   }, [modal]);
 
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [modal]);
+
   return (
     <>
       <motion.div
