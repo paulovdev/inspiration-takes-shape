@@ -94,7 +94,7 @@ const Hero = ({ lenisRef }) => {
 
         await animate(".line-a", { x: "-100%" }, { duration: 0 }),
       ]);
-
+      await wait(400);
       setActiveItem(nextItem);
 
       await wait(400);
@@ -178,8 +178,8 @@ const Hero = ({ lenisRef }) => {
 
   return (
     <>
-      <div className="relative w-full min-h-screen" ref={scope}>
-        <motion.div className="img-a absolute size-full inset-0 will-change-[clip-path] overflow-hidden -z-10 pointer-events-none">
+      <div className="relative w-full h-screen" ref={scope}>
+        <div className="img-a absolute inset-0 will-change-[clip-path] overflow-hidden -z-10 pointer-events-none">
           <figure className="relative size-full overflow-hidden">
             {activeLab.src.endsWith(".mp4") ? (
               <video
@@ -202,7 +202,7 @@ const Hero = ({ lenisRef }) => {
               />
             )}
           </figure>
-        </motion.div>
+        </div>
 
         {!isPreloading && (
           <>
@@ -360,12 +360,15 @@ const Hero = ({ lenisRef }) => {
             </div>
           </>
         )}
-        <div className="absolute inset-0 flex flex-col justify-center z-10 pointer-events-none">
-          <div className="line-a absolute left-0 w-full h-px bg-s/50" />
+
+        <div className="absolute top-1/2 left-0 w-full h-px z-10 pointer-events-none overflow-hidden">
+          <div className="line-a absolute inset-y-0 left-0 w-full bg-s/50" />
         </div>
+
         {isPreloading && (
-          <div className="bg-a absolute inset-0 z-250 pointer-events-none bg-p" />
+          <div className="bg-a absolute inset-0 size-full z-250 pointer-events-none bg-p" />
         )}
+
         <AnimatePresence mode="wait">
           {textAnimating && (
             <div className="absolute inset-0 overflow-hidden size-full flex flex-col justify-center z-250 pointer-events-none">
@@ -400,6 +403,7 @@ const Hero = ({ lenisRef }) => {
           )}
         </AnimatePresence>
       </div>
+
       {isPreloading && (
         <div className="fixed inset-0 z-[9999]" style={{ cursor: "wait" }} />
       )}
