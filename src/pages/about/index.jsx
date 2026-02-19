@@ -62,7 +62,7 @@ const Index = () => {
         <Reel />
         <Awards />
         <Team />
-        <div className="mt-10 mb-2 w-full h-px bg-p/25" />
+
         <JoinUs />
         <div className="mt-10 mb-2 w-full h-px bg-p/25" />
         <InfiniteSlide />

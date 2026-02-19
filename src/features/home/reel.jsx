@@ -4,15 +4,15 @@ import {
   IoMdPlay,
   IoMdVolumeHigh,
   IoMdVolumeOff,
-  IoMdClose,
 } from "react-icons/io";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
-import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 import { useInView } from "react-intersection-observer";
 import { IoClose } from "react-icons/io5";
+import { textSlide } from "@/animations/sections/hero.animations";
+import Image from "next/image";
 
 const Reel = () => {
   const videoRef = useRef(null);
@@ -26,17 +26,17 @@ const Reel = () => {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start center", "center center"],
+    offset: ["start start", "center end"],
   });
 
   const clipPathScroll = useTransform(
     scrollYProgress,
     [0, 1],
-    ["inset(15% 15% 15% 15%)", "inset(0% 0% 0% 0%)"],
+    ["inset(0% 0% 0% 0%)", "inset(15% 15% 15% 15%)"],
   );
   const { x, y } = useMousePosition2();
   const { ref, inView } = useInView({
-    threshold: 0.15,
+    threshold: 0.5,
     triggerOnce: true,
   });
   useEffect(() => {
@@ -91,20 +91,12 @@ const Reel = () => {
         onClick={() => setVideoOpen(true)}
       >
         <div className="absolute inset-0 size-full -z-10" ref={ref}>
-          {/*  <Image
+          <Image
             src="/reel.png"
             width={2000}
             height={2000}
             alt=""
             className="size-full object-cover brightness-75"
-          /> */}
-
-          <PixelRevealImage
-            inView={inView}
-            src="/reel.png"
-            fill
-            className="size-full object-cover brightness-75"
-            alt=""
           />
         </div>
         <div className="overflow-hidden h-fit cursor-pointer">
@@ -123,6 +115,19 @@ const Reel = () => {
             Watch Showcase
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </motion.h3>
+        </div>
+        <div className="absolute inset-0 flex items-end justify-center p-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
+          <div className="h-fit overflow-hidden">
+            <motion.p
+              className="pointer-events-auto relative text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] max-md:-top-1"
+              variants={textSlide}
+              initial="initial"
+              animate={inView ? "animate" : "initial"}
+              custom={5}
+            >
+              [ SHOWCASE MADE BY picao.ai ]
+            </motion.p>
+          </div>
         </div>
       </motion.div>
 

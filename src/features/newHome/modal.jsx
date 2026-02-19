@@ -7,8 +7,8 @@ import { textSlide } from "@/animations/shared/global-anim";
 import { IoClose } from "react-icons/io5";
 import { fade } from "@/animations/sections/navigation.animations";
 import { modalContainer } from "@/animations/sections/home.animations";
-import Image from "next/image";
 import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
+import Image from "next/image";
 
 const Modal = ({ setModal, modal, activeItem }) => {
   const scrollRef = useRef(null);
@@ -65,7 +65,7 @@ const Modal = ({ setModal, modal, activeItem }) => {
           </div>
           <div className="relative px-10 py-20 w-full flex items-start justify-between gap-10 max-ds:px-8 max-lg:px-5 max-md:px-2 max-lg:flex-col">
             <div className="sticky top-20 w-90 max-lg:relative max-lg:mb-6 max-lg:top-0 max-lg:w-full">
-              <p className="mb-12 text-p/50 font-general font-bold text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+              <p className="mb-12 text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
                 [ Number°{activeItem.number} — 숫자°{activeItem.number} ]
               </p>
 
@@ -97,10 +97,10 @@ const Modal = ({ setModal, modal, activeItem }) => {
             <div className="flex flex-col">
               <div className="flex flex-col items-end max-lg:mt-8">
                 <figure className="mb-4 relative w-200 h-[50vh] max-ds:w-160 max-lg:w-150 max-md:w-full max-lg:h-[40vh]">
-                  <PixelRevealImage
+                  <Image
                     src={activeItem.src2}
-                    inView
-                    fill
+                    width={520}
+                    height={520}
                     alt={activeItem.alt}
                     className="size-full object-cover"
                   />
@@ -129,10 +129,10 @@ const Modal = ({ setModal, modal, activeItem }) => {
               </div>
               <div className="flex flex-col items-start max-lg:mt-8">
                 <figure className="mb-12 relative w-200 h-[50vh] max-ds:w-160 max-lg:w-150 max-md:w-full max-lg:h-[40vh]">
-                  <PixelRevealImage
+                  <Image
                     src={activeItem.src3}
-                    inView
-                    fill
+                    width={520}
+                    height={520}
                     alt={activeItem.alt}
                     className="size-full object-cover"
                   />

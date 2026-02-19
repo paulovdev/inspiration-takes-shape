@@ -27,7 +27,7 @@ const TextBlock = ({
     >
       <div className="p-10 w-full flex max-lg:flex-col items-start max-ds:p-8 max-lg:p-5 max-md:p-2 max-lg:gap-10">
         <div className="flex-1">
-          <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
+          <p className="text-p font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
             {blockTitle}
           </p>
         </div>

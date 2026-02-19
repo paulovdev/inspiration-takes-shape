@@ -7,6 +7,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import Image from "next/image";
 
 const gallery = [
   "/works/img-02.svg",
@@ -97,10 +98,10 @@ const Card = ({ src }) => {
       onMouseLeave={() => setHover(false)}
     >
       <motion.figure className="size-full overflow-hidden group-hover:brightness-50 group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]">
-        <PixelRevealImage
-          inView={inView}
+        <Image
           src={src}
-          fill
+          width={2000}
+          height={2000}
           alt=""
           className="size-full object-cover "
         />
@@ -117,10 +118,10 @@ const Card = ({ src }) => {
               exit="exit"
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[130%] h-full">
-                <PixelRevealImage
-                  inView={hover}
+                <Image
                   src={src}
-                  fill
+                  width={520}
+                  height={520}
                   alt=" "
                   className="size-full object-cover"
                 />

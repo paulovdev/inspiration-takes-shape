@@ -4,7 +4,7 @@ import { IoArrowDownSharp } from "react-icons/io5";
 import { scale } from "../../animations/sections/hero.animations";
 import { textSlide } from "@/animations/shared/global-anim";
 import TextAnimated from "../ui/text-animated";
-import PixelRevealImage from "../ui/pixel-reveal-image/pixel-reveal-image";
+import Image from "next/image";
 
 const PageHero = ({ title = [], subTitle, src }) => {
   const container = useRef(null);
@@ -17,7 +17,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
   return (
     <>
       <section
-        className="relative w-screen h-screen overflow-hidden"
+        className="relative w-screen h-dvh overflow-hidden"
         ref={container}
       >
         <motion.div
@@ -32,8 +32,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
               animate="animate"
               custom={0}
             >
-              <PixelRevealImage
-                inView={true}
+              <Image
                 src={src}
                 fill
                 className="relative size-full object-cover brightness-75"

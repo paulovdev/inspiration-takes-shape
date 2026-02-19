@@ -71,33 +71,39 @@ const JoinUs = () => {
 
               <motion.div
                 style={{ opacity: itemOpacity }}
-                className="absolute p-10 size-full flex flex-col items-start justify-center font-inter font-normal text-p
-          text-[62px] tracking-[-0.03em] leading-none 
-          max-ds:text-[52px] 
-          max-lg:text-[48px] 
-          max-md:text-[32px] max-ds:p-8 max-lg:p-5 max-md:px-2 will-change-transform"
+                className="absolute p-10 size-full flex flex-col items-start justify-center text-p
+           font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] max-ds:p-8 max-lg:p-5 max-md:px-2 will-change-transform"
               >
                 <div className="overflow-hidden h-fit">
                   <motion.h2 style={{ y: manifest }}>SAO PAULO</motion.h2>
                 </div>
                 <div className="h-fit overflow-hidden">
+                  <motion.h2 style={{ y: manifest }}>RIO DE JANEIRO</motion.h2>
+                </div>
+                <div className="h-fit overflow-hidden">
                   <motion.h2 style={{ y: manifest }}>NEW YORK</motion.h2>
+                </div>
+                <div className="h-fit overflow-hidden">
+                  <motion.h2 style={{ y: manifest }}>ORLANDO</motion.h2>
                 </div>
               </motion.div>
 
               <motion.div
                 style={{ opacity: itemOpacity }}
-                className="absolute p-10 size-full flex flex-col items-end justify-center font-inter font-normal text-p
-          text-[62px] tracking-[-0.03em] leading-none 
-          max-ds:text-[52px] 
-          max-lg:text-[48px] 
-          max-md:text-[32px] max-ds:p-8 max-lg:p-5 max-md:px-2 will-change-transform"
+                className="absolute p-10 size-full flex flex-col items-end justify-center text-p
+           font-general font-medium text-[14px] tracking-[-0.03em] leading-none uppercase max-md:text-[12px] max-ds:p-8 max-lg:p-5 max-md:px-2 will-change-transform"
               >
                 <div className="h-fit overflow-hidden">
                   <motion.h2 style={{ y: manifest }}>TOKYO</motion.h2>
                 </div>
                 <div className="h-fit overflow-hidden">
+                  <motion.h2 style={{ y: manifest }}>JAPAN</motion.h2>
+                </div>
+                <div className="h-fit overflow-hidden">
                   <motion.h2 style={{ y: manifest }}>BERLIN</motion.h2>
+                </div>
+                <div className="h-fit overflow-hidden">
+                  <motion.h2 style={{ y: manifest }}>ROMA</motion.h2>
                 </div>
               </motion.div>
 

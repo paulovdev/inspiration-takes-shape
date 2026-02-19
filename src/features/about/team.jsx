@@ -34,7 +34,7 @@ const Team = () => {
   return (
     <div className="relative pt-10 px-10 py-2 w-full overflow-hidden h-fit max-lg:px-5 max-md:px-2">
       <div className="relative mb-12">
-        <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
+        <p className="text-p font-general font-medium text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
           [ Team — 팀 ]
         </p>
       </div>

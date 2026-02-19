@@ -62,13 +62,13 @@ const Team = () => {
       ref={ref}
     >
       <div className="relative mb-12 flex items-center gap-1">
-        <p className="text-p/50 font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
+        <p className="text-p font-general font-medium text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
           [from our Instagram —
         </p>
         <a
           href="https://www.instagram.com/"
           target="_blank"
-          className="relative text-p font-general font-bold text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] group cursor-pointer"
+          className="relative text-p font-general font-medium text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] group cursor-pointer"
         >
           @inspiration_takes_shape
           <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-p transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />

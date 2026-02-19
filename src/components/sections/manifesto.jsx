@@ -31,7 +31,7 @@ const Manifesto = ({ manifestoPhrases }) => {
         lineDelay={0.015}
       />
 
-      <div className="w-full h-[1px] my-10 bg-p/15 max-lg:my-10"></div>
+      <div className="w-full h-[1px] my-10 bg-p/15 max-lg:my-10 max-md:mt-0"></div>
     </div>
   );
 };

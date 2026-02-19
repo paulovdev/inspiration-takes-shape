@@ -36,10 +36,10 @@ const CardGrid = memo(({ work, index, setActiveWork, bumpMedia }) => {
         }}
         onMouseLeave={() => setActiveWork(null)}
       >
-        <PixelRevealImage
-          inView={inView}
+        <Image
           src={work.cover}
-          fill
+          width={2000}
+          height={2000}
           className="size-full object-cover group-hover:scale-110 group-hover:brightness-25 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
           alt={work.alt}
         />
@@ -195,10 +195,10 @@ const Works = () => {
                   exit="exit"
                   className="absolute inset-0 will-change-transform"
                 >
-                  <PixelRevealImage
-                    inView={activeWork}
+                  <Image
                     src={activeWork.cover}
-                    fill
+                    width={2000}
+                    height={2000}
                     alt={activeWork.alt}
                     className="size-full object-cover brightness-75"
                   />
