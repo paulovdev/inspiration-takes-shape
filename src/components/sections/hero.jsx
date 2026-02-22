@@ -12,34 +12,33 @@ const PageHero = ({ title = [], subTitle, src }) => {
     target: container,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 400]);
 
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   return (
     <>
       <section
-        className="relative w-screen h-dvh overflow-hidden"
+        className="relative w-full h-dvh overflow-hidden"
         ref={container}
       >
         <motion.div
-          className="relative w-screen h-screen overflow-hidden will-change-transform"
+          className="relative w-screen h-screen overflow-hidden transform-gpu"
           style={{ y }}
         >
-          <div className="absolute inset-0 w-screen h-screen -z-10">
-            <motion.figure
-              className="overflow-hidden size-full"
-              variants={scale}
-              initial="initial"
-              animate="animate"
-              custom={0}
-            >
-              <Image
-                src={src}
-                fill
-                className="relative size-full object-cover brightness-75"
-                alt={title}
-              />
-            </motion.figure>
-          </div>
+          <motion.figure
+            className=" absolute inset-0 overflow-hidden w-screen h-screen"
+            variants={scale}
+            initial="initial"
+            animate="animate"
+            custom={0}
+          >
+            <Image
+              src={src}
+              width={2000}
+              height={2000}
+              className="relative size-full object-cover brightness-60"
+              alt={title}
+            />
+          </motion.figure>
 
           <div className="absolute inset-0 w-screen h-screen">
             <div className="w-full h-screen flex flex-col items-center justify-between gap-6">
@@ -81,7 +80,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
                   initial="initial"
                   animate="animate"
                   custom={0.2}
-                  className="text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase flex items-center gap-2 will-change-transform"
+                  className="max-md:hidden text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase flex items-center gap-2 will-change-transform"
                 >
                   scroll down
                   <IoArrowDownSharp className="text-s text-[14px] " />

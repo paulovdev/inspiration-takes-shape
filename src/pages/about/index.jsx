@@ -35,7 +35,7 @@ const Index = () => {
     <Transition lenis={lenisRef}>
       <Nav />
 
-      <main className="w-auto min-h-screen bg-s">
+      <main className=" bg-s">
         <PageHero
           title={[`About — Offset®`]}
           subTitle="agency"

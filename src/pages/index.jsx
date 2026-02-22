@@ -3,30 +3,12 @@ import Transition from "@/components/layout/transition";
 
 import Hero from "@/features/newHome/hero";
 
-import Lenis from "lenis";
-import { useEffect, useRef } from "react";
-
 const Index = () => {
-  const lenisRef = useRef(null);
-
-  useEffect(() => {
-    const lenis = new Lenis({
-      autoRaf: true,
-      syncTouch: true,
-    });
-
-    lenisRef.current = lenis;
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
   return (
-    <Transition lenis={lenisRef}>
+    <Transition>
       <Nav />
       <main className="min-h-screen ">
-        <Hero lenisRef={lenisRef} />
+        <Hero />
       </main>
     </Transition>
   );

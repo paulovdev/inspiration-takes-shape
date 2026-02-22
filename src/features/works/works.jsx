@@ -110,8 +110,8 @@ const Works = () => {
 
   return (
     <section
-      className="relative bg-s border-b border-p/10 w-screen h-full overflow-hidden"
       ref={ref}
+      className="relative bg-s border-b border-p/10 w-screen h-fit overflow-hidden"
     >
       {mode === "grid" && (
         <div className="p-2 grid grid-cols-3 gap-2 max-lg:grid-cols-2 max-md:grid-cols-1 z-20">

@@ -31,7 +31,7 @@ const textSlideNoI = {
   },
 };
 
-const Hero = ({ lenisRef }) => {
+const Hero = () => {
   const [scope, animate] = useAnimate();
   const [phase, setPhase] = useState("idle");
 
@@ -47,26 +47,21 @@ const Hero = ({ lenisRef }) => {
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
   useEffect(() => {
-    if (!lenisRef?.current) return;
-
     const body = document.body;
 
     if (isAnimating || isPreloading) {
       body.style.cursor = "wait";
       body.style.overflow = "hidden";
-      lenisRef.current.stop();
     } else {
       body.style.cursor = "";
       body.style.overflow = "";
-      lenisRef.current.start();
     }
 
     return () => {
       body.style.cursor = "";
       body.style.overflow = "";
-      lenisRef.current?.start();
     };
-  }, [isAnimating, isPreloading, lenisRef]);
+  }, [isAnimating, isPreloading]);
 
   useEffect(() => {
     if (nextItem === null || nextItem === activeItem) return;
@@ -130,6 +125,7 @@ const Hero = ({ lenisRef }) => {
     const run = async () => {
       setIsPreloading(true);
       setTextAnimating(true);
+
       (await animate(
         ".line-a",
         { x: "-100%" },

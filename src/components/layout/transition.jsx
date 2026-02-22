@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useEffect } from "react";
 
-const Transition = ({ children, lenis }) => {
+const Transition = ({ children }) => {
   useEffect(() => {
     document.body.style.cursor = "wait";
 
@@ -18,10 +18,7 @@ const Transition = ({ children, lenis }) => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
         onAnimationComplete={() => {
-          lenis.current.scrollTo(0, {
-            immediate: true,
-            lock: true,
-          });
+          window.scrollTo(0, 0);
           document.body.style.cursor = "default";
         }}
         className="relative z-1 bg-p min-h-screen"
