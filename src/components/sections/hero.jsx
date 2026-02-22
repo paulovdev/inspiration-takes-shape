@@ -50,7 +50,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
                     initial="initial"
                     animate="animate"
                     custom={0.1}
-                    className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase text-center flex items-center gap-2 will-change-transform
+                    className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase text-center flex items-center gap-2 will-change-transform
                     max-md:text-[12px]"
                   >
                     {subTitle}
@@ -81,7 +81,7 @@ const PageHero = ({ title = [], subTitle, src }) => {
                   initial="initial"
                   animate="animate"
                   custom={0.2}
-                  className="text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase flex items-center gap-2 will-change-transform"
+                  className="text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase flex items-center gap-2 will-change-transform"
                 >
                   scroll down
                   <IoArrowDownSharp className="text-s text-[14px] " />

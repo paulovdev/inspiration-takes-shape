@@ -143,7 +143,7 @@ const Hero = ({ lenis }) => {
                       transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
                       className="absolute inset-0 flex items-center justify-center"
                     >
-                      <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] animate-pulse duration-200">
+                      <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] animate-pulse duration-200">
                         Loading
                       </p>
                     </motion.div>
@@ -156,7 +156,7 @@ const Hero = ({ lenis }) => {
                       transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
                       className="absolute inset-0 flex items-center justify-center gap-2"
                     >
-                      <p className="flex items-center gap-2 whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
+                      <p className="flex items-center gap-2 whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]">
                         SCROLL DOWN TO VIEW MORE
                         <IoArrowDownSharp className="text-[14px]" />
                       </p>
@@ -166,7 +166,7 @@ const Hero = ({ lenis }) => {
               </div>
             </div>
             <div className="absolute top-1/2 left-5 w-full h-screen max-lg:hidden">
-              <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase flex items-center   gap-2 max-md:text-[12px] ">
+              <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase flex items-center   gap-2 max-md:text-[12px] ">
                 <FaCircleExclamation className="text-[12px]" />
                 Click the rounded to change lab
               </p>

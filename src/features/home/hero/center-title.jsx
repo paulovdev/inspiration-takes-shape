@@ -29,7 +29,7 @@ const CenterTitle = ({ activeItem, setModal }) => {
         <motion.div key={activeItem.tick} className="text-center">
           <div className="h-[14px] overflow-hidden">
             <motion.h1
-              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+              className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]"
               variants={textSlideNoI}
               initial="initial"
               animate="animate"
@@ -45,7 +45,7 @@ const CenterTitle = ({ activeItem, setModal }) => {
 
           <div className="h-[16px] overflow-hidden mt-2">
             <motion.p
-              className="text-s/50 text-[14px] opacity-50 tracking-[0.03em] uppercase max-md:text-[12px]"
+              className="text-s/50 text-[14px] opacity-50 tracking-[-0.03em] uppercase max-md:text-[12px]"
               variants={textSlideNoI}
               initial="initial"
               animate="animate"
@@ -61,7 +61,7 @@ const CenterTitle = ({ activeItem, setModal }) => {
             onClick={() => setModal(true)}
           >
             <motion.p
-              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+              className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]"
               variants={textSlideNoI}
               initial="initial"
               animate="animate"

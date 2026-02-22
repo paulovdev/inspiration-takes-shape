@@ -2,7 +2,7 @@ import { awards } from "@/data/about.data";
 import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
 import { textSlide } from "@/animations/shared/global-anim";
-import TextAnimated from "@/components/ui/text-animated";
+
 const Awards = () => {
   const { ref, inView } = useInView({
     threshold: 0.25,
@@ -10,23 +10,9 @@ const Awards = () => {
   });
   return (
     <section
-      className="relative p-10 size-full flex flex-col items-center max-lg:px-5 max-md:px-2"
+      className="relative mb-10 p-10 size-full flex flex-col items-center max-ds:px-8 max-ds:mb-8 max-lg:mb-5 max-md:mb-2 max-lg:px-5 max-md:px-2"
       ref={ref}
     >
-      <div className="min-h-50 mt-10">
-        <TextAnimated
-          phrases={[
-            `Offset has demonstrated its creativity and expertise through awards.With proven know-how and innovation, we elevate your brand and deliver optimal solutions.`,
-          ]}
-          variants={textSlide}
-          animate={inView}
-          className="max-w-125 mx-auto  text-p text-center font-general font-medium text-[14px] tracking-[-0.03em] leading-[1.2] uppercase max-md:text-[12px]"
-          lineClassName="overflow-hidden"
-          wordClassName="mr-1.5"
-          wordDelay={0.025}
-          lineDelay={0.015}
-        />
-      </div>
       <div className="relative w-full mb-12 flex items-start">
         <div className="h-fit overflow-hidden">
           <motion.p
@@ -35,7 +21,7 @@ const Awards = () => {
             initial="initial"
             animate={inView ? "animate" : "initial"}
           >
-            [ Awards — 수상 내역 ]
+            — Awards
           </motion.p>
         </div>
       </div>
@@ -45,7 +31,7 @@ const Awards = () => {
             <div className="mb-2 w-full overflow-hidden h-fit">
               <motion.h3
                 className="w-full flex items-center justify-between"
-                custom={i * 0.075}
+                custom={i * 0.2}
                 variants={textSlide}
                 initial="initial"
                 animate={inView ? "animate" : "initial"}

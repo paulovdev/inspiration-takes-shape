@@ -28,8 +28,8 @@ const Index = () => {
       <main className="w-auto min-h-screen bg-s">
         <PageHero
           title={[`Works`]}
-          subTitle="Collection of our — 우리의 컬렉션"
-          src="/slide/img-01.jpg"
+          subTitle="Collection of our"
+          src="/works/bg.jpg"
         />
         <Works />
       </main>

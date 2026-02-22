@@ -47,14 +47,23 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
       ref={ref}
       className="relative group perspective-midrange flex-[1_1_0%] min-w-0 max-lg:w-full"
       onMouseEnter={() => setActiveIndex(index)}
-      onMouseLeave={() => setActiveIndex(0)}
+      onMouseLeave={() => setActiveIndex(2)}
       animate={{ flexGrow: active ? 2.5 : 1.25 }}
       transition={{
         duration: 1,
         ease: [0.76, 0, 0.24, 1],
       }}
     >
-      <figure className="relative w-full h-[75vh] overflow-hidden max-lg:h-[60vh] will-change-transform">
+      <motion.figure
+        className="relative w-full h-[75vh] overflow-hidden max-lg:h-[60vh] will-change-transform"
+        initial={{ y: !isMobile && 250 }}
+        animate={{ y: inView && 0 }}
+        transition={{
+          duration: 0.75,
+          ease: [0.76, 0, 0.24, 1],
+          delay: index * 0.075,
+        }}
+      >
         {gallery.src.includes(".mp4") ? (
           <video
             src={gallery.src}
@@ -111,15 +120,15 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             lineDelay={0.015}
           />
         </div>
-      </figure>
+      </motion.figure>
     </motion.div>
   );
 };
 
 const Approach = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(2);
   return (
-    <section className="relative px-10 w-screen h-full overflow-hidden max-lg:px-5 max-md:px-2">
+    <section className="relative px-10 w-screen h-full overflow-hidden max-ds:px-8 max-lg:px-5 max-md:px-2">
       <div className="w-full flex items-center flex-wrap gap-2 max-lg:flex-col snap-mandatory overflow-x-scroll ">
         {approach.map((gallery, i) => (
           <CardGrid

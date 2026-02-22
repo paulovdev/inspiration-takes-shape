@@ -24,8 +24,8 @@ const Clients = () => {
   const container = useRef(null);
   const [hover, setHover] = useState(null);
 
-  const [ref, inView] = useInView({ threshold: 0.25, triggerOnce: true });
-
+  const [ref, inView] = useInView({ threshold: 0.5, triggerOnce: true });
+  const clients2 = [...clients, ...clients];
   return (
     <section
       ref={ref}
@@ -33,49 +33,47 @@ const Clients = () => {
     >
       <div className="relative mb-20">
         <p className="text-p font-general font-medium text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
-          [ SELECTED CLIENTS — 선정된 고객 ]
+          — SELECTED CLIENTS
         </p>
       </div>
 
-      <div
+      <motion.div
         ref={container}
-        className="relative grid grid-cols-6 items-start justify-between max-lg:grid-cols-4 max-md:grid-cols-3"
+        className="flex w-max items-center gap-40 max-lg:gap-30 max-md:gap-20"
+        animate={{
+          x: ["0%", "-50%"],
+        }}
+        transition={{
+          duration: clients.length * 2.5,
+          ease: "linear",
+          repeat: Infinity,
+          repeatType: "loop",
+        }}
       >
-        {clients.map((client, i) => {
+        {clients2.map((client, i) => {
           const Icon = client.icon;
           const active = hover === i;
 
           return (
             <motion.div
               key={i}
-              custom={{
-                delay: i * 0.04,
-              }}
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(null)}
-              variants={card}
-              initial="initial"
-              animate={inView ? "animate" : "initial"}
-              className="relative flex items-center justify-center h-[30vh]"
+              className="relative flex items-center justify-center h-75"
             >
-              <div className="w-30 flex items-center justify-center overflow-hidden">
-                <motion.div
-                  className="flex flex-row gap-5"
-                  animate={{ x: active ? -100 : 0 }}
-                  transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-                >
+              <div className="w-30 flex items-center justify-center">
+                <div className="flex flex-row gap-5">
                   <Icon
                     className={`ml-30 text-[82px] text-p ${
-                      active ? "opacity-0" : "opacity-100"
-                    } transition-all duration-500 delay-200`}
+                      active ? "scale-90" : "scale-100"
+                    } transition-all duration-500`}
                   />
-                  <Icon className="mr-5 text-[82px] text-p" />
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 };

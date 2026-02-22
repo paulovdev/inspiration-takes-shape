@@ -34,6 +34,9 @@ const Reel = () => {
     [0, 1],
     ["inset(0% 0% 0% 0%)", "inset(15% 15% 15% 15%)"],
   );
+
+  const textY = useTransform(scrollYProgress, [0, 2.5], [0, -600]);
+
   const { x, y } = useMousePosition2();
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -87,19 +90,19 @@ const Reel = () => {
       <motion.div
         ref={container}
         style={{ clipPath: clipPathScroll }}
-        className="relative mb-20 w-screen h-dvh flex items-center justify-center bg-black will-change-[clip-path]"
+        className="relative w-screen h-dvh flex items-center justify-center bg-p will-change-[clip-path]"
         onClick={() => setVideoOpen(true)}
       >
         <div className="absolute inset-0 size-full -z-10" ref={ref}>
           <Image
-            src="/reel.png"
+            src="/reel.jpg"
             width={2000}
             height={2000}
             alt=""
             className="size-full object-cover brightness-75"
           />
         </div>
-        <div className="overflow-hidden h-fit cursor-pointer">
+        <div className="overflow-hidden h-fit cursor-pointer z-50">
           <motion.h3
             className="relative text-s text-[62px] tracking-[-0.03em] leading-none max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px] group will-change-transform"
             initial={false}
@@ -116,16 +119,13 @@ const Reel = () => {
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </motion.h3>
         </div>
-        <div className="absolute inset-0 flex items-end justify-center p-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
+        <div className="absolute inset-0 flex items-end justify-start p-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
           <div className="h-fit overflow-hidden">
             <motion.p
               className="pointer-events-auto relative text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] max-md:-top-1"
-              variants={textSlide}
-              initial="initial"
-              animate={inView ? "animate" : "initial"}
-              custom={5}
+              style={{ y: textY }}
             >
-              [ SHOWCASE MADE BY picao.ai ]
+              — SHOWCASE MADE BY picao.ai
             </motion.p>
           </div>
         </div>
@@ -135,7 +135,7 @@ const Reel = () => {
         {videoOpen && (
           <motion.div
             key="video-modal"
-            className="fixed inset-0 w-screen h-dvh bg-black z-[9999] flex items-center justify-center will-change-[clip-path]"
+            className="fixed inset-0 w-screen h-dvh bg-p z-[9999] flex items-center justify-center will-change-[clip-path]"
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             exit={{ clipPath: "inset(100% 0% 0% 0%)" }}
@@ -178,7 +178,7 @@ const Reel = () => {
               onMouseLeave={() => setHover(false)}
             >
               <button
-                className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
+                className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
                 onClick={() => setVideoOpen(false)}
               >
                 <IoClose className="text-[16px] max-md:text-[14px]" /> close

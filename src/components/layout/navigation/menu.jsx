@@ -42,7 +42,7 @@ export const Menu = ({ setMenu }) => {
         >
           <div className="absolute top-0 right-0 px-10 pt-11 flex items-center max-lg:px-5 max-lg:pt-5 z-10">
             <button
-              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
+              className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
               onClick={() => setMenu(false)}
             >
               <IoClose className="text-[16px] max-md:text-[14px]" /> close
@@ -137,7 +137,7 @@ export const Menu = ({ setMenu }) => {
                                   className="w-full h-fit overflow-hidden flex justify-between group hover:border-s/50"
                                 >
                                   <motion.p
-                                    className="font-general font-medium text-[16px] leading-none tracking-[0.03em] uppercase text-s group-hover:text-s/50
+                                    className="font-general font-medium text-[16px] leading-none tracking-[-0.03em] uppercase text-s group-hover:text-s/50
                                     max-md:text-[14px]"
                                     variants={textSlide}
                                     initial="initial"
@@ -168,7 +168,7 @@ export const Menu = ({ setMenu }) => {
               <div className="flex items-center gap-2">
                 <div className="w-fit overflow-hidden h-fit">
                   <motion.p
-                    className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+                    className="text-s/50 font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]"
                     variants={textSlide}
                     initial="initial"
                     animate="animate"
@@ -194,7 +194,7 @@ export const Menu = ({ setMenu }) => {
                         animate: 1.1 + i * 0.075,
                         exit: 0.1 + i * 0.075,
                       }}
-                      className=" text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]  "
+                      className=" text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]  "
                     >
                       {social.label}
                       {i !== 3 && ","}
@@ -206,7 +206,7 @@ export const Menu = ({ setMenu }) => {
               <div className="flex items-center gap-2">
                 <div className="w-fit overflow-hidden h-fit">
                   <motion.p
-                    className="text-s/50 font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+                    className="text-s/50 font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]"
                     variants={textSlide}
                     initial="initial"
                     animate="animate"
@@ -227,7 +227,7 @@ export const Menu = ({ setMenu }) => {
                     animate="animate"
                     exit="exit"
                     custom={{ animate: 1.4, exit: 0 }}
-                    className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]"
+                    className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]"
                   >
                     arqe.ai
                   </motion.p>

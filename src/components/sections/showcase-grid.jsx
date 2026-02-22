@@ -23,7 +23,7 @@ const ShowcaseGrid = ({
       className="p-10 py-20 w-full h-fit bg-s max-lg:px-5 max-md:px-2 max-lg:py-15 max-md:py-10"
     >
       <div className="mb-10 pl-2">
-        <p className="text-p font-general font-medium text-[14px] tracking-[0.03em] uppercase max-md:text-[12px]">
+        <p className="text-p font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
           {title}
         </p>
       </div>
@@ -58,7 +58,7 @@ const ShowcaseGrid = ({
                       target="_blank"
                       className="w-full flex items-end justify-end will-change-transform relative"
                     >
-                      <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[0.03em] underline underline-offset-2 uppercase max-md:text-[12px]">
+                      <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[-0.03em] underline underline-offset-2 uppercase max-md:text-[12px]">
                         {item?.subTitle || subTitle}
                       </span>
                     </a>
@@ -68,7 +68,7 @@ const ShowcaseGrid = ({
                 <div className="h-fit overflow-hidden">
                   {item.subTitle && !item.link && (
                     <p className="w-full flex items-end justify-end will-change-transform">
-                      <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[0.03em] uppercase max-md:text-[12px]">
+                      <span className="font-general text-[14px] font-medium leading-[1.4] tracking-[-0.03em] uppercase max-md:text-[12px]">
                         {item.subTitle || subTitle}
                       </span>
                     </p>

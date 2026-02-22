@@ -29,27 +29,27 @@ export const awards = [
 
 export const approach = [
   {
-    style: "[ Product — 제품 ]",
+    style: "— Product",
     description: [
       "We’ve shaped and launched over 120 products alongside teams that care about craft, relevance, and growth.",
     ],
     number: "120",
     numberSmall: "+",
-    src: "/approach/video-01.mp4",
+    src: "/approach/img-01.jpg",
     alt: "Futuristic streetwear portrait in low lighting",
   },
   {
-    style: "[ Experience — 경험 ]",
+    style: "— Experience",
     description: [
       "Our work lives across platforms, spaces, and cultures — reaching more than 85 million people worldwide.",
     ],
     number: "85",
     numberSmall: "M+",
-    src: "/approach/video-02.mp4",
+    src: "/approach/img-02.jpg",
     alt: "Dark fashion video with minimalist composition",
   },
   {
-    style: "[ Communication — 의사소통 ]",
+    style: "— Communication",
     description: [
       "18 years of hands-on experience shaping brands, systems, and stories that actually resonate.",
     ],
@@ -62,23 +62,28 @@ export const approach = [
 
 export const team = [
   {
-    src: "/team/luna.jpg",
+    src: "/team/img-01.jpeg",
     name: "Luna Carvalho",
     role: "Creative Director",
   },
   {
-    src: "/team/soia.jpg",
+    src: "/team/img-02.jpeg",
     name: "Sofia Almeida",
     role: "Fashion Film Director",
   },
   {
-    src: "/team/mateo.jpg",
+    src: "/team/img-03.jpeg",
     name: "Mateo Ribeiro",
     role: "Visual Research & Styling",
   },
   {
-    src: "/team/enzo.jpg",
+    src: "/team/img-04.jpeg",
     name: "Enzo Martins",
+    role: "Director of Photography",
+  },
+  {
+    src: "/team/img-05.jpeg",
+    name: "Nico ASD",
     role: "Director of Photography",
   },
 ];

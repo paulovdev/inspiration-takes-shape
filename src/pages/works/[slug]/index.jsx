@@ -50,7 +50,7 @@ const Index = () => {
         <div className="relative pt-10 px-10 py-2 w-full overflow-hidden h-fit bg-s max-ds:px-8 max-lg:px-5 max-md:px-2">
           <div className="relative mb-12">
             <p className="mb-4 text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
-              [ YEAR — 년도 ]
+              — YEAR
             </p>
             <h3
               className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 
@@ -64,7 +64,7 @@ const Index = () => {
 
           <div className="relative mb-12">
             <p className="mb-4 text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
-              [ CATEGORY — 범주 ]
+              — CATEGORY
             </p>
             <h3
               className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 
@@ -78,7 +78,7 @@ const Index = () => {
 
           <div className="relative mb-12">
             <p className="mb-4 text-p/50 font-general font-medium text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px]">
-              [ LICENSE — 특허 ]
+              — LICENSE
             </p>
             <h3
               className="font-normal text-p text-[62px] tracking-[-0.03em] leading-none 

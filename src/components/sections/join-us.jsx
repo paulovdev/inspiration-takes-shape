@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 import Button from "@/components/ui/button";
 import { GoGlobe } from "react-icons/go";
+import Image from "next/image";
 
 const JoinUs = () => {
   const container = useRef(null);
@@ -35,8 +36,8 @@ const JoinUs = () => {
 
   return (
     <section ref={container} className="relative h-[400vh] bg-p select-none">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
-        <div className="sticky top-0 p-10 h-screen flex flex-col items-center justify-center gap-5 overflow-hidden z-30 max-ds:p-8 max-lg:p-5 max-md:p-2">
+      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+        <div className="sticky top-0 p-10 w-full h-screen flex flex-col items-center justify-center gap-5 overflow-hidden z-30 max-ds:p-8 max-lg:p-5 max-md:p-2">
           <div className="overflow-hidden h-fit">
             <motion.h1
               style={{ y: titleY }}
@@ -47,6 +48,15 @@ const JoinUs = () => {
             >
               Our studios around the world
             </motion.h1>
+          </div>
+          <div className="absolute inset-0 w-screen h-screen -z-10">
+            <Image
+              src="/join.jpg"
+              width={2000}
+              height={2000}
+              alt=""
+              className="relative size-full object-cover"
+            />
           </div>
         </div>
 

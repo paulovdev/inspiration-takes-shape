@@ -53,6 +53,7 @@
   --font-inter: "Inter", sans-serif;
 
   --breakpoint-full-ds: 1900px;
+  --breakpoint-xxs: 1600px;
   --breakpoint-ds: 1262px;
   --breakpoint-lg: 992px;
   --breakpoint-md: 768px;

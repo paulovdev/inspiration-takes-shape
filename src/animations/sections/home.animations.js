@@ -12,7 +12,7 @@ export const textSlide = {
 
 export const textSlideNoI = {
   initial: {
-    y: "100%",
+    y: 44,
     transition: {
       duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
@@ -20,7 +20,7 @@ export const textSlideNoI = {
     },
   },
   animate: (custom) => ({
-    y: "0",
+    y:0,
     transition: {
       duration: 0.5,
       ease: [0.33, 1, 0.68, 1],

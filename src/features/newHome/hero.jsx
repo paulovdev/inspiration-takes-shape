@@ -218,7 +218,7 @@ const Hero = ({ lenisRef }) => {
                       transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
                       className="absolute inset-0 flex items-start justify-start"
                     >
-                      <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] animate-pulse duration-200">
+                      <p className="whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] animate-pulse duration-200">
                         Loading
                       </p>
                     </motion.div>
@@ -231,7 +231,7 @@ const Hero = ({ lenisRef }) => {
                       transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
                       className="absolute inset-0 flex items-start justify-start gap-2"
                     >
-                      <p className="flex items-center gap-2 whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[0.03em] uppercase max-md:text-[12px]">
+                      <p className="flex items-center gap-2 whitespace-nowrap text-s font-general text-[12px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]">
                         <FaCircleExclamation className="text-s text-[12px]" />
                         Click the rounded to change lab
                       </p>
@@ -248,7 +248,7 @@ const Hero = ({ lenisRef }) => {
                   return (
                     <div key={item.title} className="relative">
                       <AnimatePresence mode="wait">
-                        {phase !== "exit" && (
+                        {phase !== "exit" && !modal && (
                           <Magnetic>
                             <motion.button
                               onClick={() => {
@@ -275,7 +275,7 @@ const Hero = ({ lenisRef }) => {
                         )}
                       </AnimatePresence>
                       <AnimatePresence mode="wait">
-                        {phase !== "exit" && active && (
+                        {phase !== "exit" && active && !modal && (
                           <motion.div
                             key={activeItem}
                             className="absolute top-20 min-w-50 w-full"
@@ -321,7 +321,7 @@ const Hero = ({ lenisRef }) => {
                                 exit="exit"
                                 className="text-s font-general text-[14px] tracking-[-0.03em] leading-none uppercase cursor-pointer"
                               >
-                                [ {item.action} ]
+                                {item.action}
                               </motion.button>
                             </div>
                           </motion.div>
@@ -334,7 +334,7 @@ const Hero = ({ lenisRef }) => {
             </div>
             <div className="absolute inset-0 p-10 flex items-end justify-end z-10 pointer-events-none max-lg:items-center max-lg:-top-30 max-ds:p-8 max-lg:p-5 ">
               <AnimatePresence mode="wait">
-                {phase !== "exit" && (
+                {phase !== "exit" && !modal && (
                   <div className="h-fit overflow-hidden" key={activeItem}>
                     <motion.h2 className="text-s text-[62px] tracking-[-0.03em] leading-none flex items-center">
                       {"Offset ®".split("").map((char, index) => (
@@ -375,7 +375,7 @@ const Hero = ({ lenisRef }) => {
               {offsetTexts.map((text, i) => (
                 <motion.p
                   key={`${text}-${i}`}
-                  className="absolute font-general text-s text-[12px] uppercase tracking-[0.03em]"
+                  className="absolute font-general text-s text-[12px] uppercase tracking-[-0.03em]"
                   initial={{ opacity: 0 }}
                   animate={{
                     opacity: 1,

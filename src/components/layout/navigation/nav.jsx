@@ -24,7 +24,7 @@ const Nav = () => {
           <button
             onClick={() => router.back()}
             scroll={false}
-            className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer"
+            className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] cursor-pointer"
           >
             back
           </button>
@@ -37,7 +37,7 @@ const Nav = () => {
           >
             <div className="relative overflow-hidden size-fit">
               <motion.button
-                className=" text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] flex items-center "
+                className=" text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] flex items-center "
                 variants={textSlide}
                 initial={false}
                 animate={menu ? "initial" : "animate"}
@@ -75,7 +75,7 @@ const Nav = () => {
                       className="relative mb-2 w-fit h-[15px] flex items-start group overflow-hidden"
                     >
                       <motion.p
-                        className="font-general text-start text-s text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] truncate cursor-pointer"
+                        className="font-general text-start text-s text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] truncate cursor-pointer"
                         variants={textSlide}
                         initial="initial"
                         animate="animate"
@@ -100,7 +100,7 @@ const Nav = () => {
           </div>
           <div className="relative overflow-hidden h-[19px]">
             <motion.button
-              className="text-s font-general text-[14px] leading-none tracking-[0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
+              className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px] cursor-pointer flex items-center gap-2"
               variants={textSlide}
               initial={false}
               animate={menu ? "initial" : "animate"}
