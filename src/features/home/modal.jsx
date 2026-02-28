@@ -122,18 +122,7 @@ const Modal = ({ setModal, modal, activeItem }) => {
             </div>
             <div className="w-full flex flex-col items-end">
               <div className="w-full flex flex-col">
-                <motion.figure
-                  className=" relative w-full h-[50vh] max-ds:h-[45vh]"
-                  initial={{ clipPath: "inset(0% 0% 100% 0% )" }}
-                  animate={{
-                    clipPath: "inset(0% 0% 0% 0%)",
-                    transition: {
-                      duration: 0.5,
-                      ease: [0.76, 0, 0.24, 1],
-                      delay: 0.25,
-                    },
-                  }}
-                >
+                <motion.figure className="overflow-hidden relative w-full h-[50vh] max-ds:h-[45vh]">
                   <motion.div
                     className="relative size-full"
                     style={{ top: y, height: h }}
@@ -193,18 +182,7 @@ const Modal = ({ setModal, modal, activeItem }) => {
                 </div>
               </div>
               <div className="w-full flex flex-col max-lg:mt-8">
-                <motion.figure
-                  className=" relative w-full h-[50vh] max-ds:h-[45vh]"
-                  initial={{ clipPath: "inset(0% 0% 100% 0% )" }}
-                  animate={{
-                    clipPath: "inset(0% 0% 0% 0%)",
-                    transition: {
-                      duration: 0.5,
-                      ease: [0.76, 0, 0.24, 1],
-                      delay: 0.25,
-                    },
-                  }}
-                >
+                <motion.figure className="overflow-hidden relative w-full h-[50vh] max-ds:h-[45vh]">
                   {" "}
                   <motion.div
                     className="relative size-full"

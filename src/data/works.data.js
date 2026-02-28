@@ -38,11 +38,11 @@ export const works = [
 
     license: "Open creative use",
 
-    cover: "/images/works/img-02.svg",
+    cover: "/images/works/img-02.jpg",
     images: [
-      "/images/works/img-02.svg",
-      "/images/works/img-02.svg",
-      "/images/works/img-02.svg",
+      "/images/works/img-02.jpg",
+      "/images/works/img-02.jpg",
+      "/images/works/img-02.jpg",
     ],
 
     alt: "Industrial space with dissolving human silhouette",
@@ -137,11 +137,11 @@ export const works = [
 
     license: "Editorial and digital publication only",
 
-    cover: "/images/works/img-06.svg",
+    cover: "/images/works/img-06.jpg",
     images: [
-      "/images/works/img-06.svg",
-      "/images/works/img-06.svg",
-      "/images/works/img-06.svg",
+      "/images/works/img-06.jpg",
+      "/images/works/img-06.jpg",
+      "/images/works/img-06.jpg",
     ],
 
     alt: "Low-light portrait with futuristic street styling",
@@ -359,11 +359,11 @@ export const works = [
 
     license: "Editorial use only",
 
-    cover: "/images/works/img-15.svg",
+    cover: "/images/works/img-15.jpg",
     images: [
-      "/images/works/img-15.svg",
-      "/images/works/img-15.svg",
-      "/images/works/img-15.svg",
+      "/images/works/img-15.jpg",
+      "/images/works/img-15.jpg",
+      "/images/works/img-15.jpg",
     ],
 
     alt: "Futuristic portrait with synthetic lighting",

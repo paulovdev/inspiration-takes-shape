@@ -9,17 +9,17 @@ import {
 import ExportedImage from "next-image-export-optimizer";
 
 const gallery = [
-  "/works/img-02.svg",
-  "/works/img-03.jpg",
-  "/works/img-04.jpg",
-  "/works/img-05.jpg",
-  "/works/img-06.svg",
-  "/works/img-07.jpg",
-  "/works/img-08.jpg",
-  "/works/img-09.jpg",
-  "/works/img-10.jpg",
-  "/works/img-11.jpg",
-  "/works/img-12.jpg",
+  "/images/works/img-02.jpg",
+  "/images/works/img-03.jpg",
+  "/images/works/img-04.jpg",
+  "/images/works/img-05.jpg",
+  "/images/works/img-06.jpg",
+  "/images/works/img-07.jpg",
+  "/images/works/img-08.jpg",
+  "/images/works/img-09.jpg",
+  "/images/works/img-10.jpg",
+  "/images/works/img-11.jpg",
+  "/images/works/img-12.jpg",
 ];
 
 const clipAnim = {
