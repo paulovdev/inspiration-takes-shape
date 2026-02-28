@@ -29,73 +29,103 @@ export const awards = [
 
 export const approach = [
   {
-    style: "— Product",
+    style: "— Do Big Things®",
     description: [
-      "We’ve shaped and launched over 120 products alongside teams that care about craft, relevance, and growth.",
+      "We dare to do big things, create big ideas, make big leaps, and take big risks.",
     ],
-    number: "120",
-    numberSmall: "+",
-    src: "/approach/img-01.jpg",
+    number: "01",
+    numberSmall: "—",
+    src: "/images/approach/img-01.jpg",
     alt: "Futuristic streetwear portrait in low lighting",
   },
   {
-    style: "— Experience",
+    style: "— We Before Me",
     description: [
-      "Our work lives across platforms, spaces, and cultures — reaching more than 85 million people worldwide.",
+      "We work as a team to get the best from each other. No one can move a mountain alone.",
     ],
-    number: "85",
-    numberSmall: "M+",
-    src: "/approach/img-02.jpg",
+    number: "02",
+    numberSmall: "—",
+    src: "/images/approach/img-02.jpg",
     alt: "Dark fashion video with minimalist composition",
   },
   {
-    style: "— Communication",
+    style: "— Great Not Good",
     description: [
-      "18 years of hands-on experience shaping brands, systems, and stories that actually resonate.",
+      "We are obsessed with excellence and refuse to accept mediocrity or good enough.",
     ],
-    number: "18",
-    numberSmall: "years",
-    src: "/approach/video-04.mp4",
+    number: "03",
+    numberSmall: "—",
+    src: "/videos/approach/video-04.mp4",
     alt: "Minimal human figure in a neutral-toned studio",
   },
 ];
 
 export const team = [
   {
-    src: "/team/img-01.jpeg",
+    src: "/images/team/img-01.jpg",
     name: "Luna Carvalho",
     role: "Creative Director",
   },
   {
-    src: "/team/img-02.jpeg",
+    src: "/images/team/img-02.jpg",
     name: "Sofia Almeida",
     role: "Fashion Film Director",
   },
   {
-    src: "/team/img-03.jpeg",
+    src: "/images/team/img-03.jpg",
     name: "Mateo Ribeiro",
     role: "Visual Research & Styling",
   },
   {
-    src: "/team/img-04.jpeg",
+    src: "/images/team/img-04.jpg",
     name: "Enzo Martins",
     role: "Director of Photography",
   },
   {
-    src: "/team/img-05.jpeg",
-    name: "Nico ASD",
+    src: "/images/team/img-05.jpg",
+    name: "Luna Carvalho",
+    role: "Creative Director",
+  },
+  {
+    src: "/images/team/img-06.jpg",
+    name: "Sofia Almeida",
+    role: "Fashion Film Director",
+  },
+  {
+    src: "/images/team/img-07.jpg",
+    name: "Mateo Ribeiro",
+    role: "Visual Research & Styling",
+  },
+  {
+    src: "/images/team/img-08.jpg",
+    name: "Enzo Martins",
     role: "Director of Photography",
+  },
+  {
+    src: "/images/team/img-09.jpg",
+    name: "Luna Carvalho",
+    role: "Creative Director",
+  },
+  {
+    src: "/images/team/img-10.jpg",
+    name: "Sofia Almeida",
+    role: "Fashion Film Director",
+  },
+  {
+    src: "/images/team/img-11.jpg",
+    name: "Mateo Ribeiro",
+    role: "Visual Research & Styling",
   },
 ];
 
 export const manifestoPhrases = [
-  `WE BRIDGE strategy and execution to help teams WIN with AI.`,
+  `Waving the Offset® flag and doing big things since 2005.`,
 ];
 
 export const blockPhrases = [
-  `We started Offset® after years of building AI systems inside large, complex organizations where ambition often hit red tape, and great ideas got lost in PowerPoints.`,
+  `Offset® is a global strategic branding agency that works with innovative companies to turn brands into Ideas Worth Rallying Around®. `,
   ``,
-  `We knew there had to be a better way. So we set out to create the kind of partner we always wished we had: A team that could think strategically, move fast, and actually ship without sacrificing quality or depth.`,
+  `We work with founders, CEOs, and leadership teams to realize their most significant business opportunities. `,
   ``,
-  `At Offset®, we blend deep technical expertise with sharp product thinking. We don’t just prototype; we solve. We don’t just advise; we build.`,
+  `Triggers like leadership changes, shifting business models, market expansions, and product innovations are perfect challenges for us. We’ll make your vision visible.`,
 ];

@@ -14,8 +14,12 @@ export const works = [
 
     license: "Open creative use",
 
-    cover: "/works/img-01.jpg",
-    images: ["/works/img-01.jpg", "/works/img-01.jpg", "/works/img-01.jpg"],
+    cover: "/images/works/img-01.jpg",
+    images: [
+      "/images/works/img-01.jpg",
+      "/images/works/img-01.jpg",
+      "/images/works/img-01.jpg",
+    ],
 
     alt: "Industrial interior with dissipating visual noise",
   },
@@ -34,8 +38,12 @@ export const works = [
 
     license: "Open creative use",
 
-    cover: "/works/img-02.svg",
-    images: ["/works/img-02.svg", "/works/img-02.svg", "/works/img-02.svg"],
+    cover: "/images/works/img-02.svg",
+    images: [
+      "/images/works/img-02.svg",
+      "/images/works/img-02.svg",
+      "/images/works/img-02.svg",
+    ],
 
     alt: "Industrial space with dissolving human silhouette",
   },
@@ -55,8 +63,12 @@ export const works = [
 
     license: "Experimental Creative Commons license",
 
-    cover: "/works/img-03.jpg",
-    images: ["/works/img-03.jpg", "/works/img-03.jpg", "/works/img-03.jpg"],
+    cover: "/images/works/img-03.jpg",
+    images: [
+      "/images/works/img-03.jpg",
+      "/images/works/img-03.jpg",
+      "/images/works/img-03.jpg",
+    ],
 
     alt: "Static frame resembling interrupted transmission",
   },
@@ -76,8 +88,12 @@ export const works = [
 
     license: "Open artistic use with attribution",
 
-    cover: "/works/img-04.jpg",
-    images: ["/works/img-04.jpg", "/works/img-04.jpg", "/works/img-04.jpg"],
+    cover: "/images/works/img-04.jpg",
+    images: [
+      "/images/works/img-04.jpg",
+      "/images/works/img-04.jpg",
+      "/images/works/img-04.jpg",
+    ],
 
     alt: "Abstract fashion figure with altered proportions",
   },
@@ -97,8 +113,12 @@ export const works = [
 
     license: "Usage permitted for portfolio and curated exhibitions",
 
-    cover: "/works/img-05.jpg",
-    images: ["/works/img-05.jpg", "/works/img-05.jpg", "/works/img-05.jpg"],
+    cover: "/images/works/img-05.jpg",
+    images: [
+      "/images/works/img-05.jpg",
+      "/images/works/img-05.jpg",
+      "/images/works/img-05.jpg",
+    ],
 
     alt: "Dark fashion film with minimal movement and controlled lighting",
   },
@@ -117,8 +137,12 @@ export const works = [
 
     license: "Editorial and digital publication only",
 
-    cover: "/works/img-06.svg",
-    images: ["/works/img-06.svg", "/works/img-06.svg", "/works/img-06.svg"],
+    cover: "/images/works/img-06.svg",
+    images: [
+      "/images/works/img-06.svg",
+      "/images/works/img-06.svg",
+      "/images/works/img-06.svg",
+    ],
 
     alt: "Low-light portrait with futuristic street styling",
   },
@@ -137,8 +161,12 @@ export const works = [
 
     license: "Non-commercial artistic exploration permitted",
 
-    cover: "/works/img-07.jpg",
-    images: ["/works/img-07.jpg", "/works/img-07.jpg", "/works/img-07.jpg"],
+    cover: "/images/works/img-07.jpg",
+    images: [
+      "/images/works/img-07.jpg",
+      "/images/works/img-07.jpg",
+      "/images/works/img-07.jpg",
+    ],
 
     alt: "Minimal figure isolated in a neutral studio space",
   },
@@ -157,8 +185,12 @@ export const works = [
 
     license: "Experimental use under Creative Commons",
 
-    cover: "/works/img-08.jpg",
-    images: ["/works/img-08.jpg", "/works/img-08.jpg", "/works/img-08.jpg"],
+    cover: "/images/works/img-08.jpg",
+    images: [
+      "/images/works/img-08.jpg",
+      "/images/works/img-08.jpg",
+      "/images/works/img-08.jpg",
+    ],
 
     alt: "Dark fashion image emphasizing material weight",
   },
@@ -178,8 +210,12 @@ export const works = [
 
     license: "Creative use permitted",
 
-    cover: "/works/img-09.jpg",
-    images: ["/works/img-09.jpg", "/works/img-09.jpg", "/works/img-09.jpg"],
+    cover: "/images/works/img-09.jpg",
+    images: [
+      "/images/works/img-09.jpg",
+      "/images/works/img-09.jpg",
+      "/images/works/img-09.jpg",
+    ],
 
     alt: "Empty nighttime city with inactive digital screens",
   },
@@ -199,8 +235,12 @@ export const works = [
 
     license: "Free use with credit",
 
-    cover: "/works/img-10.jpg",
-    images: ["/works/img-10.jpg", "/works/img-10.jpg", "/works/img-10.jpg"],
+    cover: "/images/works/img-10.jpg",
+    images: [
+      "/images/works/img-10.jpg",
+      "/images/works/img-10.jpg",
+      "/images/works/img-10.jpg",
+    ],
 
     alt: "Avant-garde fashion composition with aggressive posture",
   },
@@ -220,8 +260,12 @@ export const works = [
 
     license: "Creative Commons for experimental use",
 
-    cover: "/works/img-11.jpg",
-    images: ["/works/img-11.jpg", "/works/img-11.jpg", "/works/img-11.jpg"],
+    cover: "/images/works/img-11.jpg",
+    images: [
+      "/images/works/img-11.jpg",
+      "/images/works/img-11.jpg",
+      "/images/works/img-11.jpg",
+    ],
 
     alt: "Slow-motion fashion movement in a dark environment",
   },
@@ -241,8 +285,12 @@ export const works = [
 
     license: "Experimental Creative Commons license",
 
-    cover: "/works/img-12.jpg",
-    images: ["/works/img-12.jpg", "/works/img-12.jpg", "/works/img-12.jpg"],
+    cover: "/images/works/img-12.jpg",
+    images: [
+      "/images/works/img-12.jpg",
+      "/images/works/img-12.jpg",
+      "/images/works/img-12.jpg",
+    ],
 
     alt: "Fragmented transmission visuals with signal interference",
   },
@@ -262,8 +310,12 @@ export const works = [
 
     license: "Creative use permitted",
 
-    cover: "/works/img-13.jpg",
-    images: ["/works/img-13.jpg", "/works/img-13.jpg", "/works/img-13.jpg"],
+    cover: "/images/works/img-13.jpg",
+    images: [
+      "/images/works/img-13.jpg",
+      "/images/works/img-13.jpg",
+      "/images/works/img-13.jpg",
+    ],
 
     alt: "Night urban landscape with inactive digital signage",
   },
@@ -283,8 +335,12 @@ export const works = [
 
     license: "Usage permitted for portfolio and editorial",
 
-    cover: "/works/img-14.jpg",
-    images: ["/works/img-14.jpg", "/works/img-14.jpg", "/works/img-14.jpg"],
+    cover: "/images/works/img-14.jpg",
+    images: [
+      "/images/works/img-14.jpg",
+      "/images/works/img-14.jpg",
+      "/images/works/img-14.jpg",
+    ],
 
     alt: "Dark minimal fashion image with heavy shadows",
   },
@@ -303,8 +359,12 @@ export const works = [
 
     license: "Editorial use only",
 
-    cover: "/works/img-15.svg",
-    images: ["/works/img-15.svg", "/works/img-15.svg", "/works/img-15.svg"],
+    cover: "/images/works/img-15.svg",
+    images: [
+      "/images/works/img-15.svg",
+      "/images/works/img-15.svg",
+      "/images/works/img-15.svg",
+    ],
 
     alt: "Futuristic portrait with synthetic lighting",
   },
@@ -324,8 +384,12 @@ export const works = [
 
     license: "Non-commercial creative use",
 
-    cover: "/works/img-16.jpg",
-    images: ["/works/img-16.jpg", "/works/img-16.jpg", "/works/img-16.jpg"],
+    cover: "/images/works/img-16.jpg",
+    images: [
+      "/images/works/img-16.jpg",
+      "/images/works/img-16.jpg",
+      "/images/works/img-16.jpg",
+    ],
 
     alt: "Minimal figure study with soft gradients",
   },
@@ -344,8 +408,12 @@ export const works = [
 
     license: "Artistic use under open terms",
 
-    cover: "/works/img-17.jpg",
-    images: ["/works/img-17.jpg", "/works/img-17.jpg", "/works/img-17.jpg"],
+    cover: "/images/works/img-17.jpg",
+    images: [
+      "/images/works/img-17.jpg",
+      "/images/works/img-17.jpg",
+      "/images/works/img-17.jpg",
+    ],
 
     alt: "Abstract moving figure with exaggerated proportions",
   },
@@ -364,8 +432,12 @@ export const works = [
 
     license: "Free use with attribution",
 
-    cover: "/works/img-18.jpg",
-    images: ["/works/img-18.jpg", "/works/img-18.jpg", "/works/img-18.jpg"],
+    cover: "/images/works/img-18.jpg",
+    images: [
+      "/images/works/img-18.jpg",
+      "/images/works/img-18.jpg",
+      "/images/works/img-18.jpg",
+    ],
 
     alt: "Rigid avant-garde fashion silhouette",
   },

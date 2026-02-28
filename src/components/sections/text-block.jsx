@@ -12,7 +12,6 @@ const TextBlock = ({
   buttonLabel,
   buttonTextColor,
   buttonBgColor,
- 
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.25,
@@ -22,7 +21,7 @@ const TextBlock = ({
   return (
     <section
       ref={ref}
-      className={`pb-10   max-lg:py-15 max-lg:pt-0 max-md:pb-10`}
+      className={`pb-10 max-lg:py-15 max-lg:pt-0 max-md:pb-10`}
     >
       <div className="p-10 w-full flex max-lg:flex-col items-start max-ds:p-8 max-lg:p-5 max-md:p-2 max-lg:gap-10">
         <div className="flex-1">
@@ -37,7 +36,7 @@ const TextBlock = ({
               phrases={blockPhrases}
               animate={inView}
               variants={textSlide}
-              className="font-inter font-normal text-p text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
+              className="font-inter font-normal text-p text-[22px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               lineClassName="overflow-hidden"
               wordClassName="mr-1"
               wordDelay={0.025}

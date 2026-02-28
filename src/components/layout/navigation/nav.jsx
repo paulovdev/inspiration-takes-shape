@@ -117,7 +117,7 @@ const Nav = () => {
       </nav>
 
       <AnimatePresence mode="wait">
-        {menu && <Menu setMenu={setMenu} />}
+        {menu && <Menu key={`${router.pathname}-${menu}`} setMenu={setMenu} />}
       </AnimatePresence>
     </>
   );

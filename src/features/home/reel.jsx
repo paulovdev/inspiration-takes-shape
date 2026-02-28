@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import {
   IoMdPause,
   IoMdPlay,
@@ -8,11 +8,10 @@ import {
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { useIsMobile } from "@/hooks/useIsMobile";
-
 import { useInView } from "react-intersection-observer";
 import { IoClose } from "react-icons/io5";
-import { textSlide } from "@/animations/sections/hero.animations";
-import Image from "next/image";
+import { textOverlap } from "@/animations/shared/global-anim";
+import ExportedImage from "next-image-export-optimizer";
 
 const Reel = () => {
   const videoRef = useRef(null);
@@ -23,6 +22,10 @@ const Reel = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [time, setTime] = useState(0);
   const [hover, setHover] = useState(false);
+  const [tick, setTick] = useState(0);
+  const bumpMedia = useCallback(() => {
+    setTick((t) => t + 1);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -94,8 +97,8 @@ const Reel = () => {
         onClick={() => setVideoOpen(true)}
       >
         <div className="absolute inset-0 size-full -z-10" ref={ref}>
-          <Image
-            src="/reel.jpg"
+          <ExportedImage
+            src="/images/reel.jpg"
             width={2000}
             height={2000}
             alt=""
@@ -119,7 +122,7 @@ const Reel = () => {
             <span className="absolute left-0 bottom-px h-[3px] w-full origin-left scale-x-100 bg-s transition-transform duration-300 ease-out group-hover:scale-x-0 max-lg:h-0.5" />
           </motion.h3>
         </div>
-        <div className="absolute inset-0 flex items-end justify-start p-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
+        <div className="absolute inset-0 flex items-end justify-center p-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
           <div className="h-fit overflow-hidden">
             <motion.p
               className="pointer-events-auto relative text-s font-general font-normal text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px] max-md:-top-1"
@@ -143,7 +146,7 @@ const Reel = () => {
           >
             <video
               ref={videoRef}
-              src="/reel.mp4"
+              src="/videos/reel.mp4"
               autoPlay
               muted
               playsInline
@@ -157,7 +160,10 @@ const Reel = () => {
                 className="pointer-events-auto text-s text-[28px] cursor-pointer max-lg:text-[24px]"
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
-                onClick={toggleMute}
+                onClick={() => {
+                  toggleMute();
+                  bumpMedia();
+                }}
               >
                 {isMuted ? <IoMdVolumeOff /> : <IoMdVolumeHigh />}
               </div>
@@ -172,7 +178,8 @@ const Reel = () => {
             </div>
 
             <div
-              className="absolute top-6 right-4 text-s mix-blend-exclusion text-[42px] cursor-pointer"
+              className="absolute top-0 right-0 px-10 pt-10 text-s mix-blend-exclusion text-[42px] cursor-pointer
+              max-ds:px-8 max-lg:px-5 max-lg:pt-5"
               onClick={closeVideo}
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
@@ -185,27 +192,69 @@ const Reel = () => {
               </button>
             </div>
 
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               {!hover && !isMobile && (
                 <motion.div
-                  key={isPlaying ? "pause" : "play"}
-                  className="fixed z-1000 pointer-events-none mix-blend-exclusion will-change-transform"
+                  key={hover}
+                  className="fixed bg-s/5 rounded-full backdrop-blur-lg mix-blend-difference z-1000 "
                   style={{
                     left: x,
                     top: y,
                     translateX: "-50%",
                     translateY: "-50%",
+                    pointerEvents: "none",
                   }}
                   initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0 }}
-                  transition={{ duration: 0.2 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.25, ease: [0.76, 0, 0.24, 1] },
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 0,
+                    transition: {
+                      duration: 0.25,
+                      ease: [0.76, 0, 0.24, 1],
+                      delay: 0.5,
+                    },
+                  }}
                 >
-                  {isPlaying ? (
-                    <IoMdPause className="text-[82px] text-s" />
-                  ) : (
-                    <IoMdPlay className="text-[82px] text-s" />
-                  )}
+                  <div className="w-40 h-40 flex items-center justify-center gap-2">
+                    <div className="relative w-full h-[17px] overflow-hidden">
+                      <AnimatePresence mode="sync" initial={false}>
+                        {isPlaying ? (
+                          <motion.div
+                            key="pause"
+                            className="absolute left-1/2 -translate-x-1/2 top-0 flex items-center gap-2"
+                            variants={textOverlap}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                          >
+                            <IoMdPause className="text-[12px] text-s" />
+                            <p className="text-s font-general font-normal text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] whitespace-nowrap">
+                              PAUSE
+                            </p>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="play"
+                            className="absolute left-1/2 -translate-x-1/2 top-0 flex items-center gap-2"
+                            variants={textOverlap}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                          >
+                            <IoMdPlay className="text-[12px] text-s" />
+                            <p className="text-s font-general font-normal text-[14px] tracking-[-0.03em] uppercase max-md:text-[12px] whitespace-nowrap">
+                              PLAY
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>

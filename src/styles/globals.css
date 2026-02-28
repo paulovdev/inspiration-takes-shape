@@ -91,5 +91,5 @@ body {
   opacity: 0.03;
   z-index: 1000;
   pointer-events: none;
-  background: url("../../public/noise.gif");
+  background: url("../../public/images/noise.gif");
 }

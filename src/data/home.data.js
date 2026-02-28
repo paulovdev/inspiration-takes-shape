@@ -16,9 +16,9 @@ export const clients = [
 export const lab = [
   {
     number: 0,
-    src: "/lab/iut/video-01.mp4",
-    src2: "/lab/iut/img-01.jpg",
-    src3: "/lab/iut/img-02.jpg",
+    src: "/videos/lab/iut/video-01.mp4",
+    src2: "/images/lab/iut/img-01.jpg",
+    src3: "/images/lab/iut/img-02.jpg",
     title: "Trajectory Under Control",
     mark: "®",
     year: "2020",
@@ -26,7 +26,7 @@ export const lab = [
     meta: "OFFSET LAB / 01",
     statement: "Motion reveals systems of control.",
 
-    action: "Open lab +",
+    action: "Open lab",
 
     system: [
       { label: "Medium", value: "Moving Image" },
@@ -41,25 +41,23 @@ export const lab = [
     ],
 
     description: [
-      `This lab examines movement as a controlled and observable condition.`,
-      `The vehicle becomes a unit navigating predefined paths and invisible constraints.`,
-      `Speed, direction, and trajectory operate as instruments of discipline rather than freedom.`,
-      `The image frames motion as a system governed by rules, friction, and surveillance.`,
+      `This lab examines movement as a controlled and observable condition. The vehicle becomes a unit navigating predefined paths and invisible constraints.`,
+
+      `Speed, direction, and trajectory operate as instruments of discipline rather than freedom. The image frames motion as a system governed by rules, friction, and surveillance.`,
     ],
 
     description2: [
-      `The aerial viewpoint removes subjectivity and emphasizes control.`,
-      `The road functions as an imposed structure.`,
-      `Motion is continuous but never neutral.`,
+      `The aerial viewpoint removes subjectivity and emphasizes control. The road functions as an imposed structure. Motion is continuous but never neutral.`,
+
       `Identity emerges through alignment, deviation, and resistance to the path.`,
     ],
   },
 
   {
     number: 20,
-    src: "/lab/es/img-01.jpg",
-    src2: "/lab/es/img-02.jpg",
-    src3: "/lab/es/img-03.jpg",
+    src: "/images/lab/es/img-01.jpg",
+    src2: "/images/lab/es/img-02.jpg",
+    src3: "/images/lab/es/img-03.jpg",
     title: "Habitable Threshold",
     mark: "®",
     year: "2026",
@@ -67,7 +65,7 @@ export const lab = [
     meta: "OFFSET LAB / 02",
     statement: "Architecture begins with atmosphere, not form.",
 
-    action: "Open lab +",
+    action: "Open lab",
 
     system: [
       { label: "Field", value: "Architecture" },
@@ -82,25 +80,19 @@ export const lab = [
     ],
 
     description: [
-      `This lab investigates architecture as a condition of inhabitation rather than a formal object.`,
-      `The project focuses on how light, enclosure, and proportion construct a sense of shelter.`,
-      `Interior space is shaped by the relationship between structure, material, and atmosphere.`,
-      `Architecture operates as a mediator between the human body and the surrounding environment.`,
+      `This lab investigates architecture as a condition of inhabitation rather than a formal object. The project focuses on how light, enclosure, and proportion construct a sense of shelter. Interior space is shaped by the relationship between structure, material, and atmosphere. Architecture operates as a mediator between the human body and the surrounding environment.`,
     ],
 
     description2: [
-      `The interior is conceived as a threshold between protection and exposure.`,
-      `Openings frame the landscape and regulate light, temperature, and time.`,
-      `Materials are selected for their tactile and climatic qualities.`,
-      `Space is defined by how it is lived, not how it is represented.`,
+      `The interior is conceived as a threshold between protection and exposure. Openings frame the landscape and regulate light, temperature, and time. Materials are selected for their tactile and climatic qualities. Space is defined by how it is lived, not how it is represented.`,
     ],
   },
 
   {
     number: 40,
-    src: "/lab/vs/img-01.jpg",
-    src2: "/lab/vs/img-02.jpg",
-    src3: "/lab/vs/img-03.jpg",
+    src: "/images/lab/vs/img-01.jpg",
+    src2: "/images/lab/vs/img-02.jpg",
+    src3: "/images/lab/vs/img-03.jpg",
     title: "Formal Continuum",
     mark: "®",
     year: "2023",
@@ -108,7 +100,7 @@ export const lab = [
     meta: "OFFSET LAB / 03",
     statement: "Form communicates through continuity.",
 
-    action: "Open lab +",
+    action: "Open lab",
 
     system: [
       { label: "Field", value: "Object Design" },
@@ -123,25 +115,19 @@ export const lab = [
     ],
 
     description: [
-      `This lab investigates form as a continuous and self-contained system.`,
-      `The object is defined by a single uninterrupted surface that folds, bends, and stabilizes itself.`,
-      `Structure, function, and expression emerge from the same formal gesture.`,
-      `There is no separation between skeleton and skin.`,
+      `This lab investigates form as a continuous and self-contained system. The object is defined by a single uninterrupted surface that folds, bends, and stabilizes itself. Structure, function, and expression emerge from the same formal gesture. There is no separation between skeleton and skin.`,
     ],
 
     description2: [
-      `The project rejects modular assembly in favor of continuity.`,
-      `Form operates as both structure and interface.`,
-      `Function is suggested through posture rather than instruction.`,
-      `The object communicates through proportion, balance, and tension.`,
+      `The project rejects modular assembly in favor of continuity. Form operates as both structure and interface. Function is suggested through posture rather than instruction. The object communicates through proportion, balance, and tension.`,
     ],
   },
 
   {
     number: 60,
-    src: "/lab/af/img-01.jpg",
-    src2: "/lab/af/img-02.jpg",
-    src3: "/lab/af/img-03.jpg",
+    src: "/images/lab/af/img-01.jpg",
+    src2: "/images/lab/af/img-02.jpg",
+    src3: "/images/lab/af/img-03.jpg",
     title: "Adaptive Forms",
     mark: "®",
     year: "2025",
@@ -149,7 +135,7 @@ export const lab = [
     meta: "OFFSET LAB / 04",
     statement: "Form emerges from controlled continuity.",
 
-    action: "Open lab +",
+    action: "Open lab",
 
     system: [
       { label: "Discipline", value: "Architecture" },
@@ -164,60 +150,54 @@ export const lab = [
     ],
 
     description: [
-      `This lab investigates architectural form through continuity and tension.`,
-      `Geometry is not expressive but precise.`,
-      `The space is defined by curvature, light, and restraint.`,
-      `Form operates as a spatial condition rather than an object.`,
+      `This lab investigates architectural form through continuity and tension. Geometry is not expressive but precise. The space is defined by curvature, light, and restraint. Form operates as a spatial condition rather than an object.`,
     ],
 
     description2: [
-      `Architecture is reduced to its essential gesture.`,
-      `A single movement organizes the entire space.`,
-      `Contrast between light and shadow defines depth.`,
-      `Presence is achieved through control, not excess.`,
+      `Architecture is reduced to its essential gesture. A single movement organizes the entire space. Contrast between light and shadow defines depth. Presence is achieved through control, not excess.`,
     ],
   },
 ];
 
 export const slide = [
   {
-    src: "/slide/img-01.jpg",
+    src: "/images/slide/img-01.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-03.jpg",
+    src: "/images/slide/img-03.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-04.jpg",
+    src: "/images/slide/img-04.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-08.jpg",
+    src: "/images/slide/img-08.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-09.jpg",
+    src: "/images/slide/img-09.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-10.jpg",
+    src: "/images/slide/img-10.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-05.jpg",
+    src: "/images/slide/img-05.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-06.jpg",
+    src: "/images/slide/img-06.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-02.jpg",
+    src: "/images/slide/img-02.jpg",
     title: "offset",
   },
   {
-    src: "/slide/img-07.jpg",
+    src: "/images/slide/img-07.jpg",
     title: "offset",
   },
 ];

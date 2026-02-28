@@ -2,10 +2,10 @@ import { approach } from "@/data/about.data";
 import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { textSlide, textSlide2 } from "@/animations/shared/global-anim";
+import { textSlide } from "@/animations/shared/global-anim";
 import TextAnimated from "@/components/ui/text-animated";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 const textSlideNoI = {
   initial: {
@@ -75,7 +75,7 @@ const CardGrid = ({ gallery, index, activeIndex, setActiveIndex }) => {
             className="size-full object-cover brightness-80"
           />
         ) : (
-          <Image
+          <ExportedImage
             src={gallery.src}
             fill
             alt={gallery.alt}

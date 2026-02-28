@@ -29,7 +29,7 @@ const Index = () => {
         <PageHero
           title={[`Works`]}
           subTitle="Collection of our"
-          src="/works/bg.jpg"
+          src="/images/works/bg.jpg"
         />
         <Works />
       </main>

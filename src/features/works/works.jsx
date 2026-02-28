@@ -1,19 +1,15 @@
 import { works } from "@/data/works.data";
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useCallback, memo } from "react";
 import { useInView } from "react-intersection-observer";
-import {
-  mediaOverlap,
-  textSlideNoI,
-} from "../../animations/sections/works.animations";
+import { mediaOverlap } from "../../animations/sections/works.animations";
 import { useMousePosition2 } from "@/hooks/useMousePosition";
 import { scale, textOverlap } from "@/animations/shared/global-anim";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
+import ExportedImage from "next-image-export-optimizer";
 
-const CardGrid = memo(({ work, index, setActiveWork, bumpMedia }) => {
+const CardGrid = memo(({ work, setActiveWork, bumpMedia }) => {
   const router = useRouter();
 
   const { ref, inView } = useInView({
@@ -36,7 +32,7 @@ const CardGrid = memo(({ work, index, setActiveWork, bumpMedia }) => {
         }}
         onMouseLeave={() => setActiveWork(null)}
       >
-        <Image
+        <ExportedImage
           src={work.cover}
           width={2000}
           height={2000}
@@ -195,7 +191,7 @@ const Works = () => {
                   exit="exit"
                   className="absolute inset-0 will-change-transform"
                 >
-                  <Image
+                  <ExportedImage
                     src={activeWork.cover}
                     width={2000}
                     height={2000}

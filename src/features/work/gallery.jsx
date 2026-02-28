@@ -1,4 +1,3 @@
-import PixelRevealImage from "@/components/ui/pixel-reveal-image/pixel-reveal-image";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import {
@@ -7,7 +6,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 const gallery = [
   "/works/img-02.svg",
@@ -98,7 +97,7 @@ const Card = ({ src }) => {
       onMouseLeave={() => setHover(false)}
     >
       <motion.figure className="size-full overflow-hidden group-hover:brightness-50 group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]">
-        <Image
+        <ExportedImage
           src={src}
           width={2000}
           height={2000}
@@ -118,10 +117,10 @@ const Card = ({ src }) => {
               exit="exit"
             >
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[130%] h-full">
-                <Image
+                <ExportedImage
                   src={src}
-                  width={520}
-                  height={520}
+                  width={2000}
+                  height={2000}
                   alt=" "
                   className="size-full object-cover"
                 />

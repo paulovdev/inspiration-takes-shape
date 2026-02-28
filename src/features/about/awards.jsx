@@ -31,7 +31,7 @@ const Awards = () => {
             <div className="mb-2 w-full overflow-hidden h-fit">
               <motion.h3
                 className="w-full flex items-center justify-between"
-                custom={i * 0.2}
+                custom={i * 0.1}
                 variants={textSlide}
                 initial="initial"
                 animate={inView ? "animate" : "initial"}

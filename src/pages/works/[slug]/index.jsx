@@ -2,16 +2,12 @@ import { useEffect, useRef } from "react";
 import { works } from "@/data/works.data";
 import { useIsPresent } from "motion/react";
 import Lenis from "lenis";
-
 import { useRouter } from "next/router";
-
 import Transition from "@/components/layout/transition";
 import PageHero from "@/components/sections/hero";
 import Nav from "@/components/layout/navigation/nav";
-
 import Gallery from "@/features/work/gallery";
 import Manifesto from "@/components/sections/manifesto";
-import { manifestoPhrases } from "@/data/about.data";
 
 const Index = () => {
   const lenisRef = useRef(null);

@@ -1,9 +1,8 @@
 import { opacity, textSlide } from "@/animations/shared/global-anim";
 import { motion } from "motion/react";
-import { FaLink } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
 import Button from "../ui/button";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 const navLinks = [
   { label: "Index", href: "/" },
@@ -41,15 +40,6 @@ const Footer = () => {
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="fixed bottom-0 w-full h-[90vh] flex flex-col justify-between max-md:gap-10 max-ds:h-[95dvh] max-md:h-[80dvh]">
-        <div className="absolute">
-          <Image
-            src="/foote.jpg"
-            width={2000}
-            height={2000}
-            alt=""
-            className="size-full object-cover brightness-25 -z-10"
-          />
-        </div>
         <div className="w-full p-10 flex justify-between items-start gap-25 z-10 max-ds:gap-15 max-lg:flex-col max-lg:gap-10 max-ds:p-8 max-lg:p-5 max-md:p-2">
           <div className="flex-1 size-full flex items-start justify-start gap-25 max-ds:gap-15">
             <div className="flex flex-col items-start gap-10">
@@ -64,7 +54,7 @@ const Footer = () => {
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   className="mb-8 font-inter font-normal text-s text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
                 >
-                  Site index
+                  Navigate
                 </motion.p>
                 {navLinks.map((link, i) => (
                   <a
@@ -132,7 +122,7 @@ const Footer = () => {
                 transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 className="mb-8 font-inter font-normal text-s text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
               >
-                Social media
+                Socials
               </motion.p>
               {socialLinks.map((link, i) => (
                 <a

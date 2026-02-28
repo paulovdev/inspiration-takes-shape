@@ -37,19 +37,22 @@ const Index = () => {
 
       <main className=" bg-s">
         <PageHero
-          title={[`About — Offset®`]}
-          subTitle="agency"
-          src="/about/img-01.jpg"
+          title={[`Offset® `]}
+          subTitle="About us"
+          src="/images/about/bg.jpg"
         />
-        <Manifesto manifestoPhrases={manifestoPhrases} />
+        <Manifesto manifestoPhrases={manifestoPhrases} />{" "}
+        <div className="px-10 mb-5 flex max-lg:my-2 max-ds:p-8 max-lg:p-5 max-md:p-2">
+          <span className="bg-p/25 w-full h-px"></span>
+        </div>
         <TextBlock
-          blockTitle="— since 2020"
+          blockTitle="— About Offset®"
           blockPhrases={blockPhrases}
           bgColor="bg-s"
           textColor="text-s"
           showButton
           buttonHref="/about"
-          buttonLabel="learn more in offset-l.com"
+          buttonLabel="Book a Discovery Call"
           buttonBgColor="#000000"
           buttonTextColor="#ffffff"
         />
@@ -62,7 +65,7 @@ const Index = () => {
           logoHoverColor="hover:text-p"
         />
         <Reel />
-        <Mnaso />
+        {/*   <Mnaso /> */}
         <Awards />
         <Team />
         <div className="my-5 w-full h-px max-lg:my-2" />

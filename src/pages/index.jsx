@@ -1,7 +1,7 @@
 import Nav from "@/components/layout/navigation/nav";
 import Transition from "@/components/layout/transition";
 
-import Hero from "@/features/newHome/hero";
+import Hero from "@/features/home/hero";
 
 const Index = () => {
   return (

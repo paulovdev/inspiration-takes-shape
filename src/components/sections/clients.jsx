@@ -33,7 +33,7 @@ const Clients = () => {
     >
       <div className="relative mb-20">
         <p className="text-p font-general font-medium text-[14px] tracking-[-0.05em] uppercase max-md:text-[12px]">
-          — SELECTED CLIENTS
+          — Trusted by visionaries
         </p>
       </div>
 

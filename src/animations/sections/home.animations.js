@@ -20,7 +20,7 @@ export const textSlideNoI = {
     },
   },
   animate: (custom) => ({
-    y:0,
+    y: 0,
     transition: {
       duration: 0.5,
       ease: [0.33, 1, 0.68, 1],
@@ -137,7 +137,7 @@ export const mediaReveal = {
 export const modalContainer = {
   initial: { height: "0vh" },
   animate: {
-    height: "75dvh",
+    height: "100dvh",
     transition: {
       duration: 0.5,
       ease: [0.76, 0, 0.24, 1],

@@ -23,7 +23,7 @@ export const Menu = ({ setMenu }) => {
   return (
     <>
       <motion.div
-        className="fixed top-0 right-0 w-200 bg-s/10 backdrop-blur-3xl z-110 max-lg:w-full"
+        className="fixed top-0 right-0 w-200 bg-s/15 backdrop-blur-3xl z-250 max-lg:w-full"
         variants={menuContainer}
         initial="initial"
         animate="animate"
@@ -137,8 +137,8 @@ export const Menu = ({ setMenu }) => {
                                   className="w-full h-fit overflow-hidden flex justify-between group hover:border-s/50"
                                 >
                                   <motion.p
-                                    className="font-general font-medium text-[16px] leading-none tracking-[-0.03em] uppercase text-s group-hover:text-s/50
-                                    max-md:text-[14px]"
+                                    className="font-general font-medium text-s text-[14px] leading-none tracking-[-0.03em] uppercase  max-md:text-[12px] group-hover:text-s/50
+                                    "
                                     variants={textSlide}
                                     initial="initial"
                                     animate="animate"
@@ -229,7 +229,7 @@ export const Menu = ({ setMenu }) => {
                     custom={{ animate: 1.4, exit: 0 }}
                     className="text-s font-general text-[14px] leading-none tracking-[-0.03em] uppercase max-md:text-[12px]"
                   >
-                    arqe.ai
+                    arqe.ai, PEXELS, UNSPLASH
                   </motion.p>
                   <span className="absolute left-0 -bottom-[1px] h-[2px] w-0 bg-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
                 </a>
@@ -240,7 +240,7 @@ export const Menu = ({ setMenu }) => {
       </motion.div>
 
       <motion.div
-        className="fixed inset-0 w-screen h-screen bg-s/50 backdrop-blur-[4px] brightness-50 z-100"
+        className="fixed inset-0 w-screen h-screen bg-p/50 brightness-50 z-240"
         variants={fade}
         initial="initial"
         animate="animate"

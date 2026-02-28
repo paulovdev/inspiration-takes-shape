@@ -15,28 +15,28 @@ const Mnaso = () => {
       >
         <TextAnimated
           phrases={[
-            `Offset® bridges strategy and execution, turning AI ambition into real, shipped solutions that move teams forward.`,
-            ``,
+            `We're a diverse, tight-knit team of vision-builders.`,
+ 
           ]}
           variants={textSlide}
           animate={inView}
           as="h2"
-          className="max-w-[1200px] flex flex-col max-ds:max-w-[700px] max-lg:max-w-full"
+          className="max-w-[1000px] flex flex-col max-ds:max-w-[700px] max-lg:max-w-full"
           lineClassName="font-inter font-normal text-p text-[62px] tracking-[-0.035em] leading-[1.15] max-ds:text-[52px] max-lg:text-[48px] max-md:text-[32px] flex flex-wrap mb-14"
           wordClassName="mr-2"
           wordDelay={0.035}
           lineDelay={0.035}
         />
-        <div className="mb-20 w-full flex items-end justify-end">
+        <div className="mb-20 w-full flex items-start justify-start">
           <TextAnimated
             phrases={[
-              `With deep technical expertise and sharp product thinking, we help organizations go beyond ideas and actually win with AI.`,
+              `Here inside Offset®, diversity is critical to extracting insanely strategic and creative outcomes.`,
               ``,
-              `We don’t just advise or prototype. We build, execute, and deliver AI solutions that create real impact.`,
+              `Every person on our team comes together to amplify our individual and collective talents, so you can experience high-functioning diversity at work, delivering massive value for your company.`,
             ]}
             variants={textSlide}
             animate={inView}
-            className="max-w-125 text-p text-end font-general font-medium text-[14px] tracking-[-0.03em] leading-[1.2] uppercase max-md:text-[12px]"
+            className="max-w-125 text-p text-start font-general font-medium text-[14px] tracking-[-0.03em] leading-[1.2] uppercase max-md:text-[12px]"
             lineClassName="overflow-hidden"
             wordClassName="mr-1.5"
             wordDelay={0.025}

@@ -1,9 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-
-import Button from "@/components/ui/button";
-import { GoGlobe } from "react-icons/go";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 
 const JoinUs = () => {
   const container = useRef(null);
@@ -26,7 +23,7 @@ const JoinUs = () => {
     ["circle(0% at 50% 50%)", "circle(100.0% at 50% 50%)"],
   );
 
-  const globe = useTransform(scrollYProgress, [0.4, 0.6], [0, 6]);
+  const globe = useTransform(scrollYProgress, [0.4, 0.6], [0, 4]);
 
   const globeRotate = useTransform(scrollYProgress, [0, 1], [180, -180]);
 
@@ -46,12 +43,12 @@ const JoinUs = () => {
           max-lg:text-[48px] 
           max-md:text-[32px]"
             >
-              Our studios around the world
+              Join Offset® and make a difference.
             </motion.h1>
           </div>
           <div className="absolute inset-0 w-screen h-screen -z-10">
-            <Image
-              src="/join.jpg"
+            <ExportedImage
+              src="/images/join.jpg"
               width={2000}
               height={2000}
               alt=""
@@ -76,7 +73,7 @@ const JoinUs = () => {
                   rotateY: globeRotate,
                 }}
               >
-                <GoGlobe className="text-p text-[110px] max-lg:text-[60px]" />
+                <p className="text-p text-[110px] max-lg:text-[60px]">+</p>
               </motion.div>
 
               <motion.div
